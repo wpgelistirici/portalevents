@@ -1022,7 +1022,7 @@ function ArtistCard({
       </div>
 
       <Link
-        href={`/artists/${artist.id}` as "/artists/[id]"}
+        href="/artists"
         className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
         data-cursor-hover
       >
