@@ -215,6 +215,79 @@ body {
 }
 
 /* ============================================
+   PORTAL LOGO
+   ============================================ */
+@keyframes portal-spin {
+  from { transform: rotate(var(--portal-tilt)); }
+  to { transform: rotate(calc(var(--portal-tilt) + 360deg)); }
+}
+
+@keyframes portal-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.92); }
+  50% { opacity: 0.5; transform: scale(1.08); }
+}
+
+@keyframes portal-flicker {
+  0%, 100% { filter: brightness(1); }
+  25% { filter: brightness(1.15); }
+  50% { filter: brightness(0.95); }
+  75% { filter: brightness(1.1); }
+}
+
+.portal-o-container {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  flex-shrink: 0;
+}
+
+.portal-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: portal-flicker 4s ease-in-out infinite;
+}
+
+.portal-core {
+  fill: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+  fill: rgba(123, 97, 255, 0.08);
+  animation: portal-pulse 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.portal-ring {
+  fill: none;
+  stroke-linecap: round;
+  will-change: transform;
+  transform-origin: 20px 20px;
+  animation-name: portal-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.portal-ring-1 { --portal-tilt: 0deg; }
+.portal-ring-2 { --portal-tilt: 35deg; }
+.portal-ring-3 { --portal-tilt: 65deg; }
+.portal-ring-4 { --portal-tilt: -25deg; }
+.portal-ring-5 { --portal-tilt: 50deg; }
+.portal-ring-6 { --portal-tilt: -40deg; }
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-ring {
+    animation: none;
+  }
+  .portal-svg {
+    animation: none;
+  }
+  .portal-core {
+    animation: none;
+  }
+}
+
+/* ============================================
    MAGNETIC BUTTON
    ============================================ */
 .magnetic-btn {

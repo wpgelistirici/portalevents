@@ -3,7 +3,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import { AuthProvider } from "@/lib/auth-context";
 import { SavedProvider } from "@/lib/saved-context";
 import { OrganizerProvider } from "@/lib/organizer-context";
@@ -19,8 +19,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "PULSE — Müziğin Nabzını Hisset",
+  title: "PORTAL — Müziğin Kapısını Aç",
   description:
     "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Müziğin kalbinde buluş.",
   keywords: [
@@ -52,7 +58,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased bg-background text-foreground`}
       >
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>

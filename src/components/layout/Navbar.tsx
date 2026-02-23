@@ -8,6 +8,7 @@ import { Menu, X, MapPin, LogIn, Ticket, User, LogOut, ChevronDown, Settings, Bo
 import Image from "next/image";
 import AuthModal from "@/components/ui/AuthModal";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import PortalLogo from "@/components/ui/PortalLogo";
 import { useAuth } from "@/lib/auth-context";
 
 const navLinks = [
@@ -65,34 +66,7 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative group" data-cursor-hover>
-            <motion.div
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <div className="flex items-end gap-[2px] h-6">
-                {[0.4, 0.7, 1, 0.6, 0.8, 0.5, 0.9].map((height, i) => (
-                  <motion.div
-                    key={i}
-                    className="w-[3px] bg-primary rounded-full"
-                    animate={{
-                      height: [
-                        `${height * 24}px`,
-                        `${height * 12}px`,
-                        `${height * 24}px`,
-                      ],
-                    }}
-                    transition={{
-                      duration: 1.2,
-                      delay: i * 0.1,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                ))}
-              </div>
-              <span className="text-xl font-bold tracking-tight">PULSE</span>
-            </motion.div>
+            <PortalLogo />
           </Link>
 
           {/* Desktop Nav */}
