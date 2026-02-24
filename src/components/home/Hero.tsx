@@ -168,7 +168,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.3, duration: 0.8 }}
         >
-          <MagneticButton className="px-8 py-4 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_40px_rgba(255,45,85,0.4)] transition-shadow duration-500">
+          <MagneticButton className="px-8 py-4 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_40px_rgba(123,97,255,0.4)] transition-shadow duration-500">
             <span className="flex items-center gap-2">
               {t("ctaExplore")}
               <ArrowDown size={16} className="animate-bounce" />

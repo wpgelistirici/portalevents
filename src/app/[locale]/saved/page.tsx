@@ -97,7 +97,7 @@ export default function SavedPage() {
               <p className="text-sm text-muted mb-8">{t("loginRequiredDesc")}</p>
               <button
                 onClick={openAuthModal}
-                className="px-8 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_20px_rgba(255,45,85,0.3)] transition-all"
+                className="px-8 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_20px_rgba(123,97,255,0.3)] transition-all"
                 data-cursor-hover
               >
                 {t("loginButton")}
@@ -151,7 +151,7 @@ export default function SavedPage() {
                     onClick={() => setActiveTab(tab.key)}
                     className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
                       activeTab === tab.key
-                        ? "bg-primary text-white shadow-[0_0_15px_rgba(255,45,85,0.2)]"
+                        ? "bg-primary text-white shadow-[0_0_15px_rgba(123,97,255,0.2)]"
                         : "glass text-muted hover:text-white hover:bg-white/[0.05]"
                     }`}
                     data-cursor-hover

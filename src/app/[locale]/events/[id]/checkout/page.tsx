@@ -257,7 +257,7 @@ export default function CheckoutPage({
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
                     href="/my-tickets"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_0_30px_rgba(255,45,85,0.2)]"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_0_30px_rgba(123,97,255,0.2)]"
                   >
                     <Ticket size={16} />
                     {t("goToTickets")}
@@ -289,7 +289,7 @@ export default function CheckoutPage({
                           onClick={() => isDone && setStep(stepNum)}
                           className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all ${
                             isActive
-                              ? "bg-primary text-white shadow-[0_0_20px_rgba(255,45,85,0.3)]"
+                              ? "bg-primary text-white shadow-[0_0_20px_rgba(123,97,255,0.3)]"
                               : isDone
                                 ? "bg-green-500/10 text-green-400 cursor-pointer"
                                 : "glass text-muted cursor-default"
@@ -632,7 +632,7 @@ function Step1Info({
               onClick={() => setInvoiceType(type)}
               className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
                 invoiceType === type
-                  ? "bg-primary text-white shadow-[0_0_20px_rgba(255,45,85,0.3)]"
+                  ? "bg-primary text-white shadow-[0_0_20px_rgba(123,97,255,0.3)]"
                   : "glass text-muted hover:text-foreground"
               }`}
               data-cursor-hover
@@ -694,7 +694,7 @@ function Step1Info({
         disabled={!isValid}
         className={`w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all ${
           isValid
-            ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_30px_rgba(255,45,85,0.2)]"
+            ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_30px_rgba(123,97,255,0.2)]"
             : "glass text-muted cursor-not-allowed"
         }`}
         whileHover={isValid ? { scale: 1.01 } : {}}
@@ -878,7 +878,7 @@ function Step2Payment({
           disabled={!isValid || isProcessing}
           className={`flex-[2] py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all ${
             isValid && !isProcessing
-              ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_30px_rgba(255,45,85,0.2)]"
+              ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_30px_rgba(123,97,255,0.2)]"
               : "glass text-muted cursor-not-allowed"
           }`}
           whileHover={isValid && !isProcessing ? { scale: 1.01 } : {}}

@@ -98,7 +98,7 @@ export default function ValidationLogsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("logs.searchPlaceholder")}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
           />
         </div>
         <CustomSelect

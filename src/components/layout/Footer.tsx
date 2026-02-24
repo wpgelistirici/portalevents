@@ -80,7 +80,7 @@ export default function Footer() {
               />
               <button
                 data-cursor-hover
-                className="px-6 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_20px_rgba(255,45,85,0.3)] transition-all duration-300 whitespace-nowrap"
+                className="px-6 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_20px_rgba(123,97,255,0.3)] transition-all duration-300 whitespace-nowrap"
               >
                 {t("subscribe")}
               </button>

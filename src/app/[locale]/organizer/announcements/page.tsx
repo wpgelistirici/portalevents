@@ -33,12 +33,12 @@ export default function AnnouncementsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Megaphone className="w-7 h-7 text-[#FF2D55]" />
+            <Megaphone className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
         </div>
-        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-all">
+        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-all">
           <Plus className="w-5 h-5" />
           {t("newAnnouncement")}
         </button>
@@ -57,13 +57,13 @@ export default function AnnouncementsPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-white/70 mb-2">{t("announcementTitle")}</label>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t("titlePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t("titlePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
             <div>
               <label className="block text-sm font-medium text-white/70 mb-2">{t("messageLabel")}</label>
-              <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={4} placeholder={t("messagePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50 resize-none" />
+              <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={4} placeholder={t("messagePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
             </div>
-            <button onClick={handleSend} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors">
+            <button onClick={handleSend} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors">
               <Send className="w-4 h-4" />
               {t("send")}
             </button>
@@ -82,7 +82,7 @@ export default function AnnouncementsPage() {
             <div key={a.id} className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#FF2D55]/10 text-[#FF2D55] border border-[#FF2D55]/20">{a.eventTitle}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] border border-[#7B61FF]/20">{a.eventTitle}</span>
                 </div>
                 <span className="text-[10px] text-white/20 flex items-center gap-1"><Clock className="w-3 h-3" /> {new Date(a.createdAt).toLocaleString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" })}</span>
               </div>

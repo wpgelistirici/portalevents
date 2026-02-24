@@ -390,7 +390,7 @@ function ProfileSection({
               disabled={!hasChanges || isSaving}
               className={`ml-auto flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
                 hasChanges && !isSaving
-                  ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_20px_rgba(255,45,85,0.2)]"
+                  ? "bg-primary text-white hover:bg-primary/90 shadow-[0_0_20px_rgba(123,97,255,0.2)]"
                   : "glass text-muted cursor-not-allowed"
               }`}
               whileHover={hasChanges ? { scale: 1.02 } : {}}
@@ -583,7 +583,7 @@ function SecuritySection({
             <motion.button
               onClick={handleChangePassword}
               disabled={isSaving}
-              className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(255,45,85,0.2)] disabled:opacity-50"
+              className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(123,97,255,0.2)] disabled:opacity-50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               data-cursor-hover
@@ -733,7 +733,7 @@ function NotificationsSection({
             </AnimatePresence>
             <motion.button
               onClick={handleSave}
-              className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(255,45,85,0.2)]"
+              className="ml-auto flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(123,97,255,0.2)]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               data-cursor-hover

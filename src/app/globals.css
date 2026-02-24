@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #050505;
   --color-foreground: #fafafa;
-  --color-primary: #FF2D55;
-  --color-secondary: #7B61FF;
+  --color-primary: #7B61FF;
+  --color-secondary: #9B8AFF;
   --color-accent: #00F0FF;
   --color-gold: #FFD600;
   --color-muted: #888888;
@@ -56,13 +56,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF2D55;
+  background: #7B61FF;
   border-radius: 2px;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(255, 45, 85, 0.3);
+  background: rgba(123, 97, 255, 0.3);
   color: #fafafa;
 }
 
@@ -96,7 +96,7 @@ body {
 }
 
 .gradient-orb-primary {
-  background: radial-gradient(circle, #FF2D55, transparent 70%);
+  background: radial-gradient(circle, #7B61FF, transparent 70%);
 }
 
 .gradient-orb-secondary {
@@ -128,14 +128,14 @@ body {
    TEXT GRADIENT
    ============================================ */
 .text-gradient-primary {
-  background: linear-gradient(135deg, #FF2D55, #FF6B8A, #FF2D55);
+  background: linear-gradient(135deg, #7B61FF, #A78BFA, #7B61FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-multi {
-  background: linear-gradient(135deg, #FF2D55, #7B61FF, #00F0FF);
+  background: linear-gradient(135deg, #7B61FF, #7B61FF, #00F0FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -323,7 +323,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(255, 45, 85, 0.15);
+  box-shadow: 0 20px 60px rgba(123, 97, 255, 0.15);
 }
 
 /* ============================================
@@ -348,7 +348,7 @@ body {
    ============================================ */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 45, 85, 0.3), rgba(123, 97, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(123, 97, 255, 0.3), rgba(123, 97, 255, 0.3), transparent);
 }
 
 /* ============================================
@@ -382,3 +382,4 @@ body {
   opacity: 0;
   transform: translateY(40px);
 }
+

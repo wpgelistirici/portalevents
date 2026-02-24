@@ -83,10 +83,10 @@ export default function OrganizerSidebar() {
                   : "text-white/60 hover:text-white hover:bg-white/5"
               }`}
             >
-              <item.icon className={`w-5 h-5 ${isActive ? "text-[#FF2D55]" : ""}`} />
+              <item.icon className={`w-5 h-5 ${isActive ? "text-[#7B61FF]" : ""}`} />
               <span className="flex-1">{t(`nav.${item.key}`)}</span>
               {item.key === "notifications" && unreadCount > 0 && (
-                <span className="ml-auto min-w-[20px] h-5 flex items-center justify-center px-1.5 rounded-full bg-[#FF2D55] text-white text-[10px] font-bold">
+                <span className="ml-auto min-w-[20px] h-5 flex items-center justify-center px-1.5 rounded-full bg-[#7B61FF] text-white text-[10px] font-bold">
                   {unreadCount > 9 ? "9+" : unreadCount}
                 </span>
               )}

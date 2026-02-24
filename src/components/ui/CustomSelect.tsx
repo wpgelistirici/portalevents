@@ -144,7 +144,7 @@ export default function CustomSelect({
         }}
         className={`w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border text-left transition-all duration-200 ${
           isOpen
-            ? "bg-white/[0.07] border-[#FF2D55]/50 shadow-[0_0_0_1px_rgba(255,45,85,0.15)]"
+            ? "bg-white/[0.07] border-[#7B61FF]/50 shadow-[0_0_0_1px_rgba(123,97,255,0.15)]"
             : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.07]"
         } ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
       >
@@ -220,7 +220,7 @@ export default function CustomSelect({
                       onMouseEnter={() => setHighlightedIndex(index)}
                       className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-100 ${
                         isSelected
-                          ? "bg-[#FF2D55]/10 text-white"
+                          ? "bg-[#7B61FF]/10 text-white"
                           : isHighlighted
                             ? "bg-white/[0.06] text-white"
                             : "text-white/70 hover:text-white"
@@ -245,7 +245,7 @@ export default function CustomSelect({
 
                       {/* Selected Check */}
                       {isSelected && (
-                        <Check className="w-4 h-4 text-[#FF2D55] flex-shrink-0" />
+                        <Check className="w-4 h-4 text-[#7B61FF] flex-shrink-0" />
                       )}
                     </button>
                   );

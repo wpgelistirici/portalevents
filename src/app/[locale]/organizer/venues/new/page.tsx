@@ -108,20 +108,20 @@ export default function NewVenuePage() {
         <h2 className="text-lg font-semibold text-white">{t("venueForm.basicInfo")}</h2>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.venueName")}</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("venueForm.venueNamePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("venueForm.venueNamePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={3} placeholder={t("venueForm.descriptionPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50 resize-none" />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={3} placeholder={t("venueForm.descriptionPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.city")}</label>
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.capacity")}</label>
-            <input type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} placeholder="1,000" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} placeholder="1,000" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.type")}</label>
@@ -136,7 +136,7 @@ export default function NewVenuePage() {
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder={t("venueForm.addressPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder={t("venueForm.addressPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <ImageUpload
           value={image}
@@ -152,23 +152,23 @@ export default function NewVenuePage() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.phone")}</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+90 212 000 00 00" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+90 212 000 00 00" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.email")}</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="info@venue.com" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="info@venue.com" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.website")}</label>
-          <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://www.venue.com" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://www.venue.com" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <h3 className="text-sm font-semibold text-white/70">{t("venueForm.socialMedia")}</h3>
         <div className="grid grid-cols-2 gap-4">
-          <input type="url" value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="Instagram URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
-          <input type="url" value={twitter} onChange={(e) => setTwitter(e.target.value)} placeholder="Twitter / X URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
-          <input type="url" value={youtube} onChange={(e) => setYoutube(e.target.value)} placeholder="YouTube URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
-          <input type="url" value={spotify} onChange={(e) => setSpotify(e.target.value)} placeholder="Spotify URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="url" value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="Instagram URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <input type="url" value={twitter} onChange={(e) => setTwitter(e.target.value)} placeholder="Twitter / X URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <input type="url" value={youtube} onChange={(e) => setYoutube(e.target.value)} placeholder="YouTube URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <input type="url" value={spotify} onChange={(e) => setSpotify(e.target.value)} placeholder="Spotify URL" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
       </div>
 
@@ -181,7 +181,7 @@ export default function NewVenuePage() {
               <div className="w-28 text-sm text-white/60">{t(`venueForm.days.${oh.day}`)}</div>
               <button
                 onClick={() => toggleDay(idx)}
-                className={`w-12 h-6 rounded-full relative transition-colors ${oh.isOpen ? "bg-[#FF2D55]" : "bg-white/10"}`}
+                className={`w-12 h-6 rounded-full relative transition-colors ${oh.isOpen ? "bg-[#7B61FF]" : "bg-white/10"}`}
               >
                 <div className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-all ${oh.isOpen ? "left-[26px]" : "left-0.5"}`} />
               </button>
@@ -190,7 +190,7 @@ export default function NewVenuePage() {
                   type="text"
                   value={oh.hours}
                   onChange={(e) => updateHours(idx, e.target.value)}
-                  className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#FF2D55]/50"
+                  className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50"
                 />
               ) : (
                 <span className="text-sm text-white/30">{t("venueForm.closed")}</span>
@@ -215,7 +215,7 @@ export default function NewVenuePage() {
         <button
           onClick={handleSave}
           disabled={saving || !name}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 disabled:opacity-50 transition-colors"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors"
         >
           <Save className="w-5 h-5" />
           {saving ? t("venueForm.saving") : t("venueForm.save")}

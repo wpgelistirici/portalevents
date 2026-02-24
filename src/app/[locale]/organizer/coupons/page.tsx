@@ -59,12 +59,12 @@ export default function CouponsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Tag className="w-7 h-7 text-[#FF2D55]" />
+            <Tag className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
         </div>
-        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-all">
+        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-all">
           <Plus className="w-5 h-5" />
           {t("newCoupon")}
         </button>
@@ -81,37 +81,37 @@ export default function CouponsPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("code")}</label>
-                <input type="text" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="YENI2026" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50 uppercase" />
+                <input type="text" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="YENI2026" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 uppercase" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("discountType")}</label>
                 <div className="flex gap-2">
-                  <button onClick={() => setDiscountType("percent")} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium transition-colors ${discountType === "percent" ? "bg-[#FF2D55]/10 border-[#FF2D55]/30 text-[#FF2D55]" : "bg-white/5 border-white/10 text-white/50"}`}>
+                  <button onClick={() => setDiscountType("percent")} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium transition-colors ${discountType === "percent" ? "bg-[#7B61FF]/10 border-[#7B61FF]/30 text-[#7B61FF]" : "bg-white/5 border-white/10 text-white/50"}`}>
                     <Percent className="w-4 h-4" /> {t("percent")}
                   </button>
-                  <button onClick={() => setDiscountType("fixed")} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium transition-colors ${discountType === "fixed" ? "bg-[#FF2D55]/10 border-[#FF2D55]/30 text-[#FF2D55]" : "bg-white/5 border-white/10 text-white/50"}`}>
+                  <button onClick={() => setDiscountType("fixed")} className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium transition-colors ${discountType === "fixed" ? "bg-[#7B61FF]/10 border-[#7B61FF]/30 text-[#7B61FF]" : "bg-white/5 border-white/10 text-white/50"}`}>
                     <DollarSign className="w-4 h-4" /> {t("fixed")}
                   </button>
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("discountValue")}</label>
-                <input type="number" value={discountValue} onChange={(e) => setDiscountValue(e.target.value)} placeholder={discountType === "percent" ? "10" : "50"} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+                <input type="number" value={discountValue} onChange={(e) => setDiscountValue(e.target.value)} placeholder={discountType === "percent" ? "10" : "50"} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("maxUsage")}</label>
-                <input type="number" value={maxUsage} onChange={(e) => setMaxUsage(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+                <input type="number" value={maxUsage} onChange={(e) => setMaxUsage(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("expiresAt")}</label>
-                <input type="date" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+                <input type="date" value={expiresAt} onChange={(e) => setExpiresAt(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-2">{t("targetEvent")}</label>
                 <CustomSelect options={eventOptions} value={eventId} onChange={setEventId} searchable={false} />
               </div>
             </div>
-            <button onClick={handleCreate} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors">
+            <button onClick={handleCreate} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors">
               <Check className="w-4 h-4" />
               {t("create")}
             </button>
@@ -131,8 +131,8 @@ export default function CouponsPage() {
             const status = getCouponStatus(c);
             return (
               <div key={c.id} className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
-                <div className="w-12 h-12 rounded-xl bg-[#FF2D55]/10 flex items-center justify-center flex-shrink-0">
-                  <Tag className="w-5 h-5 text-[#FF2D55]" />
+                <div className="w-12 h-12 rounded-xl bg-[#7B61FF]/10 flex items-center justify-center flex-shrink-0">
+                  <Tag className="w-5 h-5 text-[#7B61FF]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">

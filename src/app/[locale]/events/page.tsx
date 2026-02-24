@@ -170,7 +170,7 @@ export default function EventsPage() {
                   onClick={() => setActiveGenre(genre)}
                   className={`px-5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 ${
                     activeGenre === genre
-                      ? "bg-primary text-white shadow-[0_0_20px_rgba(255,45,85,0.3)]"
+                      ? "bg-primary text-white shadow-[0_0_20px_rgba(123,97,255,0.3)]"
                       : "glass text-muted hover:text-foreground"
                   }`}
                 >

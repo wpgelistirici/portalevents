@@ -112,7 +112,7 @@ export default function FeaturedEvents() {
                 onClick={() => setActiveGenre(genre)}
                 className={`px-5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 ${
                   activeGenre === genre
-                    ? "bg-primary text-white shadow-[0_0_20px_rgba(255,45,85,0.3)]"
+                    ? "bg-primary text-white shadow-[0_0_20px_rgba(123,97,255,0.3)]"
                     : "glass text-muted hover:text-foreground"
                 }`}
               >
@@ -134,7 +134,7 @@ export default function FeaturedEvents() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {featuredEvents.map((event) => (
                 <Link key={event.id} href={`/events/${event.id}`}>
-                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#FFD600]/5 to-[#FF2D55]/5 border border-[#FFD600]/20 hover:border-[#FFD600]/40 transition-all group">
+                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#FFD600]/5 to-[#7B61FF]/5 border border-[#FFD600]/20 hover:border-[#FFD600]/40 transition-all group">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#FFD600]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative h-36 overflow-hidden">
                       <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -152,7 +152,7 @@ export default function FeaturedEvents() {
                         <span className="text-sm font-bold text-[#FFD600]">{event.price}</span>
                       </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFD600] to-[#FF2D55] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFD600] to-[#7B61FF] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </div>
                 </Link>
               ))}

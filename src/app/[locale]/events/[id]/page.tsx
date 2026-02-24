@@ -580,7 +580,7 @@ function LocationSection({
                 animate={{ y: [0, -5, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
               >
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(255,45,85,0.4)]">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(123,97,255,0.4)]">
                   <MapPin size={16} className="text-white" />
                 </div>
               </motion.div>
@@ -965,7 +965,7 @@ function TicketsSection({
 
       <Link href={`/events/${eventId}/checkout`} onClick={handleBuyClick}>
         <motion.button
-          className="w-full mt-5 py-3.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,45,85,0.2)]"
+          className="w-full mt-5 py-3.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(123,97,255,0.2)]"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           data-cursor-hover

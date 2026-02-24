@@ -249,7 +249,7 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
                 <button
                   onClick={openAuthModal}
                   data-cursor-hover
-                  className="flex items-center gap-2 px-5 py-2.5 text-xs font-semibold bg-primary text-white rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,45,85,0.4)]"
+                  className="flex items-center gap-2 px-5 py-2.5 text-xs font-semibold bg-primary text-white rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-[0_0_20px_rgba(123,97,255,0.4)]"
                 >
                   <LogIn size={13} />
                   {t("login")}

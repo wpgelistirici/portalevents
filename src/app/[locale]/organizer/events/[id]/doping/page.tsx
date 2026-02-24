@@ -15,7 +15,7 @@ const typeIcons = {
 };
 
 const typeColors = {
-  homepage_featured: { bg: "from-[#FF2D55] to-[#FF6B6B]", border: "border-[#FF2D55]/30", badge: "bg-[#FF2D55]/10 text-[#FF2D55]" },
+  homepage_featured: { bg: "from-[#7B61FF] to-[#FF6B6B]", border: "border-[#7B61FF]/30", badge: "bg-[#7B61FF]/10 text-[#7B61FF]" },
   explore_popular: { bg: "from-[#7B61FF] to-[#A78BFA]", border: "border-[#7B61FF]/30", badge: "bg-[#7B61FF]/10 text-[#7B61FF]" },
   events_editor_pick: { bg: "from-[#FFD600] to-[#FFA000]", border: "border-[#FFD600]/30", badge: "bg-[#FFD600]/10 text-[#FFD600]" },
 };

@@ -1130,7 +1130,7 @@ export default function CommunityPage() {
                           disabled={isPosting || (!composerText.trim() && !composerImage && !composerEvent)}
                           className={`flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full transition-all ${
                             composerText.trim() || composerImage || composerEvent
-                              ? "bg-primary text-white hover:shadow-[0_0_15px_rgba(255,45,85,0.3)]"
+                              ? "bg-primary text-white hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]"
                               : "bg-white/[0.05] text-muted cursor-not-allowed"
                           }`}
                           whileTap={composerText.trim() || composerImage || composerEvent ? { scale: 0.95 } : {}}

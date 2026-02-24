@@ -450,7 +450,7 @@ export default function MyTicketsPage() {
             <p className="text-muted text-sm mb-8">{t("loginRequiredDesc")}</p>
             <button
               onClick={openAuthModal}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(255,45,85,0.2)]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(123,97,255,0.2)]"
               data-cursor-hover
             >
               {t("loginButton")}
@@ -509,7 +509,7 @@ export default function MyTicketsPage() {
                   onClick={() => setTab(t2)}
                   className={`px-6 py-2.5 rounded-full text-xs font-medium transition-all ${
                     tab === t2
-                      ? "bg-primary text-white shadow-[0_0_20px_rgba(255,45,85,0.3)]"
+                      ? "bg-primary text-white shadow-[0_0_20px_rgba(123,97,255,0.3)]"
                       : "glass text-muted hover:text-foreground"
                   }`}
                   data-cursor-hover
@@ -540,7 +540,7 @@ export default function MyTicketsPage() {
                 <p className="text-sm text-muted mb-6">{t("noTicketsDesc")}</p>
                 <Link
                   href="/events"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_0_30px_rgba(255,45,85,0.2)]"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-[0_0_30px_rgba(123,97,255,0.2)]"
                   data-cursor-hover
                 >
                   {t("browseEvents")}

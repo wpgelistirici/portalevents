@@ -27,7 +27,7 @@ export default function OrganizerLayout({ children }: { children: React.ReactNod
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-white/20 border-t-[#FF2D55] rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-white/20 border-t-[#7B61FF] rounded-full animate-spin" />
       </div>
     );
   }
@@ -36,8 +36,8 @@ export default function OrganizerLayout({ children }: { children: React.ReactNod
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center">
         <div className="text-center p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl max-w-md mx-4">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#FF2D55]/10 flex items-center justify-center">
-            <svg className="w-8 h-8 text-[#FF2D55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#7B61FF]/10 flex items-center justify-center">
+            <svg className="w-8 h-8 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
@@ -49,7 +49,7 @@ export default function OrganizerLayout({ children }: { children: React.ReactNod
               router.push(`/${locale}`);
               openAuthModal();
             }}
-            className="mt-4 px-6 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors"
+            className="mt-4 px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors"
           >
             Giriş Yap
           </button>

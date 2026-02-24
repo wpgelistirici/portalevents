@@ -437,7 +437,7 @@ export default function AuthModal() {
                     type="submit"
                     data-cursor-hover
                     disabled={isSubmitting}
-                    className="w-full py-3.5 bg-primary text-white text-sm font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(255,45,85,0.3)] transition-all duration-300 flex items-center justify-center gap-2 mt-2 disabled:opacity-70"
+                    className="w-full py-3.5 bg-primary text-white text-sm font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(123,97,255,0.3)] transition-all duration-300 flex items-center justify-center gap-2 mt-2 disabled:opacity-70"
                   >
                     {isSubmitting ? (
                       <motion.div

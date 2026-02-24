@@ -59,7 +59,7 @@ export default function OrganizerEventsPage() {
         </div>
         <Link
           href={`/${locale}/organizer/events/new`}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-all"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-all"
         >
           <Plus className="w-5 h-5" />
           {t("events.newEvent")}
@@ -75,7 +75,7 @@ export default function OrganizerEventsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("events.searchPlaceholder")}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50 transition-colors"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 transition-colors"
           />
         </div>
         <div className="flex rounded-xl border border-white/10 overflow-hidden">
@@ -140,7 +140,7 @@ export default function OrganizerEventsPage() {
                 const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                 const dayEvents = organizerEvents.filter((e) => e.date?.includes(String(day)) || e.createdAt?.startsWith(dateStr));
                 return (
-                  <div key={i} className={`min-h-[60px] rounded-lg p-1 text-xs ${day === new Date().getDate() && month === new Date().getMonth() ? "bg-[#FF2D55]/10 border border-[#FF2D55]/20" : "bg-white/[0.02] border border-white/5"}`}>
+                  <div key={i} className={`min-h-[60px] rounded-lg p-1 text-xs ${day === new Date().getDate() && month === new Date().getMonth() ? "bg-[#7B61FF]/10 border border-[#7B61FF]/20" : "bg-white/[0.02] border border-white/5"}`}>
                     <span className="text-white/50">{day}</span>
                     <div className="mt-0.5 space-y-0.5">
                       {dayEvents.slice(0, 2).map((ev) => (
@@ -165,7 +165,7 @@ export default function OrganizerEventsPage() {
           <p className="text-white/40">{t("events.noEvents")}</p>
           <Link
             href={`/${locale}/organizer/events/new`}
-            className="inline-flex items-center gap-2 mt-4 text-[#FF2D55] hover:text-[#FF2D55]/80 transition-colors"
+            className="inline-flex items-center gap-2 mt-4 text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
           >
             <Plus className="w-4 h-4" />
             {t("events.createFirst")}

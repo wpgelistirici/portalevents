@@ -20,7 +20,7 @@ export default function OrganizerVenuesPage() {
         </div>
         <Link
           href={`/${locale}/organizer/venues/new`}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-all"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-all"
         >
           <Plus className="w-5 h-5" />
           {t("venues.newVenue")}
@@ -34,7 +34,7 @@ export default function OrganizerVenuesPage() {
           <p className="text-white/40">{t("venues.noVenues")}</p>
           <Link
             href={`/${locale}/organizer/venues/new`}
-            className="inline-flex items-center gap-2 mt-4 text-[#FF2D55] hover:text-[#FF2D55]/80 transition-colors"
+            className="inline-flex items-center gap-2 mt-4 text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
           >
             <Plus className="w-4 h-4" />
             {t("venues.createFirst")}
@@ -90,7 +90,7 @@ export default function OrganizerVenuesPage() {
                   </Link>
                   <Link
                     href={`/${locale}/organizer/venues/${venue.id}/calendar`}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-[#FF2D55] hover:bg-[#FF2D55]/10 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-[#7B61FF] hover:bg-[#7B61FF]/10 transition-colors"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     {t("venues.calendar")}

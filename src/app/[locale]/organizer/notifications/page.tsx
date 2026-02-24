@@ -42,10 +42,10 @@ export default function NotificationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Bell className="w-7 h-7 text-[#FF2D55]" />
+            <Bell className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
             {unreadCount > 0 && (
-              <span className="ml-1 min-w-[24px] h-6 flex items-center justify-center px-2 rounded-full bg-[#FF2D55] text-white text-xs font-bold">{unreadCount}</span>
+              <span className="ml-1 min-w-[24px] h-6 flex items-center justify-center px-2 rounded-full bg-[#7B61FF] text-white text-xs font-bold">{unreadCount}</span>
             )}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
@@ -85,7 +85,7 @@ export default function NotificationsPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-semibold text-white">{n.title}</p>
-                    {!n.isRead && <div className="w-2 h-2 rounded-full bg-[#FF2D55]" />}
+                    {!n.isRead && <div className="w-2 h-2 rounded-full bg-[#7B61FF]" />}
                   </div>
                   <p className="text-sm text-white/50 mt-0.5">{n.message}</p>
                 </div>

@@ -139,7 +139,7 @@ export default function TicketValidationPage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                 placeholder={t("validation.searchPlaceholder")}
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
             </div>
             <CustomSelect
@@ -160,7 +160,7 @@ export default function TicketValidationPage() {
             />
             <button
               onClick={handleSearch}
-              className="px-6 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors"
+              className="px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors"
             >
               {t("validation.search")}
             </button>
@@ -212,11 +212,11 @@ export default function TicketValidationPage() {
                 onChange={(e) => setQrInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleQrScan()}
                 placeholder={t("validation.qrPlaceholder")}
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-center placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-center placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
               <button
                 onClick={handleQrScan}
-                className="px-6 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors"
+                className="px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors"
               >
                 {t("validation.verify")}
               </button>
@@ -309,7 +309,7 @@ export default function TicketValidationPage() {
                     </p>
                     <button
                       onClick={() => handleAction(confirmAction)}
-                      className="px-5 py-3 rounded-xl bg-[#FF2D55] text-white text-sm font-medium hover:bg-[#FF2D55]/80 transition-colors"
+                      className="px-5 py-3 rounded-xl bg-[#7B61FF] text-white text-sm font-medium hover:bg-[#7B61FF]/80 transition-colors"
                     >
                       {t("validation.confirmYes")}
                     </button>
@@ -364,7 +364,7 @@ export default function TicketValidationPage() {
                 setSelectedTicket(null);
                 setConfirmAction(null);
               }}
-              className="text-sm text-[#FF2D55] hover:text-[#FF2D55]/80 transition-colors"
+              className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
             >
               {t("validation.backToSearch")}
             </button>

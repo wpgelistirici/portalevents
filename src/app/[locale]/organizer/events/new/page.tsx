@@ -197,7 +197,7 @@ export default function NewEventPage() {
               onClick={() => setCurrentStep(idx)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
                 idx === currentStep
-                  ? "bg-[#FF2D55]/10 text-[#FF2D55] border border-[#FF2D55]/30"
+                  ? "bg-[#7B61FF]/10 text-[#7B61FF] border border-[#7B61FF]/30"
                   : idx < currentStep
                     ? "bg-green-400/10 text-green-400 border border-green-400/20"
                     : "text-white/30 hover:text-white/50 border border-transparent"
@@ -226,7 +226,7 @@ export default function NewEventPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder={t("eventForm.eventNamePlaceholder")}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
             </div>
             <div>
@@ -236,7 +236,7 @@ export default function NewEventPage() {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder={t("eventForm.descriptionPlaceholder")}
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -259,7 +259,7 @@ export default function NewEventPage() {
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     placeholder="450"
-                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function NewEventPage() {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
               <div>
@@ -298,7 +298,7 @@ export default function NewEventPage() {
                   type="time"
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function NewEventPage() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
               <div>
@@ -318,7 +318,7 @@ export default function NewEventPage() {
                   type="time"
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
             </div>
@@ -351,7 +351,7 @@ export default function NewEventPage() {
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50"
                 />
               </div>
               <div>
@@ -361,7 +361,7 @@ export default function NewEventPage() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder={t("eventForm.addressPlaceholder")}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                 />
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function NewEventPage() {
                     }}
                     className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
                       selectedArtists.includes(artist.id)
-                        ? "bg-[#FF2D55]/10 border-[#FF2D55]/30 text-white"
+                        ? "bg-[#7B61FF]/10 border-[#7B61FF]/30 text-white"
                         : "bg-white/5 border-white/10 text-white/60 hover:border-white/20"
                     }`}
                   >
@@ -394,7 +394,7 @@ export default function NewEventPage() {
                       <p className="text-xs opacity-50">{artist.genre}</p>
                     </div>
                     {selectedArtists.includes(artist.id) && (
-                      <Check className="w-4 h-4 text-[#FF2D55] ml-auto flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[#7B61FF] ml-auto flex-shrink-0" />
                     )}
                   </button>
                 ))}
@@ -423,7 +423,7 @@ export default function NewEventPage() {
               {!showArtistTicketForm ? (
                 <button
                   onClick={() => setShowArtistTicketForm(true)}
-                  className="flex items-center gap-2 text-sm text-[#FF2D55] hover:text-[#FF2D55]/80 transition-colors"
+                  className="flex items-center gap-2 text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                   {t("eventForm.artistNotFound")}
@@ -499,7 +499,7 @@ export default function NewEventPage() {
                     value={tt.name}
                     onChange={(e) => updateTicketType(idx, "name", e.target.value)}
                     placeholder={t("eventForm.ticketName")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">₺</span>
@@ -508,7 +508,7 @@ export default function NewEventPage() {
                       value={tt.price}
                       onChange={(e) => updateTicketType(idx, "price", e.target.value)}
                       placeholder="450"
-                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                     />
                   </div>
                 </div>
@@ -517,12 +517,12 @@ export default function NewEventPage() {
                   value={tt.description}
                   onChange={(e) => updateTicketType(idx, "description", e.target.value)}
                   placeholder={t("eventForm.ticketDescription")}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                 />
                 <label className="flex items-center gap-3 cursor-pointer">
                   <div
                     className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                      tt.available ? "bg-[#FF2D55] border-[#FF2D55]" : "border-white/20"
+                      tt.available ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
                     }`}
                     onClick={() => updateTicketType(idx, "available", !tt.available)}
                   >
@@ -552,7 +552,7 @@ export default function NewEventPage() {
                   <label key={rule} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedRules.includes(rule) ? "bg-[#FF2D55] border-[#FF2D55]" : "border-white/20"
+                        selectedRules.includes(rule) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
                       }`}
                       onClick={() =>
                         setSelectedRules((prev) =>
@@ -582,7 +582,7 @@ export default function NewEventPage() {
                     value={newCustomRule}
                     onChange={(e) => setNewCustomRule(e.target.value)}
                     placeholder={t("eventForm.customRulePlaceholder")}
-                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50"
+                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                   <button
                     onClick={() => {
@@ -605,7 +605,7 @@ export default function NewEventPage() {
                   <label key={policy} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedPolicies.includes(policy) ? "bg-[#FF2D55] border-[#FF2D55]" : "border-white/20"
+                        selectedPolicies.includes(policy) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
                       }`}
                       onClick={() =>
                         setSelectedPolicies((prev) =>
@@ -705,7 +705,7 @@ export default function NewEventPage() {
               <button
                 onClick={() => handleSave(true)}
                 disabled={isSaving || !title}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 disabled:opacity-50 transition-colors"
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors"
               >
                 <Send className="w-4 h-4" />
                 {t("eventForm.submitForApproval")}
@@ -714,7 +714,7 @@ export default function NewEventPage() {
           ) : (
             <button
               onClick={() => setCurrentStep((s) => Math.min(STEPS.length - 1, s + 1))}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-colors"
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors"
             >
               {t("eventForm.next")}
               <ArrowRight className="w-4 h-4" />

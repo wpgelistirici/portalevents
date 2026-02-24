@@ -125,7 +125,7 @@ export function ImageUpload({
         onClick={() => fileInputRef.current?.click()}
         className={`relative ${height} rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer flex flex-col items-center justify-center gap-3 ${
           isDragging
-            ? "border-[#FF2D55] bg-[#FF2D55]/5"
+            ? "border-[#7B61FF] bg-[#7B61FF]/5"
             : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
         }`}
       >
@@ -138,10 +138,10 @@ export function ImageUpload({
               exit={{ scale: 0.8, opacity: 0 }}
               className="flex flex-col items-center gap-2"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#FF2D55]/10 flex items-center justify-center">
-                <Upload className="w-7 h-7 text-[#FF2D55]" />
+              <div className="w-14 h-14 rounded-2xl bg-[#7B61FF]/10 flex items-center justify-center">
+                <Upload className="w-7 h-7 text-[#7B61FF]" />
               </div>
-              <p className="text-sm font-medium text-[#FF2D55]">Bırakarak yükle</p>
+              <p className="text-sm font-medium text-[#7B61FF]">Bırakarak yükle</p>
             </motion.div>
           ) : (
             <motion.div
@@ -156,7 +156,7 @@ export function ImageUpload({
               </div>
               <div className="text-center">
                 <p className="text-sm text-white/50">
-                  <span className="text-[#FF2D55] font-medium">Tıklayın</span> veya sürükleyip bırakın
+                  <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyip bırakın
                 </p>
                 <p className="text-xs text-white/20 mt-1">PNG, JPG, WEBP — maks. 10MB</p>
               </div>
@@ -194,7 +194,7 @@ export function ImageUpload({
               onChange={(e) => setUrlValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleUrlSubmit()}
               placeholder="https://..."
-              className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#FF2D55]/50"
+              className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#7B61FF]/50"
               autoFocus
               onClick={(e) => e.stopPropagation()}
             />
@@ -203,7 +203,7 @@ export function ImageUpload({
                 e.stopPropagation();
                 handleUrlSubmit();
               }}
-              className="px-3 py-2 rounded-lg bg-[#FF2D55]/10 text-[#FF2D55] text-sm font-medium hover:bg-[#FF2D55]/20 transition-colors"
+              className="px-3 py-2 rounded-lg bg-[#7B61FF]/10 text-[#7B61FF] text-sm font-medium hover:bg-[#7B61FF]/20 transition-colors"
             >
               Ekle
             </button>
@@ -349,12 +349,12 @@ export function MultiImageUpload({
           onClick={() => fileInputRef.current?.click()}
           className={`rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer py-6 flex flex-col items-center justify-center gap-2 ${
             isDragging
-              ? "border-[#FF2D55] bg-[#FF2D55]/5"
+              ? "border-[#7B61FF] bg-[#7B61FF]/5"
               : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
           }`}
         >
           {isDragging ? (
-            <div className="flex items-center gap-2 text-[#FF2D55]">
+            <div className="flex items-center gap-2 text-[#7B61FF]">
               <Upload className="w-5 h-5" />
               <span className="text-sm font-medium">Bırakarak yükle</span>
             </div>
@@ -365,7 +365,7 @@ export function MultiImageUpload({
               </div>
               <div>
                 <p className="text-sm text-white/50">
-                  <span className="text-[#FF2D55] font-medium">Tıklayın</span> veya sürükleyin
+                  <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyin
                 </p>
                 <p className="text-xs text-white/20">
                   {values.length}/{maxImages} görsel
@@ -404,12 +404,12 @@ export function MultiImageUpload({
                 onChange={(e) => setUrlValue(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleUrlSubmit()}
                 placeholder="https://..."
-                className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#FF2D55]/50"
+                className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#7B61FF]/50"
                 autoFocus
               />
               <button
                 onClick={handleUrlSubmit}
-                className="px-3 py-2 rounded-lg bg-[#FF2D55]/10 text-[#FF2D55] text-sm font-medium hover:bg-[#FF2D55]/20 transition-colors"
+                className="px-3 py-2 rounded-lg bg-[#7B61FF]/10 text-[#7B61FF] text-sm font-medium hover:bg-[#7B61FF]/20 transition-colors"
               >
                 Ekle
               </button>

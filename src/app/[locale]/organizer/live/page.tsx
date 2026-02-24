@@ -66,7 +66,7 @@ export default function LiveCheckinPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Radio className="w-7 h-7 text-[#FF2D55]" />
+            <Radio className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
@@ -111,7 +111,7 @@ export default function LiveCheckinPage() {
                 initial={{ width: 0 }}
                 animate={{ width: `${eventData.checkInRate}%` }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="h-full rounded-full bg-gradient-to-r from-[#FF2D55] to-[#FF6B6B]"
+                className="h-full rounded-full bg-gradient-to-r from-[#7B61FF] to-[#FF6B6B]"
               />
             </div>
             <p className="text-center text-white/50 text-sm">{eventData.checkInRate.toFixed(1)}% {t("checkInRate")}</p>
@@ -149,7 +149,7 @@ export default function LiveCheckinPage() {
                         <span className="text-white/40">{tt.used}/{tt.total}</span>
                       </div>
                       <div className="h-2 rounded-full bg-white/5 overflow-hidden">
-                        <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.8 }} className="h-full rounded-full bg-[#FF2D55]" />
+                        <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.8 }} className="h-full rounded-full bg-[#7B61FF]" />
                       </div>
                     </div>
                   );
@@ -160,7 +160,7 @@ export default function LiveCheckinPage() {
             {/* Recent Check-ins */}
             <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
               <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#FF2D55]" />
+                <Users className="w-4 h-4 text-[#7B61FF]" />
                 {t("recentEntries")}
               </h3>
               {eventData.recentLogs.length === 0 ? (

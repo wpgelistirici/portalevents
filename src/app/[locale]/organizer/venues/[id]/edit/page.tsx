@@ -43,7 +43,7 @@ export default function EditVenuePage() {
     return (
       <div className="text-center py-16">
         <p className="text-white/40">{t("venues.notFound")}</p>
-        <Link href={`/${locale}/organizer/venues`} className="text-[#FF2D55] text-sm mt-4 inline-block">{t("venues.backToList")}</Link>
+        <Link href={`/${locale}/organizer/venues`} className="text-[#7B61FF] text-sm mt-4 inline-block">{t("venues.backToList")}</Link>
       </div>
     );
   }
@@ -91,20 +91,20 @@ export default function EditVenuePage() {
         <h2 className="text-lg font-semibold text-white">{t("venueForm.basicInfo")}</h2>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.venueName")}</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 resize-none" />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.city")}</label>
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.capacity")}</label>
-            <input type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.type")}</label>
@@ -113,7 +113,7 @@ export default function EditVenuePage() {
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <ImageUpload value={image} onChange={setImage} label={t("venueForm.coverImage")} height="h-48" />
       </div>
@@ -124,26 +124,26 @@ export default function EditVenuePage() {
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.phone")}</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.email")}</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("venueForm.website")}</label>
-            <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <h2 className="text-lg font-semibold text-white">{t("venueForm.socialMedia")}</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">Instagram</label>
-            <input type="text" value={instagram} onChange={(e) => setInstagram(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={instagram} onChange={(e) => setInstagram(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">Twitter / X</label>
-            <input type="text" value={twitter} onChange={(e) => setTwitter(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={twitter} onChange={(e) => setTwitter(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
       </div>
@@ -154,11 +154,11 @@ export default function EditVenuePage() {
         {openingHours.map((day, idx) => (
           <div key={day.day} className="flex items-center gap-4">
             <span className="w-28 text-sm text-white/60">{t(`venueForm.days.${day.day}`)}</span>
-            <button onClick={() => { const n = [...openingHours]; n[idx] = { ...n[idx], isOpen: !n[idx].isOpen }; setOpeningHours(n); }} className={`w-10 h-6 rounded-full transition-colors flex items-center ${day.isOpen ? "bg-[#FF2D55] justify-end" : "bg-white/10 justify-start"}`}>
+            <button onClick={() => { const n = [...openingHours]; n[idx] = { ...n[idx], isOpen: !n[idx].isOpen }; setOpeningHours(n); }} className={`w-10 h-6 rounded-full transition-colors flex items-center ${day.isOpen ? "bg-[#7B61FF] justify-end" : "bg-white/10 justify-start"}`}>
               <div className="w-4 h-4 mx-1 rounded-full bg-white" />
             </button>
             {day.isOpen ? (
-              <input type="text" value={day.hours} onChange={(e) => { const n = [...openingHours]; n[idx] = { ...n[idx], hours: e.target.value }; setOpeningHours(n); }} className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#FF2D55]/50" />
+              <input type="text" value={day.hours} onChange={(e) => { const n = [...openingHours]; n[idx] = { ...n[idx], hours: e.target.value }; setOpeningHours(n); }} className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             ) : (
               <span className="text-sm text-white/30">{t("venueForm.closed")}</span>
             )}
@@ -178,7 +178,7 @@ export default function EditVenuePage() {
           <Trash2 className="w-4 h-4" />
           {t("venues.delete")}
         </button>
-        <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 disabled:opacity-50 transition-colors">
+        <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors">
           <Save className="w-4 h-4" />
           {saving ? t("venues.saving") : t("venues.save")}
         </button>

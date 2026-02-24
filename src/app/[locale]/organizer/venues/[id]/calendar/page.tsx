@@ -48,7 +48,7 @@ export default function VenueCalendarPage() {
         </button>
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Calendar className="w-7 h-7 text-[#FF2D55]" />
+            <Calendar className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{venue.name} — {t("subtitle")}</p>
@@ -75,12 +75,12 @@ export default function VenueCalendarPage() {
             });
             const isToday = day === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear();
             return (
-              <div key={i} className={`min-h-[80px] rounded-xl p-2 ${isToday ? "bg-[#FF2D55]/10 border border-[#FF2D55]/20" : "bg-white/[0.02] border border-white/5"}`}>
-                <span className={`text-xs ${isToday ? "text-[#FF2D55] font-bold" : "text-white/40"}`}>{day}</span>
+              <div key={i} className={`min-h-[80px] rounded-xl p-2 ${isToday ? "bg-[#7B61FF]/10 border border-[#7B61FF]/20" : "bg-white/[0.02] border border-white/5"}`}>
+                <span className={`text-xs ${isToday ? "text-[#7B61FF] font-bold" : "text-white/40"}`}>{day}</span>
                 <div className="mt-1 space-y-1">
                   {dayEvents.map((ev) => (
                     <div key={ev.id} className="flex items-center gap-1.5 px-1.5 py-1 rounded bg-white/[0.04]">
-                      <Music className="w-3 h-3 text-[#FF2D55] flex-shrink-0" />
+                      <Music className="w-3 h-3 text-[#7B61FF] flex-shrink-0" />
                       <div className="min-w-0">
                         <p className="text-[10px] text-white truncate">{ev.artist}</p>
                         <p className="text-[9px] text-white/30">{ev.time}</p>

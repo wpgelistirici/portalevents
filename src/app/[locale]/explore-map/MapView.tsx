@@ -20,21 +20,21 @@ function createPulseIcon(isSelected: boolean) {
           isSelected
             ? `<div style="
                 position:absolute;inset:-8px;border-radius:50%;
-                background:rgba(255,45,85,0.12);
+                background:rgba(123,97,255,0.12);
                 animation:marker-pulse 1.5s ease-out infinite;
               "></div>
               <div style="
                 position:absolute;inset:-4px;border-radius:50%;
-                background:rgba(255,45,85,0.08);
+                background:rgba(123,97,255,0.08);
                 animation:marker-pulse 1.5s ease-out infinite 0.3s;
               "></div>`
             : ""
         }
         <div style="
           width:100%;height:100%;border-radius:50%;
-          background:${isSelected ? "linear-gradient(135deg,#FF2D55,#FF6B8A)" : "linear-gradient(135deg,#FF2D55,#FF2D55CC)"};
+          background:${isSelected ? "linear-gradient(135deg,#7B61FF,#FF6B8A)" : "linear-gradient(135deg,#7B61FF,#7B61FFCC)"};
           border:${isSelected ? "3px" : "2px"} solid ${isSelected ? "#fff" : "rgba(255,255,255,0.6)"};
-          box-shadow:0 4px 16px rgba(255,45,85,${isSelected ? "0.5" : "0.35"}),0 0 24px rgba(255,45,85,${isSelected ? "0.25" : "0.08"});
+          box-shadow:0 4px 16px rgba(123,97,255,${isSelected ? "0.5" : "0.35"}),0 0 24px rgba(123,97,255,${isSelected ? "0.25" : "0.08"});
           display:flex;align-items:center;justify-content:center;
           transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
         ">
@@ -78,8 +78,8 @@ const darkMapCSS = `
   }
   .leaflet-control-zoom a:hover {
     background: rgba(10, 10, 11, 0.95) !important;
-    color: #FF2D55 !important;
-    border-color: rgba(255, 45, 85, 0.2) !important;
+    color: #7B61FF !important;
+    border-color: rgba(123, 97, 255, 0.2) !important;
   }
   .leaflet-control-zoom-in {
     border-radius: 14px 14px 0 0 !important;
@@ -97,7 +97,7 @@ const darkMapCSS = `
     border: none !important;
   }
   .leaflet-control-attribution a {
-    color: rgba(255, 45, 85, 0.4) !important;
+    color: rgba(123, 97, 255, 0.4) !important;
   }
   @keyframes marker-pulse {
     0% { transform: scale(0.85); opacity: 1; }
@@ -221,7 +221,7 @@ export default function MapView({
            <span style="color:rgba(255,255,255,0.15);">·</span>
            <span>${event.venue}</span>
          </div>
-         <div style="font-size:10px;color:#FF2D55;font-weight:600;margin-top:4px;">${event.price}</div>`,
+         <div style="font-size:10px;color:#7B61FF;font-weight:600;margin-top:4px;">${event.price}</div>`,
         {
           direction: "top",
           offset: [0, -(isSelected ? 24 : 18)],

@@ -56,7 +56,7 @@ export default function OrganizerDashboard() {
         </div>
         <Link
           href={`/${locale}/organizer/events/new`}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 transition-all"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-all"
         >
           <Plus className="w-5 h-5" />
           {t("dashboard.newEvent")}
@@ -95,7 +95,7 @@ export default function OrganizerDashboard() {
             label: t("dashboard.stats.totalEvents"),
             value: stats.totalEvents,
             icon: CalendarPlus,
-            color: "#FF2D55",
+            color: "#7B61FF",
           },
           {
             label: t("dashboard.stats.activeDopings"),
@@ -142,7 +142,7 @@ export default function OrganizerDashboard() {
             <h2 className="text-lg font-semibold text-white">{t("dashboard.recentEvents")}</h2>
             <Link
               href={`/${locale}/organizer/events`}
-              className="text-sm text-[#FF2D55] hover:text-[#FF2D55]/80 flex items-center gap-1 transition-colors"
+              className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
             >
               {t("dashboard.viewAll")}
               <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export default function OrganizerDashboard() {
             <h2 className="text-lg font-semibold text-white">{t("dashboard.recentLogs")}</h2>
             <Link
               href={`/${locale}/organizer/logs`}
-              className="text-sm text-[#FF2D55] hover:text-[#FF2D55]/80 flex items-center gap-1 transition-colors"
+              className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
             >
               {t("dashboard.viewAll")}
               <ArrowRight className="w-4 h-4" />

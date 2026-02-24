@@ -234,7 +234,7 @@ export default function ReportsPage() {
   };
 
   const TYPE_COLORS = [
-    "bg-[#FF2D55]",
+    "bg-[#7B61FF]",
     "bg-violet-500",
     "bg-amber-500",
     "bg-emerald-500",
@@ -248,7 +248,7 @@ export default function ReportsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <BarChart3 className="w-7 h-7 text-[#FF2D55]" />
+            <BarChart3 className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
@@ -279,8 +279,8 @@ export default function ReportsPage() {
             label: t("kpi.totalSold"),
             value: globalStats.totalTickets.toString(),
             icon: Ticket,
-            color: "text-[#FF2D55]",
-            bgColor: "bg-[#FF2D55]/10",
+            color: "text-[#7B61FF]",
+            bgColor: "bg-[#7B61FF]/10",
           },
           {
             label: t("kpi.totalRevenue"),
@@ -327,7 +327,7 @@ export default function ReportsPage() {
         {/* Ticket Status Distribution */}
         <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
           <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
-            <PieChart className="w-4 h-4 text-[#FF2D55]" />
+            <PieChart className="w-4 h-4 text-[#7B61FF]" />
             {t("ticketStatus.title")}
           </h3>
 
@@ -384,7 +384,7 @@ export default function ReportsPage() {
         {/* Validation Actions Summary */}
         <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
           <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#FF2D55]" />
+            <CheckCircle2 className="w-4 h-4 text-[#7B61FF]" />
             {t("validation.title")}
           </h3>
           {filteredLogs.length > 0 ? (
@@ -441,7 +441,7 @@ export default function ReportsPage() {
       {ticketTypeDistribution.length > 0 && (
         <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
           <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
-            <Ticket className="w-4 h-4 text-[#FF2D55]" />
+            <Ticket className="w-4 h-4 text-[#7B61FF]" />
             {t("ticketTypes.title")}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -484,7 +484,7 @@ export default function ReportsPage() {
       {/* Per-Event Breakdown */}
       <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
         <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
-          <Calendar className="w-4 h-4 text-[#FF2D55]" />
+          <Calendar className="w-4 h-4 text-[#7B61FF]" />
           {t("eventBreakdown.title")}
         </h3>
 
@@ -664,7 +664,7 @@ export default function ReportsPage() {
       {recentActivity.length > 0 && (
         <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
           <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#FF2D55]" />
+            <Clock className="w-4 h-4 text-[#7B61FF]" />
             {t("recentActivity.title")}
           </h3>
           <div className="space-y-2">

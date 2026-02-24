@@ -43,7 +43,7 @@ export default function EditEventPage() {
     return (
       <div className="text-center py-16">
         <p className="text-white/40">{t("events.notFound")}</p>
-        <Link href={`/${locale}/organizer/events`} className="text-[#FF2D55] text-sm mt-4 inline-block">{t("events.backToList")}</Link>
+        <Link href={`/${locale}/organizer/events`} className="text-[#7B61FF] text-sm mt-4 inline-block">{t("events.backToList")}</Link>
       </div>
     );
   }
@@ -127,11 +127,11 @@ export default function EditEventPage() {
         <h2 className="text-lg font-semibold text-white">{t("eventForm.steps.basic")}</h2>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.eventName")}</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50 resize-none" />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -140,7 +140,7 @@ export default function EditEventPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.price")}</label>
-            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <ImageUpload value={image} onChange={setImage} label={t("eventForm.coverImage")} />
@@ -153,19 +153,19 @@ export default function EditEventPage() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startDate")}</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startTime")}</label>
-            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endDate")}</label>
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
             <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endTime")}</label>
-            <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+            <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <div>
@@ -174,7 +174,7 @@ export default function EditEventPage() {
         </div>
         <div>
           <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
       </div>
 
@@ -190,15 +190,15 @@ export default function EditEventPage() {
             )}
             <div>
               <label className="block text-xs text-white/50 mb-1">{t("eventForm.ticketName")}</label>
-              <input type="text" value={tt.name} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], name: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#FF2D55]/50" />
+              <input type="text" value={tt.name} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], name: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
             <div>
               <label className="block text-xs text-white/50 mb-1">{t("eventForm.price")}</label>
-              <input type="text" value={tt.price} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], price: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#FF2D55]/50" />
+              <input type="text" value={tt.price} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], price: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
             <div>
               <label className="block text-xs text-white/50 mb-1">{t("eventForm.ticketDescription")}</label>
-              <input type="text" value={tt.description} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], description: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#FF2D55]/50" />
+              <input type="text" value={tt.description} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], description: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
           </div>
         ))}
@@ -213,8 +213,8 @@ export default function EditEventPage() {
         <h2 className="text-lg font-semibold text-white">{t("eventForm.eventRules")}</h2>
         <div className="grid grid-cols-2 gap-2">
           {ruleOptions.map((rule) => (
-            <button key={rule} onClick={() => setSelectedRules((prev) => prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule])} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#FF2D55]/10 border border-[#FF2D55]/30 text-white" : "bg-white/[0.02] border border-white/5 text-white/50"}`}>
-              <div className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#FF2D55] bg-[#FF2D55]" : "border-white/20"}`}>
+            <button key={rule} onClick={() => setSelectedRules((prev) => prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule])} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#7B61FF]/10 border border-[#7B61FF]/30 text-white" : "bg-white/[0.02] border border-white/5 text-white/50"}`}>
+              <div className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#7B61FF] bg-[#7B61FF]" : "border-white/20"}`}>
                 {selectedRules.includes(rule) && <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
               </div>
               {t(`eventForm.rules.${rule}`)}
@@ -236,7 +236,7 @@ export default function EditEventPage() {
               {t("events.submitApproval")}
             </button>
           )}
-          <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#FF2D55] text-white font-medium hover:bg-[#FF2D55]/80 disabled:opacity-50 transition-colors">
+          <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors">
             <Save className="w-4 h-4" />
             {saving ? t("events.saving") : t("events.save")}
           </button>

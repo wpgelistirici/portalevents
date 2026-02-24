@@ -29,7 +29,7 @@ export default function ArtistRequestsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-          <Music2 className="w-7 h-7 text-[#FF2D55]" />
+          <Music2 className="w-7 h-7 text-[#7B61FF]" />
           {t("title")}
         </h1>
         <p className="text-white/50 mt-1">{t("subtitle")}</p>
@@ -38,7 +38,7 @@ export default function ArtistRequestsPage() {
       <div className="flex gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("searchPlaceholder")} className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("searchPlaceholder")} className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <div className="w-48">
           <CustomSelect options={filterOptions} value={filter} onChange={setFilter} searchable={false} />

@@ -54,7 +54,7 @@ export default function CustomersPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Users className="w-7 h-7 text-[#FF2D55]" />
+            <Users className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
           <p className="text-white/50 mt-1">{t("subtitle")}</p>
@@ -67,13 +67,13 @@ export default function CustomersPage() {
 
       <div className="relative">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("searchPlaceholder")} className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF2D55]/50" />
+        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("searchPlaceholder")} className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50" />
       </div>
 
       {/* Stats Row */}
       <div className="grid grid-cols-3 gap-4">
         {[
-          { label: t("totalCustomers"), value: customers.length.toString(), icon: Users, color: "text-[#FF2D55]", bg: "bg-[#FF2D55]/10" },
+          { label: t("totalCustomers"), value: customers.length.toString(), icon: Users, color: "text-[#7B61FF]", bg: "bg-[#7B61FF]/10" },
           { label: t("totalTicketsSold"), value: customers.reduce((s, c) => s + c.ticketCount, 0).toString(), icon: Ticket, color: "text-blue-400", bg: "bg-blue-500/10" },
           { label: t("totalRevenue"), value: `₺${customers.reduce((s, c) => s + c.totalSpent, 0).toLocaleString("tr-TR")}`, icon: DollarSign, color: "text-emerald-400", bg: "bg-emerald-500/10" },
         ].map((stat, i) => (
