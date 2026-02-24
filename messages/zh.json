@@ -24,6 +24,12 @@
     "liveBadge": "1,234 场活动正在进行",
     "subtitle": "探索活动、关注艺人、加入社区。",
     "subtitleHighlight": "在音乐的心脏相遇。",
+    "searchPlaceholder": "搜索活动、艺人或场地...",
+    "searchClear": "清除",
+    "searchEvents": "活动",
+    "searchArtists": "艺人",
+    "searchVenues": "场地",
+    "searchNoResults": "未找到结果。请尝试其他搜索。",
     "ctaExplore": "探索活动",
     "ctaHow": "如何运作？"
   },

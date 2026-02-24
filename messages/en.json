@@ -17,12 +17,18 @@
     "logout": "Sign Out"
   },
   "Hero": {
-    "line1": "FEEL THE",
-    "line2": "PULSE OF",
-    "line3": "MUSIC",
+    "line1": "Feel the",
+    "line2": "Pulse of",
+    "line3": "Music",
     "liveBadge": "1,234 live events right now",
     "subtitle": "Discover events, follow artists, join the community.",
     "subtitleHighlight": "Meet at the heart of music.",
+    "searchPlaceholder": "Search events, artists or venues...",
+    "searchClear": "Clear",
+    "searchEvents": "Events",
+    "searchArtists": "Artists",
+    "searchVenues": "Venues",
+    "searchNoResults": "No results found. Try a different search.",
     "ctaExplore": "Explore Events",
     "ctaHow": "How It Works?"
   },

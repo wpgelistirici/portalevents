@@ -17,12 +17,18 @@
     "logout": "Çıkış Yap"
   },
   "Hero": {
-    "line1": "MÜZİĞİN",
-    "line2": "NABZINI",
-    "line3": "HİSSET",
+    "line1": "Müziğin",
+    "line2": "Nabzını",
+    "line3": "Hisset",
     "liveBadge": "Şu an 1,234 canlı etkinlik",
     "subtitle": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
     "subtitleHighlight": "Müziğin kalbinde buluş.",
+    "searchPlaceholder": "Etkinlik, sanatçı veya mekan ara...",
+    "searchClear": "Temizle",
+    "searchEvents": "Etkinlikler",
+    "searchArtists": "Sanatçılar",
+    "searchVenues": "Mekanlar",
+    "searchNoResults": "Sonuç bulunamadı. Farklı bir arama deneyin.",
     "ctaExplore": "Etkinlikleri Keşfet",
     "ctaHow": "Nasıl Çalışır?"
   },

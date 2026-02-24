@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
   Heart,
 } from "lucide-react";
+import PortalLogo from "@/components/ui/PortalLogo";
 
 const footerLinkKeys = {
   explore: [
@@ -93,17 +94,8 @@ export default function Footer() {
           {/* Brand column */}
           <FadeInUp>
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-end gap-[2px] h-5">
-                  {[0.4, 0.7, 1, 0.6, 0.8].map((height, i) => (
-                    <div
-                      key={i}
-                      className="w-[2px] bg-primary rounded-full"
-                      style={{ height: `${height * 20}px` }}
-                    />
-                  ))}
-                </div>
-                <span className="text-lg font-bold">PULSE</span>
+              <div className="mb-4">
+                <PortalLogo />
               </div>
               <p className="text-xs text-muted leading-relaxed mb-6">
                 {t("brandDescription")}
