@@ -22,9 +22,9 @@ export default function AdminSettingsPage() {
   const [saved, setSaved] = useState(false);
 
   // Platform settings (mock)
-  const [siteName, setSiteName] = useState("PULSE");
+  const [siteName, setSiteName] = useState("PORTAL");
   const [siteDesc, setSiteDesc] = useState("Türkiye'nin #1 Etkinlik Platformu");
-  const [contactEmail, setContactEmail] = useState("info@pulse.com");
+  const [contactEmail, setContactEmail] = useState("info@portalevents.co");
   const [autoApprove, setAutoApprove] = useState(false);
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [emailNotifs, setEmailNotifs] = useState(true);

@@ -46,7 +46,7 @@ export default function MobileApp() {
                   <div className="relative aspect-[9/19] overflow-hidden">
                     <Image
                       src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400&h=850&fit=crop"
-                      alt="PULSE App"
+                      alt="PORTAL App"
                       fill
                       className="object-cover"
                     />

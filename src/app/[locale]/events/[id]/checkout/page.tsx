@@ -124,7 +124,7 @@ export default function CheckoutPage({
   const total = subtotal + serviceFee - discountAmount;
 
   const handleApplyCoupon = () => {
-    if (couponCode.toUpperCase() === "PULSE10") {
+    if (couponCode.toUpperCase() === "PORTAL10") {
       setCouponApplied(true);
       setCouponError(false);
     } else {

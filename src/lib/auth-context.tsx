@@ -99,7 +99,7 @@ const DEMO_USERS: StoredUser[] = [
   {
     id: "demo-3",
     name: "Demo Kullanıcı",
-    email: "demo@pulse.com",
+    email: "demo@portalevents.co",
     password: "demo",
     avatar: DEFAULT_AVATARS[2],
     phone: "0555 000 00 00",
@@ -108,7 +108,7 @@ const DEMO_USERS: StoredUser[] = [
   {
     id: "org-1",
     name: "Pulse Events",
-    email: "organizer@pulse.com",
+    email: "organizer@portalevents.co",
     password: "org123",
     avatar: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=200&h=200&fit=crop",
     phone: "0212 000 00 01",
@@ -123,7 +123,7 @@ const DEMO_USERS: StoredUser[] = [
   {
     id: "admin-1",
     name: "Admin",
-    email: "admin@pulse.com",
+    email: "admin@portalevents.co",
     password: "admin123",
     avatar: DEFAULT_AVATARS[4],
     phone: "0212 000 00 00",

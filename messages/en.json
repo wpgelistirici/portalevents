@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PULSE — Feel the Pulse of Music",
-    "description": "Discover events, follow artists, join the community. Meet at the heart of music."
+    "title": "PORTAL — Open the Door to Experience",
+    "description": "Discover events, follow artists, join the community. Meet at the center of experience."
   },
   "Navbar": {
     "events": "Events",
@@ -17,12 +17,12 @@
     "logout": "Sign Out"
   },
   "Hero": {
-    "line1": "Feel the",
-    "line2": "Pulse of",
-    "line3": "Music",
+    "line1": "Open the",
+    "line2": "Door to",
+    "line3": "Experience",
     "liveBadge": "1,234 live events right now",
     "subtitle": "Discover events, follow artists, join the community.",
-    "subtitleHighlight": "Meet at the heart of music.",
+    "subtitleHighlight": "Meet at the center of experience.",
     "searchPlaceholder": "Search events, artists or venues...",
     "searchClear": "Clear",
     "searchEvents": "Events",
@@ -49,28 +49,28 @@
     "label": "Artists",
     "titleLine1": "Those who",
     "titleLine2": "light up the stage",
-    "description": "Follow your favorite artists, don't miss their upcoming concerts.",
+    "description": "Follow your favorite artists, don't miss their upcoming events.",
     "event": "events"
   },
   "VenueSpotlight": {
     "label": "Venues",
-    "titleLine1": "Where the",
-    "titleLine2": "sound",
-    "titleLine3": "echoes",
+    "titleLine1": "Where",
+    "titleLine2": "experiences",
+    "titleLine3": "come alive",
     "viewAll": "View all venues",
     "capacity": "capacity"
   },
   "CommunityPreview": {
     "label": "Community",
     "titleLine1": "Those who experience",
-    "titleLine2": "music together",
+    "titleLine2": "events together",
     "stats": {
       "members": "Active Members",
       "posts": "Daily Posts",
       "cities": "Cities"
     },
     "ctaTitle": "Be a part of the community",
-    "ctaDescription": "Share your music taste, find concert buddies, get early access to exclusive events.",
+    "ctaDescription": "Share your interests, find event buddies, get early access to exclusive events.",
     "ctaButton": "Join Community"
   },
   "OrganizerCTA": {
@@ -102,7 +102,7 @@
     "badge": "Mobile App",
     "titleLine1": "All events",
     "titleLine2": "in your pocket",
-    "description": "Discover events, buy tickets, share with friends. Everything in one place with the PULSE mobile app.",
+    "description": "Discover events, buy tickets, share with friends. Everything in one place with the PORTAL mobile app.",
     "features": {
       "notifications": "Instant Notifications",
       "notificationsDesc": "Be the first to know when your favorite artist announces an event",
@@ -120,11 +120,11 @@
   },
   "Footer": {
     "newsletterTitle": "Don't miss",
-    "newsletterTitleHighlight": "the pulse of music",
+    "newsletterTitleHighlight": "new experiences",
     "newsletterDescription": "Subscribe to our newsletter for new events, exclusive offers, and community news.",
     "emailPlaceholder": "Your email address",
     "subscribe": "Subscribe",
-    "brandDescription": "Meet at the heart of music. Discover events, follow artists, join the community.",
+    "brandDescription": "Meet at the center of experience. Discover events, follow artists, join the community.",
     "explore": "Explore",
     "platform": "Platform",
     "support": "Support",
@@ -140,13 +140,13 @@
     "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms of Use",
-    "copyright": "© 2026 PULSE. All rights reserved.",
+    "copyright": "© 2026 PORTAL. All rights reserved.",
     "madeWith": "Made with"
   },
   "EventsPage": {
     "label": "Discover",
     "title": "Upcoming Events",
-    "description": "Discover the best music events in your city and plan your next unforgettable moment.",
+    "description": "Discover the best events in your city and plan your next unforgettable moment.",
     "searchPlaceholder": "Search events, artists, or cities...",
     "filters": "Filters",
     "trending": "Trending",
@@ -159,21 +159,21 @@
   "ArtistsPage": {
     "label": "Artists",
     "title": "Those Who Light Up The Stage",
-    "description": "Discover your favorite artists, follow them, and don't miss their upcoming concerts.",
+    "description": "Discover your favorite artists, follow them, and don't miss their upcoming events.",
     "followers": "followers",
     "event": "events"
   },
   "VenuesPage": {
     "label": "Venues",
-    "title": "Home of Music",
-    "description": "Discover the most special venues. From intimate clubs to giant arenas, a stage for every genre awaits you.",
+    "title": "Home of Events",
+    "description": "Discover the most special venues. From intimate halls to grand arenas, a stage for every event type awaits you.",
     "capacity": "capacity",
     "upcomingEvents": "Upcoming events"
   },
   "CommunityPage": {
     "label": "Community",
-    "title": "Music Community",
-    "description": "Connect with thousands of music enthusiasts. Share your experiences, find concert buddies, take your place in the music world.",
+    "title": "PORTAL Community",
+    "description": "Connect with thousands of event enthusiasts. Share your experiences, find event buddies, take your place in the event world.",
     "composerPlaceholder": "What's on your mind? Share an experience...",
     "photo": "Photo",
     "addPhoto": "Add Photo",
@@ -212,8 +212,8 @@
   "AuthModal": {
     "loginTitle": "Welcome back",
     "registerTitle": "Join us",
-    "loginSubtitle": "Continue feeling the pulse of music",
-    "registerSubtitle": "Meet thousands of music enthusiasts",
+    "loginSubtitle": "Continue discovering experiences",
+    "registerSubtitle": "Meet thousands of event enthusiasts",
     "or": "or",
     "fullName": "Full Name",
     "email": "Email address",
@@ -232,7 +232,7 @@
     "termsSuffix": ".",
     "welcomeBack": "Welcome!",
     "redirecting": "Redirecting...",
-    "demoHint": "Demo: Sign in with demo@pulse.com / demo",
+    "demoHint": "Demo: Sign in with demo@portalevents.co / demo",
     "errors": {
       "invalidCredentials": "Invalid email or password.",
       "emailExists": "This email is already registered.",
@@ -282,7 +282,7 @@
     },
     "attendees": "Attendees",
     "attendeesCount": "{count} people attending",
-    "anonymousAttendee": "PULSE User",
+    "anonymousAttendee": "PORTAL User",
     "moreAttendees": "+{count} more",
     "organizer": "Organizer",
     "viewOrganizer": "View Profile",
@@ -419,17 +419,17 @@
     "lastUpdated": "Last updated: February 11, 2026",
     "distanceSales": {
       "title": "Distance Sales Agreement",
-      "intro": "This Distance Sales Agreement regulates the rights and obligations of the parties regarding the sale of event tickets through the PULSE platform, within the scope of Consumer Protection Law No. 6502 and the Distance Contracts Regulation.",
+      "intro": "This Distance Sales Agreement regulates the rights and obligations of the parties regarding the sale of event tickets through the PORTAL platform, within the scope of Consumer Protection Law No. 6502 and the Distance Contracts Regulation.",
       "section1Title": "Parties",
-      "section1Content": "SELLER:\nCompany Name: PULSE Event Technologies Inc.\nAddress: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nPhone: +90 212 000 00 00\nEmail: info@pulse.com.tr\nRegistration No: 0000000000000001\n\nBUYER:\nThe personal information declared during the ticket purchase process is valid.",
+      "section1Content": "SELLER:\nCompany Name: PORTAL Event Technologies Inc.\nAddress: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nPhone: +90 212 000 00 00\nEmail: info@portalevents.co\nRegistration No: 0000000000000001\n\nBUYER:\nThe personal information declared during the ticket purchase process is valid.",
       "section2Title": "Subject of the Agreement",
-      "section2Content": "The subject of this agreement is to determine the rights and obligations of the parties in accordance with Consumer Protection Law No. 6502 and the Distance Contracts Regulation regarding the sale and delivery of event tickets ordered electronically by the BUYER through the SELLER's PULSE platform.",
+      "section2Content": "The subject of this agreement is to determine the rights and obligations of the parties in accordance with Consumer Protection Law No. 6502 and the Distance Contracts Regulation regarding the sale and delivery of event tickets ordered electronically by the BUYER through the SELLER's PORTAL platform.",
       "section3Title": "Product/Service Information",
       "section3Content": "The ticket type, event name, date, venue, and price information selected during the ticket purchase process are specified on the order summary page. Service fees are included in ticket prices. All prices are in Turkish Lira (TL) and include VAT.",
       "section4Title": "General Provisions",
-      "section4Content": "The BUYER acknowledges and declares that they have read and are informed about the basic qualities of the event ticket offered for sale on the PULSE platform, the sales price, payment method, and preliminary information regarding delivery, and that they have given the necessary confirmation electronically.\n\nBy confirming this agreement electronically, the BUYER confirms that they have obtained the address, basic features of the ordered products/services, price of the products/services including taxes, and payment and delivery information completely and accurately.",
+      "section4Content": "The BUYER acknowledges and declares that they have read and are informed about the basic qualities of the event ticket offered for sale on the PORTAL platform, the sales price, payment method, and preliminary information regarding delivery, and that they have given the necessary confirmation electronically.\n\nBy confirming this agreement electronically, the BUYER confirms that they have obtained the address, basic features of the ordered products/services, price of the products/services including taxes, and payment and delivery information completely and accurately.",
       "section5Title": "Delivery Conditions",
-      "section5Content": "Event tickets are delivered electronically (e-ticket) to the BUYER's specified email address and the 'My Tickets' section of their PULSE account after the purchase is completed. Tickets contain a QR code, and entry to the event is provided by scanning this QR code.\n\nPhysical ticket delivery is not applicable.",
+      "section5Content": "Event tickets are delivered electronically (e-ticket) to the BUYER's specified email address and the 'My Tickets' section of their PORTAL account after the purchase is completed. Tickets contain a QR code, and entry to the event is provided by scanning this QR code.\n\nPhysical ticket delivery is not applicable.",
       "section6Title": "Payment and Security",
       "section6Content": "Payments are processed through a secure payment infrastructure protected by 256-bit SSL encryption. Credit card information is not stored by the SELLER; payment transactions are carried out through licensed payment institutions.\n\nAccepted payment methods: Credit card, debit card, and virtual card.",
       "section7Title": "Right of Withdrawal",
@@ -440,9 +440,9 @@
     },
     "kvkk": {
       "title": "Privacy Policy (KVKK)",
-      "intro": "As PULSE Event Technologies Inc. (\"PULSE\" or \"Company\"), in the capacity of data controller within the scope of the Personal Data Protection Law No. 6698 (\"KVKK\"), we would like to inform you about the processing of your personal data.",
+      "intro": "As PORTAL Event Technologies Inc. (\"PORTAL\" or \"Company\"), in the capacity of data controller within the scope of the Personal Data Protection Law No. 6698 (\"KVKK\"), we would like to inform you about the processing of your personal data.",
       "section1Title": "Data Controller",
-      "section1Content": "Your personal data will be processed by PULSE Event Technologies Inc. as the data controller within the scope explained below.\n\nAddress: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nEmail: kvkk@pulse.com.tr",
+      "section1Content": "Your personal data will be processed by PORTAL Event Technologies Inc. as the data controller within the scope explained below.\n\nAddress: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nEmail: kvkk@portalevents.co",
       "section2Title": "Personal Data Collected",
       "section2Content": "Personal data collected through the platform includes:\n\n• Identity Information: Name, surname, national ID number\n• Contact Information: Email address, phone number, address\n• Financial Information: Billing information, payment records\n• Transaction Information: Purchased tickets, event preferences, order history\n• Digital Data: IP address, cookie data, device information, session data\n• Location Data: Location data used to show nearby events",
       "section3Title": "Purposes of Processing Personal Data",
@@ -454,25 +454,25 @@
       "section6Title": "Data Subject Rights",
       "section6Content": "Pursuant to Article 11 of KVKK, you have the following rights:\n\n• To learn whether your personal data is being processed\n• To request information if processed\n• To learn the purpose of processing and whether they are used in accordance with the purpose\n• To know the third parties to whom data is transferred domestically or abroad\n• To request correction if data is incomplete or incorrectly processed\n• To request deletion or destruction within the framework of Article 7 of KVKK\n• To request notification of correction/deletion/destruction to third parties\n• To object to any adverse result arising from the analysis of processed data exclusively through automated systems\n• To claim compensation for damages incurred due to unlawful processing",
       "section7Title": "Application Method",
-      "section7Content": "You can contact us through the following methods to exercise your rights:\n\n• Email: Written application with identity verification to kvkk@pulse.com.tr\n• Mail: Wet-signed petition to Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n• Registered Email: Via registered electronic mail to pulse@hs01.kep.tr\n\nApplications will be concluded free of charge within 30 days at the latest. If the process requires an additional cost, the fee determined by the Personal Data Protection Board may be charged.",
+      "section7Content": "You can contact us through the following methods to exercise your rights:\n\n• Email: Written application with identity verification to kvkk@portalevents.co\n• Mail: Wet-signed petition to Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n• Registered Email: Via registered electronic mail to portal@hs01.kep.tr\n\nApplications will be concluded free of charge within 30 days at the latest. If the process requires an additional cost, the fee determined by the Personal Data Protection Board may be charged.",
       "footer": "This privacy notice has been prepared within the scope of Article 10 of the Personal Data Protection Law No. 6698 and the Communiqué on the Procedures and Principles to be Observed in the Fulfillment of the Obligation of Information."
     },
     "cancellation": {
       "title": "Cancellation & Refund Policy",
-      "intro": "The cancellation and refund conditions for event tickets purchased through the PULSE platform are described below. Please read these conditions carefully before purchasing your ticket.",
+      "intro": "The cancellation and refund conditions for event tickets purchased through the PORTAL platform are described below. Please read these conditions carefully before purchasing your ticket.",
       "section1Title": "General Cancellation Conditions",
-      "section1Content": "Event tickets fall under the right of withdrawal exception within Article 15 of Consumer Protection Law No. 6502. However, PULSE prioritizes customer satisfaction and applies the following cancellation and refund policy.\n\nCancellation requests can only be made through the PULSE platform or by contacting our support team.",
+      "section1Content": "Event tickets fall under the right of withdrawal exception within Article 15 of Consumer Protection Law No. 6502. However, PORTAL prioritizes customer satisfaction and applies the following cancellation and refund policy.\n\nCancellation requests can only be made through the PORTAL platform or by contacting our support team.",
       "section2Title": "Refund Conditions and Timeframes",
       "section2Content": "• Cancellations made 7 or more days before the event: 100% of the ticket price is refunded.\n• Cancellations made 3 to 7 days before the event: 50% of the ticket price is refunded.\n• Cancellations made less than 3 days before the event: No refund is provided.\n• The service fee (5% of the ticket price) is non-refundable under any circumstances.\n\nRefunds are processed to the original payment method within 14 business days after the cancellation request is approved.",
       "section3Title": "Event Cancellation or Postponement",
       "section3Content": "For events cancelled by the organizer, the full ticket price (including service fee) is refunded. The refund process is initiated automatically and completed within 14 business days.\n\nIn case of event postponement:\n• Your ticket remains valid for the new date.\n• If the new date is not suitable for you, you can request a full refund within 7 days of the postponement announcement.\n• If no refund is requested within 7 days, the ticket is considered valid for the new date.",
       "section4Title": "Ticket Transfer",
-      "section4Content": "Purchased tickets can be transferred to another person up to 24 hours before the event date.\n\n• Ticket transfer can be done from the 'My Tickets' section on the PULSE platform.\n• The name, surname, and email information of the recipient is required for the transfer.\n• The transfer process is free of charge.\n• Refund requests for transferred tickets must be made by the new ticket holder.",
+      "section4Content": "Purchased tickets can be transferred to another person up to 24 hours before the event date.\n\n• Ticket transfer can be done from the 'My Tickets' section on the PORTAL platform.\n• The name, surname, and email information of the recipient is required for the transfer.\n• The transfer process is free of charge.\n• Refund requests for transferred tickets must be made by the new ticket holder.",
       "section5Title": "Force Majeure",
-      "section5Content": "In case of event cancellation due to natural disasters, epidemics, war, terrorism, government decisions, or similar force majeure events, the full ticket price is refunded.\n\nRefund periods may be extended in force majeure situations depending on the circumstances. PULSE will inform ticket holders as soon as possible in such cases.",
+      "section5Content": "In case of event cancellation due to natural disasters, epidemics, war, terrorism, government decisions, or similar force majeure events, the full ticket price is refunded.\n\nRefund periods may be extended in force majeure situations depending on the circumstances. PORTAL will inform ticket holders as soon as possible in such cases.",
       "section6Title": "Contact",
-      "section6Content": "You can reach us through the following channels for your cancellation and refund requests:\n\n• Email: support@pulse.com.tr\n• Phone: +90 212 000 00 00 (Weekdays 09:00-18:00)\n• Platform: You can create a cancellation request from the 'My Tickets' section of your account.\n\nYour requests will be evaluated and finalized within 48 hours at the latest.",
-      "footer": "These cancellation and refund conditions have been prepared within the framework of Consumer Protection Law No. 6502 and related regulations. PULSE reserves the right to make changes to these conditions. Current conditions are always published on this page."
+      "section6Content": "You can reach us through the following channels for your cancellation and refund requests:\n\n• Email: support@portalevents.co\n• Phone: +90 212 000 00 00 (Weekdays 09:00-18:00)\n• Platform: You can create a cancellation request from the 'My Tickets' section of your account.\n\nYour requests will be evaluated and finalized within 48 hours at the latest.",
+      "footer": "These cancellation and refund conditions have been prepared within the framework of Consumer Protection Law No. 6502 and related regulations. PORTAL reserves the right to make changes to these conditions. Current conditions are always published on this page."
     }
   },
   "ExploreMapPage": {

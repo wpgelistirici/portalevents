@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PULSE — 感受音乐的脉搏",
-    "description": "探索活动、关注艺人、加入社区。在音乐的心脏相遇。"
+    "title": "PORTAL — 打开体验之门",
+    "description": "探索活动、关注艺人、加入社区。在体验的中心相遇。"
   },
   "Navbar": {
     "events": "活动",
@@ -18,12 +18,12 @@
     "logout": "退出登录"
   },
   "Hero": {
-    "line1": "感受",
-    "line2": "音乐的",
-    "line3": "脉搏",
+    "line1": "打开",
+    "line2": "体验",
+    "line3": "之门",
     "liveBadge": "1,234 场活动正在进行",
     "subtitle": "探索活动、关注艺人、加入社区。",
-    "subtitleHighlight": "在音乐的心脏相遇。",
+    "subtitleHighlight": "在体验的中心相遇。",
     "searchPlaceholder": "搜索活动、艺人或场地...",
     "searchClear": "清除",
     "searchEvents": "活动",
@@ -52,13 +52,13 @@
     "label": "艺人",
     "titleLine1": "点亮舞台的",
     "titleLine2": "人们",
-    "description": "关注你喜爱的艺人，不要错过他们即将到来的演出。",
+    "description": "关注你喜爱的艺人，不要错过他们即将到来的活动。",
     "event": "场活动"
   },
   "VenueSpotlight": {
     "label": "场馆",
-    "titleLine1": "声音",
-    "titleLine2": "回荡的",
+    "titleLine1": "体验",
+    "titleLine2": "绽放的",
     "titleLine3": "地方",
     "viewAll": "查看所有场馆",
     "capacity": "容量"
@@ -66,14 +66,14 @@
   "CommunityPreview": {
     "label": "社区",
     "titleLine1": "一起体验",
-    "titleLine2": "音乐的人们",
+    "titleLine2": "活动的人们",
     "stats": {
       "members": "活跃会员",
       "posts": "每日帖子",
       "cities": "城市"
     },
     "ctaTitle": "成为社区的一员",
-    "ctaDescription": "分享你的音乐品味，找到音乐会伙伴，提前获取独家活动。",
+    "ctaDescription": "分享你的兴趣爱好，找到活动伙伴，提前获取独家活动。",
     "ctaButton": "加入社区"
   },
   "OrganizerCTA": {
@@ -105,7 +105,7 @@
     "badge": "移动应用",
     "titleLine1": "所有活动",
     "titleLine2": "尽在掌中",
-    "description": "探索活动、购买门票、与朋友分享。PULSE移动应用，一切尽在一处。",
+    "description": "探索活动、购买门票、与朋友分享。PORTAL移动应用，一切尽在一处。",
     "features": {
       "notifications": "即时通知",
       "notificationsDesc": "你喜爱的艺人发布活动时第一时间获知",
@@ -123,11 +123,11 @@
   },
   "Footer": {
     "newsletterTitle": "不要错过",
-    "newsletterTitleHighlight": "音乐的脉搏",
+    "newsletterTitleHighlight": "新的体验",
     "newsletterDescription": "订阅我们的通讯，获取新活动、独家优惠和社区新闻。",
     "emailPlaceholder": "你的电子邮箱",
     "subscribe": "订阅",
-    "brandDescription": "在音乐的心脏相遇。探索活动、关注艺人、加入社区。",
+    "brandDescription": "在体验的中心相遇。探索活动、关注艺人、加入社区。",
     "explore": "探索",
     "platform": "平台",
     "support": "支持",
@@ -143,13 +143,13 @@
     "contact": "联系我们",
     "privacy": "隐私政策",
     "terms": "使用条款",
-    "copyright": "© 2026 PULSE. 保留所有权利。",
+    "copyright": "© 2026 PORTAL. 保留所有权利。",
     "madeWith": "用心制作"
   },
   "EventsPage": {
     "label": "发现",
     "title": "即将举行的活动",
-    "description": "发现你所在城市最好的音乐活动，规划你的下一个难忘时刻。",
+    "description": "发现你所在城市最好的活动，规划你的下一个难忘时刻。",
     "searchPlaceholder": "搜索活动、艺人或城市...",
     "filters": "筛选",
     "trending": "热门",
@@ -162,7 +162,7 @@
   "ArtistsPage": {
     "label": "艺人",
     "title": "点亮舞台的人们",
-    "description": "发现你喜爱的艺人，关注他们，不要错过即将到来的演出。",
+    "description": "发现你喜爱的艺人，关注他们，不要错过即将到来的活动。",
     "followers": "关注者",
     "event": "场活动"
   },
@@ -194,15 +194,15 @@
   },
   "VenuesPage": {
     "label": "场馆",
-    "title": "音乐之家",
-    "description": "发现最特别的场馆。从私密俱乐部到大型场馆，每种风格都有属于你的舞台。",
+    "title": "活动之家",
+    "description": "发现最特别的场馆。从温馨的小厅到大型场馆，每种活动类型都有属于你的舞台。",
     "capacity": "容量",
     "upcomingEvents": "即将举行的活动"
   },
   "CommunityPage": {
     "label": "社区",
-    "title": "音乐社区",
-    "description": "与成千上万的音乐爱好者联系。分享你的经历，找到音乐会伙伴，在音乐世界中找到你的位置。",
+    "title": "PORTAL社区",
+    "description": "与成千上万的活动爱好者联系。分享你的经历，找到活动伙伴，在活动世界中找到你的位置。",
     "composerPlaceholder": "你在想什么？分享一段经历...",
     "photo": "照片",
     "addPhoto": "添加照片",
@@ -241,8 +241,8 @@
   "AuthModal": {
     "loginTitle": "欢迎回来",
     "registerTitle": "加入我们",
-    "loginSubtitle": "继续感受音乐的脉搏",
-    "registerSubtitle": "与成千上万的音乐爱好者相遇",
+    "loginSubtitle": "继续探索精彩体验",
+    "registerSubtitle": "与成千上万的活动爱好者相遇",
     "or": "或",
     "fullName": "全名",
     "email": "电子邮箱",
@@ -261,7 +261,7 @@
     "termsSuffix": "。",
     "welcomeBack": "欢迎！",
     "redirecting": "正在跳转...",
-    "demoHint": "演示：使用 demo@pulse.com / demo 登录",
+    "demoHint": "演示：使用 demo@portalevents.co / demo 登录",
     "demoTitle": "演示账户",
     "demoUser": "用户：",
     "demoOrganizer": "主办方：",
@@ -315,7 +315,7 @@
     },
     "attendees": "参加者",
     "attendeesCount": "{count} 人参加",
-    "anonymousAttendee": "PULSE用户",
+    "anonymousAttendee": "PORTAL用户",
     "moreAttendees": "+{count} 更多",
     "organizer": "主办方",
     "viewOrganizer": "查看主页",
@@ -452,17 +452,17 @@
     "lastUpdated": "最后更新：2026年2月11日",
     "distanceSales": {
       "title": "远程销售协议",
-      "intro": "本远程销售协议根据《消费者保护法》第6502号及《远程合同条例》的规定，规范通过PULSE平台进行活动门票销售的各方权利和义务。",
+      "intro": "本远程销售协议根据《消费者保护法》第6502号及《远程合同条例》的规定，规范通过PORTAL平台进行活动门票销售的各方权利和义务。",
       "section1Title": "当事方",
-      "section1Content": "卖方：\n公司名称：PULSE活动科技有限公司\n地址：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n电话：+90 212 000 00 00\n邮箱：info@pulse.com.tr\n\n买方：\n在购票过程中填写的个人信息为准。",
+      "section1Content": "卖方：\n公司名称：PORTAL活动科技有限公司\n地址：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n电话：+90 212 000 00 00\n邮箱：info@portalevents.co\n\n买方：\n在购票过程中填写的个人信息为准。",
       "section2Title": "协议主题",
-      "section2Content": "本协议旨在确定买方通过PULSE平台电子购买的活动门票的销售和交付相关各方权利和义务。",
+      "section2Content": "本协议旨在确定买方通过PORTAL平台电子购买的活动门票的销售和交付相关各方权利和义务。",
       "section3Title": "产品/服务信息",
       "section3Content": "购票过程中选择的门票类型、活动名称、日期、场地和价格信息在订单摘要页面上注明。服务费包含在门票价格中。所有价格以土耳其里拉（TL）标价并含增值税。",
       "section4Title": "一般条款",
-      "section4Content": "买方确认并声明已阅读并了解PULSE平台上销售的活动门票的基本特征、销售价格、付款方式和交付相关信息，并已给予必要的电子确认。",
+      "section4Content": "买方确认并声明已阅读并了解PORTAL平台上销售的活动门票的基本特征、销售价格、付款方式和交付相关信息，并已给予必要的电子确认。",
       "section5Title": "交付条件",
-      "section5Content": "活动门票在购买完成后以电子门票形式发送到买方指定的邮箱地址和PULSE账户的「我的门票」部分。门票包含二维码，通过扫描此二维码入场。",
+      "section5Content": "活动门票在购买完成后以电子门票形式发送到买方指定的邮箱地址和PORTAL账户的「我的门票」部分。门票包含二维码，通过扫描此二维码入场。",
       "section6Title": "支付与安全",
       "section6Content": "支付通过受256位SSL加密保护的安全支付基础设施进行。信用卡信息不由卖方存储；支付交易通过持牌支付机构进行。",
       "section7Title": "撤回权",
@@ -473,9 +473,9 @@
     },
     "kvkk": {
       "title": "隐私政策",
-      "intro": "作为PULSE活动科技有限公司，我们在第6698号《个人数据保护法》范围内作为数据控制者，就您个人数据的处理向您提供以下信息。",
+      "intro": "作为PORTAL活动科技有限公司，我们在第6698号《个人数据保护法》范围内作为数据控制者，就您个人数据的处理向您提供以下信息。",
       "section1Title": "数据控制者",
-      "section1Content": "您的个人数据将由PULSE活动科技有限公司作为数据控制者处理。\n\n地址：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n邮箱：kvkk@pulse.com.tr",
+      "section1Content": "您的个人数据将由PORTAL活动科技有限公司作为数据控制者处理。\n\n地址：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n邮箱：kvkk@portalevents.co",
       "section2Title": "收集的个人数据",
       "section2Content": "通过平台收集的个人数据包括：\n\n• 身份信息：姓名、身份证号\n• 联系信息：邮箱、电话号码、地址\n• 财务信息：账单信息、支付记录\n• 交易信息：已购门票、活动偏好、订单历史\n• 数字数据：IP地址、Cookie数据、设备信息\n• 位置数据：用于显示附近活动的位置数据",
       "section3Title": "个人数据处理目的",
@@ -487,25 +487,25 @@
       "section6Title": "数据主体权利",
       "section6Content": "您有以下权利：\n\n• 了解您的个人数据是否被处理\n• 请求更正不完整或错误的数据\n• 请求删除或销毁数据\n• 对因自动系统分析产生的不利结果提出异议\n• 因违法处理造成的损害要求赔偿",
       "section7Title": "申请方式",
-      "section7Content": "您可以通过以下方式联系我们行使您的权利：\n\n• 邮箱：kvkk@pulse.com.tr\n• 邮件：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n\n申请将在30天内免费处理。",
+      "section7Content": "您可以通过以下方式联系我们行使您的权利：\n\n• 邮箱：kvkk@portalevents.co\n• 邮件：Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\n\n申请将在30天内免费处理。",
       "footer": "本隐私通知根据第6698号《个人数据保护法》编制。"
     },
     "cancellation": {
       "title": "取消和退款政策",
-      "intro": "以下说明通过PULSE平台购买的活动门票的取消和退款条件。请在购票前仔细阅读。",
+      "intro": "以下说明通过PORTAL平台购买的活动门票的取消和退款条件。请在购票前仔细阅读。",
       "section1Title": "一般取消条件",
-      "section1Content": "活动门票属于《消费者保护法》第15条规定的撤回权例外。但PULSE优先考虑客户满意度，执行以下取消和退款政策。",
+      "section1Content": "活动门票属于《消费者保护法》第15条规定的撤回权例外。但PORTAL优先考虑客户满意度，执行以下取消和退款政策。",
       "section2Title": "退款条件和时限",
       "section2Content": "• 活动前7天或更早取消：退还100%门票价格\n• 活动前3-7天取消：退还50%门票价格\n• 活动前不足3天取消：不予退款\n• 服务费（门票价格的5%）在任何情况下均不可退\n\n退款将在取消请求批准后14个工作日内处理。",
       "section3Title": "活动取消或延期",
       "section3Content": "主办方取消的活动将全额退款（含服务费）。退款自动启动，在14个工作日内完成。\n\n活动延期的情况下：\n• 你的门票对新日期仍然有效\n• 如新日期不合适，可在延期公告后7天内申请全额退款",
       "section4Title": "门票转让",
-      "section4Content": "已购门票可在活动日期前24小时内转让给他人。\n\n• 门票转让可从PULSE平台的「我的门票」部分进行\n• 转让免费\n• 转让后的退款请求须由新持票人提出",
+      "section4Content": "已购门票可在活动日期前24小时内转让给他人。\n\n• 门票转让可从PORTAL平台的「我的门票」部分进行\n• 转让免费\n• 转让后的退款请求须由新持票人提出",
       "section5Title": "不可抗力",
       "section5Content": "因自然灾害、疫情、战争、恐怖主义、政府决定等不可抗力导致活动取消时，将全额退款。",
       "section6Title": "联系方式",
-      "section6Content": "取消和退款请求请通过以下渠道联系我们：\n\n• 邮箱：support@pulse.com.tr\n• 电话：+90 212 000 00 00（工作日 09:00-18:00）\n• 平台：从「我的门票」页面提交取消请求\n\n请求将在48小时内处理。",
-      "footer": "本取消和退款条件根据《消费者保护法》第6502号编制。PULSE保留修改这些条件的权利。"
+      "section6Content": "取消和退款请求请通过以下渠道联系我们：\n\n• 邮箱：support@portalevents.co\n• 电话：+90 212 000 00 00（工作日 09:00-18:00）\n• 平台：从「我的门票」页面提交取消请求\n\n请求将在48小时内处理。",
+      "footer": "本取消和退款条件根据《消费者保护法》第6502号编制。PORTAL保留修改这些条件的权利。"
     }
   },
   "ExploreMapPage": {

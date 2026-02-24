@@ -213,7 +213,7 @@ export default function AuthModal() {
                     />
                   ))}
                 </div>
-                <span className="text-lg font-bold">PULSE</span>
+                <span className="text-lg font-bold">PORTAL</span>
               </div>
 
               {/* Success State */}
@@ -328,29 +328,29 @@ export default function AuthModal() {
                   <p className="text-[10px] text-accent font-semibold mb-1">{t("demoTitle")}</p>
                   <button
                     type="button"
-                    onClick={() => { setEmail("demo@pulse.com"); setPassword("demo"); }}
+                    onClick={() => { setEmail("demo@portalevents.co"); setPassword("demo"); }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoUser")}</span> demo@pulse.com / demo</span>
+                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoUser")}</span> demo@portalevents.co / demo</span>
                     <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setEmail("organizer@pulse.com"); setPassword("org123"); }}
+                    onClick={() => { setEmail("organizer@portalevents.co"); setPassword("org123"); }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoOrganizer")}</span> organizer@pulse.com / org123</span>
+                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoOrganizer")}</span> organizer@portalevents.co / org123</span>
                     <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setEmail("admin@pulse.com"); setPassword("admin123"); }}
+                    onClick={() => { setEmail("admin@portalevents.co"); setPassword("admin123"); }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoAdmin")}</span> admin@pulse.com / admin123</span>
+                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoAdmin")}</span> admin@portalevents.co / admin123</span>
                     <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                   </button>
                 </motion.div>

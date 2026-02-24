@@ -26,14 +26,15 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "PORTAL — Müziğin Kapısını Aç",
+  title: "PORTAL — Deneyimin Kapısını Aç",
   description:
-    "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Müziğin kalbinde buluş.",
+    "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Deneyimin merkezinde buluş.",
   keywords: [
-    "müzik",
     "etkinlik",
-    "konser",
+    "deneyim",
     "festival",
+    "konser",
+    "tiyatro",
     "sanatçı",
     "mekan",
     "istanbul",

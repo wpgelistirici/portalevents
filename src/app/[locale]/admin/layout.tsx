@@ -43,7 +43,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <h2 className="text-xl font-bold text-white mb-2">Yönetim Paneli</h2>
           <p className="text-white/60 mb-6">Bu sayfaya erişmek için admin hesabıyla giriş yapmalısınız.</p>
-          <p className="text-xs text-white/40">Demo: admin@pulse.com / admin123</p>
+          <p className="text-xs text-white/40">Demo: admin@portalevents.co / admin123</p>
           <button
             onClick={() => {
               router.push(`/${locale}`);

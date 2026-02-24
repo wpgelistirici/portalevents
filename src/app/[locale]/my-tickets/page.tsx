@@ -86,7 +86,7 @@ function SecureQR({ ticket }: { ticket: StoredTicket }) {
           .toString(36),
       }),
     );
-    return `PULSE-TICKET://${token}`;
+    return `PORTAL-TICKET://${token}`;
   }, [ticket]);
 
   useEffect(() => {

@@ -131,7 +131,7 @@ function getSeedCoupons(): Coupon[] {
   return [
     {
       id: "coupon-seed-1",
-      code: "PULSE10",
+      code: "PORTAL10",
       discountType: "percent",
       discountValue: 10,
       maxUsage: 500,
@@ -238,7 +238,7 @@ function getSeedStoredTickets(): StoredTicket[] {
       buyerName: "Elif Korkmaz",
       buyerEmail: "elif@demo.com",
       status: "active",
-      qrSeed: "PULSE-TKT-1-VIP-1710500000",
+      qrSeed: "PORTAL-TKT-1-VIP-1710500000",
     },
     {
       id: "ticket-2",
@@ -259,7 +259,7 @@ function getSeedStoredTickets(): StoredTicket[] {
       buyerName: "Cem Arslan",
       buyerEmail: "cem@demo.com",
       status: "active",
-      qrSeed: "PULSE-TKT-2-GA-1710586400",
+      qrSeed: "PORTAL-TKT-2-GA-1710586400",
     },
     {
       id: "ticket-3",
@@ -280,7 +280,7 @@ function getSeedStoredTickets(): StoredTicket[] {
       buyerName: "Zeynep Mert",
       buyerEmail: "zeynep@demo.com",
       status: "active",
-      qrSeed: "PULSE-TKT-3-STD-1710672800",
+      qrSeed: "PORTAL-TKT-3-STD-1710672800",
     },
   ];
 }

@@ -39,7 +39,7 @@ export default function AdminSidebar() {
             <Shield className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="text-sm font-bold text-white">PULSE</h1>
+            <h1 className="text-sm font-bold text-white">PORTAL</h1>
             <p className="text-[10px] text-white/40 font-medium">{t("title")}</p>
           </div>
         </div>

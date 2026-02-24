@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PULSE — Müziğin Nabzını Hisset",
-    "description": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Müziğin kalbinde buluş."
+    "title": "PORTAL — Deneyimin Kapısını Aç",
+    "description": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Deneyimin merkezinde buluş."
   },
   "Navbar": {
     "events": "Etkinlikler",
@@ -17,12 +17,12 @@
     "logout": "Çıkış Yap"
   },
   "Hero": {
-    "line1": "Müziğin",
-    "line2": "Nabzını",
-    "line3": "Hisset",
+    "line1": "Deneyimin",
+    "line2": "Kapısını",
+    "line3": "Aç",
     "liveBadge": "Şu an 1,234 canlı etkinlik",
     "subtitle": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
-    "subtitleHighlight": "Müziğin kalbinde buluş.",
+    "subtitleHighlight": "Deneyimin merkezinde buluş.",
     "searchPlaceholder": "Etkinlik, sanatçı veya mekan ara...",
     "searchClear": "Temizle",
     "searchEvents": "Etkinlikler",
@@ -49,20 +49,20 @@
     "label": "Sanatçılar",
     "titleLine1": "Sahneyi",
     "titleLine2": "aydınlatanlar",
-    "description": "En sevdiğin sanatçıları takip et, yaklaşan konserlerini kaçırma.",
+    "description": "En sevdiğin sanatçıları takip et, yaklaşan etkinliklerini kaçırma.",
     "event": "etkinlik"
   },
   "VenueSpotlight": {
     "label": "Mekanlar",
-    "titleLine1": "Sesin",
-    "titleLine2": "yankılandığı",
+    "titleLine1": "Deneyimin",
+    "titleLine2": "yaşandığı",
     "titleLine3": "mekanlar",
     "viewAll": "Tüm mekanları gör",
     "capacity": "kişilik"
   },
   "CommunityPreview": {
     "label": "Topluluk",
-    "titleLine1": "Müziği birlikte",
+    "titleLine1": "Deneyimi birlikte",
     "titleLine2": "yaşayanlar",
     "stats": {
       "members": "Aktif Üye",
@@ -70,7 +70,7 @@
       "cities": "Şehir"
     },
     "ctaTitle": "Sen de topluluğun bir parçası ol",
-    "ctaDescription": "Müzik zevkini paylaş, konser arkadaşları bul, özel etkinliklere erken erişim kazan.",
+    "ctaDescription": "İlgi alanlarını paylaş, etkinlik arkadaşları bul, özel etkinliklere erken erişim kazan.",
     "ctaButton": "Topluluğa Katıl"
   },
   "OrganizerCTA": {
@@ -102,7 +102,7 @@
     "badge": "Mobil Uygulama",
     "titleLine1": "Tüm etkinlikler",
     "titleLine2": "cebinde",
-    "description": "Etkinlikleri keşfet, bilet al, arkadaşlarınla paylaş. PULSE mobil uygulaması ile her şey tek bir yerde.",
+    "description": "Etkinlikleri keşfet, bilet al, arkadaşlarınla paylaş. PORTAL mobil uygulaması ile her şey tek bir yerde.",
     "features": {
       "notifications": "Anlık Bildirimler",
       "notificationsDesc": "Favori sanatçın etkinlik açtığında ilk sen öğren",
@@ -119,12 +119,12 @@
     "googlePlayLine2": "İndir"
   },
   "Footer": {
-    "newsletterTitle": "Müziğin nabzını",
+    "newsletterTitle": "Yeni deneyimleri",
     "newsletterTitleHighlight": "kaçırma",
     "newsletterDescription": "Yeni etkinlikler, özel fırsatlar ve topluluk haberleri için bültenimize abone ol.",
     "emailPlaceholder": "E-posta adresin",
     "subscribe": "Abone Ol",
-    "brandDescription": "Müziğin kalbinde buluş. Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
+    "brandDescription": "Deneyimin merkezinde buluş. Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
     "explore": "Keşfet",
     "platform": "Platform",
     "support": "Destek",
@@ -140,13 +140,13 @@
     "contact": "İletişim",
     "privacy": "Gizlilik",
     "terms": "Kullanım Şartları",
-    "copyright": "© 2026 PULSE. Tüm hakları saklıdır.",
+    "copyright": "© 2026 PORTAL. Tüm hakları saklıdır.",
     "madeWith": "ile yapıldı"
   },
   "EventsPage": {
     "label": "Keşfet",
     "title": "Yaklaşan Etkinlikler",
-    "description": "Şehrindeki en iyi müzik etkinliklerini keşfet ve bir sonraki unutulmaz anını planla.",
+    "description": "Şehrindeki en iyi etkinlikleri keşfet ve bir sonraki unutulmaz anını planla.",
     "searchPlaceholder": "Etkinlik, sanatçı veya şehir ara...",
     "filters": "Filtreler",
     "trending": "Trend",
@@ -159,21 +159,21 @@
   "ArtistsPage": {
     "label": "Sanatçılar",
     "title": "Sahneyi Aydınlatanlar",
-    "description": "En sevdiğin sanatçıları keşfet, takip et ve yaklaşan konserlerini kaçırma.",
+    "description": "En sevdiğin sanatçıları keşfet, takip et ve yaklaşan etkinliklerini kaçırma.",
     "followers": "takipçi",
     "event": "etkinlik"
   },
   "VenuesPage": {
     "label": "Mekanlar",
-    "title": "Müziğin Evi",
-    "description": "En özel mekanları keşfet. Intimate klüplerden dev arenalara, her türe uygun bir sahne seni bekliyor.",
+    "title": "Etkinliklerin Evi",
+    "description": "En özel mekanları keşfet. Samimi salonlardan dev arenalara, her etkinlik türüne uygun bir sahne seni bekliyor.",
     "capacity": "kişilik",
     "upcomingEvents": "Yaklaşan etkinlikler"
   },
   "CommunityPage": {
     "label": "Topluluk",
-    "title": "Müzik Topluluğu",
-    "description": "Binlerce müzik tutkunuyla bağlan. Deneyimlerini paylaş, konser arkadaşları bul, müzik dünyasında yerini al.",
+    "title": "PORTAL Topluluğu",
+    "description": "Binlerce etkinlik tutkunuyla bağlan. Deneyimlerini paylaş, etkinlik arkadaşları bul, etkinlik dünyasında yerini al.",
     "composerPlaceholder": "Ne düşünüyorsun? Bir deneyim paylaş...",
     "photo": "Fotoğraf",
     "addPhoto": "Fotoğraf Ekle",
@@ -212,8 +212,8 @@
   "AuthModal": {
     "loginTitle": "Tekrar hoş geldin",
     "registerTitle": "Aramıza katıl",
-    "loginSubtitle": "Müziğin nabzını hissetmeye devam et",
-    "registerSubtitle": "Binlerce müzik tutkunuyla buluş",
+    "loginSubtitle": "Deneyimleri keşfetmeye devam et",
+    "registerSubtitle": "Binlerce etkinlik tutkunuyla buluş",
     "or": "veya",
     "fullName": "Ad Soyad",
     "email": "E-posta adresi",
@@ -232,7 +232,7 @@
     "termsSuffix": "'nı kabul etmiş olursun.",
     "welcomeBack": "Hoş geldin!",
     "redirecting": "Yönlendiriliyorsun...",
-    "demoHint": "Demo: demo@pulse.com / demo ile giriş yapabilirsiniz.",
+    "demoHint": "Demo: demo@portalevents.co / demo ile giriş yapabilirsiniz.",
     "errors": {
       "invalidCredentials": "E-posta veya şifre hatalı.",
       "emailExists": "Bu e-posta adresi zaten kayıtlı.",
@@ -282,7 +282,7 @@
     },
     "attendees": "Katılımcılar",
     "attendeesCount": "{count} kişi katılıyor",
-    "anonymousAttendee": "PULSE Kullanıcısı",
+    "anonymousAttendee": "PORTAL Kullanıcısı",
     "moreAttendees": "+{count} kişi daha",
     "organizer": "Organizatör",
     "viewOrganizer": "Profili Gör",
@@ -419,17 +419,17 @@
     "lastUpdated": "Son güncelleme: 11 Şubat 2026",
     "distanceSales": {
       "title": "Mesafeli Satış Sözleşmesi",
-      "intro": "İşbu Mesafeli Satış Sözleşmesi, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği kapsamında, PULSE platformu üzerinden gerçekleştirilen etkinlik bileti satışlarına ilişkin tarafların hak ve yükümlülüklerini düzenlemektedir.",
+      "intro": "İşbu Mesafeli Satış Sözleşmesi, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği kapsamında, PORTAL platformu üzerinden gerçekleştirilen etkinlik bileti satışlarına ilişkin tarafların hak ve yükümlülüklerini düzenlemektedir.",
       "section1Title": "Taraflar",
-      "section1Content": "SATICI:\nŞirket Unvanı: PULSE Etkinlik Teknolojileri A.Ş.\nAdres: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nTelefon: +90 212 000 00 00\nE-posta: info@pulse.com.tr\nMersis No: 0000000000000001\n\nALICI:\nBilet satın alma işlemi sırasında beyan edilen kişisel bilgiler geçerlidir.",
+      "section1Content": "SATICI:\nŞirket Unvanı: PORTAL Etkinlik Teknolojileri A.Ş.\nAdres: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nTelefon: +90 212 000 00 00\nE-posta: info@portalevents.co\nMersis No: 0000000000000001\n\nALICI:\nBilet satın alma işlemi sırasında beyan edilen kişisel bilgiler geçerlidir.",
       "section2Title": "Sözleşmenin Konusu",
-      "section2Content": "İşbu sözleşmenin konusu, ALICI'nın SATICI'ya ait PULSE platformu üzerinden elektronik ortamda sipariş verdiği etkinlik biletinin satışı ve teslimine ilişkin 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri gereğince tarafların hak ve yükümlülüklerinin belirlenmesidir.",
+      "section2Content": "İşbu sözleşmenin konusu, ALICI'nın SATICI'ya ait PORTAL platformu üzerinden elektronik ortamda sipariş verdiği etkinlik biletinin satışı ve teslimine ilişkin 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri gereğince tarafların hak ve yükümlülüklerinin belirlenmesidir.",
       "section3Title": "Sözleşme Konusu Ürün/Hizmet Bilgileri",
       "section3Content": "Etkinlik bileti satın alma işlemi sırasında seçilen bilet türü, etkinlik adı, tarihi, mekanı ve fiyat bilgileri sipariş özeti sayfasında belirtilmektedir. Bilet fiyatlarına hizmet bedeli dahildir. Tüm fiyatlar Türk Lirası (TL) cinsindendir ve KDV dahildir.",
       "section4Title": "Genel Hükümler",
-      "section4Content": "ALICI, PULSE platformunda satışa sunulan etkinlik biletinin temel nitelikleri, satış fiyatı, ödeme şekli ve teslimata ilişkin ön bilgileri okuyup bilgi sahibi olduğunu ve elektronik ortamda gerekli teyidi verdiğini kabul ve beyan eder.\n\nALICI, bu sözleşmeyi elektronik ortamda teyit etmekle, mesafeli sözleşmelerin akdinden önce SATICI tarafından ALICI'ya verilmesi gereken adres, siparişi verilen ürünlere/hizmetlere ait temel özellikler, ürünlerin/hizmetlerin vergiler dahil fiyatı, ödeme ve teslimat bilgilerini doğru ve eksiksiz olarak edindiğini teyit etmiş olur.",
+      "section4Content": "ALICI, PORTAL platformunda satışa sunulan etkinlik biletinin temel nitelikleri, satış fiyatı, ödeme şekli ve teslimata ilişkin ön bilgileri okuyup bilgi sahibi olduğunu ve elektronik ortamda gerekli teyidi verdiğini kabul ve beyan eder.\n\nALICI, bu sözleşmeyi elektronik ortamda teyit etmekle, mesafeli sözleşmelerin akdinden önce SATICI tarafından ALICI'ya verilmesi gereken adres, siparişi verilen ürünlere/hizmetlere ait temel özellikler, ürünlerin/hizmetlerin vergiler dahil fiyatı, ödeme ve teslimat bilgilerini doğru ve eksiksiz olarak edindiğini teyit etmiş olur.",
       "section5Title": "Teslimat Şartları",
-      "section5Content": "Etkinlik biletleri, satın alma işleminin tamamlanmasının ardından elektronik ortamda (e-bilet) olarak ALICI'nın belirttiği e-posta adresine ve PULSE hesabındaki 'Biletlerim' bölümüne iletilir. Biletler QR kod içermekte olup etkinlik girişinde bu QR kod taranarak giriş sağlanmaktadır.\n\nFiziksel bilet teslimatı söz konusu değildir.",
+      "section5Content": "Etkinlik biletleri, satın alma işleminin tamamlanmasının ardından elektronik ortamda (e-bilet) olarak ALICI'nın belirttiği e-posta adresine ve PORTAL hesabındaki 'Biletlerim' bölümüne iletilir. Biletler QR kod içermekte olup etkinlik girişinde bu QR kod taranarak giriş sağlanmaktadır.\n\nFiziksel bilet teslimatı söz konusu değildir.",
       "section6Title": "Ödeme ve Güvenlik",
       "section6Content": "Ödemeler 256-bit SSL şifreleme ile korunan güvenli ödeme altyapısı üzerinden gerçekleştirilmektedir. Kredi kartı bilgileri SATICI tarafından saklanmamakta, ödeme işlemleri lisanslı ödeme kuruluşları aracılığıyla gerçekleştirilmektedir.\n\nKabul edilen ödeme yöntemleri: Kredi kartı, banka kartı ve sanal kart.",
       "section7Title": "Cayma Hakkı",
@@ -440,9 +440,9 @@
     },
     "kvkk": {
       "title": "KVKK Aydınlatma Metni",
-      "intro": "PULSE Etkinlik Teknolojileri A.Ş. (\"PULSE\" veya \"Şirket\") olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında veri sorumlusu sıfatıyla, kişisel verilerinizin işlenmesine ilişkin sizi bilgilendirmek isteriz.",
+      "intro": "PORTAL Etkinlik Teknolojileri A.Ş. (\"PORTAL\" veya \"Şirket\") olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında veri sorumlusu sıfatıyla, kişisel verilerinizin işlenmesine ilişkin sizi bilgilendirmek isteriz.",
       "section1Title": "Veri Sorumlusu",
-      "section1Content": "Kişisel verileriniz, veri sorumlusu sıfatıyla PULSE Etkinlik Teknolojileri A.Ş. tarafından aşağıda açıklanan kapsamda işlenecektir.\n\nAdres: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nE-posta: kvkk@pulse.com.tr",
+      "section1Content": "Kişisel verileriniz, veri sorumlusu sıfatıyla PORTAL Etkinlik Teknolojileri A.Ş. tarafından aşağıda açıklanan kapsamda işlenecektir.\n\nAdres: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul\nE-posta: kvkk@portalevents.co",
       "section2Title": "İşlenen Kişisel Veriler",
       "section2Content": "Platform üzerinden toplanan kişisel veriler şunlardır:\n\n• Kimlik Bilgileri: Ad, soyad, T.C. kimlik numarası\n• İletişim Bilgileri: E-posta adresi, telefon numarası, adres\n• Finansal Bilgiler: Fatura bilgileri, ödeme kayıtları\n• İşlem Bilgileri: Satın alınan biletler, etkinlik tercihleri, sipariş geçmişi\n• Dijital Veriler: IP adresi, çerez bilgileri, cihaz bilgileri, oturum verileri\n• Konum Bilgileri: Yakındaki etkinliklerin gösterilmesi için kullanılan konum verisi",
       "section3Title": "Kişisel Verilerin İşlenme Amaçları",
@@ -454,25 +454,25 @@
       "section6Title": "Veri Sahibinin Hakları",
       "section6Content": "KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:\n\n• Kişisel verilerinizin işlenip işlenmediğini öğrenme\n• İşlenmişse buna ilişkin bilgi talep etme\n• İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme\n• Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme\n• Eksik veya yanlış işlenmişse düzeltilmesini isteme\n• KVKK'nın 7. maddesindeki şartlar çerçevesinde silinmesini veya yok edilmesini isteme\n• Düzeltme/silme/yok etme işlemlerinin aktarıldığı üçüncü kişilere bildirilmesini isteme\n• İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin aleyhine bir sonuç doğurmasına itiraz etme\n• Kanuna aykırı işleme nedeniyle zarara uğraması hâlinde zararın giderilmesini talep etme",
       "section7Title": "Başvuru Yöntemi",
-      "section7Content": "Yukarıda belirtilen haklarınızı kullanmak için aşağıdaki yöntemlerle bize başvurabilirsiniz:\n\n• E-posta: kvkk@pulse.com.tr adresine kimlik teyidi ile birlikte yazılı başvuru\n• Posta: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul adresine ıslak imzalı dilekçe\n• KEP: pulse@hs01.kep.tr adresine kayıtlı elektronik posta ile\n\nBaşvurular en geç 30 gün içinde ücretsiz olarak sonuçlandırılır. İşlemin ayrıca bir maliyet gerektirmesi halinde, Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifedeki ücret talep edilebilir.",
+      "section7Content": "Yukarıda belirtilen haklarınızı kullanmak için aşağıdaki yöntemlerle bize başvurabilirsiniz:\n\n• E-posta: kvkk@portalevents.co adresine kimlik teyidi ile birlikte yazılı başvuru\n• Posta: Levent Mah. Büyükdere Cad. No:123, Beşiktaş/İstanbul adresine ıslak imzalı dilekçe\n• KEP: portal@hs01.kep.tr adresine kayıtlı elektronik posta ile\n\nBaşvurular en geç 30 gün içinde ücretsiz olarak sonuçlandırılır. İşlemin ayrıca bir maliyet gerektirmesi halinde, Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifedeki ücret talep edilebilir.",
       "footer": "Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi ile Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ kapsamında hazırlanmıştır."
     },
     "cancellation": {
       "title": "İptal ve İade Koşulları",
-      "intro": "PULSE platformu üzerinden satın alınan etkinlik biletlerine ilişkin iptal ve iade koşulları aşağıda belirtilmiştir. Bilet satın almadan önce bu koşulları dikkatle okumanızı rica ederiz.",
+      "intro": "PORTAL platformu üzerinden satın alınan etkinlik biletlerine ilişkin iptal ve iade koşulları aşağıda belirtilmiştir. Bilet satın almadan önce bu koşulları dikkatle okumanızı rica ederiz.",
       "section1Title": "Genel İptal Koşulları",
-      "section1Content": "Etkinlik biletleri, 6502 sayılı Tüketicinin Korunması Hakkında Kanun'un 15. maddesi kapsamında cayma hakkı istisnası içinde yer almaktadır. Ancak PULSE, müşteri memnuniyetini ön planda tutarak aşağıdaki iptal ve iade politikasını uygulamaktadır.\n\nİptal talepleri yalnızca PULSE platformu üzerinden veya destek ekibimize başvurularak yapılabilir.",
+      "section1Content": "Etkinlik biletleri, 6502 sayılı Tüketicinin Korunması Hakkında Kanun'un 15. maddesi kapsamında cayma hakkı istisnası içinde yer almaktadır. Ancak PORTAL, müşteri memnuniyetini ön planda tutarak aşağıdaki iptal ve iade politikasını uygulamaktadır.\n\nİptal talepleri yalnızca PORTAL platformu üzerinden veya destek ekibimize başvurularak yapılabilir.",
       "section2Title": "İade Koşulları ve Süreleri",
       "section2Content": "• Etkinlikten 7 gün veya daha fazla süre önce yapılan iptallerde: Bilet bedelinin %100'ü iade edilir.\n• Etkinlikten 3 ila 7 gün önce yapılan iptallerde: Bilet bedelinin %50'si iade edilir.\n• Etkinliğe 3 günden az süre kala yapılan iptallerde: İade yapılmaz.\n• Hizmet bedeli (bilet fiyatının %5'i) hiçbir koşulda iade edilmez.\n\nİade işlemleri, iptal talebinin onaylanmasından itibaren 14 iş günü içinde orijinal ödeme yöntemine yapılır.",
       "section3Title": "Etkinlik İptali veya Ertelemesi",
       "section3Content": "Organizatör tarafından iptal edilen etkinliklerde, bilet bedelinin tamamı (hizmet bedeli dahil) iade edilir. İade işlemi otomatik olarak başlatılır ve 14 iş günü içinde tamamlanır.\n\nEtkinliğin ertelenmesi durumunda:\n• Yeni tarih için biletiniz geçerli olmaya devam eder.\n• Yeni tarih size uygun değilse, erteleme duyurusundan itibaren 7 gün içinde tam iade talep edebilirsiniz.\n• 7 gün içinde iade talep edilmezse, bilet yeni tarih için geçerli kabul edilir.",
       "section4Title": "Bilet Devri",
-      "section4Content": "Satın alınan biletler, etkinlik tarihinden en geç 24 saat öncesine kadar başka bir kişiye devredilebilir.\n\n• Bilet devri PULSE platformu üzerindeki 'Biletlerim' bölümünden yapılabilir.\n• Devir işlemi için devralacak kişinin ad, soyad ve e-posta bilgileri gereklidir.\n• Devir işlemi ücretsizdir.\n• Devredilen biletler için iade talebi, yeni bilet sahibi tarafından yapılmalıdır.",
+      "section4Content": "Satın alınan biletler, etkinlik tarihinden en geç 24 saat öncesine kadar başka bir kişiye devredilebilir.\n\n• Bilet devri PORTAL platformu üzerindeki 'Biletlerim' bölümünden yapılabilir.\n• Devir işlemi için devralacak kişinin ad, soyad ve e-posta bilgileri gereklidir.\n• Devir işlemi ücretsizdir.\n• Devredilen biletler için iade talebi, yeni bilet sahibi tarafından yapılmalıdır.",
       "section5Title": "Mücbir Sebepler",
-      "section5Content": "Doğal afet, salgın hastalık, savaş, terör, hükümet kararları veya benzeri mücbir sebep halleri nedeniyle etkinliğin iptal edilmesi durumunda, bilet bedelinin tamamı iade edilir.\n\nMücbir sebep hallerinde iade süreleri, koşullara bağlı olarak uzayabilir. PULSE, bu durumlarda bilet sahiplerini en kısa sürede bilgilendirir.",
+      "section5Content": "Doğal afet, salgın hastalık, savaş, terör, hükümet kararları veya benzeri mücbir sebep halleri nedeniyle etkinliğin iptal edilmesi durumunda, bilet bedelinin tamamı iade edilir.\n\nMücbir sebep hallerinde iade süreleri, koşullara bağlı olarak uzayabilir. PORTAL, bu durumlarda bilet sahiplerini en kısa sürede bilgilendirir.",
       "section6Title": "İletişim",
-      "section6Content": "İptal ve iade talepleriniz için bize aşağıdaki kanallardan ulaşabilirsiniz:\n\n• E-posta: destek@pulse.com.tr\n• Telefon: +90 212 000 00 00 (Hafta içi 09:00-18:00)\n• Platform: Hesabınızdaki 'Biletlerim' bölümünden iptal talebi oluşturabilirsiniz.\n\nTalepleriniz en geç 48 saat içinde değerlendirilir ve sonuçlandırılır.",
-      "footer": "Bu iptal ve iade koşulları, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve ilgili yönetmelikler çerçevesinde hazırlanmıştır. PULSE, bu koşullarda değişiklik yapma hakkını saklı tutar. Güncel koşullar her zaman bu sayfada yayınlanır."
+      "section6Content": "İptal ve iade talepleriniz için bize aşağıdaki kanallardan ulaşabilirsiniz:\n\n• E-posta: destek@portalevents.co\n• Telefon: +90 212 000 00 00 (Hafta içi 09:00-18:00)\n• Platform: Hesabınızdaki 'Biletlerim' bölümünden iptal talebi oluşturabilirsiniz.\n\nTalepleriniz en geç 48 saat içinde değerlendirilir ve sonuçlandırılır.",
+      "footer": "Bu iptal ve iade koşulları, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve ilgili yönetmelikler çerçevesinde hazırlanmıştır. PORTAL, bu koşullarda değişiklik yapma hakkını saklı tutar. Güncel koşullar her zaman bu sayfada yayınlanır."
     }
   },
   "ExploreMapPage": {
