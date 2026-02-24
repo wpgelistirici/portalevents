@@ -134,7 +134,7 @@ function EventDetailPanel({
           </div>
 
           <div className="absolute bottom-2.5 left-3">
-            <span className="text-lg font-bold text-gradient-primary">
+            <span className="text-lg font-bold text-white">
               {event.price}
             </span>
           </div>
@@ -408,7 +408,7 @@ export default function ExploreMapPage() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-gradient-primary flex-shrink-0 mt-0.5">
+                    <span className="text-[11px] font-bold text-white flex-shrink-0 mt-0.5">
                       {event.price}
                     </span>
                   </div>

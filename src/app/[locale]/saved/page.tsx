@@ -272,7 +272,7 @@ function SavedEventCard({
           </span>
         </div>
         <div className="flex items-center justify-between pt-3 border-t border-white/5">
-          <span className="text-sm font-bold text-gradient-primary">{event.price}</span>
+          <span className="text-sm font-bold text-white">{event.price}</span>
           <button
             onClick={onRemove}
             className="flex items-center gap-1.5 text-[10px] text-muted hover:text-red-400 transition-colors"

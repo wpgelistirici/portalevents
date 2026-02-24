@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PORTAL — 打开体验之门",
-    "description": "探索活动、关注艺人、加入社区。在体验的中心相遇。"
+    "title": "PORTAL — 身临其境",
+    "description": "探索活动、关注艺人、加入社区。身临其境。"
   },
   "Navbar": {
     "events": "活动",
@@ -18,12 +18,12 @@
     "logout": "退出登录"
   },
   "Hero": {
-    "line1": "打开",
-    "line2": "体验",
-    "line3": "之门",
+    "line1": "身临",
+    "line2": "其境",
+    "line3": "",
     "liveBadge": "1,234 场活动正在进行",
     "subtitle": "探索活动、关注艺人、加入社区。",
-    "subtitleHighlight": "在体验的中心相遇。",
+    "subtitleHighlight": "身临其境。",
     "searchPlaceholder": "搜索活动、艺人或场地...",
     "searchClear": "清除",
     "searchEvents": "活动",
@@ -57,16 +57,16 @@
   },
   "VenueSpotlight": {
     "label": "场馆",
-    "titleLine1": "体验",
-    "titleLine2": "绽放的",
+    "titleLine1": "你将",
+    "titleLine2": "身临其境的",
     "titleLine3": "地方",
     "viewAll": "查看所有场馆",
     "capacity": "容量"
   },
   "CommunityPreview": {
     "label": "社区",
-    "titleLine1": "一起体验",
-    "titleLine2": "活动的人们",
+    "titleLine1": "一起在场的",
+    "titleLine2": "人们",
     "stats": {
       "members": "活跃会员",
       "posts": "每日帖子",
@@ -123,11 +123,11 @@
   },
   "Footer": {
     "newsletterTitle": "不要错过",
-    "newsletterTitleHighlight": "新的体验",
+    "newsletterTitleHighlight": "每一刻",
     "newsletterDescription": "订阅我们的通讯，获取新活动、独家优惠和社区新闻。",
     "emailPlaceholder": "你的电子邮箱",
     "subscribe": "订阅",
-    "brandDescription": "在体验的中心相遇。探索活动、关注艺人、加入社区。",
+    "brandDescription": "身临其境。探索活动、关注艺人、加入社区。",
     "explore": "探索",
     "platform": "平台",
     "support": "支持",
@@ -241,7 +241,7 @@
   "AuthModal": {
     "loginTitle": "欢迎回来",
     "registerTitle": "加入我们",
-    "loginSubtitle": "继续探索精彩体验",
+    "loginSubtitle": "继续身临其境",
     "registerSubtitle": "与成千上万的活动爱好者相遇",
     "or": "或",
     "fullName": "全名",

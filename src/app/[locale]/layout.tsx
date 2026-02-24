@@ -26,9 +26,9 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "PORTAL — Deneyimin Kapısını Aç",
+  title: "PORTAL — Orada Ol",
   description:
-    "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Deneyimin merkezinde buluş.",
+    "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Orada ol.",
   keywords: [
     "etkinlik",
     "deneyim",

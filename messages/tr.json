@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PORTAL — Deneyimin Kapısını Aç",
-    "description": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Deneyimin merkezinde buluş."
+    "title": "PORTAL — Orada Ol",
+    "description": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Orada ol."
   },
   "Navbar": {
     "events": "Etkinlikler",
@@ -17,12 +17,12 @@
     "logout": "Çıkış Yap"
   },
   "Hero": {
-    "line1": "Deneyimin",
-    "line2": "Kapısını",
-    "line3": "Aç",
+    "line1": "Orada",
+    "line2": "Ol",
+    "line3": "",
     "liveBadge": "Şu an 1,234 canlı etkinlik",
     "subtitle": "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
-    "subtitleHighlight": "Deneyimin merkezinde buluş.",
+    "subtitleHighlight": "Orada ol.",
     "searchPlaceholder": "Etkinlik, sanatçı veya mekan ara...",
     "searchClear": "Temizle",
     "searchEvents": "Etkinlikler",
@@ -54,16 +54,16 @@
   },
   "VenueSpotlight": {
     "label": "Mekanlar",
-    "titleLine1": "Deneyimin",
-    "titleLine2": "yaşandığı",
-    "titleLine3": "mekanlar",
+    "titleLine1": "Orada olacağın",
+    "titleLine2": "mekanları",
+    "titleLine3": "keşfet",
     "viewAll": "Tüm mekanları gör",
     "capacity": "kişilik"
   },
   "CommunityPreview": {
     "label": "Topluluk",
-    "titleLine1": "Deneyimi birlikte",
-    "titleLine2": "yaşayanlar",
+    "titleLine1": "Birlikte orada",
+    "titleLine2": "olanlar",
     "stats": {
       "members": "Aktif Üye",
       "posts": "Günlük Paylaşım",
@@ -119,12 +119,12 @@
     "googlePlayLine2": "İndir"
   },
   "Footer": {
-    "newsletterTitle": "Yeni deneyimleri",
+    "newsletterTitle": "Anı",
     "newsletterTitleHighlight": "kaçırma",
     "newsletterDescription": "Yeni etkinlikler, özel fırsatlar ve topluluk haberleri için bültenimize abone ol.",
     "emailPlaceholder": "E-posta adresin",
     "subscribe": "Abone Ol",
-    "brandDescription": "Deneyimin merkezinde buluş. Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
+    "brandDescription": "Orada ol. Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl.",
     "explore": "Keşfet",
     "platform": "Platform",
     "support": "Destek",
@@ -212,7 +212,7 @@
   "AuthModal": {
     "loginTitle": "Tekrar hoş geldin",
     "registerTitle": "Aramıza katıl",
-    "loginSubtitle": "Deneyimleri keşfetmeye devam et",
+    "loginSubtitle": "Orada olmaya devam et",
     "registerSubtitle": "Binlerce etkinlik tutkunuyla buluş",
     "or": "veya",
     "fullName": "Ad Soyad",

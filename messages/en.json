@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "PORTAL — Open the Door to Experience",
-    "description": "Discover events, follow artists, join the community. Meet at the center of experience."
+    "title": "PORTAL — Be There",
+    "description": "Discover events, follow artists, join the community. Be there."
   },
   "Navbar": {
     "events": "Events",
@@ -17,12 +17,12 @@
     "logout": "Sign Out"
   },
   "Hero": {
-    "line1": "Open the",
-    "line2": "Door to",
-    "line3": "Experience",
+    "line1": "Be",
+    "line2": "There",
+    "line3": "",
     "liveBadge": "1,234 live events right now",
     "subtitle": "Discover events, follow artists, join the community.",
-    "subtitleHighlight": "Meet at the center of experience.",
+    "subtitleHighlight": "Be there.",
     "searchPlaceholder": "Search events, artists or venues...",
     "searchClear": "Clear",
     "searchEvents": "Events",
@@ -54,16 +54,16 @@
   },
   "VenueSpotlight": {
     "label": "Venues",
-    "titleLine1": "Where",
-    "titleLine2": "experiences",
-    "titleLine3": "come alive",
+    "titleLine1": "Where you'll",
+    "titleLine2": "be",
+    "titleLine3": "there",
     "viewAll": "View all venues",
     "capacity": "capacity"
   },
   "CommunityPreview": {
     "label": "Community",
-    "titleLine1": "Those who experience",
-    "titleLine2": "events together",
+    "titleLine1": "Those who are",
+    "titleLine2": "there together",
     "stats": {
       "members": "Active Members",
       "posts": "Daily Posts",
@@ -120,11 +120,11 @@
   },
   "Footer": {
     "newsletterTitle": "Don't miss",
-    "newsletterTitleHighlight": "new experiences",
+    "newsletterTitleHighlight": "being there",
     "newsletterDescription": "Subscribe to our newsletter for new events, exclusive offers, and community news.",
     "emailPlaceholder": "Your email address",
     "subscribe": "Subscribe",
-    "brandDescription": "Meet at the center of experience. Discover events, follow artists, join the community.",
+    "brandDescription": "Be there. Discover events, follow artists, join the community.",
     "explore": "Explore",
     "platform": "Platform",
     "support": "Support",
@@ -212,7 +212,7 @@
   "AuthModal": {
     "loginTitle": "Welcome back",
     "registerTitle": "Join us",
-    "loginSubtitle": "Continue discovering experiences",
+    "loginSubtitle": "Continue being there",
     "registerSubtitle": "Meet thousands of event enthusiasts",
     "or": "or",
     "fullName": "Full Name",

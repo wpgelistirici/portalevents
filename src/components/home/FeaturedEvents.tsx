@@ -229,7 +229,7 @@ export default function FeaturedEvents() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold text-gradient-primary">
+                      <span className="text-lg font-bold text-white">
                         {event.price}
                       </span>
                       <span className="flex items-center gap-1 text-xs text-muted group-hover:text-primary transition-colors">

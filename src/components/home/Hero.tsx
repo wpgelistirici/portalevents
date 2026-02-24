@@ -176,7 +176,7 @@ function HeroSearch() {
                         {event.artist} &middot; {event.date}
                       </p>
                     </div>
-                    <span className="text-xs text-primary font-medium flex-shrink-0">
+                    <span className="text-xs text-white font-medium flex-shrink-0">
                       {event.price}
                     </span>
                   </Link>

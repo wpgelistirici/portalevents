@@ -1258,7 +1258,7 @@ function SimilarEvents({
                     <Calendar size={11} className="text-primary" />
                     {event.date}
                   </div>
-                  <span className="text-sm font-bold text-gradient-primary">
+                  <span className="text-sm font-bold text-white">
                     {event.price}
                   </span>
                 </div>
