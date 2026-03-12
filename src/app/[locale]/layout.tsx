@@ -7,6 +7,7 @@ import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import { AuthProvider } from "@/lib/auth-context";
 import { SavedProvider } from "@/lib/saved-context";
 import { OrganizerProvider } from "@/lib/organizer-context";
+import { ThemeProvider } from "@/lib/theme-context";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -57,18 +58,25 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('portal-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased bg-background text-foreground`}
       >
         <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            <SavedProvider>
-              <OrganizerProvider>
-                {children}
-              </OrganizerProvider>
-            </SavedProvider>
-          </AuthProvider>
+          <ThemeProvider>
+            <AuthProvider>
+              <SavedProvider>
+                <OrganizerProvider>{children}</OrganizerProvider>
+              </SavedProvider>
+            </AuthProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -144,11 +144,11 @@ export default function CustomSelect({
         }}
         className={`w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border text-left transition-all duration-200 ${
           isOpen
-            ? "bg-white/[0.07] border-[#7B61FF]/50 shadow-[0_0_0_1px_rgba(123,97,255,0.15)]"
-            : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.07]"
+            ? "bg-foreground/[0.07] border-[#7B61FF]/50 shadow-[0_0_0_1px_rgba(123,97,255,0.15)]"
+            : "bg-foreground/5 border-foreground/10 hover:border-foreground/20 hover:bg-foreground/[0.07]"
         } ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
       >
-        <span className={selectedOption ? "text-white text-sm" : "text-white/30 text-sm"}>
+        <span className={selectedOption ? "text-foreground text-sm" : "text-foreground/30 text-sm"}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -159,13 +159,13 @@ export default function CustomSelect({
                 onChange("");
                 setSearch("");
               }}
-              className="p-0.5 rounded-md hover:bg-white/10 text-white/30 hover:text-white/60 transition-colors"
+              className="p-0.5 rounded-md hover:bg-foreground/10 text-foreground/30 hover:text-foreground/60 transition-colors"
             >
               <X className="w-3.5 h-3.5" />
             </span>
           )}
           <ChevronDown
-            className={`w-4 h-4 text-white/30 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+            className={`w-4 h-4 text-foreground/30 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
           />
         </div>
       </button>
@@ -178,13 +178,13 @@ export default function CustomSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute z-50 w-full mt-2 rounded-xl border border-white/10 bg-[#0a0a0a]/95 backdrop-blur-2xl shadow-[0_16px_48px_rgba(0,0,0,0.5)] overflow-hidden"
+            className="absolute z-50 w-full mt-2 rounded-xl border border-foreground/10 bg-surface/95 backdrop-blur-2xl shadow-[0_16px_48px_rgba(0,0,0,0.5)] overflow-hidden"
           >
             {/* Search */}
             {searchable && options.length > 5 && (
-              <div className="p-2 border-b border-white/5">
+              <div className="p-2 border-b border-foreground/5">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-foreground/20" />
                   <input
                     ref={searchInputRef}
                     type="text"
@@ -194,7 +194,7 @@ export default function CustomSelect({
                       setHighlightedIndex(0);
                     }}
                     placeholder={searchPlaceholder}
-                    className="w-full pl-9 pr-3 py-2 rounded-lg bg-white/5 border border-white/5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/10 transition-colors"
+                    className="w-full pl-9 pr-3 py-2 rounded-lg bg-foreground/5 border border-foreground/5 text-sm text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-foreground/10 transition-colors"
                   />
                 </div>
               </div>
@@ -203,7 +203,7 @@ export default function CustomSelect({
             {/* Options List */}
             <div ref={listRef} className="max-h-60 overflow-y-auto p-1.5 scrollbar-hide">
               {filtered.length === 0 ? (
-                <div className="px-4 py-6 text-center text-sm text-white/20">
+                <div className="px-4 py-6 text-center text-sm text-foreground/20">
                   Sonuç bulunamadı
                 </div>
               ) : (
@@ -220,10 +220,10 @@ export default function CustomSelect({
                       onMouseEnter={() => setHighlightedIndex(index)}
                       className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all duration-100 ${
                         isSelected
-                          ? "bg-[#7B61FF]/10 text-white"
+                          ? "bg-[#7B61FF]/10 text-foreground"
                           : isHighlighted
-                            ? "bg-white/[0.06] text-white"
-                            : "text-white/70 hover:text-white"
+                            ? "bg-foreground/[0.06] text-foreground"
+                            : "text-foreground/70 hover:text-foreground"
                       }`}
                     >
                       {/* Icon */}
@@ -237,7 +237,7 @@ export default function CustomSelect({
                           {option.label}
                         </span>
                         {option.description && (
-                          <span className="text-xs text-white/30 block truncate mt-0.5">
+                          <span className="text-xs text-foreground/30 block truncate mt-0.5">
                             {option.description}
                           </span>
                         )}

@@ -29,12 +29,15 @@ export default function VenueSpotlight() {
         <FadeInUp>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">
+              <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
                 {t("label")}
               </span>
               <h2 className="display-lg mt-4">
                 {t("titleLine1")}
-                <span className="text-gradient-multi"> {t("titleLine2")}</span>
+                <span className="text-gradient-primary">
+                  {" "}
+                  {t("titleLine2")}
+                </span>
                 <br />
                 {t("titleLine3")}
               </h2>

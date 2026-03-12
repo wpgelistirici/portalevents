@@ -82,11 +82,11 @@ export default function AdminReportsPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+        <h1 className="text-2xl font-bold text-foreground flex items-center gap-3">
           <BarChart3 className="w-7 h-7 text-red-400" />
           {t("title")}
         </h1>
-        <p className="text-white/40 text-sm mt-1">{t("subtitle")}</p>
+        <p className="text-foreground/40 text-sm mt-1">{t("subtitle")}</p>
       </div>
 
       {/* Top KPIs */}
@@ -102,15 +102,15 @@ export default function AdminReportsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-5"
+            className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-5"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] text-white/40 uppercase tracking-wider">{stat.label}</span>
+              <span className="text-[10px] text-foreground/40 uppercase tracking-wider">{stat.label}</span>
               <div className={`w-9 h-9 rounded-xl ${stat.bg} flex items-center justify-center`}>
                 <stat.icon className={`w-[18px] h-[18px] ${stat.color}`} />
               </div>
             </div>
-            <p className="text-2xl font-bold text-white">{stat.value}</p>
+            <p className="text-2xl font-bold text-foreground">{stat.value}</p>
           </motion.div>
         ))}
       </div>
@@ -121,9 +121,9 @@ export default function AdminReportsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
-          <h3 className="text-sm font-bold text-white mb-5 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-foreground mb-5 flex items-center gap-2">
             <Music className="w-4 h-4 text-red-400" />
             {t("genreDistribution")}
           </h3>
@@ -131,10 +131,10 @@ export default function AdminReportsPage() {
             {genreStats.map((g, i) => (
               <div key={g.genre}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs text-white/70">{g.genre}</span>
-                  <span className="text-xs text-white/40">{g.count} ({g.pct}%)</span>
+                  <span className="text-xs text-foreground/70">{g.genre}</span>
+                  <span className="text-xs text-foreground/40">{g.count} ({g.pct}%)</span>
                 </div>
-                <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${g.pct}%` }}
@@ -152,9 +152,9 @@ export default function AdminReportsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
-          <h3 className="text-sm font-bold text-white mb-5 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-foreground mb-5 flex items-center gap-2">
             <Globe className="w-4 h-4 text-red-400" />
             {t("cityDistribution")}
           </h3>
@@ -162,12 +162,12 @@ export default function AdminReportsPage() {
             {cityStats.map((c, i) => (
               <div key={c.city}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs text-white/70 flex items-center gap-1.5">
-                    <MapPin className="w-3 h-3 text-white/30" /> {c.city}
+                  <span className="text-xs text-foreground/70 flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3 text-foreground/30" /> {c.city}
                   </span>
-                  <span className="text-xs text-white/40">{c.count} ({c.pct}%)</span>
+                  <span className="text-xs text-foreground/40">{c.count} ({c.pct}%)</span>
                 </div>
-                <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${c.pct}%` }}
@@ -185,20 +185,20 @@ export default function AdminReportsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
-          <h3 className="text-sm font-bold text-white mb-5 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-foreground mb-5 flex items-center gap-2">
             <MapPin className="w-4 h-4 text-red-400" />
             {t("topVenues")}
           </h3>
           <div className="space-y-2">
             {venueStats.map((v, i) => (
-              <div key={v.venue} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02]">
-                <span className="w-6 h-6 rounded-lg bg-white/5 flex items-center justify-center text-[10px] font-bold text-white/40">
+              <div key={v.venue} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02]">
+                <span className="w-6 h-6 rounded-lg bg-foreground/5 flex items-center justify-center text-[10px] font-bold text-foreground/40">
                   {i + 1}
                 </span>
-                <span className="text-xs text-white/70 flex-1">{v.venue}</span>
-                <span className="text-xs font-semibold text-white/50">{v.count} {t("eventsLabel")}</span>
+                <span className="text-xs text-foreground/70 flex-1">{v.venue}</span>
+                <span className="text-xs font-semibold text-foreground/50">{v.count} {t("eventsLabel")}</span>
               </div>
             ))}
           </div>
@@ -209,26 +209,26 @@ export default function AdminReportsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
-          <h3 className="text-sm font-bold text-white mb-5 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-foreground mb-5 flex items-center gap-2">
             <Ticket className="w-4 h-4 text-red-400" />
             {t("ticketTypes")}
           </h3>
           {ticketTypeStats.length > 0 ? (
             <div className="space-y-3">
               {ticketTypeStats.map((tt, i) => (
-                <div key={tt.type} className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02]">
+                <div key={tt.type} className="flex items-center justify-between p-3 rounded-xl bg-foreground/[0.02]">
                   <div>
-                    <p className="text-xs font-semibold text-white">{tt.type}</p>
-                    <p className="text-[10px] text-white/30">{tt.count} {t("ticketsSoldLabel")}</p>
+                    <p className="text-xs font-semibold text-foreground">{tt.type}</p>
+                    <p className="text-[10px] text-foreground/30">{tt.count} {t("ticketsSoldLabel")}</p>
                   </div>
                   <p className="text-sm font-bold text-emerald-400">₺{tt.revenue.toLocaleString("tr-TR")}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-white/20 text-center py-6">{t("noTicketData")}</p>
+            <p className="text-xs text-foreground/20 text-center py-6">{t("noTicketData")}</p>
           )}
         </motion.div>
       </div>

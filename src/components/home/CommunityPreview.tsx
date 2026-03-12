@@ -39,20 +39,20 @@ export default function CommunityPreview() {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute bottom-0 left-1/4 w-[700px] h-[700px] rounded-full bg-gold/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[700px] h-[700px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header with nav arrows */}
         <FadeInUp>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">
+              <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
                 {t("label")}
               </span>
               <h2 className="display-lg mt-4">
                 {t("titleLine1")}
                 <br />
-                <span className="text-gradient-gold">{t("titleLine2")}</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h2>
             </div>
             <div className="flex items-center gap-3">
@@ -96,7 +96,7 @@ export default function CommunityPreview() {
               >
                 {/* Quote icon */}
                 <div>
-                  <Quote size={20} className="text-gold/30 mb-4" />
+                  <Quote size={20} className="text-primary/30 mb-4" />
                   <p className="text-sm text-foreground/80 leading-relaxed mb-6">
                     {post.content}
                   </p>
@@ -104,7 +104,7 @@ export default function CommunityPreview() {
 
                 {/* User + actions */}
                 <div>
-                  <div className="flex items-center gap-6 pb-4 mb-4 border-b border-white/5">
+                  <div className="flex items-center gap-6 pb-4 mb-4 border-b border-foreground/5">
                     <span className="flex items-center gap-1.5 text-xs text-muted">
                       <Heart size={13} className="text-primary" />
                       {post.likes}
@@ -115,7 +115,7 @@ export default function CommunityPreview() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-gold/20">
+                    <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary/20">
                       <Image
                         src={post.avatar}
                         alt={post.user}
@@ -142,7 +142,7 @@ export default function CommunityPreview() {
         <div className="max-w-7xl mx-auto px-6 mt-16">
           <div className="relative rounded-2xl overflow-hidden">
             {/* BG */}
-            <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-surface to-gold/5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-surface to-primary/5" />
             <div
               className="absolute inset-0 opacity-[0.04]"
               style={{
@@ -150,15 +150,18 @@ export default function CommunityPreview() {
                 backgroundSize: "20px 20px",
               }}
             />
-            <div className="absolute inset-0 rounded-2xl border border-gold/10" />
+            <div className="absolute inset-0 rounded-2xl border border-primary/10" />
 
             <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
               {/* Stats */}
               <div className="flex items-center gap-8 md:gap-10">
                 {statIcons.map((stat, i) => (
                   <div key={i} className="text-center">
-                    <stat.icon size={18} className="text-gold mx-auto mb-2" />
-                    <div className="text-xl md:text-2xl font-bold text-gradient-gold">
+                    <stat.icon
+                      size={18}
+                      className="text-primary mx-auto mb-2"
+                    />
+                    <div className="text-xl md:text-2xl font-bold text-gradient-primary">
                       {stat.value}
                     </div>
                     <div className="text-[10px] text-muted uppercase tracking-wider mt-0.5">
@@ -169,7 +172,7 @@ export default function CommunityPreview() {
               </div>
 
               {/* Divider */}
-              <div className="hidden md:block w-px h-20 bg-gold/10" />
+              <div className="hidden md:block w-px h-20 bg-primary/10" />
 
               {/* CTA */}
               <div className="flex-1 text-center md:text-left">
@@ -179,7 +182,7 @@ export default function CommunityPreview() {
                 <p className="text-xs text-muted mb-5 max-w-sm">
                   {t("ctaDescription")}
                 </p>
-                <MagneticButton className="px-7 py-3 bg-gold/15 text-gold text-xs font-semibold rounded-full hover:bg-gold/25 transition-all duration-300 border border-gold/20">
+                <MagneticButton className="px-7 py-3 bg-primary/15 text-primary text-xs font-semibold rounded-full hover:bg-primary/25 transition-all duration-300 border border-primary/20">
                   <span className="flex items-center gap-2">
                     {t("ctaButton")}
                     <ArrowRight size={13} />

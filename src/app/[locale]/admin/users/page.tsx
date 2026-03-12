@@ -116,22 +116,22 @@ export default function AdminUsersPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+        <h1 className="text-2xl font-bold text-foreground flex items-center gap-3">
           <Users className="w-7 h-7 text-red-400" />
           {t("title")}
         </h1>
-        <p className="text-white/40 text-sm mt-1">{t("subtitle")}</p>
+        <p className="text-foreground/40 text-sm mt-1">{t("subtitle")}</p>
       </div>
 
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={t("searchPlaceholder")}
-          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-red-500/50 text-sm"
+          className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-red-500/50 text-sm"
         />
       </div>
 
@@ -144,13 +144,13 @@ export default function AdminUsersPage() {
             className={`rounded-2xl border p-4 text-left transition-all ${
               roleFilter === tab.key
                 ? "bg-red-500/5 border-red-500/20"
-                : "bg-white/[0.02] border-white/[0.06] hover:border-white/10"
+                : "bg-foreground/[0.02] border-foreground/[0.06] hover:border-foreground/10"
             }`}
           >
-            <p className="text-[10px] text-white/40 uppercase tracking-wider mb-1">
+            <p className="text-[10px] text-foreground/40 uppercase tracking-wider mb-1">
               {tab.key === "all" ? t("filterAll") : t(`role_${tab.key}`)}
             </p>
-            <p className="text-2xl font-bold text-white">{tab.count}</p>
+            <p className="text-2xl font-bold text-foreground">{tab.count}</p>
           </button>
         ))}
       </div>
@@ -158,35 +158,35 @@ export default function AdminUsersPage() {
       {/* Users List */}
       {filtered.length === 0 ? (
         <div className="text-center py-16">
-          <Users className="w-12 h-12 text-white/10 mx-auto mb-4" />
-          <p className="text-white/30 text-sm">{t("noUsers")}</p>
+          <Users className="w-12 h-12 text-foreground/10 mx-auto mb-4" />
+          <p className="text-foreground/30 text-sm">{t("noUsers")}</p>
         </div>
       ) : (
         <div className="space-y-2">
           {filtered.map((u) => {
             const isExpanded = expandedId === u.id;
             return (
-              <div key={u.id} className="rounded-xl bg-white/[0.02] border border-white/[0.06] overflow-hidden">
+              <div key={u.id} className="rounded-xl bg-foreground/[0.02] border border-foreground/[0.06] overflow-hidden">
                 <button
                   onClick={() => setExpandedId(isExpanded ? null : u.id)}
-                  className="w-full flex items-center gap-4 p-4 hover:bg-white/[0.02] transition-colors text-left"
+                  className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left"
                 >
                   <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/10 flex-shrink-0">
                     <Image src={u.avatar} alt={u.name} fill className="object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <p className="text-sm font-semibold text-white truncate">{u.name}</p>
+                      <p className="text-sm font-semibold text-foreground truncate">{u.name}</p>
                       {roleBadge(u.role)}
                     </div>
-                    <p className="text-[11px] text-white/30 flex items-center gap-1">
+                    <p className="text-[11px] text-foreground/30 flex items-center gap-1">
                       <Mail className="w-3 h-3" /> {u.email}
                     </p>
                   </div>
                   {isExpanded ? (
-                    <ChevronUp className="w-4 h-4 text-white/20 flex-shrink-0" />
+                    <ChevronUp className="w-4 h-4 text-foreground/20 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-white/20 flex-shrink-0" />
+                    <ChevronDown className="w-4 h-4 text-foreground/20 flex-shrink-0" />
                   )}
                 </button>
 
@@ -199,25 +199,25 @@ export default function AdminUsersPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-4 pb-4 space-y-3">
-                        <div className="h-px bg-white/5" />
+                        <div className="h-px bg-foreground/5" />
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("emailLabel")}</p>
-                            <p className="text-white/70">{u.email}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("emailLabel")}</p>
+                            <p className="text-foreground/70">{u.email}</p>
                           </div>
                           {u.phone && (
                             <div>
-                              <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("phone")}</p>
-                              <p className="text-white/70">{u.phone}</p>
+                              <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("phone")}</p>
+                              <p className="text-foreground/70">{u.phone}</p>
                             </div>
                           )}
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("role")}</p>
-                            <p className="text-white/70">{t(`role_${u.role}`)}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("role")}</p>
+                            <p className="text-foreground/70">{t(`role_${u.role}`)}</p>
                           </div>
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">ID</p>
-                            <p className="text-white/40 text-xs font-mono">{u.id}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">ID</p>
+                            <p className="text-foreground/40 text-xs font-mono">{u.id}</p>
                           </div>
                         </div>
                         {u.organizerProfile && (
@@ -230,9 +230,9 @@ export default function AdminUsersPage() {
                                 </div>
                               )}
                               <div>
-                                <p className="text-xs font-semibold text-white">{u.organizerProfile.organizerName}</p>
+                                <p className="text-xs font-semibold text-foreground">{u.organizerProfile.organizerName}</p>
                                 {u.organizerProfile.organizerDescription && (
-                                  <p className="text-[10px] text-white/40 mt-0.5 line-clamp-2">{u.organizerProfile.organizerDescription}</p>
+                                  <p className="text-[10px] text-foreground/40 mt-0.5 line-clamp-2">{u.organizerProfile.organizerDescription}</p>
                                 )}
                               </div>
                             </div>

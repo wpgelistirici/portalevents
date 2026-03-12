@@ -49,18 +49,18 @@ export default function OrganizerSidebar() {
   const basePath = `/${locale}/organizer`;
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-white/10 bg-black/40 backdrop-blur-xl flex flex-col">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-foreground/10 bg-black/40 backdrop-blur-xl flex flex-col">
       {/* Header */}
-      <div className="p-6 border-b border-white/10">
-        <Link href={`/${locale}`} className="flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-4">
+      <div className="p-6 border-b border-foreground/10">
+        <Link href={`/${locale}`} className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors mb-4">
           <ChevronLeft className="w-4 h-4" />
           <span className="text-sm">{t("backToSite")}</span>
         </Link>
-        <h1 className="text-lg font-bold text-white">
+        <h1 className="text-lg font-bold text-foreground">
           {t("panelTitle")}
         </h1>
         {user?.organizerProfile && (
-          <p className="text-sm text-white/50 mt-1">{user.organizerProfile.organizerName}</p>
+          <p className="text-sm text-foreground/50 mt-1">{user.organizerProfile.organizerName}</p>
         )}
       </div>
 
@@ -79,8 +79,8 @@ export default function OrganizerSidebar() {
               href={href}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                 isActive
-                  ? "bg-white/10 text-white border border-white/10"
-                  : "text-white/60 hover:text-white hover:bg-white/5"
+                  ? "bg-foreground/10 text-foreground border border-foreground/10"
+                  : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
               }`}
             >
               <item.icon className={`w-5 h-5 ${isActive ? "text-[#7B61FF]" : ""}`} />
@@ -96,22 +96,22 @@ export default function OrganizerSidebar() {
       </nav>
 
       {/* User Footer */}
-      <div className="p-4 border-t border-white/10">
+      <div className="p-4 border-t border-foreground/10">
         <div className="flex items-center gap-3 px-4 py-3">
-          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+          <div className="w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center overflow-hidden">
             {user?.avatar ? (
               <img src={user.avatar} alt="" className="w-full h-full object-cover" />
             ) : (
-              <User className="w-4 h-4 text-white/60" />
+              <User className="w-4 h-4 text-foreground/60" />
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-white truncate">{user?.name}</p>
-            <p className="text-xs text-white/40 truncate">{user?.email}</p>
+            <p className="text-sm font-medium text-foreground truncate">{user?.name}</p>
+            <p className="text-xs text-foreground/40 truncate">{user?.email}</p>
           </div>
           <button
             onClick={logout}
-            className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-2 rounded-lg text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors"
             title={t("logout")}
           >
             <LogOut className="w-4 h-4" />

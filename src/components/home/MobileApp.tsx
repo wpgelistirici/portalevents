@@ -38,7 +38,7 @@ export default function MobileApp() {
               {/* Phone frame */}
               <div className="relative w-[280px] md:w-[300px]">
                 {/* Phone body */}
-                <div className="relative rounded-[40px] border-[6px] border-white/10 bg-surface overflow-hidden shadow-2xl shadow-black/50">
+                <div className="relative rounded-[40px] border-[6px] border-foreground/10 bg-surface overflow-hidden shadow-2xl shadow-black/50">
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-20" />
 
@@ -62,8 +62,8 @@ export default function MobileApp() {
                             <div className="w-2 h-2 rounded-full bg-primary" />
                           </div>
                           <div>
-                            <div className="w-24 h-2 bg-white/20 rounded-full" />
-                            <div className="w-16 h-1.5 bg-white/10 rounded-full mt-1.5" />
+                            <div className="w-24 h-2 bg-foreground/20 rounded-full" />
+                            <div className="w-16 h-1.5 bg-foreground/10 rounded-full mt-1.5" />
                           </div>
                         </div>
                         <div className="w-full h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full" />
@@ -71,9 +71,9 @@ export default function MobileApp() {
                       <div className="glass-strong rounded-2xl p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-6 h-6 rounded-full bg-accent/20" />
-                          <div className="w-20 h-2 bg-white/20 rounded-full" />
+                          <div className="w-20 h-2 bg-foreground/20 rounded-full" />
                         </div>
-                        <div className="w-full h-16 rounded-xl bg-white/5" />
+                        <div className="w-full h-16 rounded-xl bg-foreground/5" />
                       </div>
                     </div>
                   </div>
@@ -129,8 +129,8 @@ export default function MobileApp() {
             <FadeInUp>
               <div className="flex items-center gap-2 mb-6">
                 <div className="flex items-center gap-2 glass rounded-full px-4 py-2">
-                  <Smartphone size={14} className="text-accent" />
-                  <span className="text-xs font-semibold text-accent">
+                  <Smartphone size={14} className="text-primary" />
+                  <span className="text-xs font-semibold text-primary">
                     {t("badge")}
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export default function MobileApp() {
               <h2 className="display-md mb-6">
                 {t("titleLine1")}
                 <br />
-                <span className="text-gradient-multi">{t("titleLine2")}</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h2>
             </FadeInUp>
 
@@ -156,7 +156,7 @@ export default function MobileApp() {
               {featureIcons.map((feature, i) => (
                 <FadeInUp key={i} delay={0.25 + i * 0.08}>
                   <motion.div
-                    className="glass rounded-xl p-4 group hover:bg-white/[0.04] transition-colors duration-300"
+                    className="glass rounded-xl p-4 group hover:bg-foreground/[0.04] transition-colors duration-300"
                     whileHover={{ y: -2 }}
                     data-cursor-hover
                   >
@@ -181,7 +181,7 @@ export default function MobileApp() {
             {/* Store buttons */}
             <FadeInUp delay={0.6}>
               <div className="flex flex-wrap gap-3">
-                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-white/[0.06] transition-colors">
+                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors">
                   <Apple size={22} />
                   <div className="text-left">
                     <div className="text-[9px] text-muted leading-none">
@@ -193,7 +193,7 @@ export default function MobileApp() {
                   </div>
                 </MagneticButton>
 
-                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-white/[0.06] transition-colors">
+                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors">
                   <Play size={22} fill="currentColor" />
                   <div className="text-left">
                     <div className="text-[9px] text-muted leading-none">

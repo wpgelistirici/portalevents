@@ -76,7 +76,7 @@ export default function AdminEventsPage() {
 
   const statusBadge = (status: EventStatus) => {
     const map: Record<EventStatus, { bg: string; text: string; label: string }> = {
-      draft: { bg: "bg-white/10", text: "text-white/50", label: t("statusDraft") },
+      draft: { bg: "bg-foreground/10", text: "text-foreground/50", label: t("statusDraft") },
       pending_approval: { bg: "bg-amber-500/10", text: "text-amber-400", label: t("statusPending") },
       approved: { bg: "bg-emerald-500/10", text: "text-emerald-400", label: t("statusApproved") },
       rejected: { bg: "bg-red-500/10", text: "text-red-400", label: t("statusRejected") },
@@ -102,23 +102,23 @@ export default function AdminEventsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+        <h1 className="text-2xl font-bold text-foreground flex items-center gap-3">
           <CalendarCheck className="w-7 h-7 text-red-400" />
           {t("title")}
         </h1>
-        <p className="text-white/40 text-sm mt-1">{t("subtitle")}</p>
+        <p className="text-foreground/40 text-sm mt-1">{t("subtitle")}</p>
       </div>
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-red-500/50 text-sm"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-red-500/50 text-sm"
           />
         </div>
       </div>
@@ -132,11 +132,11 @@ export default function AdminEventsPage() {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-colors ${
               statusFilter === tab.key
                 ? "bg-red-500/10 text-red-400 border border-red-500/20"
-                : "bg-white/[0.03] text-white/40 border border-white/[0.06] hover:text-white/60"
+                : "bg-foreground/[0.03] text-foreground/40 border border-foreground/[0.06] hover:text-foreground/60"
             }`}
           >
             {tab.key === "all" ? t("filterAll") : tab.key === "pending_approval" ? t("filterPending") : tab.key === "approved" ? t("filterApproved") : tab.key === "rejected" ? t("filterRejected") : t("filterDraft")}
-            <span className={`min-w-[18px] h-[18px] flex items-center justify-center px-1 rounded-full text-[9px] font-bold ${statusFilter === tab.key ? "bg-red-500/20" : "bg-white/5"}`}>
+            <span className={`min-w-[18px] h-[18px] flex items-center justify-center px-1 rounded-full text-[9px] font-bold ${statusFilter === tab.key ? "bg-red-500/20" : "bg-foreground/5"}`}>
               {tab.count}
             </span>
           </button>
@@ -146,8 +146,8 @@ export default function AdminEventsPage() {
       {/* Events List */}
       {filtered.length === 0 ? (
         <div className="text-center py-16">
-          <CalendarCheck className="w-12 h-12 text-white/10 mx-auto mb-4" />
-          <p className="text-white/30 text-sm">{t("noEvents")}</p>
+          <CalendarCheck className="w-12 h-12 text-foreground/10 mx-auto mb-4" />
+          <p className="text-foreground/30 text-sm">{t("noEvents")}</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -157,22 +157,22 @@ export default function AdminEventsPage() {
               <motion.div
                 key={event.id}
                 layout
-                className="rounded-xl bg-white/[0.02] border border-white/[0.06] overflow-hidden"
+                className="rounded-xl bg-foreground/[0.02] border border-foreground/[0.06] overflow-hidden"
               >
                 {/* Row */}
                 <button
                   onClick={() => setExpandedId(isExpanded ? null : event.id)}
-                  className="w-full flex items-center gap-4 p-4 hover:bg-white/[0.02] transition-colors text-left"
+                  className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left"
                 >
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
                     <Image src={event.image} alt={event.title} fill className="object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <p className="text-sm font-semibold text-white truncate">{event.title}</p>
+                      <p className="text-sm font-semibold text-foreground truncate">{event.title}</p>
                       {statusBadge(event.status)}
                     </div>
-                    <div className="flex items-center gap-3 text-[11px] text-white/30">
+                    <div className="flex items-center gap-3 text-[11px] text-foreground/30">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3 h-3" /> {event.venue}
                       </span>
@@ -198,7 +198,7 @@ export default function AdminEventsPage() {
                         </button>
                       </>
                     )}
-                    <ChevronDown className={`w-4 h-4 text-white/20 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 text-foreground/20 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
                   </div>
                 </button>
 
@@ -212,28 +212,28 @@ export default function AdminEventsPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-4 pb-4 space-y-3">
-                        <div className="h-px bg-white/5" />
+                        <div className="h-px bg-foreground/5" />
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("genre")}</p>
-                            <p className="text-white/70">{event.genre}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("genre")}</p>
+                            <p className="text-foreground/70">{event.genre}</p>
                           </div>
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("city")}</p>
-                            <p className="text-white/70">{event.city}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("city")}</p>
+                            <p className="text-foreground/70">{event.city}</p>
                           </div>
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("price")}</p>
-                            <p className="text-white/70">{event.price}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("price")}</p>
+                            <p className="text-foreground/70">{event.price}</p>
                           </div>
                           <div>
-                            <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("time")}</p>
-                            <p className="text-white/70">{event.time}</p>
+                            <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("time")}</p>
+                            <p className="text-foreground/70">{event.time}</p>
                           </div>
                         </div>
                         <div>
-                          <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{t("artist")}</p>
-                          <p className="text-white/70 text-sm">{event.artist}</p>
+                          <p className="text-[10px] text-foreground/30 uppercase tracking-wider mb-1">{t("artist")}</p>
+                          <p className="text-foreground/70 text-sm">{event.artist}</p>
                         </div>
                         {event.status === "pending_approval" && (
                           <div className="flex gap-2 pt-2">
@@ -289,9 +289,9 @@ export default function AdminEventsPage() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-md rounded-2xl bg-[#0A0A0B] border border-white/10 p-6"
+              className="relative w-full max-w-md rounded-2xl bg-surface border border-foreground/10 p-6"
             >
-              <button onClick={() => setShowRejectModal(null)} className="absolute top-4 right-4 text-white/30 hover:text-white">
+              <button onClick={() => setShowRejectModal(null)} className="absolute top-4 right-4 text-foreground/30 hover:text-foreground">
                 <X className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-3 mb-4">
@@ -299,8 +299,8 @@ export default function AdminEventsPage() {
                   <XCircle className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">{t("rejectTitle")}</h3>
-                  <p className="text-[11px] text-white/40">{t("rejectDesc")}</p>
+                  <h3 className="text-sm font-bold text-foreground">{t("rejectTitle")}</h3>
+                  <p className="text-[11px] text-foreground/40">{t("rejectDesc")}</p>
                 </div>
               </div>
               <textarea
@@ -308,18 +308,18 @@ export default function AdminEventsPage() {
                 onChange={(e) => setRejectReason(e.target.value)}
                 placeholder={t("rejectReasonPlaceholder")}
                 rows={3}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-red-500/50 resize-none mb-4"
+                className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm placeholder:text-foreground/30 focus:outline-none focus:border-red-500/50 resize-none mb-4"
               />
               <div className="flex gap-2 justify-end">
                 <button
                   onClick={() => setShowRejectModal(null)}
-                  className="px-4 py-2 rounded-xl text-xs font-medium text-white/50 hover:text-white transition-colors"
+                  className="px-4 py-2 rounded-xl text-xs font-medium text-foreground/50 hover:text-foreground transition-colors"
                 >
                   {t("cancel")}
                 </button>
                 <button
                   onClick={() => handleReject(showRejectModal)}
-                  className="px-4 py-2 rounded-xl bg-red-500 text-white text-xs font-semibold hover:bg-red-600 transition-colors"
+                  className="px-4 py-2 rounded-xl bg-red-500 text-foreground text-xs font-semibold hover:bg-red-600 transition-colors"
                 >
                   {t("confirmReject")}
                 </button>

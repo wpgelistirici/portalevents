@@ -31,11 +31,11 @@ export default function OrganizerDashboard() {
   const recentLogs = validationLogs.slice(0, 5);
 
   const statusColors: Record<string, string> = {
-    draft: "text-white/50 bg-white/5",
+    draft: "text-foreground/50 bg-foreground/5",
     pending_approval: "text-yellow-400 bg-yellow-400/10",
     approved: "text-green-400 bg-green-400/10",
     rejected: "text-red-400 bg-red-400/10",
-    cancelled: "text-white/30 bg-white/5",
+    cancelled: "text-foreground/30 bg-foreground/5",
   };
 
   const actionIcons: Record<string, React.ReactNode> = {
@@ -49,8 +49,8 @@ export default function OrganizerDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">{t("dashboard.title")}</h1>
-          <p className="text-white/50 mt-1">
+          <h1 className="text-3xl font-bold text-foreground">{t("dashboard.title")}</h1>
+          <p className="text-foreground/50 mt-1">
             {t("dashboard.welcome", { name: user?.name || "" })}
           </p>
         </div>
@@ -77,12 +77,12 @@ export default function OrganizerDashboard() {
               </h3>
               <div className="mt-2 space-y-1">
                 {pendingEvents.map((event) => (
-                  <p key={event.id} className="text-white/70 text-sm">
+                  <p key={event.id} className="text-foreground/70 text-sm">
                     &quot;{event.title}&quot; {t("dashboard.awaitingApproval")}
                   </p>
                 ))}
               </div>
-              <p className="text-white/40 text-xs mt-3">{t("dashboard.approvalNote")}</p>
+              <p className="text-foreground/40 text-xs mt-3">{t("dashboard.approvalNote")}</p>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function OrganizerDashboard() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/[0.07] transition-all"
+            className="p-6 rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl hover:bg-foreground/[0.07] transition-all"
           >
             <div className="flex items-center justify-between mb-4">
               <div
@@ -128,8 +128,8 @@ export default function OrganizerDashboard() {
                 <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
               </div>
             </div>
-            <p className="text-3xl font-bold text-white">{stat.value}</p>
-            <p className="text-sm text-white/50 mt-1">{stat.label}</p>
+            <p className="text-3xl font-bold text-foreground">{stat.value}</p>
+            <p className="text-sm text-foreground/50 mt-1">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -137,9 +137,9 @@ export default function OrganizerDashboard() {
       {/* Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Events */}
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden">
-          <div className="p-6 border-b border-white/10 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">{t("dashboard.recentEvents")}</h2>
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden">
+          <div className="p-6 border-b border-foreground/10 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.recentEvents")}</h2>
             <Link
               href={`/${locale}/organizer/events`}
               className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
@@ -150,7 +150,7 @@ export default function OrganizerDashboard() {
           </div>
           <div className="divide-y divide-white/5">
             {recentEvents.length === 0 ? (
-              <div className="p-8 text-center text-white/40">
+              <div className="p-8 text-center text-foreground/40">
                 {t("dashboard.noEvents")}
               </div>
             ) : (
@@ -158,15 +158,15 @@ export default function OrganizerDashboard() {
                 <Link
                   key={event.id}
                   href={`/${locale}/organizer/events/${event.id}/edit`}
-                  className="flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
+                  className="flex items-center justify-between p-4 hover:bg-foreground/5 transition-colors"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-lg bg-white/10 overflow-hidden flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-foreground/10 overflow-hidden flex-shrink-0">
                       <img src={event.image} alt="" className="w-full h-full object-cover" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium text-white truncate">{event.title}</p>
-                      <p className="text-xs text-white/40">{event.date}</p>
+                      <p className="text-sm font-medium text-foreground truncate">{event.title}</p>
+                      <p className="text-xs text-foreground/40">{event.date}</p>
                     </div>
                   </div>
                   <span
@@ -181,9 +181,9 @@ export default function OrganizerDashboard() {
         </div>
 
         {/* Recent Validation Logs */}
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden">
-          <div className="p-6 border-b border-white/10 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">{t("dashboard.recentLogs")}</h2>
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden">
+          <div className="p-6 border-b border-foreground/10 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.recentLogs")}</h2>
             <Link
               href={`/${locale}/organizer/logs`}
               className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
@@ -194,7 +194,7 @@ export default function OrganizerDashboard() {
           </div>
           <div className="divide-y divide-white/5">
             {recentLogs.length === 0 ? (
-              <div className="p-8 text-center text-white/40">
+              <div className="p-8 text-center text-foreground/40">
                 {t("dashboard.noLogs")}
               </div>
             ) : (
@@ -203,13 +203,13 @@ export default function OrganizerDashboard() {
                   <div className="flex items-center gap-3 min-w-0">
                     {actionIcons[log.action]}
                     <div className="min-w-0">
-                      <p className="text-sm font-medium text-white truncate">
+                      <p className="text-sm font-medium text-foreground truncate">
                         {log.ticketHolderName}
                       </p>
-                      <p className="text-xs text-white/40">{log.ticketType} — {log.eventTitle}</p>
+                      <p className="text-xs text-foreground/40">{log.ticketType} — {log.eventTitle}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-white/30">
+                  <span className="text-xs text-foreground/30">
                     {new Date(log.validatedAt).toLocaleTimeString("tr-TR", {
                       hour: "2-digit",
                       minute: "2-digit",

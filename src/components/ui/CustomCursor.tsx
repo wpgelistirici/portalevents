@@ -90,7 +90,7 @@ export default function CustomCursor() {
       >
         <div
           className={`w-8 h-8 rounded-full border transition-colors duration-200 ${
-            isHovering ? "border-primary" : "border-white/30"
+            isHovering ? "border-primary" : "border-foreground/30"
           }`}
         />
       </motion.div>

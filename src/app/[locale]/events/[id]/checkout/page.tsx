@@ -304,7 +304,7 @@ export default function CheckoutPage({
                           {t(`steps.${s.key}`)}
                         </button>
                         {i < 2 && (
-                          <ChevronRight size={14} className="text-white/20" />
+                          <ChevronRight size={14} className="text-foreground/20" />
                         )}
                       </div>
                     );
@@ -450,7 +450,7 @@ function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className={`w-full ${Icon ? "pl-10" : "pl-4"} pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20`}
+          className={`w-full ${Icon ? "pl-10" : "pl-4"} pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20`}
         />
       </div>
     </div>
@@ -481,16 +481,16 @@ function AgreementCheck({
         className={`w-5 h-5 rounded-md border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all cursor-pointer ${
           checked
             ? "bg-primary border-primary"
-            : "border-white/20 hover:border-white/40"
+            : "border-foreground/20 hover:border-foreground/40"
         }`}
         onClick={() => onChange(!checked)}
         data-cursor-hover
       >
-        {checked && <Check size={12} className="text-white" />}
+        {checked && <Check size={12} className="text-foreground" />}
       </div>
       <div className="flex-1">
         <p
-          className="text-xs text-white/70 group-hover:text-white transition-colors cursor-pointer"
+          className="text-xs text-foreground/70 group-hover:text-foreground transition-colors cursor-pointer"
           onClick={() => onChange(!checked)}
         >
           {detail}
@@ -811,13 +811,13 @@ function Step2Payment({
           >
             <div
               className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${
-                saveCard ? "bg-primary border-primary" : "border-white/20"
+                saveCard ? "bg-primary border-primary" : "border-foreground/20"
               }`}
               onClick={() => setSaveCard(!saveCard)}
             >
-              {saveCard && <Check size={12} className="text-white" />}
+              {saveCard && <Check size={12} className="text-foreground" />}
             </div>
-            <span className="text-xs text-white/60">{t("saveCard")}</span>
+            <span className="text-xs text-foreground/60">{t("saveCard")}</span>
           </label>
 
           <div className="flex items-center gap-2 text-[10px] text-green-400 mt-2">
@@ -888,7 +888,7 @@ function Step2Payment({
           {isProcessing ? (
             <>
               <motion.div
-                className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                className="w-4 h-4 border-2 border-foreground/30 border-t-white rounded-full"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
               />
@@ -976,7 +976,7 @@ function OrderSummary({
         </div>
       </div>
 
-      <div className="h-px bg-white/5" />
+      <div className="h-px bg-foreground/5" />
 
       {/* Ticket type */}
       <div>
@@ -993,7 +993,7 @@ function OrderSummary({
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs transition-all ${
                     selectedTicketIdx === actualIdx
                       ? "bg-primary/10 ring-1 ring-primary/40"
-                      : "glass hover:bg-white/5"
+                      : "glass hover:bg-foreground/5"
                   }`}
                   data-cursor-hover
                 >
@@ -1013,7 +1013,7 @@ function OrderSummary({
         <div className="flex items-center gap-3">
           <button
             onClick={() => setTicketQty(Math.max(1, ticketQty - 1))}
-            className="w-7 h-7 rounded-lg glass flex items-center justify-center text-xs hover:bg-white/5 transition-colors"
+            className="w-7 h-7 rounded-lg glass flex items-center justify-center text-xs hover:bg-foreground/5 transition-colors"
             data-cursor-hover
           >
             −
@@ -1021,7 +1021,7 @@ function OrderSummary({
           <span className="text-sm font-bold w-6 text-center">{ticketQty}</span>
           <button
             onClick={() => setTicketQty(Math.min(10, ticketQty + 1))}
-            className="w-7 h-7 rounded-lg glass flex items-center justify-center text-xs hover:bg-white/5 transition-colors"
+            className="w-7 h-7 rounded-lg glass flex items-center justify-center text-xs hover:bg-foreground/5 transition-colors"
             data-cursor-hover
           >
             +
@@ -1029,7 +1029,7 @@ function OrderSummary({
         </div>
       </div>
 
-      <div className="h-px bg-white/5" />
+      <div className="h-px bg-foreground/5" />
 
       {/* Coupon */}
       <div>
@@ -1042,7 +1042,7 @@ function OrderSummary({
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
             placeholder={t("couponPlaceholder")}
-            className="flex-1 px-3 py-2 glass rounded-lg text-xs bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20"
+            className="flex-1 px-3 py-2 glass rounded-lg text-xs bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20"
           />
           <button
             onClick={handleApplyCoupon}
@@ -1065,7 +1065,7 @@ function OrderSummary({
         )}
       </div>
 
-      <div className="h-px bg-white/5" />
+      <div className="h-px bg-foreground/5" />
 
       {/* Pricing breakdown */}
       <div className="space-y-2">
@@ -1083,7 +1083,7 @@ function OrderSummary({
             <span>-₺{discountAmount.toLocaleString("tr-TR")}</span>
           </div>
         )}
-        <div className="h-px bg-white/10" />
+        <div className="h-px bg-foreground/10" />
         <div className="flex justify-between text-sm font-bold pt-1">
           <span>{t("total")}</span>
           <span className="text-gradient-primary text-lg">

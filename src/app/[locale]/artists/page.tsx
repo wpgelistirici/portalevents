@@ -110,7 +110,7 @@ export default function ArtistsPage() {
                         {artist.bio}
                       </p>
 
-                      <div className="flex items-center gap-4 text-xs text-muted pt-4 border-t border-white/5">
+                      <div className="flex items-center gap-4 text-xs text-muted pt-4 border-t border-foreground/5">
                         <span className="flex items-center gap-1">
                           <Users size={12} className="text-secondary" />
                           {artist.followers} {t("followers")}

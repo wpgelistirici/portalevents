@@ -1,16 +1,36 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: #050505;
-  --color-foreground: #fafafa;
+@layer base {
+  :root {
+    --bg: #050505;
+    --fg: #fafafa;
+    --clr-muted: #888888;
+    --clr-surface: #111111;
+    --clr-surface-light: #1a1a1a;
+    --clr-border: #222222;
+  }
+
+  [data-theme="light"] {
+    --bg: #f8f8fa;
+    --fg: #111111;
+    --clr-muted: #6b7280;
+    --clr-surface: #ffffff;
+    --clr-surface-light: #f0f0f4;
+    --clr-border: #e0e0e6;
+  }
+}
+
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
   --color-primary: #7b61ff;
   --color-secondary: #9b8aff;
   --color-accent: #00f0ff;
   --color-gold: #ffd600;
-  --color-muted: #888888;
-  --color-surface: #111111;
-  --color-surface-light: #1a1a1a;
-  --color-border: #222222;
+  --color-muted: var(--clr-muted);
+  --color-surface: var(--clr-surface);
+  --color-surface-light: var(--clr-surface-light);
+  --color-border: var(--clr-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -25,12 +45,12 @@
 
 html {
   scroll-behavior: auto;
-  background: #050505;
+  background: var(--color-background);
 }
 
 body {
-  background: #050505;
-  color: #fafafa;
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family:
     var(--font-sans),
     system-ui,
@@ -56,7 +76,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -67,7 +87,7 @@ body {
 /* Selection */
 ::selection {
   background: rgba(123, 97, 255, 0.3);
-  color: #fafafa;
+  color: var(--color-foreground);
 }
 
 /* ============================================
@@ -85,6 +105,10 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
+}
+
+[data-theme="light"] .noise-overlay {
+  opacity: 0.015;
 }
 
 /* ============================================
@@ -126,6 +150,18 @@ body {
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================
@@ -447,6 +483,16 @@ body {
     transparent,
     rgba(123, 97, 255, 0.3),
     rgba(123, 97, 255, 0.3),
+    transparent
+  );
+}
+
+[data-theme="light"] .section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(123, 97, 255, 0.2),
+    rgba(123, 97, 255, 0.2),
     transparent
   );
 }

@@ -90,7 +90,7 @@ export default function SavedPage() {
         <main className="min-h-screen pt-32 pb-20">
           <div className="max-w-md mx-auto px-6 text-center">
             <FadeInUp>
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/[0.03] flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-foreground/[0.03] flex items-center justify-center">
                 <Lock size={24} className="text-muted" />
               </div>
               <h1 className="text-2xl font-bold mb-3">{t("loginRequired")}</h1>
@@ -152,7 +152,7 @@ export default function SavedPage() {
                     className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
                       activeTab === tab.key
                         ? "bg-primary text-white shadow-[0_0_15px_rgba(123,97,255,0.2)]"
-                        : "glass text-muted hover:text-white hover:bg-white/[0.05]"
+                        : "glass text-muted hover:text-foreground hover:bg-foreground/[0.05]"
                     }`}
                     data-cursor-hover
                   >
@@ -161,7 +161,7 @@ export default function SavedPage() {
                     {count > 0 && (
                       <span
                         className={`ml-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                          activeTab === tab.key ? "bg-white/20" : "bg-white/[0.05]"
+                          activeTab === tab.key ? "bg-foreground/20" : "bg-foreground/[0.05]"
                         }`}
                       >
                         {count}
@@ -183,8 +183,8 @@ export default function SavedPage() {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-center py-20"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/[0.03] flex items-center justify-center">
-                  <BookmarkX size={24} className="text-white/10" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-foreground/[0.03] flex items-center justify-center">
+                  <BookmarkX size={24} className="text-foreground/10" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{t("empty.title")}</h3>
                 <p className="text-sm text-muted max-w-sm mx-auto">{t("empty.description")}</p>
@@ -271,8 +271,8 @@ function SavedEventCard({
             {event.city}
           </span>
         </div>
-        <div className="flex items-center justify-between pt-3 border-t border-white/5">
-          <span className="text-sm font-bold text-white">{event.price}</span>
+        <div className="flex items-center justify-between pt-3 border-t border-foreground/5">
+          <span className="text-sm font-bold text-foreground">{event.price}</span>
           <button
             onClick={onRemove}
             className="flex items-center gap-1.5 text-[10px] text-muted hover:text-red-400 transition-colors"
@@ -339,8 +339,8 @@ function SavedVenueCard({
             {venue.rating}
           </span>
         </div>
-        <div className="flex items-center justify-between pt-3 border-t border-white/5">
-          <span className="text-xs text-white/50">{venue.type}</span>
+        <div className="flex items-center justify-between pt-3 border-t border-foreground/5">
+          <span className="text-xs text-foreground/50">{venue.type}</span>
           <button
             onClick={onRemove}
             className="flex items-center gap-1.5 text-[10px] text-muted hover:text-red-400 transition-colors"
@@ -386,13 +386,13 @@ function SavedPostCard({
           </div>
           <span className="text-xs font-semibold">{post.user}</span>
         </div>
-        <p className="text-xs text-white/70 leading-relaxed line-clamp-3 mb-3">{post.content}</p>
+        <p className="text-xs text-foreground/70 leading-relaxed line-clamp-3 mb-3">{post.content}</p>
         {post.image && (
           <div className="relative h-32 rounded-xl overflow-hidden mb-3">
             <Image src={post.image} alt="Post" fill className="object-cover" />
           </div>
         )}
-        <div className="flex items-center justify-between pt-3 border-t border-white/5">
+        <div className="flex items-center justify-between pt-3 border-t border-foreground/5">
           <div className="flex items-center gap-3 text-[10px] text-muted">
             <span className="flex items-center gap-1">
               <Heart size={10} className="text-primary" />

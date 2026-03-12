@@ -28,12 +28,12 @@ export default function ArtistShowcase() {
         {/* Header */}
         <FadeInUp>
           <div className="text-center mb-20">
-            <span className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
               {t("label")}
             </span>
             <h2 className="display-lg mt-4">
               {t("titleLine1")}
-              <span className="text-gradient-multi"> {t("titleLine2")}</span>
+              <span className="text-gradient-primary"> {t("titleLine2")}</span>
             </h2>
             <p className="text-muted text-sm max-w-md mx-auto mt-4 leading-relaxed">
               {t("description")}
@@ -93,7 +93,7 @@ export default function ArtistShowcase() {
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-secondary/20 transition-colors duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl border border-foreground/0 group-hover:border-secondary/20 transition-colors duration-500 pointer-events-none" />
                 </motion.div>
               </Link>
             </FadeInUp>

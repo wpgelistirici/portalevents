@@ -76,13 +76,13 @@ export default function ValidationLogsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">{t("logs.title")}</h1>
-          <p className="text-white/50 text-sm mt-1">{t("logs.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("logs.title")}</h1>
+          <p className="text-foreground/50 text-sm mt-1">{t("logs.subtitle")}</p>
         </div>
         <button
           onClick={handleExport}
           disabled={filtered.length === 0}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 disabled:opacity-30 transition-colors"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-foreground/10 text-foreground font-medium hover:bg-foreground/20 disabled:opacity-30 transition-colors"
         >
           <Download className="w-4 h-4" />
           {t("logs.export")}
@@ -92,13 +92,13 @@ export default function ValidationLogsPage() {
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("logs.searchPlaceholder")}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
           />
         </div>
         <CustomSelect
@@ -136,13 +136,13 @@ export default function ValidationLogsPage() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
         {(["approved", "cancelled", "refunded"] as const).map((action) => (
-          <div key={action} className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+          <div key={action} className="p-4 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center gap-3">
             {actionIcons[action]}
             <div>
-              <p className="text-xl font-bold text-white">
+              <p className="text-xl font-bold text-foreground">
                 {validationLogs.filter((l) => l.action === action).length}
               </p>
-              <p className="text-xs text-white/40">{t(`logs.actions.${action}`)}</p>
+              <p className="text-xs text-foreground/40">{t(`logs.actions.${action}`)}</p>
             </div>
           </div>
         ))}
@@ -151,13 +151,13 @@ export default function ValidationLogsPage() {
       {/* Logs Table */}
       {filtered.length === 0 ? (
         <div className="text-center py-16">
-          <FileText className="w-12 h-12 text-white/20 mx-auto mb-4" />
-          <p className="text-white/40">{t("logs.noLogs")}</p>
+          <FileText className="w-12 h-12 text-foreground/20 mx-auto mb-4" />
+          <p className="text-foreground/40">{t("logs.noLogs")}</p>
         </div>
       ) : (
-        <div className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 overflow-hidden">
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-4 p-4 border-b border-white/10 text-xs text-white/40 uppercase tracking-wider">
+          <div className="grid grid-cols-12 gap-4 p-4 border-b border-foreground/10 text-xs text-foreground/40 uppercase tracking-wider">
             <div className="col-span-2">{t("logs.date")}</div>
             <div className="col-span-1">{t("logs.action")}</div>
             <div className="col-span-3">{t("logs.holder")}</div>
@@ -169,8 +169,8 @@ export default function ValidationLogsPage() {
           {/* Table Body */}
           <div className="divide-y divide-white/5">
             {filtered.map((log) => (
-              <div key={log.id} className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
-                <div className="col-span-2 text-xs text-white/50 flex items-center gap-1.5">
+              <div key={log.id} className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-foreground/[0.02] transition-colors">
+                <div className="col-span-2 text-xs text-foreground/50 flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" />
                   {new Date(log.validatedAt).toLocaleString("tr-TR", {
                     day: "2-digit",
@@ -186,14 +186,14 @@ export default function ValidationLogsPage() {
                   </span>
                 </div>
                 <div className="col-span-3 min-w-0">
-                  <p className="text-sm text-white truncate">{log.ticketHolderName}</p>
-                  <p className="text-xs text-white/30 truncate">{log.ticketHolderEmail}</p>
+                  <p className="text-sm text-foreground truncate">{log.ticketHolderName}</p>
+                  <p className="text-xs text-foreground/30 truncate">{log.ticketHolderEmail}</p>
                 </div>
                 <div className="col-span-3 min-w-0">
-                  <p className="text-sm text-white/70 truncate">{log.eventTitle}</p>
+                  <p className="text-sm text-foreground/70 truncate">{log.eventTitle}</p>
                 </div>
-                <div className="col-span-1 text-xs text-white/50">{log.ticketType}</div>
-                <div className="col-span-2 text-xs text-white/50">{log.validatedBy}</div>
+                <div className="col-span-1 text-xs text-foreground/50">{log.ticketType}</div>
+                <div className="col-span-2 text-xs text-foreground/50">{log.validatedBy}</div>
               </div>
             ))}
           </div>

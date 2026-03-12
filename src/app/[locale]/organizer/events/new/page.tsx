@@ -177,13 +177,13 @@ export default function NewEventPage() {
       <div className="flex items-center gap-4">
         <button
           onClick={() => router.back()}
-          className="p-2 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-colors"
+          className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-white">{t("eventForm.title")}</h1>
-          <p className="text-white/50 text-sm">{t("eventForm.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("eventForm.title")}</h1>
+          <p className="text-foreground/50 text-sm">{t("eventForm.subtitle")}</p>
         </div>
       </div>
 
@@ -200,7 +200,7 @@ export default function NewEventPage() {
                   ? "bg-[#7B61FF]/10 text-[#7B61FF] border border-[#7B61FF]/30"
                   : idx < currentStep
                     ? "bg-green-400/10 text-green-400 border border-green-400/20"
-                    : "text-white/30 hover:text-white/50 border border-transparent"
+                    : "text-foreground/30 hover:text-foreground/50 border border-transparent"
               }`}
             >
               {idx < currentStep ? (
@@ -215,33 +215,33 @@ export default function NewEventPage() {
       </div>
 
       {/* Step Content */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-8">
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8">
         {/* Step 1: Basic Info */}
         {currentStep === 0 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.eventName")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.eventName")}</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder={t("eventForm.eventNamePlaceholder")}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.description")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.description")}</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder={t("eventForm.descriptionPlaceholder")}
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.genre")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.genre")}</label>
                 <CustomSelect
                   value={genre}
                   onChange={(val) => setGenre(val)}
@@ -251,15 +251,15 @@ export default function NewEventPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.price")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.price")}</label>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">₺</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">₺</span>
                   <input
                     type="text"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     placeholder="450"
-                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                 </div>
               </div>
@@ -284,46 +284,46 @@ export default function NewEventPage() {
           <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startDate")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startDate")}</label>
                 <input
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startTime")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startTime")}</label>
                 <input
                   type="time"
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endDate")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endDate")}</label>
                 <input
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endTime")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endTime")}</label>
                 <input
                   type="time"
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 [color-scheme:dark]"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.venue")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.venue")}</label>
               <CustomSelect
                 value={selectedVenue}
                 onChange={(val) => {
@@ -346,22 +346,22 @@ export default function NewEventPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.city")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.city")}</label>
                 <input
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.address")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.address")}</label>
                 <input
                   type="text"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder={t("eventForm.addressPlaceholder")}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                 />
               </div>
             </div>
@@ -372,7 +372,7 @@ export default function NewEventPage() {
         {currentStep === 2 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-3">{t("eventForm.selectArtists")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.selectArtists")}</label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {allArtists.map((artist) => (
                   <button
@@ -384,8 +384,8 @@ export default function NewEventPage() {
                     }}
                     className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
                       selectedArtists.includes(artist.id)
-                        ? "bg-[#7B61FF]/10 border-[#7B61FF]/30 text-white"
-                        : "bg-white/5 border-white/10 text-white/60 hover:border-white/20"
+                        ? "bg-[#7B61FF]/10 border-[#7B61FF]/30 text-foreground"
+                        : "bg-foreground/5 border-foreground/10 text-foreground/60 hover:border-foreground/20"
                     }`}
                   >
                     <img src={artist.image} alt="" className="w-10 h-10 rounded-lg object-cover" />
@@ -404,7 +404,7 @@ export default function NewEventPage() {
             {/* Missing Artists */}
             {missingArtists.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.addedArtists")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.addedArtists")}</label>
                 <div className="flex flex-wrap gap-2">
                   {missingArtists.map((name, idx) => (
                     <span key={idx} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-sm border border-yellow-400/20">
@@ -419,7 +419,7 @@ export default function NewEventPage() {
             )}
 
             {/* Artist Ticket Form */}
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-foreground/10 pt-6">
               {!showArtistTicketForm ? (
                 <button
                   onClick={() => setShowArtistTicketForm(true)}
@@ -439,21 +439,21 @@ export default function NewEventPage() {
                     value={missingArtistName}
                     onChange={(e) => setMissingArtistName(e.target.value)}
                     placeholder={t("eventForm.artistName")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-yellow-400/50"
+                    className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-yellow-400/50"
                   />
                   <input
                     type="text"
                     value={artistTicketGenre}
                     onChange={(e) => setArtistTicketGenre(e.target.value)}
                     placeholder={t("eventForm.artistGenre")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-yellow-400/50"
+                    className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-yellow-400/50"
                   />
                   <textarea
                     value={artistTicketDesc}
                     onChange={(e) => setArtistTicketDesc(e.target.value)}
                     placeholder={t("eventForm.artistDescription")}
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-yellow-400/50 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-yellow-400/50 resize-none"
                   />
                   <div className="flex gap-2">
                     <button
@@ -464,7 +464,7 @@ export default function NewEventPage() {
                     </button>
                     <button
                       onClick={() => setShowArtistTicketForm(false)}
-                      className="px-4 py-2 rounded-lg text-white/40 text-sm hover:text-white/60 transition-colors"
+                      className="px-4 py-2 rounded-lg text-foreground/40 text-sm hover:text-foreground/60 transition-colors"
                     >
                       {t("eventForm.cancel")}
                     </button>
@@ -479,15 +479,15 @@ export default function NewEventPage() {
         {currentStep === 3 && (
           <div className="space-y-6">
             {ticketTypes.map((tt, idx) => (
-              <div key={idx} className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-4">
+              <div key={idx} className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-sm font-medium text-white/70">
+                  <h4 className="text-sm font-medium text-foreground/70">
                     {t("eventForm.ticketType")} #{idx + 1}
                   </h4>
                   {ticketTypes.length > 1 && (
                     <button
                       onClick={() => removeTicketType(idx)}
-                      className="p-1 rounded text-white/30 hover:text-red-400 transition-colors"
+                      className="p-1 rounded text-foreground/30 hover:text-red-400 transition-colors"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -499,16 +499,16 @@ export default function NewEventPage() {
                     value={tt.name}
                     onChange={(e) => updateTicketType(idx, "name", e.target.value)}
                     placeholder={t("eventForm.ticketName")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                    className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">₺</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">₺</span>
                     <input
                       type="text"
                       value={tt.price}
                       onChange={(e) => updateTicketType(idx, "price", e.target.value)}
                       placeholder="450"
-                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                     />
                   </div>
                 </div>
@@ -517,24 +517,24 @@ export default function NewEventPage() {
                   value={tt.description}
                   onChange={(e) => updateTicketType(idx, "description", e.target.value)}
                   placeholder={t("eventForm.ticketDescription")}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                 />
                 <label className="flex items-center gap-3 cursor-pointer">
                   <div
                     className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                      tt.available ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
+                      tt.available ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
                     }`}
                     onClick={() => updateTicketType(idx, "available", !tt.available)}
                   >
-                    {tt.available && <Check className="w-3 h-3 text-white" />}
+                    {tt.available && <Check className="w-3 h-3 text-foreground" />}
                   </div>
-                  <span className="text-sm text-white/60">{t("eventForm.ticketAvailable")}</span>
+                  <span className="text-sm text-foreground/60">{t("eventForm.ticketAvailable")}</span>
                 </label>
               </div>
             ))}
             <button
               onClick={addTicketType}
-              className="flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed border-white/20 text-white/40 hover:text-white/60 hover:border-white/30 w-full justify-center transition-colors"
+              className="flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed border-foreground/20 text-foreground/40 hover:text-foreground/60 hover:border-foreground/30 w-full justify-center transition-colors"
             >
               <Plus className="w-4 h-4" />
               {t("eventForm.addTicketType")}
@@ -546,13 +546,13 @@ export default function NewEventPage() {
         {currentStep === 4 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-3">{t("eventForm.eventRules")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.eventRules")}</label>
               <div className="space-y-2">
                 {ruleOptions.map((rule) => (
-                  <label key={rule} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
+                  <label key={rule} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors">
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedRules.includes(rule) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
+                        selectedRules.includes(rule) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
                       }`}
                       onClick={() =>
                         setSelectedRules((prev) =>
@@ -560,19 +560,19 @@ export default function NewEventPage() {
                         )
                       }
                     >
-                      {selectedRules.includes(rule) && <Check className="w-3 h-3 text-white" />}
+                      {selectedRules.includes(rule) && <Check className="w-3 h-3 text-foreground" />}
                     </div>
-                    <span className="text-sm text-white/70">{t(`eventForm.rules.${rule}`)}</span>
+                    <span className="text-sm text-foreground/70">{t(`eventForm.rules.${rule}`)}</span>
                   </label>
                 ))}
               </div>
               {/* Custom Rules */}
               <div className="mt-4 space-y-2">
                 {customRules.map((rule, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-3 rounded-xl bg-white/[0.02] border border-white/10">
-                    <span className="text-sm text-white/70 flex-1">{rule}</span>
+                  <div key={idx} className="flex items-center gap-2 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10">
+                    <span className="text-sm text-foreground/70 flex-1">{rule}</span>
                     <button onClick={() => setCustomRules((prev) => prev.filter((_, i) => i !== idx))}>
-                      <X className="w-4 h-4 text-white/30 hover:text-red-400" />
+                      <X className="w-4 h-4 text-foreground/30 hover:text-red-400" />
                     </button>
                   </div>
                 ))}
@@ -582,7 +582,7 @@ export default function NewEventPage() {
                     value={newCustomRule}
                     onChange={(e) => setNewCustomRule(e.target.value)}
                     placeholder={t("eventForm.customRulePlaceholder")}
-                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                    className="flex-1 px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                   <button
                     onClick={() => {
@@ -591,7 +591,7 @@ export default function NewEventPage() {
                         setNewCustomRule("");
                       }
                     }}
-                    className="px-4 py-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
+                    className="px-4 py-3 rounded-xl bg-foreground/10 text-foreground hover:bg-foreground/20 transition-colors"
                   >
                     <Plus className="w-5 h-5" />
                   </button>
@@ -599,13 +599,13 @@ export default function NewEventPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-3">{t("eventForm.cancellationPolicy")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.cancellationPolicy")}</label>
               <div className="space-y-2">
                 {policyOptions.map((policy) => (
-                  <label key={policy} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
+                  <label key={policy} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors">
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedPolicies.includes(policy) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-white/20"
+                        selectedPolicies.includes(policy) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
                       }`}
                       onClick={() =>
                         setSelectedPolicies((prev) =>
@@ -613,9 +613,9 @@ export default function NewEventPage() {
                         )
                       }
                     >
-                      {selectedPolicies.includes(policy) && <Check className="w-3 h-3 text-white" />}
+                      {selectedPolicies.includes(policy) && <Check className="w-3 h-3 text-foreground" />}
                     </div>
-                    <span className="text-sm text-white/70">{t(`eventForm.policies.${policy}`)}</span>
+                    <span className="text-sm text-foreground/70">{t(`eventForm.policies.${policy}`)}</span>
                   </label>
                 ))}
               </div>
@@ -631,45 +631,45 @@ export default function NewEventPage() {
               <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-sm font-medium text-yellow-400">{t("eventForm.approvalNotice")}</p>
-                <p className="text-xs text-white/40 mt-1">{t("eventForm.approvalNoticeDesc")}</p>
+                <p className="text-xs text-foreground/40 mt-1">{t("eventForm.approvalNoticeDesc")}</p>
               </div>
             </div>
 
             {/* Preview Card */}
-            <div className="rounded-2xl overflow-hidden border border-white/10">
+            <div className="rounded-2xl overflow-hidden border border-foreground/10">
               {image && (
                 <div className="h-48 overflow-hidden">
                   <img src={image} alt="" className="w-full h-full object-cover" />
                 </div>
               )}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold text-white">{title || t("eventForm.untitled")}</h3>
+                <h3 className="text-xl font-bold text-foreground">{title || t("eventForm.untitled")}</h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-white/40">{t("eventForm.genre")}: </span>
-                    <span className="text-white">{genre}</span>
+                    <span className="text-foreground/40">{t("eventForm.genre")}: </span>
+                    <span className="text-foreground">{genre}</span>
                   </div>
                   <div>
-                    <span className="text-white/40">{t("eventForm.city")}: </span>
-                    <span className="text-white">{city}</span>
+                    <span className="text-foreground/40">{t("eventForm.city")}: </span>
+                    <span className="text-foreground">{city}</span>
                   </div>
                   <div>
-                    <span className="text-white/40">{t("eventForm.startDate")}: </span>
-                    <span className="text-white">{startDate} {startTime}</span>
+                    <span className="text-foreground/40">{t("eventForm.startDate")}: </span>
+                    <span className="text-foreground">{startDate} {startTime}</span>
                   </div>
                   <div>
-                    <span className="text-white/40">{t("eventForm.venue")}: </span>
-                    <span className="text-white">{venue?.name || "-"}</span>
+                    <span className="text-foreground/40">{t("eventForm.venue")}: </span>
+                    <span className="text-foreground">{venue?.name || "-"}</span>
                   </div>
                 </div>
-                {description && <p className="text-sm text-white/60 line-clamp-3">{description}</p>}
+                {description && <p className="text-sm text-foreground/60 line-clamp-3">{description}</p>}
                 <div>
-                  <h4 className="text-sm font-medium text-white/70 mb-2">{t("eventForm.ticketTypes")}</h4>
+                  <h4 className="text-sm font-medium text-foreground/70 mb-2">{t("eventForm.ticketTypes")}</h4>
                   <div className="space-y-1">
                     {ticketTypes.map((tt, idx) => (
                       <div key={idx} className="flex justify-between text-sm">
-                        <span className="text-white/60">{tt.name || `Tip ${idx + 1}`}</span>
-                        <span className="text-white">{tt.price ? `₺${tt.price}` : "-"}</span>
+                        <span className="text-foreground/60">{tt.name || `Tip ${idx + 1}`}</span>
+                        <span className="text-foreground">{tt.price ? `₺${tt.price}` : "-"}</span>
                       </div>
                     ))}
                   </div>
@@ -681,11 +681,11 @@ export default function NewEventPage() {
       </div>
 
       {/* Footer Actions */}
-      <div className="flex items-center justify-between pt-4 border-t border-white/10">
+      <div className="flex items-center justify-between pt-4 border-t border-foreground/10">
         <button
           onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
           disabled={currentStep === 0}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl text-white/60 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl text-foreground/60 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           {t("eventForm.previous")}
@@ -697,7 +697,7 @@ export default function NewEventPage() {
               <button
                 onClick={() => handleSave(false)}
                 disabled={isSaving}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 disabled:opacity-50 transition-colors"
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-foreground/10 text-foreground font-medium hover:bg-foreground/20 disabled:opacity-50 transition-colors"
               >
                 <Save className="w-4 h-4" />
                 {t("eventForm.saveDraft")}

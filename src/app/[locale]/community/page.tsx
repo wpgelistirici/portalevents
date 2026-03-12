@@ -297,7 +297,7 @@ function PostDetailModal({
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-foreground/10 hover:bg-foreground/20 flex items-center justify-center text-foreground transition-colors"
         data-cursor-hover
       >
         <X size={18} />
@@ -335,7 +335,7 @@ function PostDetailModal({
           }`}
         >
           {/* Post header */}
-          <div className="flex items-center gap-3 p-4 border-b border-white/5 flex-shrink-0">
+          <div className="flex items-center gap-3 p-4 border-b border-foreground/5 flex-shrink-0">
             <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary/20">
               <Image src={post.avatar} alt={post.user} fill className="object-cover" />
             </div>
@@ -343,7 +343,7 @@ function PostDetailModal({
               <h4 className="text-sm font-semibold">{post.user}</h4>
               <span className="text-[10px] text-muted">{post.time}</span>
             </div>
-            <button className="w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center text-muted" data-cursor-hover>
+            <button className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted" data-cursor-hover>
               <MoreHorizontal size={14} />
             </button>
           </div>
@@ -351,18 +351,18 @@ function PostDetailModal({
           {/* Scrollable area: Post content + Comments */}
           <div ref={scrollAreaRef} className="flex-1 overflow-y-auto min-h-0 overscroll-contain">
             {/* Post content (shown as first "comment" like Instagram) */}
-            <div className="px-4 py-4 flex gap-3 border-b border-white/[0.03]">
+            <div className="px-4 py-4 flex gap-3 border-b border-foreground/[0.03]">
               <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                 <Image src={post.avatar} alt={post.user} fill className="object-cover" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm leading-relaxed">
                   <span className="font-semibold mr-1.5">{post.user}</span>
-                  <span className="text-white/80">{post.content}</span>
+                  <span className="text-foreground/80">{post.content}</span>
                 </p>
                 {post.attachedEvent && (
                   <Link href={`/events/${post.attachedEvent.id}`} onClick={(e) => e.stopPropagation()}>
-                    <div className="flex items-center gap-2.5 mt-2.5 p-2.5 rounded-lg bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-colors">
+                    <div className="flex items-center gap-2.5 mt-2.5 p-2.5 rounded-lg bg-foreground/[0.03] border border-foreground/5 hover:bg-foreground/[0.05] transition-colors">
                       <div className="relative w-10 h-10 rounded-md overflow-hidden flex-shrink-0">
                         <Image src={post.attachedEvent.image} alt={post.attachedEvent.title} fill className="object-cover" />
                       </div>
@@ -386,7 +386,7 @@ function PostDetailModal({
                     initial={idx >= visibleCount - COMMENTS_PER_PAGE ? { opacity: 0, y: 10 } : false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2, delay: idx >= visibleCount - COMMENTS_PER_PAGE ? (idx % COMMENTS_PER_PAGE) * 0.05 : 0 }}
-                    className="px-4 py-3.5 flex gap-3 group hover:bg-white/[0.01] transition-colors"
+                    className="px-4 py-3.5 flex gap-3 group hover:bg-foreground/[0.01] transition-colors"
                   >
                     <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                       <Image src={comment.avatar} alt={comment.user} fill className="object-cover" />
@@ -394,19 +394,19 @@ function PostDetailModal({
                     <div className="flex-1 min-w-0">
                       <p className="text-sm leading-relaxed">
                         <span className="font-semibold mr-1.5">{comment.user}</span>
-                        <span className="text-white/75">{comment.content}</span>
+                        <span className="text-foreground/75">{comment.content}</span>
                       </p>
                       <div className="flex items-center gap-4 mt-1.5">
                         <span className="text-[10px] text-muted">{comment.time}</span>
                         <button
                           className={`text-[10px] font-semibold transition-colors ${
-                            comment.liked ? "text-primary" : "text-muted hover:text-white"
+                            comment.liked ? "text-primary" : "text-muted hover:text-foreground"
                           }`}
                           data-cursor-hover
                         >
                           {comment.likes > 0 && `${comment.likes} `}{t("like")}
                         </button>
-                        <button className="text-[10px] font-semibold text-muted hover:text-white transition-colors" data-cursor-hover>
+                        <button className="text-[10px] font-semibold text-muted hover:text-foreground transition-colors" data-cursor-hover>
                           {t("reply")}
                         </button>
                       </div>
@@ -430,7 +430,7 @@ function PostDetailModal({
                   <div ref={loadTriggerRef} className="flex items-center justify-center py-4">
                     {isLoadingMore ? (
                       <motion.div
-                        className="w-5 h-5 border-2 border-white/10 border-t-primary rounded-full"
+                        className="w-5 h-5 border-2 border-foreground/10 border-t-primary rounded-full"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                       />
@@ -442,7 +442,7 @@ function PostDetailModal({
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-16 px-4">
-                <MessageCircle size={32} className="text-white/[0.06] mb-3" />
+                <MessageCircle size={32} className="text-foreground/[0.06] mb-3" />
                 <p className="text-sm font-semibold mb-1">{t("noCommentsTitle")}</p>
                 <p className="text-xs text-muted">{t("noCommentsDesc")}</p>
               </div>
@@ -451,7 +451,7 @@ function PostDetailModal({
           </div>
 
           {/* Actions bar */}
-          <div className="border-t border-white/5 px-4 py-3 flex-shrink-0">
+          <div className="border-t border-foreground/5 px-4 py-3 flex-shrink-0">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-4">
                 <motion.button
@@ -462,7 +462,7 @@ function PostDetailModal({
                   <Heart
                     size={22}
                     className={`transition-colors ${
-                      post.liked ? "text-primary fill-primary" : "text-white hover:text-white/70"
+                      post.liked ? "text-primary fill-primary" : "text-foreground hover:text-foreground/70"
                     }`}
                   />
                 </motion.button>
@@ -470,10 +470,10 @@ function PostDetailModal({
                   onClick={() => inputRef.current?.focus()}
                   data-cursor-hover
                 >
-                  <MessageCircle size={22} className="text-white hover:text-white/70 transition-colors" />
+                  <MessageCircle size={22} className="text-foreground hover:text-foreground/70 transition-colors" />
                 </button>
                 <button data-cursor-hover>
-                  <Share2 size={20} className="text-white hover:text-white/70 transition-colors" />
+                  <Share2 size={20} className="text-foreground hover:text-foreground/70 transition-colors" />
                 </button>
               </div>
               <motion.button
@@ -484,7 +484,7 @@ function PostDetailModal({
                 <Bookmark
                   size={22}
                   className={`transition-colors ${
-                    post.saved ? "text-gold fill-gold" : "text-white hover:text-white/70"
+                    post.saved ? "text-gold fill-gold" : "text-foreground hover:text-foreground/70"
                   }`}
                 />
               </motion.button>
@@ -495,7 +495,7 @@ function PostDetailModal({
           </div>
 
           {/* Comment input */}
-          <div className="border-t border-white/5 px-4 py-3 flex items-center gap-3 flex-shrink-0">
+          <div className="border-t border-foreground/5 px-4 py-3 flex items-center gap-3 flex-shrink-0">
             <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
               {userAvatar ? (
                 <Image src={userAvatar} alt="You" fill className="object-cover" />
@@ -512,7 +512,7 @@ function PostDetailModal({
               onChange={(e) => setCommentText(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               placeholder={t("commentPlaceholder")}
-              className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-white/20"
+              className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-foreground/20"
             />
             <AnimatePresence>
               {commentText.trim() && (
@@ -572,7 +572,7 @@ function PostCard({
               <span className="text-[10px] text-muted">{post.time}</span>
             </div>
           </div>
-          <button className="w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center text-muted hover:text-white transition-colors" data-cursor-hover>
+          <button className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted hover:text-foreground transition-colors" data-cursor-hover>
             <MoreHorizontal size={14} />
           </button>
         </div>
@@ -594,11 +594,11 @@ function PostCard({
         {/* Attached event */}
         {post.attachedEvent && (
           <Link href={`/events/${post.attachedEvent.id}`}>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 mb-4 hover:bg-white/[0.05] transition-colors group/event" data-cursor-hover>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.03] border border-foreground/5 mb-4 hover:bg-foreground/[0.05] transition-colors group/event" data-cursor-hover>
               <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                 <Image src={post.attachedEvent.image} alt={post.attachedEvent.title} fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <Music size={14} className="text-white/80" />
+                  <Music size={14} className="text-foreground/80" />
                 </div>
               </div>
               <div className="flex-1 min-w-0">
@@ -646,11 +646,11 @@ function PostCard({
         </div>
 
         {/* Action buttons */}
-        <div className="flex items-center gap-1 pt-3 border-t border-white/5">
+        <div className="flex items-center gap-1 pt-3 border-t border-foreground/5">
           <motion.button
             onClick={onLike}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium transition-all ${
-              post.liked ? "text-primary" : "text-muted hover:text-primary hover:bg-white/[0.03]"
+              post.liked ? "text-primary" : "text-muted hover:text-primary hover:bg-foreground/[0.03]"
             }`}
             whileTap={{ scale: 0.95 }}
             data-cursor-hover
@@ -666,7 +666,7 @@ function PostCard({
 
           <button
             onClick={onOpenDetail}
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium text-muted hover:text-secondary hover:bg-white/[0.03] transition-all"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium text-muted hover:text-secondary hover:bg-foreground/[0.03] transition-all"
             data-cursor-hover
           >
             <MessageCircle size={15} />
@@ -676,7 +676,7 @@ function PostCard({
           <div className="relative flex-1">
             <button
               onClick={handleShare}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium text-muted hover:text-accent hover:bg-white/[0.03] transition-all"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium text-muted hover:text-accent hover:bg-foreground/[0.03] transition-all"
               data-cursor-hover
             >
               <Share2 size={15} />
@@ -700,7 +700,7 @@ function PostCard({
           <motion.button
             onClick={onSave}
             className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
-              post.saved ? "text-gold" : "text-muted hover:text-gold hover:bg-white/[0.03]"
+              post.saved ? "text-gold" : "text-muted hover:text-gold hover:bg-foreground/[0.03]"
             }`}
             whileTap={{ scale: 0.9 }}
             data-cursor-hover
@@ -714,7 +714,7 @@ function PostCard({
       {post.commentList.length > 0 && (
         <button
           onClick={onOpenDetail}
-          className="w-full px-6 py-3 border-t border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-colors text-left"
+          className="w-full px-6 py-3 border-t border-foreground/5 bg-foreground/[0.01] hover:bg-foreground/[0.02] transition-colors text-left"
           data-cursor-hover
         >
           {post.commentList.length > 1 && (
@@ -726,7 +726,7 @@ function PostCard({
             <span className="text-xs font-semibold flex-shrink-0">
               {post.commentList[post.commentList.length - 1].user}
             </span>
-            <span className="text-xs text-white/60 line-clamp-1">
+            <span className="text-xs text-foreground/60 line-clamp-1">
               {post.commentList[post.commentList.length - 1].content}
             </span>
           </div>
@@ -959,7 +959,7 @@ export default function CommunityPage() {
                             </div>
                             <button
                               onClick={() => setComposerImage(null)}
-                              className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                              className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-black/80 transition-colors"
                               data-cursor-hover
                             >
                               <X size={12} />
@@ -977,7 +977,7 @@ export default function CommunityPage() {
                             exit={{ opacity: 0, height: 0 }}
                             className="relative mb-3"
                           >
-                            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                            <div className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.03] border border-foreground/5">
                               <div className="relative w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
                                 <Image src={composerEvent.image} alt={composerEvent.title} fill className="object-cover" />
                               </div>
@@ -997,7 +997,7 @@ export default function CommunityPage() {
                               </div>
                               <button
                                 onClick={() => setComposerEvent(null)}
-                                className="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-muted hover:text-white transition-colors flex-shrink-0"
+                                className="w-6 h-6 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center text-muted hover:text-foreground transition-colors flex-shrink-0"
                                 data-cursor-hover
                               >
                                 <X size={10} />
@@ -1016,17 +1016,17 @@ export default function CommunityPage() {
                             exit={{ opacity: 0, height: 0 }}
                             className="mb-3 overflow-hidden"
                           >
-                            <div className="rounded-xl border border-white/5 bg-white/[0.02] overflow-hidden">
+                            <div className="rounded-xl border border-foreground/5 bg-foreground/[0.02] overflow-hidden">
                               {/* Search */}
-                              <div className="p-3 border-b border-white/5">
-                                <div className="flex items-center gap-2 bg-white/[0.03] rounded-lg px-3 py-2">
+                              <div className="p-3 border-b border-foreground/5">
+                                <div className="flex items-center gap-2 bg-foreground/[0.03] rounded-lg px-3 py-2">
                                   <Search size={12} className="text-muted flex-shrink-0" />
                                   <input
                                     type="text"
                                     value={eventSearch}
                                     onChange={(e) => setEventSearch(e.target.value)}
                                     placeholder={t("searchEvent")}
-                                    className="flex-1 bg-transparent text-xs focus:outline-none placeholder:text-white/20"
+                                    className="flex-1 bg-transparent text-xs focus:outline-none placeholder:text-foreground/20"
                                     autoFocus
                                   />
                                 </div>
@@ -1056,7 +1056,7 @@ export default function CommunityPage() {
                                         setShowEventPicker(false);
                                         setEventSearch("");
                                       }}
-                                      className="w-full flex items-center gap-3 p-3 hover:bg-white/[0.03] transition-colors text-left"
+                                      className="w-full flex items-center gap-3 p-3 hover:bg-foreground/[0.03] transition-colors text-left"
                                       data-cursor-hover
                                     >
                                       <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
@@ -1066,7 +1066,7 @@ export default function CommunityPage() {
                                         <p className="text-xs font-semibold truncate">{ev.title}</p>
                                         <p className="text-[10px] text-muted truncate">{ev.artist} · {ev.date}</p>
                                       </div>
-                                      <div className="text-[9px] text-muted bg-white/[0.03] px-2 py-0.5 rounded-full flex-shrink-0">
+                                      <div className="text-[9px] text-muted bg-foreground/[0.03] px-2 py-0.5 rounded-full flex-shrink-0">
                                         {ev.genre}
                                       </div>
                                     </button>
@@ -1083,7 +1083,7 @@ export default function CommunityPage() {
                         )}
                       </AnimatePresence>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <div className="flex items-center justify-between pt-4 border-t border-foreground/5">
                         <div className="flex items-center gap-4">
                           <input
                             ref={fileInputRef}
@@ -1131,14 +1131,14 @@ export default function CommunityPage() {
                           className={`flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full transition-all ${
                             composerText.trim() || composerImage || composerEvent
                               ? "bg-primary text-white hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]"
-                              : "bg-white/[0.05] text-muted cursor-not-allowed"
+                              : "bg-foreground/[0.05] text-muted cursor-not-allowed"
                           }`}
                           whileTap={composerText.trim() || composerImage || composerEvent ? { scale: 0.95 } : {}}
                           data-cursor-hover
                         >
                           {isPosting ? (
                             <motion.div
-                              className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full"
+                              className="w-3 h-3 border-2 border-foreground/30 border-t-white rounded-full"
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
@@ -1185,7 +1185,7 @@ export default function CommunityPage() {
                       { value: "8.5K", label: t("stats.dailyPosts") },
                       { value: "120+", label: t("stats.cities") },
                     ].map((stat, j) => (
-                      <div key={j} className="text-center p-3 rounded-xl bg-white/[0.02]">
+                      <div key={j} className="text-center p-3 rounded-xl bg-foreground/[0.02]">
                         <div className="text-lg font-bold text-gradient-primary">{stat.value}</div>
                         <div className="text-[10px] text-muted uppercase tracking-wider">{stat.label}</div>
                       </div>
@@ -1206,7 +1206,7 @@ export default function CommunityPage() {
                       <button
                         key={j}
                         data-cursor-hover
-                        className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.03] transition-colors group"
+                        className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-foreground/[0.03] transition-colors group"
                       >
                         <div className="text-left">
                           <span className="text-sm font-medium group-hover:text-gold transition-colors">

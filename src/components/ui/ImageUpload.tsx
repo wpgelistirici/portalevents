@@ -82,14 +82,14 @@ export function ImageUpload({
     return (
       <div className="space-y-2">
         {label && (
-          <label className="block text-sm font-medium text-white/70">{label}</label>
+          <label className="block text-sm font-medium text-foreground/70">{label}</label>
         )}
-        <div className={`relative ${height} rounded-xl overflow-hidden group border border-white/10`}>
+        <div className={`relative ${height} rounded-xl overflow-hidden group border border-foreground/10`}>
           <img src={value} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-200 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-white text-sm font-medium hover:bg-white/20 transition-colors border border-white/10"
+              className="px-4 py-2 rounded-lg bg-foreground/10 backdrop-blur-sm text-foreground text-sm font-medium hover:bg-foreground/20 transition-colors border border-foreground/10"
             >
               Değiştir
             </button>
@@ -116,7 +116,7 @@ export function ImageUpload({
   return (
     <div className="space-y-2">
       {label && (
-        <label className="block text-sm font-medium text-white/70">{label}</label>
+        <label className="block text-sm font-medium text-foreground/70">{label}</label>
       )}
       <div
         onDrop={handleDrop}
@@ -126,7 +126,7 @@ export function ImageUpload({
         className={`relative ${height} rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer flex flex-col items-center justify-center gap-3 ${
           isDragging
             ? "border-[#7B61FF] bg-[#7B61FF]/5"
-            : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
+            : "border-foreground/10 bg-foreground/[0.02] hover:border-foreground/20 hover:bg-foreground/[0.04]"
         }`}
       >
         <AnimatePresence mode="wait">
@@ -151,14 +151,14 @@ export function ImageUpload({
               exit={{ scale: 0.8, opacity: 0 }}
               className="flex flex-col items-center gap-3"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10">
-                <ImageIcon className="w-7 h-7 text-white/20" />
+              <div className="w-14 h-14 rounded-2xl bg-foreground/5 flex items-center justify-center border border-foreground/10">
+                <ImageIcon className="w-7 h-7 text-foreground/20" />
               </div>
               <div className="text-center">
-                <p className="text-sm text-white/50">
+                <p className="text-sm text-foreground/50">
                   <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyip bırakın
                 </p>
-                <p className="text-xs text-white/20 mt-1">PNG, JPG, WEBP — maks. 10MB</p>
+                <p className="text-xs text-foreground/20 mt-1">PNG, JPG, WEBP — maks. 10MB</p>
               </div>
             </motion.div>
           )}
@@ -181,7 +181,7 @@ export function ImageUpload({
               e.stopPropagation();
               setShowUrlInput(true);
             }}
-            className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/50 transition-colors mt-1"
+            className="flex items-center gap-1.5 text-xs text-foreground/30 hover:text-foreground/50 transition-colors mt-1"
           >
             <LinkIcon className="w-3 h-3" />
             URL ile ekle
@@ -194,7 +194,7 @@ export function ImageUpload({
               onChange={(e) => setUrlValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleUrlSubmit()}
               placeholder="https://..."
-              className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#7B61FF]/50"
+              className="flex-1 px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-sm text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-[#7B61FF]/50"
               autoFocus
               onClick={(e) => e.stopPropagation()}
             />
@@ -213,7 +213,7 @@ export function ImageUpload({
                 setShowUrlInput(false);
                 setUrlValue("");
               }}
-              className="p-2 rounded-lg text-white/30 hover:text-white/50 hover:bg-white/5 transition-colors"
+              className="p-2 rounded-lg text-foreground/30 hover:text-foreground/50 hover:bg-foreground/5 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -309,7 +309,7 @@ export function MultiImageUpload({
   return (
     <div className="space-y-3">
       {label && (
-        <label className="block text-sm font-medium text-white/70">{label}</label>
+        <label className="block text-sm font-medium text-foreground/70">{label}</label>
       )}
 
       {/* Image Grid */}
@@ -321,7 +321,7 @@ export function MultiImageUpload({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="relative w-24 h-24 rounded-xl overflow-hidden group border border-white/10"
+              className="relative w-24 h-24 rounded-xl overflow-hidden group border border-foreground/10"
             >
               <img src={url} alt="" className="w-full h-full object-cover" />
               <button
@@ -332,7 +332,7 @@ export function MultiImageUpload({
                   <X className="w-4 h-4 text-red-400" />
                 </div>
               </button>
-              <div className="absolute bottom-1 right-1 text-[9px] bg-black/60 backdrop-blur-sm text-white/50 px-1.5 py-0.5 rounded">
+              <div className="absolute bottom-1 right-1 text-[9px] bg-black/60 backdrop-blur-sm text-foreground/50 px-1.5 py-0.5 rounded">
                 {idx + 1}
               </div>
             </motion.div>
@@ -350,7 +350,7 @@ export function MultiImageUpload({
           className={`rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer py-6 flex flex-col items-center justify-center gap-2 ${
             isDragging
               ? "border-[#7B61FF] bg-[#7B61FF]/5"
-              : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
+              : "border-foreground/10 bg-foreground/[0.02] hover:border-foreground/20 hover:bg-foreground/[0.04]"
           }`}
         >
           {isDragging ? (
@@ -360,14 +360,14 @@ export function MultiImageUpload({
             </div>
           ) : (
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
-                <Plus className="w-5 h-5 text-white/20" />
+              <div className="w-10 h-10 rounded-xl bg-foreground/5 flex items-center justify-center border border-foreground/10">
+                <Plus className="w-5 h-5 text-foreground/20" />
               </div>
               <div>
-                <p className="text-sm text-white/50">
+                <p className="text-sm text-foreground/50">
                   <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyin
                 </p>
-                <p className="text-xs text-white/20">
+                <p className="text-xs text-foreground/20">
                   {values.length}/{maxImages} görsel
                 </p>
               </div>
@@ -391,7 +391,7 @@ export function MultiImageUpload({
           {!showUrlInput ? (
             <button
               onClick={() => setShowUrlInput(true)}
-              className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/50 transition-colors"
+              className="flex items-center gap-1.5 text-xs text-foreground/30 hover:text-foreground/50 transition-colors"
             >
               <LinkIcon className="w-3 h-3" />
               URL ile ekle
@@ -404,7 +404,7 @@ export function MultiImageUpload({
                 onChange={(e) => setUrlValue(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleUrlSubmit()}
                 placeholder="https://..."
-                className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#7B61FF]/50"
+                className="flex-1 px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-sm text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-[#7B61FF]/50"
                 autoFocus
               />
               <button
@@ -418,7 +418,7 @@ export function MultiImageUpload({
                   setShowUrlInput(false);
                   setUrlValue("");
                 }}
-                className="p-2 rounded-lg text-white/30 hover:text-white/50 hover:bg-white/5 transition-colors"
+                className="p-2 rounded-lg text-foreground/30 hover:text-foreground/50 hover:bg-foreground/5 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>

@@ -141,7 +141,7 @@ function SecureQR({ ticket }: { ticket: StoredTicket }) {
       </div>
 
       {/* Progress bar */}
-      <div className="w-full max-w-[180px] h-1 rounded-full bg-white/10 overflow-hidden">
+      <div className="w-full max-w-[180px] h-1 rounded-full bg-foreground/10 overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
           initial={{ width: "100%" }}
@@ -177,7 +177,7 @@ function TicketCard({
     ticket.status === "active"
       ? "text-green-400 bg-green-500/10"
       : ticket.status === "used"
-        ? "text-muted bg-white/5"
+        ? "text-muted bg-foreground/5"
         : "text-red-400 bg-red-500/10";
 
   const statusLabel =
@@ -192,7 +192,7 @@ function TicketCard({
       {/* Header - always visible */}
       <button
         onClick={onToggle}
-        className="w-full p-5 flex items-start gap-4 text-left hover:bg-white/[0.02] transition-colors"
+        className="w-full p-5 flex items-start gap-4 text-left hover:bg-foreground/[0.02] transition-colors"
         data-cursor-hover
       >
         <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
@@ -249,7 +249,7 @@ function TicketCard({
             className="overflow-hidden"
           >
             {/* Dashed separator */}
-            <div className="mx-5 border-t border-dashed border-white/10" />
+            <div className="mx-5 border-t border-dashed border-foreground/10" />
 
             <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Left: Ticket info */}
@@ -368,7 +368,7 @@ function ActionButton({
       className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[11px] font-medium transition-all ${
         variant === "danger"
           ? "text-red-400 bg-red-500/10 hover:bg-red-500/20"
-          : "glass text-muted hover:text-foreground hover:bg-white/5"
+          : "glass text-muted hover:text-foreground hover:bg-foreground/5"
       }`}
       data-cursor-hover
     >
@@ -531,7 +531,7 @@ export default function MyTicketsPage() {
           {isLoaded && displayTickets.length === 0 && (
             <FadeInUp delay={0.2}>
               <div className="glass rounded-2xl p-16 text-center">
-                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 rounded-2xl bg-foreground/5 flex items-center justify-center mx-auto mb-6">
                   <Ticket size={32} className="text-muted" />
                 </div>
                 <h2 className="text-lg font-bold mb-2">

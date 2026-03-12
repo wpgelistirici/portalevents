@@ -247,11 +247,11 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+          <h1 className="text-2xl font-bold text-foreground flex items-center gap-3">
             <BarChart3 className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
           </h1>
-          <p className="text-white/50 mt-1">{t("subtitle")}</p>
+          <p className="text-foreground/50 mt-1">{t("subtitle")}</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="w-64">
@@ -264,7 +264,7 @@ export default function ReportsPage() {
           </div>
           <button
             onClick={exportCSV}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/10 transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors"
           >
             <Download className="w-4 h-4" />
             {t("exportCsv")}
@@ -309,15 +309,15 @@ export default function ReportsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-5"
+            className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-5"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-white/50 uppercase tracking-wider">{kpi.label}</span>
+              <span className="text-xs font-medium text-foreground/50 uppercase tracking-wider">{kpi.label}</span>
               <div className={`w-9 h-9 rounded-xl ${kpi.bgColor} flex items-center justify-center`}>
                 <kpi.icon className={`w-4 h-4 ${kpi.color}`} />
               </div>
             </div>
-            <p className="text-2xl font-bold text-white">{kpi.value}</p>
+            <p className="text-2xl font-bold text-foreground">{kpi.value}</p>
           </motion.div>
         ))}
       </div>
@@ -325,8 +325,8 @@ export default function ReportsPage() {
       {/* Ticket Status + Validation Summary Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Ticket Status Distribution */}
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
-          <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
+          <h3 className="text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
             <PieChart className="w-4 h-4 text-[#7B61FF]" />
             {t("ticketStatus.title")}
           </h3>
@@ -363,10 +363,10 @@ export default function ReportsPage() {
                   <div key={i} className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-1">
                       <div className={`w-2.5 h-2.5 rounded-full ${status.color}`} />
-                      <span className="text-xs text-white/50">{status.label}</span>
+                      <span className="text-xs text-foreground/50">{status.label}</span>
                     </div>
                     <p className={`text-lg font-bold ${status.textColor}`}>{status.count}</p>
-                    <p className="text-[10px] text-white/30">
+                    <p className="text-[10px] text-foreground/30">
                       {formatPercent((status.count / globalStats.totalTickets) * 100)}
                     </p>
                   </div>
@@ -374,7 +374,7 @@ export default function ReportsPage() {
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center py-8 text-white/30">
+            <div className="flex flex-col items-center justify-center py-8 text-foreground/30">
               <Ticket className="w-8 h-8 mb-2" />
               <p className="text-sm">{t("noData")}</p>
             </div>
@@ -382,8 +382,8 @@ export default function ReportsPage() {
         </div>
 
         {/* Validation Actions Summary */}
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
-          <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
+          <h3 className="text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#7B61FF]" />
             {t("validation.title")}
           </h3>
@@ -418,18 +418,18 @@ export default function ReportsPage() {
                 <div key={i} className={`flex items-center justify-between p-4 rounded-xl ${item.bgColor} border ${item.borderColor}`}>
                   <div className="flex items-center gap-3">
                     <item.icon className={`w-5 h-5 ${item.color}`} />
-                    <span className="text-sm font-medium text-white">{item.label}</span>
+                    <span className="text-sm font-medium text-foreground">{item.label}</span>
                   </div>
                   <span className={`text-xl font-bold ${item.color}`}>{item.count}</span>
                 </div>
               ))}
-              <div className="pt-2 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs text-white/40">{t("validation.total")}</span>
-                <span className="text-sm font-semibold text-white">{filteredLogs.length}</span>
+              <div className="pt-2 border-t border-foreground/5 flex items-center justify-between">
+                <span className="text-xs text-foreground/40">{t("validation.total")}</span>
+                <span className="text-sm font-semibold text-foreground">{filteredLogs.length}</span>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-8 text-white/30">
+            <div className="flex flex-col items-center justify-center py-8 text-foreground/30">
               <CheckCircle2 className="w-8 h-8 mb-2" />
               <p className="text-sm">{t("noValidation")}</p>
             </div>
@@ -439,8 +439,8 @@ export default function ReportsPage() {
 
       {/* Ticket Type Distribution */}
       {ticketTypeDistribution.length > 0 && (
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
-          <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
+          <h3 className="text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
             <Ticket className="w-4 h-4 text-[#7B61FF]" />
             {t("ticketTypes.title")}
           </h3>
@@ -450,23 +450,23 @@ export default function ReportsPage() {
                 ? (type.qty / globalStats.totalTickets) * 100
                 : 0;
               return (
-                <div key={type.name} className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <div key={type.name} className="p-4 rounded-xl bg-foreground/[0.03] border border-foreground/5">
                   <div className="flex items-center gap-2 mb-3">
                     <div className={`w-3 h-3 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`} />
-                    <span className="text-sm font-medium text-white">{type.name}</span>
+                    <span className="text-sm font-medium text-foreground">{type.name}</span>
                   </div>
                   <div className="flex items-end justify-between">
                     <div>
-                      <p className="text-xl font-bold text-white">{type.qty}</p>
-                      <p className="text-[10px] text-white/40">{t("ticketTypes.tickets")}</p>
+                      <p className="text-xl font-bold text-foreground">{type.qty}</p>
+                      <p className="text-[10px] text-foreground/40">{t("ticketTypes.tickets")}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm font-semibold text-emerald-400">{formatCurrency(type.revenue)}</p>
-                      <p className="text-[10px] text-white/40">{formatPercent(pct)}</p>
+                      <p className="text-[10px] text-foreground/40">{formatPercent(pct)}</p>
                     </div>
                   </div>
                   {/* Mini bar */}
-                  <div className="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                  <div className="mt-3 h-1.5 rounded-full bg-foreground/5 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${pct}%` }}
@@ -482,8 +482,8 @@ export default function ReportsPage() {
       )}
 
       {/* Per-Event Breakdown */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
-        <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
+        <h3 className="text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
           <Calendar className="w-4 h-4 text-[#7B61FF]" />
           {t("eventBreakdown.title")}
         </h3>
@@ -493,50 +493,50 @@ export default function ReportsPage() {
             {eventBreakdown.map((ev) => {
               const isExpanded = expandedEvent === ev.eventId;
               return (
-                <div key={ev.eventId} className="rounded-xl border border-white/5 overflow-hidden">
+                <div key={ev.eventId} className="rounded-xl border border-foreground/5 overflow-hidden">
                   {/* Event Header - Clickable */}
                   <button
                     onClick={() => setExpandedEvent(isExpanded ? null : ev.eventId)}
-                    className="w-full flex items-center gap-4 p-4 hover:bg-white/[0.02] transition-colors text-left"
+                    className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left"
                   >
                     {/* Image */}
                     {ev.image && (
-                      <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10">
+                      <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-foreground/10">
                         <img src={ev.image} alt="" className="w-full h-full object-cover" />
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="text-sm font-semibold text-white truncate">{ev.eventTitle}</p>
+                        <p className="text-sm font-semibold text-foreground truncate">{ev.eventTitle}</p>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
                           ev.status === "approved"
                             ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                             : ev.status === "pending_approval"
                               ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
-                              : "bg-white/5 text-white/40 border border-white/10"
+                              : "bg-foreground/5 text-foreground/40 border border-foreground/10"
                         }`}>
                           {ev.status}
                         </span>
                       </div>
-                      <p className="text-xs text-white/40">{ev.venue} &middot; {ev.date}</p>
+                      <p className="text-xs text-foreground/40">{ev.venue} &middot; {ev.date}</p>
                     </div>
                     <div className="flex items-center gap-6 flex-shrink-0">
                       <div className="text-right">
-                        <p className="text-sm font-bold text-white">{ev.totalQty}</p>
-                        <p className="text-[10px] text-white/40">{t("eventBreakdown.sold")}</p>
+                        <p className="text-sm font-bold text-foreground">{ev.totalQty}</p>
+                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.sold")}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-bold text-emerald-400">{formatCurrency(ev.revenue)}</p>
-                        <p className="text-[10px] text-white/40">{t("eventBreakdown.revenue")}</p>
+                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.revenue")}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-bold text-blue-400">{formatPercent(ev.checkInRate)}</p>
-                        <p className="text-[10px] text-white/40">{t("eventBreakdown.checkIn")}</p>
+                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.checkIn")}</p>
                       </div>
                       {isExpanded ? (
-                        <ChevronUp className="w-4 h-4 text-white/30" />
+                        <ChevronUp className="w-4 h-4 text-foreground/30" />
                       ) : (
-                        <ChevronDown className="w-4 h-4 text-white/30" />
+                        <ChevronDown className="w-4 h-4 text-foreground/30" />
                       )}
                     </div>
                   </button>
@@ -552,35 +552,35 @@ export default function ReportsPage() {
                         className="overflow-hidden"
                       >
                         <div className="px-4 pb-4 pt-0 space-y-4">
-                          <div className="h-px bg-white/5" />
+                          <div className="h-px bg-foreground/5" />
 
                           {/* Status Grid */}
                           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+                            <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                <span className="text-[10px] text-white/40">{t("ticketStatus.active")}</span>
+                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.active")}</span>
                               </div>
                               <p className="text-lg font-bold text-emerald-400">{ev.activeQty}</p>
                             </div>
-                            <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+                            <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-blue-500" />
-                                <span className="text-[10px] text-white/40">{t("ticketStatus.used")}</span>
+                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.used")}</span>
                               </div>
                               <p className="text-lg font-bold text-blue-400">{ev.usedQty}</p>
                             </div>
-                            <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+                            <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-red-500" />
-                                <span className="text-[10px] text-white/40">{t("ticketStatus.cancelled")}</span>
+                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.cancelled")}</span>
                               </div>
                               <p className="text-lg font-bold text-red-400">{ev.cancelledQty}</p>
                             </div>
-                            <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+                            <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
-                                <Users className="w-3 h-3 text-white/30" />
-                                <span className="text-[10px] text-white/40">{t("eventBreakdown.buyers")}</span>
+                                <Users className="w-3 h-3 text-foreground/30" />
+                                <span className="text-[10px] text-foreground/40">{t("eventBreakdown.buyers")}</span>
                               </div>
                               <p className="text-lg font-bold text-violet-400">{ev.uniqueBuyers}</p>
                             </div>
@@ -589,16 +589,16 @@ export default function ReportsPage() {
                           {/* Ticket Type Breakdown */}
                           {ev.ticketTypes.length > 0 && (
                             <div>
-                              <p className="text-xs font-medium text-white/50 mb-2">{t("ticketTypes.title")}</p>
+                              <p className="text-xs font-medium text-foreground/50 mb-2">{t("ticketTypes.title")}</p>
                               <div className="space-y-2">
                                 {ev.ticketTypes.map((tt, idx) => (
-                                  <div key={tt.name} className="flex items-center justify-between py-2 px-3 rounded-lg bg-white/[0.02]">
+                                  <div key={tt.name} className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]">
                                     <div className="flex items-center gap-2">
                                       <div className={`w-2 h-2 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`} />
-                                      <span className="text-sm text-white">{tt.name}</span>
+                                      <span className="text-sm text-foreground">{tt.name}</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                      <span className="text-xs text-white/50">
+                                      <span className="text-xs text-foreground/50">
                                         {tt.qty} {t("ticketTypes.tickets")}
                                       </span>
                                       <span className="text-sm font-semibold text-emerald-400">
@@ -614,16 +614,16 @@ export default function ReportsPage() {
                           {/* Recent Logs for this event */}
                           {ev.logs.length > 0 && (
                             <div>
-                              <p className="text-xs font-medium text-white/50 mb-2">{t("eventBreakdown.recentActions")}</p>
+                              <p className="text-xs font-medium text-foreground/50 mb-2">{t("eventBreakdown.recentActions")}</p>
                               <div className="space-y-1.5 max-h-40 overflow-y-auto scrollbar-hide">
                                 {ev.logs.slice(0, 5).map((log) => (
-                                  <div key={log.id} className="flex items-center justify-between py-2 px-3 rounded-lg bg-white/[0.02]">
+                                  <div key={log.id} className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]">
                                     <div className="flex items-center gap-2">
                                       {log.action === "approved" && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />}
                                       {log.action === "cancelled" && <XCircle className="w-3.5 h-3.5 text-red-400" />}
                                       {log.action === "refunded" && <RotateCcw className="w-3.5 h-3.5 text-amber-400" />}
-                                      <span className="text-xs text-white">{log.ticketHolderName}</span>
-                                      <span className="text-[10px] text-white/30">{log.ticketType}</span>
+                                      <span className="text-xs text-foreground">{log.ticketHolderName}</span>
+                                      <span className="text-[10px] text-foreground/30">{log.ticketType}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                       <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${
@@ -635,7 +635,7 @@ export default function ReportsPage() {
                                       }`}>
                                         {t(`validation.${log.action}`)}
                                       </span>
-                                      <span className="text-[10px] text-white/20">
+                                      <span className="text-[10px] text-foreground/20">
                                         {new Date(log.validatedAt).toLocaleDateString("tr-TR")}
                                       </span>
                                     </div>
@@ -653,7 +653,7 @@ export default function ReportsPage() {
             })}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-12 text-white/30">
+          <div className="flex flex-col items-center justify-center py-12 text-foreground/30">
             <Calendar className="w-8 h-8 mb-2" />
             <p className="text-sm">{t("noData")}</p>
           </div>
@@ -662,14 +662,14 @@ export default function ReportsPage() {
 
       {/* Recent Activity Log */}
       {recentActivity.length > 0 && (
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
-          <h3 className="text-sm font-semibold text-white mb-5 flex items-center gap-2">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
+          <h3 className="text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#7B61FF]" />
             {t("recentActivity.title")}
           </h3>
           <div className="space-y-2">
             {recentActivity.map((log) => (
-              <div key={log.id} className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <div key={log.id} className="flex items-center gap-4 p-3 rounded-xl bg-foreground/[0.02] hover:bg-foreground/[0.04] transition-colors">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                   log.action === "approved"
                     ? "bg-emerald-500/10"
@@ -682,12 +682,12 @@ export default function ReportsPage() {
                   {log.action === "refunded" && <RotateCcw className="w-4 h-4 text-amber-400" />}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-white">
+                  <p className="text-sm text-foreground">
                     <span className="font-medium">{log.ticketHolderName}</span>
-                    <span className="text-white/40"> &middot; </span>
-                    <span className="text-white/60">{log.eventTitle}</span>
+                    <span className="text-foreground/40"> &middot; </span>
+                    <span className="text-foreground/60">{log.eventTitle}</span>
                   </p>
-                  <p className="text-xs text-white/30">
+                  <p className="text-xs text-foreground/30">
                     {log.ticketType} &middot; {t("recentActivity.by")} {log.validatedBy}
                   </p>
                 </div>
@@ -701,7 +701,7 @@ export default function ReportsPage() {
                   }`}>
                     {t(`validation.${log.action}`)}
                   </span>
-                  <p className="text-[10px] text-white/20 mt-1">
+                  <p className="text-[10px] text-foreground/20 mt-1">
                     {new Date(log.validatedAt).toLocaleString("tr-TR", {
                       day: "2-digit",
                       month: "short",

@@ -190,7 +190,7 @@ export default function AuthModal() {
             {/* Background */}
             <div className="absolute inset-0 bg-surface-light" />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-            <div className="absolute inset-0 rounded-3xl border border-white/[0.08]" />
+            <div className="absolute inset-0 rounded-3xl border border-foreground/[0.08]" />
 
             <div className="relative z-10 p-8">
               {/* Close button */}
@@ -265,7 +265,7 @@ export default function AuthModal() {
                   data-cursor-hover
                   disabled={isSubmitting}
                   onClick={() => handleSocialLogin("google")}
-                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-foreground/[0.06] transition-colors disabled:opacity-50"
                 >
                   <GoogleIcon />
                   <span>Google</span>
@@ -275,7 +275,7 @@ export default function AuthModal() {
                   data-cursor-hover
                   disabled={isSubmitting}
                   onClick={() => handleSocialLogin("apple")}
-                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-foreground/[0.06] transition-colors disabled:opacity-50"
                 >
                   <AppleIcon />
                   <span>Apple</span>
@@ -285,7 +285,7 @@ export default function AuthModal() {
                   data-cursor-hover
                   disabled={isSubmitting}
                   onClick={() => handleSocialLogin("spotify")}
-                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-white/[0.06] transition-colors disabled:opacity-50"
+                  className="flex-1 flex items-center justify-center gap-2.5 py-3 glass rounded-xl text-sm font-medium hover:bg-foreground/[0.06] transition-colors disabled:opacity-50"
                 >
                   <SpotifyIcon />
                   <span>Spotify</span>
@@ -294,11 +294,11 @@ export default function AuthModal() {
 
               {/* Divider */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex-1 h-px bg-white/[0.06]" />
+                <div className="flex-1 h-px bg-foreground/[0.06]" />
                 <span className="text-[10px] text-muted uppercase tracking-widest">
                   {t("or")}
                 </span>
-                <div className="flex-1 h-px bg-white/[0.06]" />
+                <div className="flex-1 h-px bg-foreground/[0.06]" />
               </div>
 
               {/* Error message */}
@@ -441,7 +441,7 @@ export default function AuthModal() {
                   >
                     {isSubmitting ? (
                       <motion.div
-                        className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                        className="w-4 h-4 border-2 border-foreground/30 border-t-white rounded-full"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       />

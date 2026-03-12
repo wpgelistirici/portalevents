@@ -233,7 +233,7 @@ function EventSaveButton({ eventId }: { eventId: string }) {
         toggleSave(eventId, "event");
       }}
       className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-        saved ? "glass-strong text-gold" : "glass-strong text-white/70 hover:text-white"
+        saved ? "glass-strong text-gold" : "glass-strong text-foreground/70 hover:text-foreground"
       }`}
       whileTap={{ scale: 0.9 }}
       data-cursor-hover
@@ -275,7 +275,7 @@ function HeroSection({
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-xs font-bold"
+              className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-foreground px-4 py-1.5 rounded-full text-xs font-bold"
             >
               <TrendingUp size={12} />
               {t("trending")}
@@ -299,7 +299,7 @@ function HeroSection({
             {event.artist}
           </p>
           <h1 className="display-md md:display-lg mb-3">{event.title}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-white/70">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/70">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} className="text-primary" />
               {event.date}
@@ -337,7 +337,7 @@ function AboutSection({
         </div>
         {t("about")}
       </h2>
-      <p className="text-white/70 leading-relaxed text-sm">{description}</p>
+      <p className="text-foreground/70 leading-relaxed text-sm">{description}</p>
     </div>
   );
 }
@@ -388,10 +388,10 @@ function MediaGallery({
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               {item.type === "video" && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-foreground/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-foreground/30 transition-colors">
                     <Play
                       size={20}
-                      className="text-white ml-0.5"
+                      className="text-foreground ml-0.5"
                       fill="white"
                     />
                   </div>
@@ -413,7 +413,7 @@ function MediaGallery({
             onClick={() => setSelectedMedia(null)}
           >
             <button
-              className="absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-primary transition-colors z-10"
+              className="absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-primary transition-colors z-10"
               onClick={() => setSelectedMedia(null)}
             >
               <X size={20} />
@@ -421,7 +421,7 @@ function MediaGallery({
 
             {selectedMedia > 0 && (
               <button
-                className="absolute left-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-primary transition-colors z-10"
+                className="absolute left-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-primary transition-colors z-10"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedMedia(selectedMedia - 1);
@@ -433,7 +433,7 @@ function MediaGallery({
 
             {selectedMedia < media.length - 1 && (
               <button
-                className="absolute right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-primary transition-colors z-10"
+                className="absolute right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-primary transition-colors z-10"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedMedia(selectedMedia + 1);
@@ -505,7 +505,7 @@ function DateTimeSection({
               {t("starts")}
             </p>
             <p className="font-semibold">{event.date}</p>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-foreground/60">
               {event.time} — {t("doorsOpen")}
             </p>
           </div>
@@ -519,7 +519,7 @@ function DateTimeSection({
               {t("ends")}
             </p>
             <p className="font-semibold">{detail.endDate}</p>
-            <p className="text-sm text-white/60">{detail.endTime}</p>
+            <p className="text-sm text-foreground/60">{detail.endTime}</p>
           </div>
         </div>
       </div>
@@ -581,19 +581,19 @@ function LocationSection({
                 transition={{ repeat: Infinity, duration: 2 }}
               >
                 <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(123,97,255,0.4)]">
-                  <MapPin size={16} className="text-white" />
+                  <MapPin size={16} className="text-foreground" />
                 </div>
               </motion.div>
               <div className="w-3 h-1.5 bg-black/30 rounded-full mt-1 blur-[1px]" />
             </div>
             {/* Streets simulation */}
             <div className="absolute inset-0">
-              <div className="absolute top-0 left-1/3 w-px h-full bg-white/5" />
-              <div className="absolute top-0 left-2/3 w-px h-full bg-white/5" />
-              <div className="absolute top-1/3 left-0 w-full h-px bg-white/5" />
-              <div className="absolute top-2/3 left-0 w-full h-px bg-white/5" />
-              <div className="absolute top-[45%] left-[20%] w-[30%] h-px bg-white/8 rotate-12" />
-              <div className="absolute top-[55%] left-[50%] w-[25%] h-px bg-white/8 -rotate-6" />
+              <div className="absolute top-0 left-1/3 w-px h-full bg-foreground/5" />
+              <div className="absolute top-0 left-2/3 w-px h-full bg-foreground/5" />
+              <div className="absolute top-1/3 left-0 w-full h-px bg-foreground/5" />
+              <div className="absolute top-2/3 left-0 w-full h-px bg-foreground/5" />
+              <div className="absolute top-[45%] left-[20%] w-[30%] h-px bg-foreground/8 rotate-12" />
+              <div className="absolute top-[55%] left-[50%] w-[25%] h-px bg-foreground/8 -rotate-6" />
             </div>
           </div>
         </div>
@@ -609,7 +609,7 @@ function LocationSection({
         <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
         <div className="flex-1">
           <p className="font-semibold mb-1">{venueName}</p>
-          <p className="text-sm text-white/60 leading-relaxed">
+          <p className="text-sm text-foreground/60 leading-relaxed">
             {detail.address}
           </p>
         </div>
@@ -657,12 +657,12 @@ function RulesSection({
             transition={{ delay: i * 0.05 }}
             className="flex items-start gap-3 text-sm"
           >
-            <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-[10px] text-white/40 font-mono">
+            <div className="w-5 h-5 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-[10px] text-foreground/40 font-mono">
                 {i + 1}
               </span>
             </div>
-            <p className="text-white/70">{t(`rules.${rule}`)}</p>
+            <p className="text-foreground/70">{t(`rules.${rule}`)}</p>
           </motion.div>
         ))}
       </div>
@@ -712,7 +712,7 @@ function CancellationSection({
                 }`}
               />
             </div>
-            <p className="text-white/70">
+            <p className="text-foreground/70">
               {t(`cancellationPolicies.${policy}`)}
             </p>
           </motion.div>
@@ -754,7 +754,7 @@ function AttendeesSection({
         {visible.map((attendee) => (
           <motion.div
             key={attendee.id}
-            className="group flex items-center gap-2.5 glass rounded-full pr-4 pl-1 py-1 hover:bg-white/5 transition-colors"
+            className="group flex items-center gap-2.5 glass rounded-full pr-4 pl-1 py-1 hover:bg-foreground/5 transition-colors"
             whileHover={{ scale: 1.02 }}
             data-cursor-hover
           >
@@ -766,7 +766,7 @@ function AttendeesSection({
                 className="object-cover"
               />
             </div>
-            <span className="text-xs text-white/70 group-hover:text-white transition-colors">
+            <span className="text-xs text-foreground/70 group-hover:text-foreground transition-colors">
               {attendee.showName ? attendee.name : t("anonymousAttendee")}
             </span>
           </motion.div>
@@ -874,21 +874,21 @@ function TicketsSection({
           </div>
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
-              <span className="text-white/50">{t("purchasedTicketType")}</span>
+              <span className="text-foreground/50">{t("purchasedTicketType")}</span>
               <span className="font-semibold">{purchasedTicket.ticketType}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-white/50">{t("purchasedQuantity")}</span>
+              <span className="text-foreground/50">{t("purchasedQuantity")}</span>
               <span className="font-semibold">{purchasedTicket.quantity}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-white/50">{t("purchasedTotal")}</span>
+              <span className="text-foreground/50">{t("purchasedTotal")}</span>
               <span className="font-semibold text-green-400">
                 {purchasedTicket.totalPaid}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-white/50">{t("purchasedDate")}</span>
+              <span className="text-foreground/50">{t("purchasedDate")}</span>
               <span className="font-semibold">
                 {purchasedTicket.purchaseDate}
               </span>
@@ -923,7 +923,7 @@ function TicketsSection({
                 ? "opacity-50 cursor-not-allowed"
                 : selected === i
                   ? "bg-primary/10 ring-1 ring-primary/40"
-                  : "glass hover:bg-white/5"
+                  : "glass hover:bg-foreground/5"
             }`}
             onClick={() => ticket.available && setSelected(i)}
             whileTap={ticket.available ? { scale: 0.98 } : {}}
@@ -942,7 +942,7 @@ function TicketsSection({
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <p className="text-[11px] text-white/50">
+              <p className="text-[11px] text-foreground/50">
                 {t(ticket.description)}
               </p>
               {!ticket.available && (
@@ -972,7 +972,7 @@ function TicketsSection({
         >
           <Ticket size={16} />
           {t("buyNow")}
-          <span className="text-white/70 ml-1">
+          <span className="text-foreground/70 ml-1">
             — {tickets[selected]?.price}
           </span>
         </motion.button>
@@ -1013,17 +1013,17 @@ function ArtistCard({
         </div>
       </div>
 
-      <p className="text-xs text-white/60 mb-4 leading-relaxed">{artist.bio}</p>
+      <p className="text-xs text-foreground/60 mb-4 leading-relaxed">{artist.bio}</p>
 
       <div className="flex items-center gap-4 text-xs text-muted mb-4">
         <span>{t("artistFollowers", { count: artist.followers })}</span>
-        <span className="w-1 h-1 rounded-full bg-white/20" />
+        <span className="w-1 h-1 rounded-full bg-foreground/20" />
         <span>{t("artistUpcoming", { count: artist.upcoming })}</span>
       </div>
 
       <Link
         href="/artists"
-        className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+        className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
         data-cursor-hover
       >
         <User size={12} />
@@ -1081,7 +1081,7 @@ function VenueCard({
 
       <Link
         href={`/venues/${venue.id}`}
-        className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+        className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
         data-cursor-hover
       >
         <Building2 size={12} />
@@ -1127,13 +1127,13 @@ function OrganizerCard({
         </div>
       </div>
 
-      <p className="text-xs text-white/60 mb-4 leading-relaxed">
+      <p className="text-xs text-foreground/60 mb-4 leading-relaxed">
         {detail.organizerDescription}
       </p>
 
       <div className="flex gap-2">
         <button
-          className="flex-1 py-2.5 glass rounded-xl text-xs font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-1.5"
+          className="flex-1 py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-center gap-1.5"
           data-cursor-hover
         >
           <User size={12} />
@@ -1171,7 +1171,7 @@ function ActionsCard({ eventId, t }: { eventId: string; t: ReturnType<typeof use
     <div className="glass rounded-2xl p-6">
       <div className="flex flex-col gap-2">
         <button
-          className="w-full py-2.5 glass rounded-xl text-xs font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
+          className="w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-center gap-2"
           data-cursor-hover
         >
           <Share2 size={14} />
@@ -1182,7 +1182,7 @@ function ActionsCard({ eventId, t }: { eventId: string; t: ReturnType<typeof use
           className={`w-full py-2.5 glass rounded-xl text-xs font-medium transition-colors flex items-center justify-center gap-2 ${
             saved
               ? "text-gold bg-gold/5 hover:bg-gold/10"
-              : "text-white/70 hover:text-white hover:bg-white/5"
+              : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
           }`}
           whileTap={{ scale: 0.97 }}
           data-cursor-hover
@@ -1258,7 +1258,7 @@ function SimilarEvents({
                     <Calendar size={11} className="text-primary" />
                     {event.date}
                   </div>
-                  <span className="text-sm font-bold text-white">
+                  <span className="text-sm font-bold text-foreground">
                     {event.price}
                   </span>
                 </div>

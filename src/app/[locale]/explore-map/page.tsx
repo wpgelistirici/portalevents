@@ -97,7 +97,7 @@ function EventDetailPanel({
     >
       {/* Arrow pointing to marker */}
       <div
-        className="absolute w-3 h-3 rotate-45 border border-white/[0.06]"
+        className="absolute w-3 h-3 rotate-45 border border-foreground/[0.06]"
         style={{
           background: "#0a0a0b",
           top: arrowTop - 6,
@@ -108,7 +108,7 @@ function EventDetailPanel({
       />
 
       <div
-        className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/[0.06]"
+        className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-foreground/[0.06]"
         style={{ background: "#0a0a0b" }}
       >
         {/* Image */}
@@ -123,18 +123,18 @@ function EventDetailPanel({
 
           <button
             onClick={onClose}
-            className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/70 hover:text-white transition-colors"
+            className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-foreground/70 hover:text-foreground transition-colors"
             data-cursor-hover
           >
             <X size={12} />
           </button>
 
-          <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-medium backdrop-blur-sm bg-black/40 border border-white/10">
+          <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-medium backdrop-blur-sm bg-black/40 border border-foreground/10">
             {event.genre}
           </div>
 
           <div className="absolute bottom-2.5 left-3">
-            <span className="text-lg font-bold text-white">
+            <span className="text-lg font-bold text-foreground">
               {event.price}
             </span>
           </div>
@@ -174,7 +174,7 @@ function EventDetailPanel({
                 href={`https://www.google.com/maps/dir/?api=1&destination=${event.detail.lat},${event.detail.lng}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1 px-3.5 py-2.5 rounded-xl text-[11px] font-medium border border-white/[0.06] hover:bg-white/[0.04] transition-colors"
+                className="flex items-center justify-center gap-1 px-3.5 py-2.5 rounded-xl text-[11px] font-medium border border-foreground/[0.06] hover:bg-foreground/[0.04] transition-colors"
                 style={{ background: "#111113" }}
                 data-cursor-hover
               >
@@ -278,11 +278,11 @@ export default function ExploreMapPage() {
       >
         {/* Drawer panel */}
         <div
-          className="w-[360px] h-full flex flex-col border-r border-white/[0.04] shadow-2xl shadow-black/50"
+          className="w-[360px] h-full flex flex-col border-r border-foreground/[0.04] shadow-2xl shadow-black/50"
           style={{ background: "rgba(10, 10, 11, 0.92)" }}
         >
           {/* Drawer header */}
-          <div className="p-4 pb-3 border-b border-white/[0.04]">
+          <div className="p-4 pb-3 border-b border-foreground/[0.04]">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -297,7 +297,7 @@ export default function ExploreMapPage() {
               </div>
               <button
                 onClick={() => setIsDrawerOpen(false)}
-                className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"
+                className="w-8 h-8 rounded-lg bg-foreground/[0.04] flex items-center justify-center text-foreground/40 hover:text-foreground hover:bg-foreground/[0.08] transition-all"
                 data-cursor-hover
               >
                 <PanelLeftClose size={14} />
@@ -308,13 +308,13 @@ export default function ExploreMapPage() {
             <div
               className={`flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-300 ${
                 isSearchFocused
-                  ? "border-primary/30 bg-white/[0.04]"
-                  : "border-white/[0.06] bg-white/[0.02]"
+                  ? "border-primary/30 bg-foreground/[0.04]"
+                  : "border-foreground/[0.06] bg-foreground/[0.02]"
               }`}
             >
               <Search
                 size={14}
-                className={`flex-shrink-0 transition-colors ${isSearchFocused ? "text-primary" : "text-white/30"}`}
+                className={`flex-shrink-0 transition-colors ${isSearchFocused ? "text-primary" : "text-foreground/30"}`}
               />
               <input
                 type="text"
@@ -323,12 +323,12 @@ export default function ExploreMapPage() {
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
                 placeholder={t("searchPlaceholder")}
-                className="flex-1 bg-transparent text-sm text-white placeholder:text-white/20 focus:outline-none"
+                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-foreground/20 focus:outline-none"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="text-white/30 hover:text-white transition-colors"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
                   data-cursor-hover
                 >
                   <X size={12} />
@@ -338,10 +338,10 @@ export default function ExploreMapPage() {
           </div>
 
           {/* Genre filter chips */}
-          <div className="px-4 py-3 border-b border-white/[0.04]">
+          <div className="px-4 py-3 border-b border-foreground/[0.04]">
             <div className="flex items-center gap-2 mb-2.5">
-              <SlidersHorizontal size={11} className="text-white/30" />
-              <span className="text-[10px] text-white/30 uppercase tracking-widest font-medium">
+              <SlidersHorizontal size={11} className="text-foreground/30" />
+              <span className="text-[10px] text-foreground/30 uppercase tracking-widest font-medium">
                 {t("categories")}
               </span>
             </div>
@@ -356,7 +356,7 @@ export default function ExploreMapPage() {
                   className={`px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap transition-all duration-200 ${
                     activeGenre === genre
                       ? "bg-primary text-white shadow-[0_0_12px_rgba(123,97,255,0.2)]"
-                      : "bg-white/[0.04] text-white/40 hover:text-white/70 hover:bg-white/[0.07]"
+                      : "bg-foreground/[0.04] text-foreground/40 hover:text-foreground/70 hover:bg-foreground/[0.07]"
                   }`}
                   data-cursor-hover
                 >
@@ -376,7 +376,7 @@ export default function ExploreMapPage() {
                   className={`w-full text-left p-3 rounded-xl mb-1 transition-all duration-200 ${
                     selectedEvent?.id === event.id
                       ? "bg-primary/10 ring-1 ring-primary/20"
-                      : "hover:bg-white/[0.03]"
+                      : "hover:bg-foreground/[0.03]"
                   }`}
                   data-cursor-hover
                 >
@@ -390,14 +390,14 @@ export default function ExploreMapPage() {
                       />
                       {event.trending && (
                         <div className="absolute top-0.5 left-0.5 bg-primary/90 p-0.5 rounded">
-                          <TrendingUp size={7} className="text-white" />
+                          <TrendingUp size={7} className="text-foreground" />
                         </div>
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xs font-bold truncate">{event.title}</h3>
                       <p className="text-[10px] text-primary truncate">{event.artist}</p>
-                      <div className="flex items-center gap-2 mt-1.5 text-[9px] text-white/30">
+                      <div className="flex items-center gap-2 mt-1.5 text-[9px] text-foreground/30">
                         <span className="flex items-center gap-0.5">
                           <Calendar size={8} />
                           {event.date}
@@ -408,7 +408,7 @@ export default function ExploreMapPage() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-white flex-shrink-0 mt-0.5">
+                    <span className="text-[11px] font-bold text-foreground flex-shrink-0 mt-0.5">
                       {event.price}
                     </span>
                   </div>
@@ -417,8 +417,8 @@ export default function ExploreMapPage() {
 
               {filteredEvents.length === 0 && (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <MapPin size={24} className="text-white/15 mb-3" />
-                  <p className="text-xs text-white/30">{t("noEvents")}</p>
+                  <MapPin size={24} className="text-foreground/15 mb-3" />
+                  <p className="text-xs text-foreground/30">{t("noEvents")}</p>
                 </div>
               )}
             </div>
@@ -429,7 +429,7 @@ export default function ExploreMapPage() {
         <div className="flex flex-col justify-center py-4">
           <motion.button
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-            className="relative -ml-px flex items-center justify-center w-7 h-14 rounded-r-xl border border-l-0 border-white/[0.06] text-white/40 hover:text-white transition-all"
+            className="relative -ml-px flex items-center justify-center w-7 h-14 rounded-r-xl border border-l-0 border-foreground/[0.06] text-foreground/40 hover:text-foreground transition-all"
             style={{ background: "rgba(10, 10, 11, 0.88)", backdropFilter: "blur(16px)" }}
             whileHover={{ width: 32 }}
             data-cursor-hover
@@ -464,12 +464,12 @@ export default function ExploreMapPage() {
             className="fixed bottom-0 left-0 right-0 z-[700] lg:hidden"
           >
             <div
-              className="rounded-t-2xl overflow-hidden border-t border-white/[0.06] shadow-2xl shadow-black/60"
+              className="rounded-t-2xl overflow-hidden border-t border-foreground/[0.06] shadow-2xl shadow-black/60"
               style={{ background: "#0a0a0b" }}
             >
               {/* Handle */}
               <div className="flex justify-center pt-3 pb-2">
-                <div className="w-8 h-1 rounded-full bg-white/15" />
+                <div className="w-8 h-1 rounded-full bg-foreground/15" />
               </div>
 
               <div className="flex gap-4 p-4 pt-0">
@@ -493,7 +493,7 @@ export default function ExploreMapPage() {
                     </div>
                     <button
                       onClick={() => setSelectedEvent(null)}
-                      className="w-7 h-7 rounded-full bg-white/[0.05] flex items-center justify-center text-white/40 hover:text-white flex-shrink-0"
+                      className="w-7 h-7 rounded-full bg-foreground/[0.05] flex items-center justify-center text-foreground/40 hover:text-foreground flex-shrink-0"
                       data-cursor-hover
                     >
                       <X size={12} />
@@ -535,7 +535,7 @@ export default function ExploreMapPage() {
                     href={`https://www.google.com/maps/dir/?api=1&destination=${selectedEvent.detail.lat},${selectedEvent.detail.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 px-5 py-3 rounded-xl text-xs font-medium border border-white/[0.06]"
+                    className="flex items-center justify-center gap-1.5 px-5 py-3 rounded-xl text-xs font-medium border border-foreground/[0.06]"
                     style={{ background: "#111113" }}
                     data-cursor-hover
                   >

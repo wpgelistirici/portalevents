@@ -150,7 +150,7 @@ function HeroSearch() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 right-0 top-full mt-2 rounded-2xl overflow-hidden z-50 max-h-[60vh] overflow-y-auto bg-[#111111]/95 backdrop-blur-2xl border border-white/10 shadow-2xl"
+            className="absolute left-0 right-0 top-full mt-2 rounded-2xl overflow-hidden z-50 max-h-[60vh] overflow-y-auto bg-surface/95 backdrop-blur-2xl border border-foreground/10 shadow-2xl"
           >
             {results.events.length > 0 && (
               <div className="p-3">
@@ -164,7 +164,7 @@ function HeroSearch() {
                   <Link
                     key={event.id}
                     href={`/events/${event.id}`}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors group"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-foreground/5 transition-colors group"
                     style={{ cursor: "pointer" }}
                     onClick={() => setFocused(false)}
                   >
@@ -180,7 +180,7 @@ function HeroSearch() {
                         {event.artist} &middot; {event.date}
                       </p>
                     </div>
-                    <span className="text-xs text-white font-medium flex-shrink-0">
+                    <span className="text-xs text-foreground font-medium flex-shrink-0">
                       {event.price}
                     </span>
                   </Link>
@@ -189,7 +189,7 @@ function HeroSearch() {
             )}
 
             {results.artists.length > 0 && (
-              <div className="p-3 border-t border-white/5">
+              <div className="p-3 border-t border-foreground/5">
                 <div className="flex items-center gap-2 px-2 pb-2">
                   <Music size={13} className="text-primary" />
                   <span className="text-[11px] font-semibold text-muted uppercase tracking-wider">
@@ -200,7 +200,7 @@ function HeroSearch() {
                   <Link
                     key={artist.id}
                     href={`/artists/${artist.id}`}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors group"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-foreground/5 transition-colors group"
                     style={{ cursor: "pointer" }}
                     onClick={() => setFocused(false)}
                   >
@@ -225,7 +225,7 @@ function HeroSearch() {
             )}
 
             {results.venues.length > 0 && (
-              <div className="p-3 border-t border-white/5">
+              <div className="p-3 border-t border-foreground/5">
                 <div className="flex items-center gap-2 px-2 pb-2">
                   <MapPin size={13} className="text-primary" />
                   <span className="text-[11px] font-semibold text-muted uppercase tracking-wider">
@@ -236,7 +236,7 @@ function HeroSearch() {
                   <Link
                     key={venue.id}
                     href={`/venues/${venue.id}`}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors group"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-foreground/5 transition-colors group"
                     style={{ cursor: "pointer" }}
                     onClick={() => setFocused(false)}
                   >
@@ -270,7 +270,7 @@ function HeroSearch() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
-            className="absolute left-0 right-0 top-full mt-2 rounded-2xl p-6 text-center z-50 bg-[#111111]/95 backdrop-blur-2xl border border-white/10 shadow-2xl"
+            className="absolute left-0 right-0 top-full mt-2 rounded-2xl p-6 text-center z-50 bg-surface/95 backdrop-blur-2xl border border-foreground/10 shadow-2xl"
           >
             <p className="text-sm text-muted">{t("searchNoResults")}</p>
           </motion.div>
@@ -329,9 +329,6 @@ export default function Hero() {
         className="opacity-60"
       />
 
-      {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1]" />
-
       {/* Main Content */}
       <motion.div
         className="relative z-10 text-center px-6 max-w-3xl mx-auto w-full"
@@ -386,7 +383,7 @@ export default function Hero() {
             </span>
           </MagneticButton>
 
-          <MagneticButton className="px-6 py-3 glass text-foreground text-sm font-semibold rounded-full hover:bg-white/10 transition-all duration-300">
+          <MagneticButton className="px-6 py-3 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
             <span className="flex items-center gap-2">
               <Play size={12} fill="currentColor" />
               {t("ctaHow")}

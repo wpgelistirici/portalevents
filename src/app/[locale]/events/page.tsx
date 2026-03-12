@@ -42,11 +42,16 @@ function EventSaveButton({ eventId }: { eventId: string }) {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (!isAuthenticated) { openAuthModal(); return; }
+        if (!isAuthenticated) {
+          openAuthModal();
+          return;
+        }
         toggleSave(eventId, "event");
       }}
       className={`absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all z-10 ${
-        saved ? "glass-strong text-gold" : "glass-strong text-white/60 hover:text-white"
+        saved
+          ? "glass-strong text-gold"
+          : "glass-strong text-foreground/60 hover:text-foreground"
       }`}
       whileTap={{ scale: 0.85 }}
       data-cursor-hover
@@ -123,12 +128,19 @@ export default function EventsPage() {
                     <h3 className="text-sm font-bold group-hover:text-primary transition-colors">
                       {t("exploreMapTitle")}
                     </h3>
-                    <p className="text-xs text-muted mt-0.5">{t("exploreMapDesc")}</p>
+                    <p className="text-xs text-muted mt-0.5">
+                      {t("exploreMapDesc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted group-hover:text-primary transition-colors">
-                  <span className="hidden sm:inline">{t("exploreMapButton")}</span>
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  <span className="hidden sm:inline">
+                    {t("exploreMapButton")}
+                  </span>
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
                 </div>
               </motion.div>
             </Link>
@@ -162,7 +174,7 @@ export default function EventsPage() {
 
           {/* Genre tabs */}
           <FadeInUp delay={0.4}>
-            <div className="flex items-center gap-2 mb-12 overflow-x-auto pb-2">
+            <div className="flex items-center gap-2 mb-12 pb-2">
               {genres.map((genre) => (
                 <button
                   key={genre}
@@ -208,7 +220,7 @@ export default function EventsPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                       {event.trending && (
-                        <div className="absolute top-4 left-4 flex items-center gap-1 bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] font-bold">
+                        <div className="absolute top-4 left-4 flex items-center gap-1 bg-primary/90 backdrop-blur-sm text-foreground px-3 py-1 rounded-full text-[10px] font-bold">
                           <TrendingUp size={10} />
                           {t("trending")}
                         </div>
@@ -237,8 +249,8 @@ export default function EventsPage() {
                           {event.city}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                        <span className="text-lg font-bold text-white">
+                      <div className="flex items-center justify-between pt-4 border-t border-foreground/5">
+                        <span className="text-lg font-bold text-foreground">
                           {event.price}
                         </span>
                         <button className="px-4 py-2 bg-primary/10 text-primary text-xs font-semibold rounded-full hover:bg-primary/20 transition-colors">

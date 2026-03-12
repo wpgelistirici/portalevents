@@ -42,15 +42,15 @@ function StatCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
-      className="rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-xl p-5"
+      className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] backdrop-blur-xl p-5"
     >
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[11px] text-white/40 uppercase tracking-wider font-medium">{label}</span>
+        <span className="text-[11px] text-foreground/40 uppercase tracking-wider font-medium">{label}</span>
         <div className={`w-9 h-9 rounded-xl ${bg} flex items-center justify-center`}>
           <Icon className={`w-[18px] h-[18px] ${color}`} />
         </div>
       </div>
-      <p className="text-2xl font-bold text-white">{value}</p>
+      <p className="text-2xl font-bold text-foreground">{value}</p>
       {trend && (
         <div className="flex items-center gap-1 mt-2">
           <TrendingUp className="w-3 h-3 text-emerald-400" />
@@ -79,8 +79,8 @@ export default function AdminDashboard() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white">{t("title")}</h1>
-        <p className="text-white/40 text-sm mt-1">{t("subtitle")}</p>
+        <h1 className="text-2xl font-bold text-foreground">{t("title")}</h1>
+        <p className="text-foreground/40 text-sm mt-1">{t("subtitle")}</p>
       </div>
 
       {/* KPI Grid */}
@@ -157,32 +157,32 @@ export default function AdminDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center">
               <Clock className="w-[18px] h-[18px] text-amber-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">{t("pendingApproval")}</h3>
-              <p className="text-[10px] text-white/30">{t("needsReview")}</p>
+              <h3 className="text-sm font-bold text-foreground">{t("pendingApproval")}</h3>
+              <p className="text-[10px] text-foreground/30">{t("needsReview")}</p>
             </div>
             <span className="ml-auto text-2xl font-bold text-amber-400">{pendingEvents.length}</span>
           </div>
           {pendingEvents.length > 0 ? (
             <div className="space-y-2">
               {pendingEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-white/[0.02]">
+                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
                   <AlertCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-white truncate">{event.title}</p>
-                    <p className="text-[10px] text-white/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
+                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-white/20 text-center py-4">{t("noPending")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">{t("noPending")}</p>
           )}
         </motion.div>
 
@@ -191,32 +191,32 @@ export default function AdminDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
               <CheckCircle2 className="w-[18px] h-[18px] text-emerald-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">{t("approvedEvents")}</h3>
-              <p className="text-[10px] text-white/30">{t("liveNow")}</p>
+              <h3 className="text-sm font-bold text-foreground">{t("approvedEvents")}</h3>
+              <p className="text-[10px] text-foreground/30">{t("liveNow")}</p>
             </div>
             <span className="ml-auto text-2xl font-bold text-emerald-400">{approvedEvents.length}</span>
           </div>
           {approvedEvents.length > 0 ? (
             <div className="space-y-2">
               {approvedEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-white/[0.02]">
+                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-white truncate">{event.title}</p>
-                    <p className="text-[10px] text-white/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
+                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-white/20 text-center py-4">{t("noApproved")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">{t("noApproved")}</p>
           )}
         </motion.div>
 
@@ -225,32 +225,32 @@ export default function AdminDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+          className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-xl bg-red-500/10 flex items-center justify-center">
               <XCircle className="w-[18px] h-[18px] text-red-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">{t("rejectedEvents")}</h3>
-              <p className="text-[10px] text-white/30">{t("declined")}</p>
+              <h3 className="text-sm font-bold text-foreground">{t("rejectedEvents")}</h3>
+              <p className="text-[10px] text-foreground/30">{t("declined")}</p>
             </div>
             <span className="ml-auto text-2xl font-bold text-red-400">{rejectedEvents.length}</span>
           </div>
           {rejectedEvents.length > 0 ? (
             <div className="space-y-2">
               {rejectedEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-white/[0.02]">
+                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
                   <XCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-white truncate">{event.title}</p>
-                    <p className="text-[10px] text-white/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
+                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-white/20 text-center py-4">{t("noRejected")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">{t("noRejected")}</p>
           )}
         </motion.div>
       </div>
@@ -260,9 +260,9 @@ export default function AdminDashboard() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.45 }}
-        className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+        className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-6"
       >
-        <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+        <h3 className="text-sm font-bold text-foreground mb-4 flex items-center gap-2">
           <BarChart3 className="w-4 h-4 text-red-400" />
           {t("platformOverview")}
         </h3>
@@ -276,7 +276,7 @@ export default function AdminDashboard() {
           ].map((stat, i) => (
             <div key={i} className="text-center py-3">
               <p className={`text-xl font-bold ${stat.color}`}>{stat.value}</p>
-              <p className="text-[10px] text-white/30 mt-1">{stat.label}</p>
+              <p className="text-[10px] text-foreground/30 mt-1">{stat.label}</p>
             </div>
           ))}
         </div>

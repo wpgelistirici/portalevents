@@ -24,7 +24,7 @@ export default function PortalLogo() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.span
-        className="text-xl font-medium text-white/90"
+        className="text-xl font-medium text-foreground/90"
         style={{ fontFamily: "var(--font-orbitron)" }}
         animate={{
           opacity: isHovered ? 0 : 1,
@@ -113,7 +113,7 @@ export default function PortalLogo() {
       </motion.div>
 
       <motion.span
-        className="text-xl font-medium tracking-[0.25em] text-white/90"
+        className="text-xl font-medium tracking-[0.25em] text-foreground/90"
         style={fontOrbitron}
         animate={{
           opacity: isHovered ? 0 : 1,

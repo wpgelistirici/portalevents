@@ -18,16 +18,17 @@ export default function SaveToast() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[1000] flex items-center gap-3 px-5 py-3 rounded-2xl shadow-2xl border"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[1000] flex items-center gap-3 px-5 py-3 rounded-2xl shadow-2xl border glass-strong"
           style={{
-            background: toast.type === "save" ? "rgba(10, 10, 11, 0.95)" : "rgba(10, 10, 11, 0.95)",
-            borderColor: toast.type === "save" ? "rgba(212, 175, 55, 0.2)" : "rgba(255, 255, 255, 0.05)",
-            backdropFilter: "blur(20px)",
+            borderColor:
+              toast.type === "save"
+                ? "rgba(212, 175, 55, 0.2)"
+                : "var(--color-border)",
           }}
         >
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center ${
-              toast.type === "save" ? "bg-gold/10" : "bg-white/5"
+              toast.type === "save" ? "bg-gold/10" : "bg-foreground/5"
             }`}
           >
             {toast.type === "save" ? (
@@ -36,9 +37,7 @@ export default function SaveToast() {
               <BookmarkX size={14} className="text-muted" />
             )}
           </div>
-          <span className="text-sm font-medium">
-            {t(toast.message)}
-          </span>
+          <span className="text-sm font-medium">{t(toast.message)}</span>
         </motion.div>
       )}
     </AnimatePresence>

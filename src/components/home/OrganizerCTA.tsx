@@ -60,7 +60,7 @@ export default function OrganizerCTA() {
           />
 
           {/* Border gradient */}
-          <div className="absolute inset-0 rounded-3xl border border-white/[0.06]" />
+          <div className="absolute inset-0 rounded-3xl border border-foreground/[0.06]" />
 
           <div className="relative z-10 p-8 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -103,7 +103,7 @@ export default function OrganizerCTA() {
                         <ArrowRight size={14} />
                       </span>
                     </MagneticButton>
-                    <MagneticButton className="px-8 py-4 glass text-foreground text-sm font-semibold rounded-full hover:bg-white/10 transition-all duration-300">
+                    <MagneticButton className="px-8 py-4 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
                       {t("ctaSecondary")}
                     </MagneticButton>
                   </div>
@@ -115,7 +115,7 @@ export default function OrganizerCTA() {
                 {featureIcons.map((feature, i) => (
                   <FadeInUp key={i} delay={0.2 + i * 0.1}>
                     <motion.div
-                      className="glass rounded-xl p-5 group hover:bg-white/[0.06] transition-colors duration-300"
+                      className="glass rounded-xl p-5 group hover:bg-foreground/[0.06] transition-colors duration-300"
                       whileHover={{ y: -4, scale: 1.02 }}
                       data-cursor-hover
                     >
@@ -136,7 +136,7 @@ export default function OrganizerCTA() {
 
             {/* Bottom stats */}
             <FadeInUp delay={0.6}>
-              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mt-16 pt-8 border-t border-white/5">
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mt-16 pt-8 border-t border-foreground/5">
                 {[
                   { value: "2,400+", key: "organizers" },
                   { value: "₺12M+", key: "sales" },

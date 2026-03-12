@@ -149,7 +149,7 @@ export default function AccountPage() {
                     </div>
                   </div>
 
-                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-foreground/5" />
 
                   {sidebarItems.map((item) => {
                     const Icon = item.icon;
@@ -160,8 +160,8 @@ export default function AccountPage() {
                         onClick={() => setActiveSection(item.key)}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all ${
                           isActive
-                            ? "bg-primary/10 text-white font-medium"
-                            : "text-muted hover:text-white hover:bg-white/5"
+                            ? "bg-primary/10 text-foreground font-medium"
+                            : "text-muted hover:text-foreground hover:bg-foreground/5"
                         }`}
                         data-cursor-hover
                       >
@@ -171,12 +171,12 @@ export default function AccountPage() {
                     );
                   })}
 
-                  <div className="h-px bg-white/5" />
+                  <div className="h-px bg-foreground/5" />
 
                   {/* Quick links */}
                   <Link
                     href="/my-tickets"
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-muted hover:text-white hover:bg-white/5 transition-all"
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-muted hover:text-foreground hover:bg-foreground/5 transition-all"
                     data-cursor-hover
                   >
                     <Ticket size={16} />
@@ -325,7 +325,7 @@ function ProfileSection({
                 <Image src={avatar} alt="Avatar" fill className="object-cover" />
                 {user.avatar === avatar && (
                   <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                    <Check size={16} className="text-white" />
+                    <Check size={16} className="text-foreground" />
                   </div>
                 )}
               </button>
@@ -371,7 +371,7 @@ function ProfileSection({
           </div>
 
           {/* Save button */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-foreground/5">
             <AnimatePresence>
               {saved && (
                 <motion.div
@@ -399,7 +399,7 @@ function ProfileSection({
             >
               {isSaving ? (
                 <motion.div
-                  className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                  className="w-4 h-4 border-2 border-foreground/30 border-t-white rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 />
@@ -493,7 +493,7 @@ function SecuritySection({
                   type={showCurrent ? "text" : "password"}
                   value={currentPw}
                   onChange={(e) => setCurrentPw(e.target.value)}
-                  className="w-full pl-10 pr-10 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20"
+                  className="w-full pl-10 pr-10 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20"
                   placeholder="••••••"
                 />
                 <button
@@ -517,7 +517,7 @@ function SecuritySection({
                   type={showNew ? "text" : "password"}
                   value={newPw}
                   onChange={(e) => setNewPw(e.target.value)}
-                  className="w-full pl-10 pr-10 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20"
+                  className="w-full pl-10 pr-10 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20"
                   placeholder="••••••"
                 />
                 <button
@@ -541,7 +541,7 @@ function SecuritySection({
                   type={showNew ? "text" : "password"}
                   value={confirmPw}
                   onChange={(e) => setConfirmPw(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20"
+                  className="w-full pl-10 pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20"
                   placeholder="••••••"
                 />
               </div>
@@ -566,7 +566,7 @@ function SecuritySection({
           </AnimatePresence>
 
           {/* Save */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-foreground/5">
             <AnimatePresence>
               {saved && (
                 <motion.div
@@ -590,7 +590,7 @@ function SecuritySection({
             >
               {isSaving ? (
                 <motion.div
-                  className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                  className="w-4 h-4 border-2 border-foreground/30 border-t-white rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 />
@@ -633,14 +633,14 @@ function SecuritySection({
                 onClick={() => {
                   deleteAccount();
                 }}
-                className="px-5 py-2.5 bg-red-500 text-white text-xs font-bold rounded-xl hover:bg-red-600 transition-colors"
+                className="px-5 py-2.5 bg-red-500 text-foreground text-xs font-bold rounded-xl hover:bg-red-600 transition-colors"
                 data-cursor-hover
               >
                 {t("deleteConfirmYes")}
               </button>
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="px-5 py-2.5 glass text-xs font-medium rounded-xl hover:bg-white/5 transition-colors"
+                className="px-5 py-2.5 glass text-xs font-medium rounded-xl hover:bg-foreground/5 transition-colors"
                 data-cursor-hover
               >
                 {t("deleteConfirmNo")}
@@ -717,7 +717,7 @@ function NotificationsSection({
             />
           </div>
 
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-foreground/5">
             <AnimatePresence>
               {saved && (
                 <motion.div
@@ -764,7 +764,7 @@ function ToggleItem({
 }) {
   return (
     <div
-      className="flex items-center justify-between py-4 px-3 rounded-xl hover:bg-white/[0.02] transition-colors cursor-pointer"
+      className="flex items-center justify-between py-4 px-3 rounded-xl hover:bg-foreground/[0.02] transition-colors cursor-pointer"
       onClick={() => onChange(!checked)}
       data-cursor-hover
     >
@@ -774,7 +774,7 @@ function ToggleItem({
       </div>
       <div
         className={`w-11 h-6 rounded-full relative transition-colors duration-200 flex-shrink-0 ${
-          checked ? "bg-primary" : "bg-white/10"
+          checked ? "bg-primary" : "bg-foreground/10"
         }`}
       >
         <motion.div
@@ -820,7 +820,7 @@ function SettingsInput({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="w-full pl-10 pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-white/20"
+          className="w-full pl-10 pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-foreground/20"
         />
       </div>
     </div>

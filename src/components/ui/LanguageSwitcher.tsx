@@ -49,7 +49,7 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         data-cursor-hover
-        className="flex items-center gap-1.5 px-3 py-1.5 glass rounded-full text-[11px] font-semibold hover:bg-white/[0.06] transition-colors"
+        className="flex items-center gap-1.5 px-3 py-1.5 glass rounded-full text-[11px] font-semibold hover:bg-foreground/[0.06] transition-colors"
       >
         <Globe size={12} className="text-primary" />
         <span>{current.flag}</span>
@@ -80,7 +80,7 @@ export default function LanguageSwitcher() {
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                     isActive
                       ? "bg-primary/10 text-primary"
-                      : "text-white/60 hover:text-white hover:bg-white/5"
+                      : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
                   }`}
                 >
                   <span className="text-base">{loc.flag}</span>

@@ -42,18 +42,18 @@ export default function EditEventPage() {
   if (!event) {
     return (
       <div className="text-center py-16">
-        <p className="text-white/40">{t("events.notFound")}</p>
+        <p className="text-foreground/40">{t("events.notFound")}</p>
         <Link href={`/${locale}/organizer/events`} className="text-[#7B61FF] text-sm mt-4 inline-block">{t("events.backToList")}</Link>
       </div>
     );
   }
 
   const statusColors: Record<string, string> = {
-    draft: "text-white/50 bg-white/5",
+    draft: "text-foreground/50 bg-foreground/5",
     pending_approval: "text-yellow-400 bg-yellow-400/10",
     approved: "text-green-400 bg-green-400/10",
     rejected: "text-red-400 bg-red-400/10",
-    cancelled: "text-white/30 bg-white/5",
+    cancelled: "text-foreground/30 bg-foreground/5",
   };
 
   const genreOptions = genres.map((g) => ({ value: g, label: g }));
@@ -103,11 +103,11 @@ export default function EditEventPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-colors">
+        <button onClick={() => router.back()} className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div className="flex-1">
-          <h1 className="text-2xl font-bold text-white">{t("events.editTitle")}</h1>
+          <h1 className="text-2xl font-bold text-foreground">{t("events.editTitle")}</h1>
           <div className="flex items-center gap-3 mt-1">
             <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColors[event.status]}`}>{t(`status.${event.status}`)}</span>
           </div>
@@ -118,29 +118,29 @@ export default function EditEventPage() {
       {event.status === "rejected" && event.rejectionReason && (
         <div className="p-4 rounded-xl bg-red-400/5 border border-red-400/20">
           <p className="text-sm text-red-400 font-medium">{t("events.rejectionReason")}</p>
-          <p className="text-sm text-white/60 mt-1">{event.rejectionReason}</p>
+          <p className="text-sm text-foreground/60 mt-1">{event.rejectionReason}</p>
         </div>
       )}
 
       {/* Basic Info */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-white">{t("eventForm.steps.basic")}</h2>
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
+        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.steps.basic")}</h2>
         <div>
-          <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.eventName")}</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.eventName")}</label>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.description")}</label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.genre")}</label>
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.genre")}</label>
             <CustomSelect options={genreOptions} value={genre} onChange={setGenre} searchable={false} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.price")}</label>
-            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.price")}</label>
+            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <ImageUpload value={image} onChange={setImage} label={t("eventForm.coverImage")} />
@@ -148,74 +148,74 @@ export default function EditEventPage() {
       </div>
 
       {/* Date & Location */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-white">{t("eventForm.steps.dateLocation")}</h2>
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
+        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.steps.dateLocation")}</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startDate")}</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startDate")}</label>
+            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.startTime")}</label>
-            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startTime")}</label>
+            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endDate")}</label>
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endDate")}</label>
+            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.endTime")}</label>
-            <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endTime")}</label>
+            <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.venue")}</label>
+          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.venue")}</label>
           <CustomSelect options={venueOptions} value={venue} onChange={(v) => { setVenue(v); const found = allVenues.find((x) => x.name === v); if (found) setCity(found.city); }} />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white/70 mb-2">{t("eventForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.address")}</label>
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
         </div>
       </div>
 
       {/* Ticket Types */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-white">{t("eventForm.ticketTypes")}</h2>
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
+        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.ticketTypes")}</h2>
         {ticketTypes.map((tt, idx) => (
-          <div key={idx} className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/5 relative">
+          <div key={idx} className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-foreground/[0.02] border border-foreground/5 relative">
             {ticketTypes.length > 1 && (
               <button onClick={() => setTicketTypes((prev) => prev.filter((_, i) => i !== idx))} className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500/30">
                 <X className="w-3 h-3" />
               </button>
             )}
             <div>
-              <label className="block text-xs text-white/50 mb-1">{t("eventForm.ticketName")}</label>
-              <input type="text" value={tt.name} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], name: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.ticketName")}</label>
+              <input type="text" value={tt.name} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], name: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
             <div>
-              <label className="block text-xs text-white/50 mb-1">{t("eventForm.price")}</label>
-              <input type="text" value={tt.price} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], price: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.price")}</label>
+              <input type="text" value={tt.price} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], price: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
             <div>
-              <label className="block text-xs text-white/50 mb-1">{t("eventForm.ticketDescription")}</label>
-              <input type="text" value={tt.description} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], description: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.ticketDescription")}</label>
+              <input type="text" value={tt.description} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], description: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
             </div>
           </div>
         ))}
-        <button onClick={() => setTicketTypes((prev) => [...prev, { name: "", price: "", description: "", available: true }])} className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dashed border-white/10 text-white/40 text-sm hover:border-white/20 hover:text-white/60 transition-colors">
+        <button onClick={() => setTicketTypes((prev) => [...prev, { name: "", price: "", description: "", available: true }])} className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dashed border-foreground/10 text-foreground/40 text-sm hover:border-foreground/20 hover:text-foreground/60 transition-colors">
           <Plus className="w-4 h-4" />
           {t("eventForm.addTicketType")}
         </button>
       </div>
 
       {/* Rules */}
-      <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-8 space-y-4">
-        <h2 className="text-lg font-semibold text-white">{t("eventForm.eventRules")}</h2>
+      <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-4">
+        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.eventRules")}</h2>
         <div className="grid grid-cols-2 gap-2">
           {ruleOptions.map((rule) => (
-            <button key={rule} onClick={() => setSelectedRules((prev) => prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule])} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#7B61FF]/10 border border-[#7B61FF]/30 text-white" : "bg-white/[0.02] border border-white/5 text-white/50"}`}>
-              <div className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#7B61FF] bg-[#7B61FF]" : "border-white/20"}`}>
-                {selectedRules.includes(rule) && <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
+            <button key={rule} onClick={() => setSelectedRules((prev) => prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule])} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#7B61FF]/10 border border-[#7B61FF]/30 text-foreground" : "bg-foreground/[0.02] border border-foreground/5 text-foreground/50"}`}>
+              <div className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#7B61FF] bg-[#7B61FF]" : "border-foreground/20"}`}>
+                {selectedRules.includes(rule) && <svg className="w-3 h-3 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
               </div>
               {t(`eventForm.rules.${rule}`)}
             </button>

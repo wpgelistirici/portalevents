@@ -77,7 +77,7 @@ export default function VenueDetailPage({
               </p>
               <Link
                 href="/venues"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
               >
                 <ArrowLeft size={16} />
                 {t("backToVenues")}
@@ -196,7 +196,7 @@ function VenueSaveButton({ venueId }: { venueId: string }) {
         toggleSave(venueId, "venue");
       }}
       className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-        saved ? "glass-strong text-gold" : "glass-strong text-white/70 hover:text-white"
+        saved ? "glass-strong text-gold" : "glass-strong text-foreground/70 hover:text-foreground"
       }`}
       whileTap={{ scale: 0.9 }}
       data-cursor-hover
@@ -253,7 +253,7 @@ function HeroSection({
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <h1 className="display-md md:display-lg mb-3">{venue.name}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-white/70">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/70">
             <span className="flex items-center gap-1.5">
               <MapPin size={14} className="text-accent" />
               {venue.city}
@@ -287,7 +287,7 @@ function AboutSection({
         </div>
         {t("about")}
       </h2>
-      <p className="text-white/70 leading-relaxed text-sm">{description}</p>
+      <p className="text-foreground/70 leading-relaxed text-sm">{description}</p>
     </div>
   );
 }
@@ -346,7 +346,7 @@ function GallerySection({
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent transition-colors z-10"
+              className="absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-accent transition-colors z-10"
               onClick={() => setSelectedImage(null)}
             >
               <X size={20} />
@@ -354,7 +354,7 @@ function GallerySection({
 
             {selectedImage > 0 && (
               <button
-                className="absolute left-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent transition-colors z-10"
+                className="absolute left-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-accent transition-colors z-10"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedImage(selectedImage - 1);
@@ -366,7 +366,7 @@ function GallerySection({
 
             {selectedImage < gallery.length - 1 && (
               <button
-                className="absolute right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent transition-colors z-10"
+                className="absolute right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:text-accent transition-colors z-10"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedImage(selectedImage + 1);
@@ -450,19 +450,19 @@ function LocationSection({
                 transition={{ repeat: Infinity, duration: 2 }}
               >
                 <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.4)]">
-                  <MapPin size={16} className="text-white" />
+                  <MapPin size={16} className="text-foreground" />
                 </div>
               </motion.div>
               <div className="w-3 h-1.5 bg-black/30 rounded-full mt-1 blur-[1px]" />
             </div>
             {/* Streets simulation */}
             <div className="absolute inset-0">
-              <div className="absolute top-0 left-1/3 w-px h-full bg-white/5" />
-              <div className="absolute top-0 left-2/3 w-px h-full bg-white/5" />
-              <div className="absolute top-1/3 left-0 w-full h-px bg-white/5" />
-              <div className="absolute top-2/3 left-0 w-full h-px bg-white/5" />
-              <div className="absolute top-[45%] left-[20%] w-[30%] h-px bg-white/8 rotate-12" />
-              <div className="absolute top-[55%] left-[50%] w-[25%] h-px bg-white/8 -rotate-6" />
+              <div className="absolute top-0 left-1/3 w-px h-full bg-foreground/5" />
+              <div className="absolute top-0 left-2/3 w-px h-full bg-foreground/5" />
+              <div className="absolute top-1/3 left-0 w-full h-px bg-foreground/5" />
+              <div className="absolute top-2/3 left-0 w-full h-px bg-foreground/5" />
+              <div className="absolute top-[45%] left-[20%] w-[30%] h-px bg-foreground/8 rotate-12" />
+              <div className="absolute top-[55%] left-[50%] w-[25%] h-px bg-foreground/8 -rotate-6" />
             </div>
           </div>
         </div>
@@ -478,7 +478,7 @@ function LocationSection({
         <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
         <div className="flex-1">
           <p className="font-semibold mb-1">{venueName}</p>
-          <p className="text-sm text-white/60 leading-relaxed">
+          <p className="text-sm text-foreground/60 leading-relaxed">
             {detail.address}
           </p>
         </div>
@@ -533,7 +533,7 @@ function OpeningHoursSection({
               className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
                 isToday
                   ? "bg-accent/10 ring-1 ring-accent/30"
-                  : "hover:bg-white/5"
+                  : "hover:bg-foreground/5"
               }`}
             >
               <div className="flex items-center gap-3">
@@ -543,7 +543,7 @@ function OpeningHoursSection({
                   }`}
                 />
                 <span
-                  className={`text-sm ${isToday ? "font-bold text-accent" : "text-white/70"}`}
+                  className={`text-sm ${isToday ? "font-bold text-accent" : "text-foreground/70"}`}
                 >
                   {t(`days.${item.day}`)}
                 </span>
@@ -558,7 +558,7 @@ function OpeningHoursSection({
                   isToday
                     ? "font-bold"
                     : item.isOpen
-                      ? "text-white/70"
+                      ? "text-foreground/70"
                       : "text-red-400/70"
                 }`}
               >
@@ -610,7 +610,7 @@ function ArtistCalendarSection({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="group flex items-center gap-4 p-4 rounded-xl glass hover:bg-white/5 transition-all cursor-pointer"
+                className="group flex items-center gap-4 p-4 rounded-xl glass hover:bg-foreground/5 transition-all cursor-pointer"
                 data-cursor-hover
               >
                 {/* Date badge */}
@@ -693,7 +693,7 @@ function ContactCard({
         {/* Phone */}
         <a
           href={`tel:${detail.phone}`}
-          className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+          className="flex items-center gap-4 p-3 rounded-xl hover:bg-foreground/5 transition-colors group"
           data-cursor-hover
         >
           <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
@@ -712,7 +712,7 @@ function ContactCard({
         {/* Email */}
         <a
           href={`mailto:${detail.email}`}
-          className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+          className="flex items-center gap-4 p-3 rounded-xl hover:bg-foreground/5 transition-colors group"
           data-cursor-hover
         >
           <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
@@ -733,7 +733,7 @@ function ContactCard({
           href={detail.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+          className="flex items-center gap-4 p-3 rounded-xl hover:bg-foreground/5 transition-colors group"
           data-cursor-hover
         >
           <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
@@ -859,7 +859,7 @@ function QuickInfoCard({
             {venue.type}
           </span>
         </div>
-        <div className="h-px bg-white/5" />
+        <div className="h-px bg-foreground/5" />
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted">{t("capacity")}</span>
           <span className="text-xs font-bold flex items-center gap-1.5">
@@ -867,7 +867,7 @@ function QuickInfoCard({
             {venue.capacity}
           </span>
         </div>
-        <div className="h-px bg-white/5" />
+        <div className="h-px bg-foreground/5" />
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted">{t("rating")}</span>
           <span className="text-xs font-bold flex items-center gap-1.5">
@@ -875,14 +875,14 @@ function QuickInfoCard({
             {venue.rating}
           </span>
         </div>
-        <div className="h-px bg-white/5" />
+        <div className="h-px bg-foreground/5" />
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted">{t("upcomingEvents")}</span>
           <span className="text-xs font-bold text-primary">
             {venueEvents.length}
           </span>
         </div>
-        <div className="h-px bg-white/5" />
+        <div className="h-px bg-foreground/5" />
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted">{t("city")}</span>
           <span className="text-xs font-medium flex items-center gap-1.5">

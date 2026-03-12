@@ -147,7 +147,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-foreground/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">{t("copyright")}</p>
           <p className="text-xs text-muted flex items-center gap-1">
             <Heart size={10} className="text-primary" fill="currentColor" />

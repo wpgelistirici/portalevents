@@ -26,24 +26,24 @@ export default function OrganizerLayout({ children }: { children: React.ReactNod
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-white/20 border-t-[#7B61FF] rounded-full animate-spin" />
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-foreground/20 border-t-[#7B61FF] rounded-full animate-spin" />
       </div>
     );
   }
 
   if (!isAuthenticated || !isOrganizer) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
-        <div className="text-center p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl max-w-md mx-4">
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center p-8 rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl max-w-md mx-4">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#7B61FF]/10 flex items-center justify-center">
             <svg className="w-8 h-8 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-white mb-2">Organizatör Paneli</h2>
-          <p className="text-white/60 mb-6">Bu sayfaya erişmek için organizatör hesabıyla giriş yapmalısınız.</p>
-          <p className="text-xs text-white/40">Demo: organizer@portalevents.co / org123</p>
+          <h2 className="text-xl font-bold text-foreground mb-2">Organizatör Paneli</h2>
+          <p className="text-foreground/60 mb-6">Bu sayfaya erişmek için organizatör hesabıyla giriş yapmalısınız.</p>
+          <p className="text-xs text-foreground/40">Demo: organizer@portalevents.co / org123</p>
           <button
             onClick={() => {
               router.push(`/${locale}`);
@@ -59,7 +59,7 @@ export default function OrganizerLayout({ children }: { children: React.ReactNod
   }
 
   return (
-    <div className="min-h-screen bg-[#050505]">
+    <div className="min-h-screen bg-background">
       <CustomCursor />
       <NoiseOverlay />
       <OrganizerSidebar />

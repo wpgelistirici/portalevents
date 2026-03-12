@@ -15,8 +15,8 @@ export default function OrganizerVenuesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">{t("venues.title")}</h1>
-          <p className="text-white/50 text-sm mt-1">{t("venues.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("venues.title")}</h1>
+          <p className="text-foreground/50 text-sm mt-1">{t("venues.subtitle")}</p>
         </div>
         <Link
           href={`/${locale}/organizer/venues/new`}
@@ -30,8 +30,8 @@ export default function OrganizerVenuesPage() {
       {/* Venues Grid */}
       {organizerVenues.length === 0 ? (
         <div className="text-center py-16">
-          <MapPin className="w-12 h-12 text-white/20 mx-auto mb-4" />
-          <p className="text-white/40">{t("venues.noVenues")}</p>
+          <MapPin className="w-12 h-12 text-foreground/20 mx-auto mb-4" />
+          <p className="text-foreground/40">{t("venues.noVenues")}</p>
           <Link
             href={`/${locale}/organizer/venues/new`}
             className="inline-flex items-center gap-2 mt-4 text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
@@ -45,7 +45,7 @@ export default function OrganizerVenuesPage() {
           {organizerVenues.map((venue) => (
             <div
               key={venue.id}
-              className="group rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden hover:border-white/20 transition-all"
+              className="group rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden hover:border-foreground/20 transition-all"
             >
               <div className="relative h-40 overflow-hidden">
                 <img
@@ -64,12 +64,12 @@ export default function OrganizerVenuesPage() {
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="text-white font-semibold">{venue.name}</h3>
-                <p className="text-white/40 text-sm mt-1 flex items-center gap-1">
+                <h3 className="text-foreground font-semibold">{venue.name}</h3>
+                <p className="text-foreground/40 text-sm mt-1 flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5" />
                   {venue.city}
                 </p>
-                <div className="flex items-center gap-4 mt-3 text-xs text-white/40">
+                <div className="flex items-center gap-4 mt-3 text-xs text-foreground/40">
                   <span className="flex items-center gap-1">
                     <Users className="w-3.5 h-3.5" />
                     {venue.capacity}
@@ -80,10 +80,10 @@ export default function OrganizerVenuesPage() {
                   </span>
                   <span>{venue.type}</span>
                 </div>
-                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
+                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-foreground/5">
                   <Link
                     href={`/${locale}/organizer/venues/${venue.id}/edit`}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
                   >
                     <Pencil className="w-3.5 h-3.5" />
                     {t("venues.edit")}
@@ -97,7 +97,7 @@ export default function OrganizerVenuesPage() {
                   </Link>
                   <Link
                     href={`/${locale}/venues/${venue.id}`}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
                   >
                     {t("venues.viewProfile")}
                   </Link>

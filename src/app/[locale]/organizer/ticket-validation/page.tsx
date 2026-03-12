@@ -85,8 +85,8 @@ export default function TicketValidationPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white">{t("validation.title")}</h1>
-        <p className="text-white/50 text-sm mt-1">{t("validation.subtitle")}</p>
+        <h1 className="text-2xl font-bold text-foreground">{t("validation.title")}</h1>
+        <p className="text-foreground/50 text-sm mt-1">{t("validation.subtitle")}</p>
       </div>
 
       {/* Mode Toggle */}
@@ -94,7 +94,7 @@ export default function TicketValidationPage() {
         <button
           onClick={() => setMode("search")}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all ${
-            mode === "search" ? "bg-white/10 text-white border border-white/20" : "text-white/40 hover:text-white/60"
+            mode === "search" ? "bg-foreground/10 text-foreground border border-foreground/20" : "text-foreground/40 hover:text-foreground/60"
           }`}
         >
           <Search className="w-4 h-4" />
@@ -103,7 +103,7 @@ export default function TicketValidationPage() {
         <button
           onClick={() => setMode("qr")}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all ${
-            mode === "qr" ? "bg-white/10 text-white border border-white/20" : "text-white/40 hover:text-white/60"
+            mode === "qr" ? "bg-foreground/10 text-foreground border border-foreground/20" : "text-foreground/40 hover:text-foreground/60"
           }`}
         >
           <QrCode className="w-4 h-4" />
@@ -132,14 +132,14 @@ export default function TicketValidationPage() {
         <div className="space-y-4">
           <div className="flex gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                 placeholder={t("validation.searchPlaceholder")}
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
             </div>
             <CustomSelect
@@ -168,27 +168,27 @@ export default function TicketValidationPage() {
 
           {/* Search Results */}
           {searchResults.length > 0 && !selectedTicket && (
-            <div className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden divide-y divide-white/5">
+            <div className="rounded-2xl bg-foreground/5 border border-foreground/10 overflow-hidden divide-y divide-white/5">
               {searchResults.map((ticket) => (
                 <button
                   key={ticket.id}
                   onClick={() => setSelectedTicket(ticket)}
-                  className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors text-left"
+                  className="w-full flex items-center justify-between p-4 hover:bg-foreground/5 transition-colors text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                      <Ticket className="w-5 h-5 text-white/40" />
+                    <div className="w-10 h-10 rounded-lg bg-foreground/10 flex items-center justify-center">
+                      <Ticket className="w-5 h-5 text-foreground/40" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">{ticket.buyerName}</p>
-                      <p className="text-xs text-white/40">{ticket.buyerEmail} — {ticket.ticketType}</p>
+                      <p className="text-sm font-medium text-foreground">{ticket.buyerName}</p>
+                      <p className="text-xs text-foreground/40">{ticket.buyerEmail} — {ticket.ticketType}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className={`text-xs px-3 py-1 rounded-full ${statusColors[ticket.status]}`}>
                       {t(`validation.status.${ticket.status}`)}
                     </span>
-                    <span className="text-xs text-white/30">{ticket.eventTitle}</span>
+                    <span className="text-xs text-foreground/30">{ticket.eventTitle}</span>
                   </div>
                 </button>
               ))}
@@ -200,11 +200,11 @@ export default function TicketValidationPage() {
       {/* QR Mode */}
       {mode === "qr" && (
         <div className="space-y-4">
-          <div className="rounded-2xl bg-white/5 border border-white/10 p-8 text-center space-y-4">
-            <div className="w-20 h-20 mx-auto rounded-2xl bg-white/10 flex items-center justify-center">
-              <QrCode className="w-10 h-10 text-white/40" />
+          <div className="rounded-2xl bg-foreground/5 border border-foreground/10 p-8 text-center space-y-4">
+            <div className="w-20 h-20 mx-auto rounded-2xl bg-foreground/10 flex items-center justify-center">
+              <QrCode className="w-10 h-10 text-foreground/40" />
             </div>
-            <p className="text-white/60 text-sm">{t("validation.qrInstructions")}</p>
+            <p className="text-foreground/60 text-sm">{t("validation.qrInstructions")}</p>
             <div className="flex gap-2 max-w-md mx-auto">
               <input
                 type="text"
@@ -212,7 +212,7 @@ export default function TicketValidationPage() {
                 onChange={(e) => setQrInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleQrScan()}
                 placeholder={t("validation.qrPlaceholder")}
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-center placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50"
+                className="flex-1 px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-center placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
               />
               <button
                 onClick={handleQrScan}
@@ -227,10 +227,10 @@ export default function TicketValidationPage() {
 
       {/* Selected Ticket Detail */}
       {selectedTicket && (
-        <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden">
+        <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden">
           {/* Ticket Header */}
-          <div className="p-6 border-b border-white/10 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">{t("validation.ticketDetails")}</h2>
+          <div className="p-6 border-b border-foreground/10 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-foreground">{t("validation.ticketDetails")}</h2>
             <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColors[selectedTicket.status]}`}>
               {t(`validation.status.${selectedTicket.status}`)}
             </span>
@@ -243,12 +243,12 @@ export default function TicketValidationPage() {
                 <img src={selectedTicket.image} alt="" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="text-white font-semibold">{selectedTicket.eventTitle}</h3>
-                <p className="text-white/40 text-sm flex items-center gap-1 mt-1">
+                <h3 className="text-foreground font-semibold">{selectedTicket.eventTitle}</h3>
+                <p className="text-foreground/40 text-sm flex items-center gap-1 mt-1">
                   <Calendar className="w-3.5 h-3.5" />
                   {selectedTicket.date} · {selectedTicket.time}
                 </p>
-                <p className="text-white/40 text-sm flex items-center gap-1 mt-0.5">
+                <p className="text-foreground/40 text-sm flex items-center gap-1 mt-0.5">
                   <MapPin className="w-3.5 h-3.5" />
                   {selectedTicket.venue}, {selectedTicket.city}
                 </p>
@@ -257,54 +257,54 @@ export default function TicketValidationPage() {
 
             {/* Ticket Info Grid */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
-                <h4 className="text-xs text-white/40 uppercase tracking-wider flex items-center gap-2">
+              <div className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-3">
+                <h4 className="text-xs text-foreground/40 uppercase tracking-wider flex items-center gap-2">
                   <User className="w-3.5 h-3.5" />
                   {t("validation.holderInfo")}
                 </h4>
                 <div>
-                  <p className="text-sm text-white font-medium">{selectedTicket.buyerName}</p>
-                  <p className="text-xs text-white/40">{selectedTicket.buyerEmail}</p>
+                  <p className="text-sm text-foreground font-medium">{selectedTicket.buyerName}</p>
+                  <p className="text-xs text-foreground/40">{selectedTicket.buyerEmail}</p>
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
-                <h4 className="text-xs text-white/40 uppercase tracking-wider flex items-center gap-2">
+              <div className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-3">
+                <h4 className="text-xs text-foreground/40 uppercase tracking-wider flex items-center gap-2">
                   <Ticket className="w-3.5 h-3.5" />
                   {t("validation.ticketInfo")}
                 </h4>
                 <div>
-                  <p className="text-sm text-white font-medium">{selectedTicket.ticketType}</p>
-                  <p className="text-xs text-white/40">{t("validation.quantity")}: {selectedTicket.quantity}</p>
+                  <p className="text-sm text-foreground font-medium">{selectedTicket.ticketType}</p>
+                  <p className="text-xs text-foreground/40">{t("validation.quantity")}: {selectedTicket.quantity}</p>
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
-                <h4 className="text-xs text-white/40 uppercase tracking-wider flex items-center gap-2">
+              <div className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-3">
+                <h4 className="text-xs text-foreground/40 uppercase tracking-wider flex items-center gap-2">
                   <CreditCard className="w-3.5 h-3.5" />
                   {t("validation.paymentInfo")}
                 </h4>
                 <div>
-                  <p className="text-sm text-white font-medium">{selectedTicket.totalPaid}</p>
-                  <p className="text-xs text-white/40">{t("validation.paid")}</p>
+                  <p className="text-sm text-foreground font-medium">{selectedTicket.totalPaid}</p>
+                  <p className="text-xs text-foreground/40">{t("validation.paid")}</p>
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
-                <h4 className="text-xs text-white/40 uppercase tracking-wider flex items-center gap-2">
+              <div className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-3">
+                <h4 className="text-xs text-foreground/40 uppercase tracking-wider flex items-center gap-2">
                   <Music className="w-3.5 h-3.5" />
                   {t("validation.purchaseInfo")}
                 </h4>
                 <div>
-                  <p className="text-sm text-white font-medium">{selectedTicket.purchaseDate}</p>
-                  <p className="text-xs text-white/40">ID: {selectedTicket.id}</p>
+                  <p className="text-sm text-foreground font-medium">{selectedTicket.purchaseDate}</p>
+                  <p className="text-xs text-foreground/40">ID: {selectedTicket.id}</p>
                 </div>
               </div>
             </div>
 
             {/* Action Buttons */}
             {selectedTicket.status === "active" && (
-              <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-3 pt-4 border-t border-foreground/10">
                 {confirmAction ? (
                   <div className="flex items-center gap-3 w-full">
-                    <p className="text-sm text-white/60 flex-1">
+                    <p className="text-sm text-foreground/60 flex-1">
                       {t(`validation.confirm.${confirmAction}`)}
                     </p>
                     <button
@@ -315,7 +315,7 @@ export default function TicketValidationPage() {
                     </button>
                     <button
                       onClick={() => setConfirmAction(null)}
-                      className="px-5 py-3 rounded-xl bg-white/5 text-white/60 text-sm hover:bg-white/10 transition-colors"
+                      className="px-5 py-3 rounded-xl bg-foreground/5 text-foreground/60 text-sm hover:bg-foreground/10 transition-colors"
                     >
                       {t("validation.confirmNo")}
                     </button>
@@ -349,8 +349,8 @@ export default function TicketValidationPage() {
             )}
 
             {selectedTicket.status !== "active" && (
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 text-center">
-                <p className="text-sm text-white/40">
+              <div className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 text-center">
+                <p className="text-sm text-foreground/40">
                   {selectedTicket.status === "used"
                     ? t("validation.alreadyUsed")
                     : t("validation.alreadyCancelled")}

@@ -17,12 +17,15 @@ import {
   Bookmark,
   LayoutDashboard,
   Shield,
+  Sun,
+  Moon,
 } from "lucide-react";
 import Image from "next/image";
 import AuthModal from "@/components/ui/AuthModal";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import PortalLogo from "@/components/ui/PortalLogo";
 import { useAuth } from "@/lib/auth-context";
+import { useTheme } from "@/lib/theme-context";
 
 const navLinks = [
   { key: "events", href: "/events" as const },
@@ -42,6 +45,7 @@ export default function Navbar({
   const t = useTranslations("Navbar");
   const { user, isAuthenticated, isOrganizer, isAdmin, openAuthModal, logout } =
     useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,16 +75,17 @@ export default function Navbar({
         className={`fixed top-0 left-0 right-0 z-[900] transition-all duration-500 border-0 ${
           variant === "solid"
             ? isScrolled
-              ? "py-3 border-b border-white/[0.04]"
+              ? "py-3 border-b border-border/40"
               : "py-6"
             : isScrolled
               ? "py-3 glass-strong !border-0 backdrop-blur-md"
-              : "py-6 bg-black/30"
+              : "py-6"
         }`}
         style={
           variant === "solid"
             ? {
-                background: "rgba(10, 10, 11, 0.92)",
+                background: "var(--color-surface)",
+                opacity: 0.92,
                 backdropFilter: "blur(24px)",
               }
             : undefined
@@ -106,8 +111,8 @@ export default function Navbar({
                   data-cursor-hover
                   className={`relative text-sm transition-colors duration-300 group ${
                     isActive
-                      ? "text-white font-medium"
-                      : "text-white/70 hover:text-white"
+                      ? "text-foreground font-medium"
+                      : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
                   <motion.span
@@ -142,6 +147,41 @@ export default function Navbar({
 
             <LanguageSwitcher />
 
+            {/* Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              className="relative w-8 h-8 flex items-center justify-center rounded-full glass hover:bg-foreground/10 transition-colors"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1 }}
+              data-cursor-hover
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun size={14} className="text-gold" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon size={14} className="text-primary" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -153,7 +193,7 @@ export default function Navbar({
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                     data-cursor-hover
-                    className="flex items-center gap-2.5 pl-1.5 pr-3 py-1.5 glass rounded-full hover:bg-white/[0.06] transition-colors"
+                    className="flex items-center gap-2.5 pl-1.5 pr-3 py-1.5 glass rounded-full hover:bg-foreground/[0.06] transition-colors"
                   >
                     <div className="relative w-7 h-7 rounded-full overflow-hidden ring-2 ring-primary/30">
                       <Image
@@ -182,7 +222,7 @@ export default function Navbar({
                         className="absolute right-0 top-full mt-2 w-56 glass-strong rounded-2xl p-2 shadow-xl"
                       >
                         {/* User info header */}
-                        <div className="px-3 py-3 border-b border-white/5 mb-1">
+                        <div className="px-3 py-3 border-b border-foreground/5 mb-1">
                           <div className="flex items-center gap-3">
                             <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/20 flex-shrink-0">
                               <Image
@@ -207,7 +247,7 @@ export default function Navbar({
                         <Link
                           href="/my-tickets"
                           onClick={() => setIsUserMenuOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                           data-cursor-hover
                         >
                           <Ticket size={14} className="text-primary" />
@@ -218,7 +258,7 @@ export default function Navbar({
                           <Link
                             href="/admin"
                             onClick={() => setIsUserMenuOpen(false)}
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                             data-cursor-hover
                           >
                             <Shield size={14} className="text-red-400" />
@@ -229,7 +269,7 @@ export default function Navbar({
                           <Link
                             href="/organizer"
                             onClick={() => setIsUserMenuOpen(false)}
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                             data-cursor-hover
                           >
                             <LayoutDashboard
@@ -243,7 +283,7 @@ export default function Navbar({
                         <Link
                           href="/saved"
                           onClick={() => setIsUserMenuOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                           data-cursor-hover
                         >
                           <Bookmark size={14} className="text-gold" />
@@ -253,14 +293,14 @@ export default function Navbar({
                         <Link
                           href="/account"
                           onClick={() => setIsUserMenuOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                           data-cursor-hover
                         >
                           <Settings size={14} className="text-accent" />
                           {t("accountSettings")}
                         </Link>
 
-                        <div className="h-px bg-white/5 my-1" />
+                        <div className="h-px bg-foreground/5 my-1" />
 
                         <button
                           onClick={() => {

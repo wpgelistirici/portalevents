@@ -42,11 +42,11 @@ export default function OrganizerEventsPage() {
   });
 
   const statusColors: Record<string, string> = {
-    draft: "text-white/50 bg-white/5 border-white/10",
+    draft: "text-foreground/50 bg-foreground/5 border-foreground/10",
     pending_approval: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
     approved: "text-green-400 bg-green-400/10 border-green-400/20",
     rejected: "text-red-400 bg-red-400/10 border-red-400/20",
-    cancelled: "text-white/30 bg-white/5 border-white/10",
+    cancelled: "text-foreground/30 bg-foreground/5 border-foreground/10",
   };
 
   return (
@@ -54,8 +54,8 @@ export default function OrganizerEventsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">{t("events.title")}</h1>
-          <p className="text-white/50 text-sm mt-1">{t("events.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("events.title")}</h1>
+          <p className="text-foreground/50 text-sm mt-1">{t("events.subtitle")}</p>
         </div>
         <Link
           href={`/${locale}/organizer/events/new`}
@@ -69,20 +69,20 @@ export default function OrganizerEventsPage() {
       {/* Search & View Toggle */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("events.searchPlaceholder")}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[#7B61FF]/50 transition-colors"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50 transition-colors"
           />
         </div>
-        <div className="flex rounded-xl border border-white/10 overflow-hidden">
-          <button onClick={() => setViewMode("grid")} className={`px-3 py-2 flex items-center gap-1.5 text-sm transition-colors ${viewMode === "grid" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/60"}`}>
+        <div className="flex rounded-xl border border-foreground/10 overflow-hidden">
+          <button onClick={() => setViewMode("grid")} className={`px-3 py-2 flex items-center gap-1.5 text-sm transition-colors ${viewMode === "grid" ? "bg-foreground/10 text-foreground" : "text-foreground/40 hover:text-foreground/60"}`}>
             <LayoutGrid className="w-4 h-4" />
           </button>
-          <button onClick={() => setViewMode("calendar")} className={`px-3 py-2 flex items-center gap-1.5 text-sm transition-colors ${viewMode === "calendar" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/60"}`}>
+          <button onClick={() => setViewMode("calendar")} className={`px-3 py-2 flex items-center gap-1.5 text-sm transition-colors ${viewMode === "calendar" ? "bg-foreground/10 text-foreground" : "text-foreground/40 hover:text-foreground/60"}`}>
             <CalendarDays className="w-4 h-4" />
           </button>
         </div>
@@ -96,8 +96,8 @@ export default function OrganizerEventsPage() {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
               activeTab === tab
-                ? "bg-white/10 text-white border border-white/20"
-                : "text-white/40 hover:text-white/60 hover:bg-white/5"
+                ? "bg-foreground/10 text-foreground border border-foreground/20"
+                : "text-foreground/40 hover:text-foreground/60 hover:bg-foreground/5"
             }`}
           >
             {t(`status.${tab}`)}
@@ -122,16 +122,16 @@ export default function OrganizerEventsPage() {
           if (day < 1 || day > daysInMonth) return null;
           return day;
         });
-        const calStatusColors: Record<string, string> = { draft: "bg-white/20", pending_approval: "bg-yellow-400", approved: "bg-green-400", rejected: "bg-red-400", cancelled: "bg-white/10" };
+        const calStatusColors: Record<string, string> = { draft: "bg-foreground/20", pending_approval: "bg-yellow-400", approved: "bg-green-400", rejected: "bg-red-400", cancelled: "bg-foreground/10" };
 
         return (
-          <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl p-6">
+          <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <button onClick={() => setCalendarMonth(new Date(year, month - 1))} className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5"><ChevronLeft className="w-4 h-4" /></button>
-              <span className="text-white font-semibold">{calendarMonth.toLocaleString("tr-TR", { month: "long", year: "numeric" })}</span>
-              <button onClick={() => setCalendarMonth(new Date(year, month + 1))} className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5"><ChevronRight className="w-4 h-4" /></button>
+              <button onClick={() => setCalendarMonth(new Date(year, month - 1))} className="p-2 rounded-lg text-foreground/40 hover:text-foreground hover:bg-foreground/5"><ChevronLeft className="w-4 h-4" /></button>
+              <span className="text-foreground font-semibold">{calendarMonth.toLocaleString("tr-TR", { month: "long", year: "numeric" })}</span>
+              <button onClick={() => setCalendarMonth(new Date(year, month + 1))} className="p-2 rounded-lg text-foreground/40 hover:text-foreground hover:bg-foreground/5"><ChevronRight className="w-4 h-4" /></button>
             </div>
-            <div className="grid grid-cols-7 gap-1 text-xs text-white/30 mb-2">
+            <div className="grid grid-cols-7 gap-1 text-xs text-foreground/30 mb-2">
               {["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"].map((d) => (<div key={d} className="text-center py-1">{d}</div>))}
             </div>
             <div className="grid grid-cols-7 gap-1">
@@ -140,13 +140,13 @@ export default function OrganizerEventsPage() {
                 const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                 const dayEvents = organizerEvents.filter((e) => e.date?.includes(String(day)) || e.createdAt?.startsWith(dateStr));
                 return (
-                  <div key={i} className={`min-h-[60px] rounded-lg p-1 text-xs ${day === new Date().getDate() && month === new Date().getMonth() ? "bg-[#7B61FF]/10 border border-[#7B61FF]/20" : "bg-white/[0.02] border border-white/5"}`}>
-                    <span className="text-white/50">{day}</span>
+                  <div key={i} className={`min-h-[60px] rounded-lg p-1 text-xs ${day === new Date().getDate() && month === new Date().getMonth() ? "bg-[#7B61FF]/10 border border-[#7B61FF]/20" : "bg-foreground/[0.02] border border-foreground/5"}`}>
+                    <span className="text-foreground/50">{day}</span>
                     <div className="mt-0.5 space-y-0.5">
                       {dayEvents.slice(0, 2).map((ev) => (
                         <div key={ev.id} className="flex items-center gap-1">
-                          <div className={`w-1.5 h-1.5 rounded-full ${calStatusColors[ev.status] || "bg-white/10"}`} />
-                          <span className="text-[9px] text-white/60 truncate">{ev.title}</span>
+                          <div className={`w-1.5 h-1.5 rounded-full ${calStatusColors[ev.status] || "bg-foreground/10"}`} />
+                          <span className="text-[9px] text-foreground/60 truncate">{ev.title}</span>
                         </div>
                       ))}
                     </div>
@@ -161,8 +161,8 @@ export default function OrganizerEventsPage() {
       {/* Events Grid */}
       {viewMode === "grid" && (filtered.length === 0 ? (
         <div className="text-center py-16">
-          <CalendarPlus className="w-12 h-12 text-white/20 mx-auto mb-4" />
-          <p className="text-white/40">{t("events.noEvents")}</p>
+          <CalendarPlus className="w-12 h-12 text-foreground/20 mx-auto mb-4" />
+          <p className="text-foreground/40">{t("events.noEvents")}</p>
           <Link
             href={`/${locale}/organizer/events/new`}
             className="inline-flex items-center gap-2 mt-4 text-[#7B61FF] hover:text-[#7B61FF]/80 transition-colors"
@@ -176,7 +176,7 @@ export default function OrganizerEventsPage() {
           {filtered.map((event) => (
             <div
               key={event.id}
-              className="group rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden hover:border-white/20 transition-all"
+              className="group rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden hover:border-foreground/20 transition-all"
             >
               {/* Image */}
               <div className="relative h-40 overflow-hidden">
@@ -202,15 +202,15 @@ export default function OrganizerEventsPage() {
 
               {/* Content */}
               <div className="p-4">
-                <h3 className="text-white font-semibold truncate">{event.title}</h3>
-                <p className="text-white/40 text-sm mt-1">{event.artist} — {event.venue}</p>
-                <p className="text-white/30 text-xs mt-1">{event.date} · {event.time}</p>
+                <h3 className="text-foreground font-semibold truncate">{event.title}</h3>
+                <p className="text-foreground/40 text-sm mt-1">{event.artist} — {event.venue}</p>
+                <p className="text-foreground/30 text-xs mt-1">{event.date} · {event.time}</p>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
+                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-foreground/5">
                   <Link
                     href={`/${locale}/organizer/events/${event.id}/edit`}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
                   >
                     <Pencil className="w-3.5 h-3.5" />
                     {t("events.edit")}
@@ -236,15 +236,15 @@ export default function OrganizerEventsPage() {
                   <div className="relative ml-auto">
                     <button
                       onClick={() => setMenuOpen(menuOpen === event.id ? null : event.id)}
-                      className="p-2 rounded-lg text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors"
+                      className="p-2 rounded-lg text-foreground/30 hover:text-foreground/60 hover:bg-foreground/5 transition-colors"
                     >
                       <MoreVertical className="w-4 h-4" />
                     </button>
                     {menuOpen === event.id && (
-                      <div className="absolute right-0 top-full mt-1 w-40 rounded-xl bg-[#111] border border-white/10 shadow-xl z-10 overflow-hidden">
+                      <div className="absolute right-0 top-full mt-1 w-40 rounded-xl bg-surface border border-foreground/10 shadow-xl z-10 overflow-hidden">
                         <Link
                           href={`/${locale}/events/${event.id}`}
-                          className="flex items-center gap-2 px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-2 px-4 py-3 text-sm text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
                         >
                           <Eye className="w-4 h-4" />
                           {t("events.preview")}
@@ -254,7 +254,7 @@ export default function OrganizerEventsPage() {
                             cloneEvent(event.id);
                             setMenuOpen(null);
                           }}
-                          className="flex items-center gap-2 px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 w-full transition-colors"
+                          className="flex items-center gap-2 px-4 py-3 text-sm text-foreground/60 hover:text-foreground hover:bg-foreground/5 w-full transition-colors"
                         >
                           <Copy className="w-4 h-4" />
                           {t("events.clone")}

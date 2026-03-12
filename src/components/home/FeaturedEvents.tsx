@@ -138,17 +138,17 @@ export default function FeaturedEvents() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#FFD600]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative h-36 overflow-hidden">
                       <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                       <div className="absolute top-3 left-3 flex items-center gap-1 bg-[#FFD600]/90 text-black px-3 py-1 rounded-full text-[10px] font-bold">
                         <Star size={10} />
                         {t("featuredBadge") || "Öne Çıkan"}
                       </div>
                     </div>
                     <div className="p-4 relative">
-                      <h3 className="font-bold text-white group-hover:text-[#FFD600] transition-colors">{event.title}</h3>
-                      <p className="text-xs text-white/40 mt-1">{event.artist} · {event.venue}</p>
+                      <h3 className="font-bold text-foreground group-hover:text-[#FFD600] transition-colors">{event.title}</h3>
+                      <p className="text-xs text-foreground/40 mt-1">{event.artist} · {event.venue}</p>
                       <div className="flex items-center justify-between mt-3">
-                        <span className="text-xs text-white/30">{event.date} · {event.time}</span>
+                        <span className="text-xs text-foreground/30">{event.date} · {event.time}</span>
                         <span className="text-sm font-bold text-[#FFD600]">{event.price}</span>
                       </div>
                     </div>
@@ -194,7 +194,7 @@ export default function FeaturedEvents() {
 
                     {/* Trending badge */}
                     {event.trending && (
-                      <div className="absolute top-4 left-4 flex items-center gap-1 bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] font-bold">
+                      <div className="absolute top-4 left-4 flex items-center gap-1 bg-primary/90 backdrop-blur-sm text-foreground px-3 py-1 rounded-full text-[10px] font-bold">
                         <TrendingUp size={10} />
                         {t("trending")}
                       </div>
@@ -229,7 +229,7 @@ export default function FeaturedEvents() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold text-white">
+                      <span className="text-lg font-bold text-foreground">
                         {event.price}
                       </span>
                       <span className="flex items-center gap-1 text-xs text-muted group-hover:text-primary transition-colors">

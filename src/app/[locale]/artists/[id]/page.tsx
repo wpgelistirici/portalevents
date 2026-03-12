@@ -81,7 +81,7 @@ function YoutubeIcon() {
 
 const socialConfig: Record<string, { icon: React.FC; color: string; label: string }> = {
   instagram: { icon: InstagramIcon, color: "hover:text-pink-400", label: "Instagram" },
-  twitter: { icon: TwitterIcon, color: "hover:text-white", label: "X (Twitter)" },
+  twitter: { icon: TwitterIcon, color: "hover:text-foreground", label: "X (Twitter)" },
   spotify: { icon: SpotifyIcon, color: "hover:text-green-400", label: "Spotify" },
   soundcloud: { icon: SoundcloudIcon, color: "hover:text-orange-400", label: "SoundCloud" },
   youtube: { icon: YoutubeIcon, color: "hover:text-red-500", label: "YouTube" },
@@ -203,7 +203,7 @@ export default function ArtistDetailPage({
           <div className="absolute top-28 left-6 z-10">
             <Link
               href="/artists"
-              className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-white/80 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-foreground/80 hover:text-foreground transition-colors"
               data-cursor-hover
             >
               <ArrowLeft size={16} />
@@ -219,7 +219,7 @@ export default function ArtistDetailPage({
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl flex-shrink-0 hidden sm:block"
+                className="w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-foreground/10 shadow-2xl flex-shrink-0 hidden sm:block"
               >
                 <Image
                   src={artist.image}
@@ -237,7 +237,7 @@ export default function ArtistDetailPage({
                       {artist.genre}
                     </span>
                     {artist.country && (
-                      <span className="px-3 py-1 glass rounded-full text-[10px] font-medium text-white/60">
+                      <span className="px-3 py-1 glass rounded-full text-[10px] font-medium text-foreground/60">
                         <Globe size={10} className="inline mr-1" />
                         {artist.country}
                       </span>
@@ -246,7 +246,7 @@ export default function ArtistDetailPage({
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
                     {artist.name}
                   </h1>
-                  <p className="text-sm text-white/60 max-w-xl line-clamp-2">{artist.bio}</p>
+                  <p className="text-sm text-foreground/60 max-w-xl line-clamp-2">{artist.bio}</p>
                 </FadeInUp>
               </div>
 
@@ -257,7 +257,7 @@ export default function ArtistDetailPage({
                   data-cursor-hover
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-11 h-11 rounded-full glass-strong flex items-center justify-center transition-colors ${isSaved ? "text-primary" : "text-white/60 hover:text-white"}`}
+                  className={`w-11 h-11 rounded-full glass-strong flex items-center justify-center transition-colors ${isSaved ? "text-primary" : "text-foreground/60 hover:text-foreground"}`}
                 >
                   <Bookmark size={18} fill={isSaved ? "currentColor" : "none"} />
                 </motion.button>
@@ -266,7 +266,7 @@ export default function ArtistDetailPage({
                   data-cursor-hover
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-11 h-11 rounded-full glass-strong flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                  className="w-11 h-11 rounded-full glass-strong flex items-center justify-center text-foreground/60 hover:text-foreground transition-colors"
                 >
                   <Share2 size={18} />
                 </motion.button>
@@ -276,27 +276,27 @@ export default function ArtistDetailPage({
         </section>
 
         {/* Stats bar */}
-        <section className="relative z-10 border-b border-white/5">
+        <section className="relative z-10 border-b border-foreground/5">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="flex flex-wrap items-center gap-6 md:gap-10 py-5 text-sm">
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-foreground/60">
                 <Users size={16} className="text-secondary" />
-                <span className="font-semibold text-white">{artist.followers}</span> {t("followers")}
+                <span className="font-semibold text-foreground">{artist.followers}</span> {t("followers")}
               </div>
               {artist.monthlyListeners && (
-                <div className="flex items-center gap-2 text-white/60">
+                <div className="flex items-center gap-2 text-foreground/60">
                   <Headphones size={16} className="text-secondary" />
-                  <span className="font-semibold text-white">{artist.monthlyListeners}</span> {t("monthlyListeners")}
+                  <span className="font-semibold text-foreground">{artist.monthlyListeners}</span> {t("monthlyListeners")}
                 </div>
               )}
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-foreground/60">
                 <Calendar size={16} className="text-secondary" />
-                <span className="font-semibold text-white">{artist.upcoming}</span> {t("upcomingEvents")}
+                <span className="font-semibold text-foreground">{artist.upcoming}</span> {t("upcomingEvents")}
               </div>
               {artist.activeYears && (
-                <div className="flex items-center gap-2 text-white/60">
+                <div className="flex items-center gap-2 text-foreground/60">
                   <Disc3 size={16} className="text-secondary" />
-                  <span className="text-white">{artist.activeYears}</span>
+                  <span className="text-foreground">{artist.activeYears}</span>
                 </div>
               )}
             </div>
@@ -315,16 +315,16 @@ export default function ArtistDetailPage({
                     <Music size={18} className="text-secondary" />
                     {t("about")}
                   </h2>
-                  <p className="text-sm text-white/70 leading-relaxed whitespace-pre-line">
+                  <p className="text-sm text-foreground/70 leading-relaxed whitespace-pre-line">
                     {artist.longBio || artist.bio}
                   </p>
 
                   {/* Tags */}
                   {artist.tags && artist.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
+                    <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-foreground/5">
                       <Tag size={14} className="text-secondary mt-0.5" />
                       {artist.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 glass rounded-full text-[11px] text-white/60">
+                        <span key={tag} className="px-3 py-1 glass rounded-full text-[11px] text-foreground/60">
                           {tag}
                         </span>
                       ))}
@@ -335,9 +335,9 @@ export default function ArtistDetailPage({
                   {artist.labels && artist.labels.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2 mt-4">
                       <Disc3 size={14} className="text-secondary" />
-                      <span className="text-xs text-white/40 mr-1">{t("labels")}:</span>
+                      <span className="text-xs text-foreground/40 mr-1">{t("labels")}:</span>
                       {artist.labels.map((label) => (
-                        <span key={label} className="text-xs text-white/60">{label}</span>
+                        <span key={label} className="text-xs text-foreground/60">{label}</span>
                       ))}
                     </div>
                   )}
@@ -356,7 +356,7 @@ export default function ArtistDetailPage({
                       {upcomingEvents.map((event) => (
                         <Link key={event.id} href={`/events/${event.id}` as "/events/[id]"} data-cursor-hover>
                           <motion.div
-                            className="group glass rounded-2xl overflow-hidden flex items-center gap-4 hover:bg-white/[0.04] transition-colors"
+                            className="group glass rounded-2xl overflow-hidden flex items-center gap-4 hover:bg-foreground/[0.04] transition-colors"
                             whileHover={{ x: 4 }}
                           >
                             <div className="relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0">
@@ -366,7 +366,7 @@ export default function ArtistDetailPage({
                               <h3 className="text-sm font-bold group-hover:text-secondary transition-colors truncate">
                                 {event.title}
                               </h3>
-                              <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-white/50">
+                              <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-foreground/50">
                                 <span className="flex items-center gap-1">
                                   <Calendar size={12} />
                                   {event.date}
@@ -384,7 +384,7 @@ export default function ArtistDetailPage({
                                 <span className="text-xs font-semibold text-secondary">{event.price}</span>
                               </div>
                             </div>
-                            <ArrowUpRight size={18} className="text-white/20 group-hover:text-secondary mr-4 flex-shrink-0 transition-colors" />
+                            <ArrowUpRight size={18} className="text-foreground/20 group-hover:text-secondary mr-4 flex-shrink-0 transition-colors" />
                           </motion.div>
                         </Link>
                       ))}
@@ -398,7 +398,7 @@ export default function ArtistDetailPage({
                 <FadeInUp delay={0.15}>
                   <div>
                     <h2 className="text-lg font-bold mb-5 flex items-center gap-2">
-                      <Clock size={18} className="text-white/40" />
+                      <Clock size={18} className="text-foreground/40" />
                       {t("pastEventsTitle")}
                     </h2>
                     <div className="space-y-3">
@@ -410,7 +410,7 @@ export default function ArtistDetailPage({
                             </div>
                             <div className="flex-1 min-w-0">
                               <h3 className="text-sm font-semibold truncate">{event.title}</h3>
-                              <p className="text-xs text-white/40 mt-1">{event.date} - {event.venue}</p>
+                              <p className="text-xs text-foreground/40 mt-1">{event.date} - {event.venue}</p>
                             </div>
                           </div>
                         </Link>
@@ -424,8 +424,8 @@ export default function ArtistDetailPage({
               {upcomingEvents.length === 0 && pastEvents.length === 0 && (
                 <FadeInUp delay={0.1}>
                   <div className="glass rounded-2xl p-10 text-center">
-                    <Calendar size={40} className="text-white/10 mx-auto mb-3" />
-                    <p className="text-sm text-white/40">{t("noEvents")}</p>
+                    <Calendar size={40} className="text-foreground/10 mx-auto mb-3" />
+                    <p className="text-sm text-foreground/40">{t("noEvents")}</p>
                   </div>
                 </FadeInUp>
               )}
@@ -455,7 +455,7 @@ export default function ArtistDetailPage({
                                 <h3 className="text-sm font-bold mt-1 group-hover:text-secondary transition-colors">
                                   {a.name}
                                 </h3>
-                                <p className="text-[11px] text-white/40 mt-0.5">
+                                <p className="text-[11px] text-foreground/40 mt-0.5">
                                   {a.followers} {t("followers")}
                                 </p>
                               </div>
@@ -493,7 +493,7 @@ export default function ArtistDetailPage({
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cursor-hover
-                            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-white/50 ${config.color}`}
+                            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-foreground/5 transition-colors text-foreground/50 ${config.color}`}
                           >
                             <Icon />
                             <span className="text-sm">{config.label}</span>
@@ -507,7 +507,7 @@ export default function ArtistDetailPage({
                           target="_blank"
                           rel="noopener noreferrer"
                           data-cursor-hover
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-white/50 hover:text-secondary"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-foreground/5 transition-colors text-foreground/50 hover:text-secondary"
                         >
                           <Globe size={18} />
                           <span className="text-sm">{t("officialWebsite")}</span>
@@ -529,30 +529,30 @@ export default function ArtistDetailPage({
                   <div className="space-y-3">
                     {artist.country && (
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-white/40">{t("country")}</span>
-                        <span className="text-white/80">{artist.country}</span>
+                        <span className="text-foreground/40">{t("country")}</span>
+                        <span className="text-foreground/80">{artist.country}</span>
                       </div>
                     )}
                     {artist.city && (
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-white/40">{t("city")}</span>
-                        <span className="text-white/80">{artist.city}</span>
+                        <span className="text-foreground/40">{t("city")}</span>
+                        <span className="text-foreground/80">{artist.city}</span>
                       </div>
                     )}
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-white/40">{t("genre")}</span>
-                      <span className="text-white/80">{artist.genre}</span>
+                      <span className="text-foreground/40">{t("genre")}</span>
+                      <span className="text-foreground/80">{artist.genre}</span>
                     </div>
                     {artist.activeYears && (
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-white/40">{t("activeYears")}</span>
-                        <span className="text-white/80">{artist.activeYears}</span>
+                        <span className="text-foreground/40">{t("activeYears")}</span>
+                        <span className="text-foreground/80">{artist.activeYears}</span>
                       </div>
                     )}
                     {artist.monthlyListeners && (
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-white/40">{t("monthlyListenersShort")}</span>
-                        <span className="text-white/80">{artist.monthlyListeners}</span>
+                        <span className="text-foreground/40">{t("monthlyListenersShort")}</span>
+                        <span className="text-foreground/80">{artist.monthlyListeners}</span>
                       </div>
                     )}
                   </div>

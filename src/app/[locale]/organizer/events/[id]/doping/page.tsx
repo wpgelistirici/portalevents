@@ -33,7 +33,7 @@ export default function DopingPage() {
   if (!event) {
     return (
       <div className="text-center py-16">
-        <p className="text-white/40">{t("events.notFound")}</p>
+        <p className="text-foreground/40">{t("events.notFound")}</p>
       </div>
     );
   }
@@ -70,12 +70,12 @@ export default function DopingPage() {
     <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-colors">
+        <button onClick={() => router.back()} className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-white">{t("doping.title")}</h1>
-          <p className="text-white/50 text-sm mt-1">&quot;{event.title}&quot; {t("doping.forEvent")}</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("doping.title")}</h1>
+          <p className="text-foreground/50 text-sm mt-1">&quot;{event.title}&quot; {t("doping.forEvent")}</p>
         </div>
       </div>
 
@@ -89,8 +89,8 @@ export default function DopingPage() {
           <div className="space-y-2">
             {activeDopings.map((d, idx) => (
               <div key={idx} className="flex items-center justify-between text-sm">
-                <span className="text-white/70">{t(`doping.types.${d.type}`)}</span>
-                <span className="text-white/40">
+                <span className="text-foreground/70">{t(`doping.types.${d.type}`)}</span>
+                <span className="text-foreground/40">
                   {new Date(d.endDate).toLocaleDateString("tr-TR")} {t("doping.until")}
                 </span>
               </div>
@@ -112,8 +112,8 @@ export default function DopingPage() {
                 <Icon className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-white">{t(`doping.types.${type}`)}</h2>
-                <p className="text-sm text-white/40">{t(`doping.typeDesc.${type}`)}</p>
+                <h2 className="text-lg font-semibold text-foreground">{t(`doping.types.${type}`)}</h2>
+                <p className="text-sm text-foreground/40">{t(`doping.typeDesc.${type}`)}</p>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ export default function DopingPage() {
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className={`relative rounded-2xl bg-white/5 border ${colors.border} backdrop-blur-xl p-6 hover:bg-white/[0.07] transition-all group`}
+                  className={`relative rounded-2xl bg-foreground/5 border ${colors.border} backdrop-blur-xl p-6 hover:bg-foreground/[0.07] transition-all group`}
                 >
                   {/* Active Badge */}
                   {activePackageIds.has(pkg.id) && (
@@ -141,19 +141,19 @@ export default function DopingPage() {
                     </div>
                   )}
                   <div className="text-center space-y-3">
-                    <p className="text-sm text-white/50">{pkg.duration}</p>
-                    <p className="text-3xl font-bold text-white">{pkg.price}</p>
-                    <ul className="text-xs text-white/40 space-y-1.5">
+                    <p className="text-sm text-foreground/50">{pkg.duration}</p>
+                    <p className="text-3xl font-bold text-foreground">{pkg.price}</p>
+                    <ul className="text-xs text-foreground/40 space-y-1.5">
                       {pkg.features.map((f, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <Check className="w-3 h-3 text-white/30" />
+                          <Check className="w-3 h-3 text-foreground/30" />
                           {f}
                         </li>
                       ))}
                     </ul>
                     <button
                       onClick={() => handlePurchase(pkg)}
-                      className={`w-full py-3 rounded-xl text-sm font-medium bg-gradient-to-r ${colors.bg} text-white hover:opacity-80 transition-opacity mt-4`}
+                      className={`w-full py-3 rounded-xl text-sm font-medium bg-gradient-to-r ${colors.bg} text-foreground hover:opacity-80 transition-opacity mt-4`}
                     >
                       {t("doping.purchase")}
                     </button>
