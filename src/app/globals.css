@@ -596,3 +596,12 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes intro-bg-to-dark {
+  from {
+    background: #fff;
+  }
+  to {
+    background: #000;
+  }
+}
