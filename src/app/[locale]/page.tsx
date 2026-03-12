@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
@@ -13,12 +14,19 @@ import CommunityPreview from "@/components/home/CommunityPreview";
 import OrganizerCTA from "@/components/home/OrganizerCTA";
 import MobileApp from "@/components/home/MobileApp";
 import Footer from "@/components/layout/Footer";
+import IntroVideo from "@/components/ui/IntroVideo";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
 export default function Home() {
+  const [introComplete, setIntroComplete] = useState(false);
+
+  if (!introComplete) {
+    return <IntroVideo onComplete={() => setIntroComplete(true)} />;
+  }
+
   return (
     <>
       <SmoothScroll />
