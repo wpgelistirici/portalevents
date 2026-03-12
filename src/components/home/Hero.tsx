@@ -1,15 +1,19 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback, useMemo } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState, useCallback } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { useTranslations } from "next-intl";
-import GradientOrb from "@/components/ui/GradientOrb";
 import MagneticButton from "@/components/ui/MagneticButton";
+import HoleBackground from "@/components/ui/HoleBackground";
 import { ArrowDown, Play, Search, Calendar, Music, MapPin } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { events, artists, venues } from "@/lib/data";
 import type { Event, Artist, Venue } from "@/lib/data";
-import gsap from "gsap";
 
 interface SearchResults {
   events: Event[];
@@ -49,7 +53,7 @@ function HeroSearch() {
           e.title.toLowerCase().includes(lower) ||
           e.artist.toLowerCase().includes(lower) ||
           e.venue.toLowerCase().includes(lower) ||
-          e.genre.toLowerCase().includes(lower)
+          e.genre.toLowerCase().includes(lower),
       )
       .slice(0, 3);
 
@@ -57,7 +61,7 @@ function HeroSearch() {
       .filter(
         (a) =>
           a.name.toLowerCase().includes(lower) ||
-          a.genre.toLowerCase().includes(lower)
+          a.genre.toLowerCase().includes(lower),
       )
       .slice(0, 3);
 
@@ -65,7 +69,7 @@ function HeroSearch() {
       .filter(
         (v) =>
           v.name.toLowerCase().includes(lower) ||
-          v.city.toLowerCase().includes(lower)
+          v.city.toLowerCase().includes(lower),
       )
       .slice(0, 3);
 
@@ -82,7 +86,7 @@ function HeroSearch() {
       if (debounceRef.current) clearTimeout(debounceRef.current);
       debounceRef.current = setTimeout(() => search(value), 300);
     },
-    [search]
+    [search],
   );
 
   useEffect(() => {
@@ -291,8 +295,7 @@ function HeroTitle() {
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
       >
-        {t("line1")}{" "}
-        <span className="text-gradient-primary">{t("line2")}</span>{" "}
+        {t("line1")} <span className="text-gradient-primary">{t("line2")}</span>{" "}
         {t("line3")}
       </motion.span>
     </h1>
@@ -301,7 +304,6 @@ function HeroTitle() {
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const audioVisualizerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("Hero");
 
   const { scrollYProgress } = useScroll({
@@ -313,74 +315,22 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
-  useEffect(() => {
-    if (!audioVisualizerRef.current) return;
-    const bars = audioVisualizerRef.current.querySelectorAll(".vis-bar");
-
-    bars.forEach((bar, i) => {
-      gsap.to(bar, {
-        height: `${Math.random() * 80 + 20}%`,
-        duration: 0.4 + Math.random() * 0.4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: i * 0.02,
-      });
-    });
-  }, []);
-
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden py-32"
     >
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <GradientOrb
-          color="primary"
-          size={600}
-          top="-10%"
-          left="-10%"
-          delay={0}
-        />
-        <GradientOrb
-          color="secondary"
-          size={500}
-          top="20%"
-          right="-15%"
-          delay={2}
-        />
-        <GradientOrb
-          color="accent"
-          size={400}
-          bottom="-10%"
-          left="30%"
-          delay={4}
-        />
-      </div>
-
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
+      {/* Hole Background Animation */}
+      <HoleBackground
+        strokeColor="rgba(123, 97, 255, 0.25)"
+        numberOfLines={50}
+        numberOfDiscs={50}
+        particleRGBColor={[123, 97, 255]}
+        className="opacity-60"
       />
 
-      {/* Audio Visualizer Background */}
-      <div
-        ref={audioVisualizerRef}
-        className="absolute bottom-0 left-0 w-full h-[30vh] flex items-end gap-[1px] opacity-[0.08]"
-      >
-        {Array.from({ length: 200 }).map((_, i) => (
-          <div
-            key={i}
-            className="vis-bar flex-1 min-w-[2px] bg-gradient-to-t from-primary to-secondary rounded-t"
-            style={{ height: "20%" }}
-          />
-        ))}
-      </div>
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1]" />
 
       {/* Main Content */}
       <motion.div

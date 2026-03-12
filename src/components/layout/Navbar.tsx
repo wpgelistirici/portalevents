@@ -4,7 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname, Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MapPin, LogIn, Ticket, User, LogOut, ChevronDown, Settings, Bookmark, LayoutDashboard, Shield } from "lucide-react";
+import {
+  Menu,
+  X,
+  MapPin,
+  LogIn,
+  Ticket,
+  User,
+  LogOut,
+  ChevronDown,
+  Settings,
+  Bookmark,
+  LayoutDashboard,
+  Shield,
+} from "lucide-react";
 import Image from "next/image";
 import AuthModal from "@/components/ui/AuthModal";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
@@ -18,14 +31,17 @@ const navLinks = [
   { key: "community", href: "/community" as const },
 ];
 
-export default function Navbar({ variant }: { variant?: "default" | "solid" } = {}) {
+export default function Navbar({
+  variant,
+}: { variant?: "default" | "solid" } = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const t = useTranslations("Navbar");
-  const { user, isAuthenticated, isOrganizer, isAdmin, openAuthModal, logout } = useAuth();
+  const { user, isAuthenticated, isOrganizer, isAdmin, openAuthModal, logout } =
+    useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +54,10 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
   // Close user menu on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+      if (
+        userMenuRef.current &&
+        !userMenuRef.current.contains(e.target as Node)
+      ) {
         setIsUserMenuOpen(false);
       }
     };
@@ -55,10 +74,17 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
               ? "py-3 border-b border-white/[0.04]"
               : "py-6"
             : isScrolled
-              ? "py-3 glass-strong !border-0"
-              : "py-6 bg-black/30 backdrop-blur-md"
+              ? "py-3 glass-strong !border-0 backdrop-blur-md"
+              : "py-6 bg-black/30"
         }`}
-        style={variant === "solid" ? { background: "rgba(10, 10, 11, 0.92)", backdropFilter: "blur(24px)" } : undefined}
+        style={
+          variant === "solid"
+            ? {
+                background: "rgba(10, 10, 11, 0.92)",
+                backdropFilter: "blur(24px)",
+              }
+            : undefined
+        }
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -167,8 +193,12 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
                               />
                             </div>
                             <div className="min-w-0">
-                              <p className="text-sm font-bold truncate">{user.name}</p>
-                              <p className="text-[10px] text-muted truncate">{user.email}</p>
+                              <p className="text-sm font-bold truncate">
+                                {user.name}
+                              </p>
+                              <p className="text-[10px] text-muted truncate">
+                                {user.email}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -202,7 +232,10 @@ export default function Navbar({ variant }: { variant?: "default" | "solid" } = 
                             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
                             data-cursor-hover
                           >
-                            <LayoutDashboard size={14} className="text-primary" />
+                            <LayoutDashboard
+                              size={14}
+                              className="text-primary"
+                            />
                             {t("organizerPanel")}
                           </Link>
                         )}
