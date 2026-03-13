@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
 import { events, artists, venues } from "@/lib/data";
 import { motion } from "framer-motion";
@@ -45,8 +45,12 @@ function StatCard({
       className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] backdrop-blur-xl p-5"
     >
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[11px] text-foreground/40 uppercase tracking-wider font-medium">{label}</span>
-        <div className={`w-9 h-9 rounded-xl ${bg} flex items-center justify-center`}>
+        <span className="text-[11px] text-foreground/40 uppercase tracking-wider font-medium">
+          {label}
+        </span>
+        <div
+          className={`w-9 h-9 rounded-xl ${bg} flex items-center justify-center`}
+        >
           <Icon className={`w-[18px] h-[18px] ${color}`} />
         </div>
       </div>
@@ -54,7 +58,9 @@ function StatCard({
       {trend && (
         <div className="flex items-center gap-1 mt-2">
           <TrendingUp className="w-3 h-3 text-emerald-400" />
-          <span className="text-[10px] text-emerald-400 font-medium">{trend}</span>
+          <span className="text-[10px] text-emerald-400 font-medium">
+            {trend}
+          </span>
         </div>
       )}
     </motion.div>
@@ -63,16 +69,23 @@ function StatCard({
 
 export default function AdminDashboard() {
   const t = useTranslations("AdminPanel.dashboard");
+  const locale = useLocale();
   const { organizerEvents, organizerVenues, getAllTickets } = useOrganizer();
 
   const allTickets = useMemo(() => getAllTickets(), [getAllTickets]);
 
-  const pendingEvents = organizerEvents.filter((e) => e.status === "pending_approval");
+  const pendingEvents = organizerEvents.filter(
+    (e) => e.status === "pending_approval",
+  );
   const approvedEvents = organizerEvents.filter((e) => e.status === "approved");
   const rejectedEvents = organizerEvents.filter((e) => e.status === "rejected");
 
   const totalRevenue = useMemo(() => {
-    return allTickets.reduce((sum, tk) => sum + (parseInt(tk.totalPaid.replace(/[^\d]/g, ""), 10) || 0), 0);
+    return allTickets.reduce(
+      (sum, tk) =>
+        sum + (parseInt(tk.totalPaid.replace(/[^\d]/g, ""), 10) || 0),
+      0,
+    );
   }, [allTickets]);
 
   return (
@@ -125,7 +138,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard
           label={t("totalRevenue")}
-          value={`₺${totalRevenue.toLocaleString("tr-TR")}`}
+          value={`₺${totalRevenue.toLocaleString(locale)}`}
           icon={DollarSign}
           color="text-emerald-400"
           bg="bg-emerald-500/10"
@@ -164,25 +177,40 @@ export default function AdminDashboard() {
               <Clock className="w-[18px] h-[18px] text-amber-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-foreground">{t("pendingApproval")}</h3>
-              <p className="text-[10px] text-foreground/30">{t("needsReview")}</p>
+              <h3 className="text-sm font-bold text-foreground">
+                {t("pendingApproval")}
+              </h3>
+              <p className="text-[10px] text-foreground/30">
+                {t("needsReview")}
+              </p>
             </div>
-            <span className="ml-auto text-2xl font-bold text-amber-400">{pendingEvents.length}</span>
+            <span className="ml-auto text-2xl font-bold text-amber-400">
+              {pendingEvents.length}
+            </span>
           </div>
           {pendingEvents.length > 0 ? (
             <div className="space-y-2">
               {pendingEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
+                <div
+                  key={event.id}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]"
+                >
                   <AlertCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
-                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">
+                      {event.title}
+                    </p>
+                    <p className="text-[10px] text-foreground/30">
+                      {event.venue}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-foreground/20 text-center py-4">{t("noPending")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">
+              {t("noPending")}
+            </p>
           )}
         </motion.div>
 
@@ -198,25 +226,38 @@ export default function AdminDashboard() {
               <CheckCircle2 className="w-[18px] h-[18px] text-emerald-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-foreground">{t("approvedEvents")}</h3>
+              <h3 className="text-sm font-bold text-foreground">
+                {t("approvedEvents")}
+              </h3>
               <p className="text-[10px] text-foreground/30">{t("liveNow")}</p>
             </div>
-            <span className="ml-auto text-2xl font-bold text-emerald-400">{approvedEvents.length}</span>
+            <span className="ml-auto text-2xl font-bold text-emerald-400">
+              {approvedEvents.length}
+            </span>
           </div>
           {approvedEvents.length > 0 ? (
             <div className="space-y-2">
               {approvedEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
+                <div
+                  key={event.id}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]"
+                >
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
-                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">
+                      {event.title}
+                    </p>
+                    <p className="text-[10px] text-foreground/30">
+                      {event.venue}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-foreground/20 text-center py-4">{t("noApproved")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">
+              {t("noApproved")}
+            </p>
           )}
         </motion.div>
 
@@ -232,25 +273,38 @@ export default function AdminDashboard() {
               <XCircle className="w-[18px] h-[18px] text-red-400" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-foreground">{t("rejectedEvents")}</h3>
+              <h3 className="text-sm font-bold text-foreground">
+                {t("rejectedEvents")}
+              </h3>
               <p className="text-[10px] text-foreground/30">{t("declined")}</p>
             </div>
-            <span className="ml-auto text-2xl font-bold text-red-400">{rejectedEvents.length}</span>
+            <span className="ml-auto text-2xl font-bold text-red-400">
+              {rejectedEvents.length}
+            </span>
           </div>
           {rejectedEvents.length > 0 ? (
             <div className="space-y-2">
               {rejectedEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]">
+                <div
+                  key={event.id}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-foreground/[0.02]"
+                >
                   <XCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-foreground truncate">{event.title}</p>
-                    <p className="text-[10px] text-foreground/30">{event.venue}</p>
+                    <p className="text-xs font-medium text-foreground truncate">
+                      {event.title}
+                    </p>
+                    <p className="text-[10px] text-foreground/30">
+                      {event.venue}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-foreground/20 text-center py-4">{t("noRejected")}</p>
+            <p className="text-xs text-foreground/20 text-center py-4">
+              {t("noRejected")}
+            </p>
           )}
         </motion.div>
       </div>
@@ -268,15 +322,33 @@ export default function AdminDashboard() {
         </h3>
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
           {[
-            { label: t("genres"), value: [...new Set(events.map((e) => e.genre))].length, color: "text-purple-400" },
-            { label: t("cities"), value: [...new Set(events.map((e) => e.city))].length, color: "text-cyan-400" },
-            { label: t("trendingEvents"), value: events.filter((e) => e.trending).length, color: "text-amber-400" },
+            {
+              label: t("genres"),
+              value: [...new Set(events.map((e) => e.genre))].length,
+              color: "text-purple-400",
+            },
+            {
+              label: t("cities"),
+              value: [...new Set(events.map((e) => e.city))].length,
+              color: "text-cyan-400",
+            },
+            {
+              label: t("trendingEvents"),
+              value: events.filter((e) => e.trending).length,
+              color: "text-amber-400",
+            },
             { label: t("totalOrganizers"), value: "1", color: "text-pink-400" },
-            { label: t("avgTicketPrice"), value: `₺${Math.round(events.reduce((s, e) => s + (parseInt(e.price.replace(/[^\d]/g, ""), 10) || 0), 0) / events.length).toLocaleString("tr-TR")}`, color: "text-emerald-400" },
+            {
+              label: t("avgTicketPrice"),
+              value: `₺${Math.round(events.reduce((s, e) => s + (parseInt(e.price.replace(/[^\d]/g, ""), 10) || 0), 0) / events.length).toLocaleString(locale)}`,
+              color: "text-emerald-400",
+            },
           ].map((stat, i) => (
             <div key={i} className="text-center py-3">
               <p className={`text-xl font-bold ${stat.color}`}>{stat.value}</p>
-              <p className="text-[10px] text-foreground/30 mt-1">{stat.label}</p>
+              <p className="text-[10px] text-foreground/30 mt-1">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>

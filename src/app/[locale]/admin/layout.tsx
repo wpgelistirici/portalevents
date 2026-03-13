@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect } from "react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
@@ -12,10 +12,15 @@ const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { isAuthenticated, isAdmin, isLoading, openAuthModal } = useAuth();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations("AdminPanel.layout");
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -37,13 +42,25 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center p-8 rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl max-w-md mx-4">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center">
-            <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            <svg
+              className="w-8 h-8 text-red-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-foreground mb-2">Yönetim Paneli</h2>
-          <p className="text-foreground/60 mb-6">Bu sayfaya erişmek için admin hesabıyla giriş yapmalısınız.</p>
-          <p className="text-xs text-foreground/40">Demo: admin@portalevents.co / admin123</p>
+          <h2 className="text-xl font-bold text-foreground mb-2">
+            {t("title")}
+          </h2>
+          <p className="text-foreground/60 mb-6">{t("authRequired")}</p>
+          <p className="text-xs text-foreground/40">{t("demoCredentials")}</p>
           <button
             onClick={() => {
               router.push(`/${locale}`);
@@ -51,7 +68,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             }}
             className="mt-4 px-6 py-3 rounded-xl bg-red-500 text-foreground font-medium hover:bg-red-500/80 transition-colors"
           >
-            Giriş Yap
+            {t("login")}
           </button>
         </div>
       </div>

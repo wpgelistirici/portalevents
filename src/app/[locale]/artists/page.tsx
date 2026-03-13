@@ -63,7 +63,7 @@ export default function ArtistsPage() {
                   <motion.div
                     className="group relative glass rounded-2xl overflow-hidden card-hover"
                     data-cursor-hover
-                    data-cursor-text="Profil"
+                    data-cursor-text={t("cursorProfile")}
                     whileHover={{ y: -6 }}
                   >
                     {/* Image */}

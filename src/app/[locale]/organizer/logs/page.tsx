@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
 import CustomSelect from "@/components/ui/CustomSelect";
 import {
@@ -17,6 +17,7 @@ import {
 
 export default function ValidationLogsPage() {
   const t = useTranslations("OrganizerPanel");
+  const locale = useLocale();
   const { validationLogs, organizerEvents } = useOrganizer();
   const [search, setSearch] = useState("");
   const [filterAction, setFilterAction] = useState<string>("");
@@ -48,10 +49,19 @@ export default function ValidationLogsPage() {
 
   const handleExport = () => {
     const csv = [
-      ["Tarih", "İşlem", "Bilet Sahibi", "E-posta", "Etkinlik", "Bilet Türü", "Onaylayan", "Notlar"].join(","),
+      [
+        t("logs.csvDate"),
+        t("logs.csvAction"),
+        t("logs.csvTicketHolder"),
+        t("logs.csvEmail"),
+        t("logs.csvEvent"),
+        t("logs.csvTicketType"),
+        t("logs.csvValidator"),
+        t("logs.csvNotes"),
+      ].join(","),
       ...filtered.map((log) =>
         [
-          new Date(log.validatedAt).toLocaleString("tr-TR"),
+          new Date(log.validatedAt).toLocaleString(locale),
           log.action,
           log.ticketHolderName,
           log.ticketHolderEmail,
@@ -76,8 +86,12 @@ export default function ValidationLogsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{t("logs.title")}</h1>
-          <p className="text-foreground/50 text-sm mt-1">{t("logs.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("logs.title")}
+          </h1>
+          <p className="text-foreground/50 text-sm mt-1">
+            {t("logs.subtitle")}
+          </p>
         </div>
         <button
           onClick={handleExport}
@@ -106,9 +120,21 @@ export default function ValidationLogsPage() {
           onChange={(val) => setFilterAction(val)}
           options={[
             { value: "", label: t("logs.allActions") },
-            { value: "approved", label: t("logs.actions.approved"), icon: <CheckCircle className="w-3.5 h-3.5 text-green-400" /> },
-            { value: "cancelled", label: t("logs.actions.cancelled"), icon: <XCircle className="w-3.5 h-3.5 text-red-400" /> },
-            { value: "refunded", label: t("logs.actions.refunded"), icon: <RotateCcw className="w-3.5 h-3.5 text-yellow-400" /> },
+            {
+              value: "approved",
+              label: t("logs.actions.approved"),
+              icon: <CheckCircle className="w-3.5 h-3.5 text-green-400" />,
+            },
+            {
+              value: "cancelled",
+              label: t("logs.actions.cancelled"),
+              icon: <XCircle className="w-3.5 h-3.5 text-red-400" />,
+            },
+            {
+              value: "refunded",
+              label: t("logs.actions.refunded"),
+              icon: <RotateCcw className="w-3.5 h-3.5 text-yellow-400" />,
+            },
           ]}
           placeholder={t("logs.allActions")}
           searchable={false}
@@ -136,13 +162,18 @@ export default function ValidationLogsPage() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
         {(["approved", "cancelled", "refunded"] as const).map((action) => (
-          <div key={action} className="p-4 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center gap-3">
+          <div
+            key={action}
+            className="p-4 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center gap-3"
+          >
             {actionIcons[action]}
             <div>
               <p className="text-xl font-bold text-foreground">
                 {validationLogs.filter((l) => l.action === action).length}
               </p>
-              <p className="text-xs text-foreground/40">{t(`logs.actions.${action}`)}</p>
+              <p className="text-xs text-foreground/40">
+                {t(`logs.actions.${action}`)}
+              </p>
             </div>
           </div>
         ))}
@@ -169,10 +200,13 @@ export default function ValidationLogsPage() {
           {/* Table Body */}
           <div className="divide-y divide-white/5">
             {filtered.map((log) => (
-              <div key={log.id} className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-foreground/[0.02] transition-colors">
+              <div
+                key={log.id}
+                className="grid grid-cols-12 gap-4 p-4 items-center hover:bg-foreground/[0.02] transition-colors"
+              >
                 <div className="col-span-2 text-xs text-foreground/50 flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" />
-                  {new Date(log.validatedAt).toLocaleString("tr-TR", {
+                  {new Date(log.validatedAt).toLocaleString(locale, {
                     day: "2-digit",
                     month: "2-digit",
                     year: "2-digit",
@@ -181,19 +215,31 @@ export default function ValidationLogsPage() {
                   })}
                 </div>
                 <div className="col-span-1">
-                  <span className={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full ${actionColors[log.action]}`}>
+                  <span
+                    className={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full ${actionColors[log.action]}`}
+                  >
                     {actionIcons[log.action]}
                   </span>
                 </div>
                 <div className="col-span-3 min-w-0">
-                  <p className="text-sm text-foreground truncate">{log.ticketHolderName}</p>
-                  <p className="text-xs text-foreground/30 truncate">{log.ticketHolderEmail}</p>
+                  <p className="text-sm text-foreground truncate">
+                    {log.ticketHolderName}
+                  </p>
+                  <p className="text-xs text-foreground/30 truncate">
+                    {log.ticketHolderEmail}
+                  </p>
                 </div>
                 <div className="col-span-3 min-w-0">
-                  <p className="text-sm text-foreground/70 truncate">{log.eventTitle}</p>
+                  <p className="text-sm text-foreground/70 truncate">
+                    {log.eventTitle}
+                  </p>
                 </div>
-                <div className="col-span-1 text-xs text-foreground/50">{log.ticketType}</div>
-                <div className="col-span-2 text-xs text-foreground/50">{log.validatedBy}</div>
+                <div className="col-span-1 text-xs text-foreground/50">
+                  {log.ticketType}
+                </div>
+                <div className="col-span-2 text-xs text-foreground/50">
+                  {log.validatedBy}
+                </div>
               </div>
             ))}
           </div>

@@ -31,7 +31,10 @@
     "searchVenues": "场地",
     "searchNoResults": "未找到结果。请尝试其他搜索。",
     "ctaExplore": "探索活动",
-    "ctaHow": "如何运作？"
+    "ctaHow": "如何运作？",
+    "searchFollowers": "粉丝",
+    "searchUpcoming": "活动",
+    "searchCapacity": "人"
   },
   "FeaturedEvents": {
     "label": "即将举行的活动",
@@ -46,7 +49,8 @@
     "exploreMapDesc": "在地图上查看所有活动，发现附近的活动。",
     "exploreMapButton": "打开地图",
     "featuredLabel": "精选活动",
-    "featuredBadge": "精选"
+    "featuredBadge": "精选",
+    "cursorExplore": "探索"
   },
   "ArtistShowcase": {
     "label": "艺人",
@@ -61,7 +65,8 @@
     "titleLine2": "身临其境的",
     "titleLine3": "地方",
     "viewAll": "查看所有场馆",
-    "capacity": "容量"
+    "capacity": "容量",
+    "cursorExplore": "探索"
   },
   "CommunityPreview": {
     "label": "社区",
@@ -164,7 +169,8 @@
     "title": "点亮舞台的人们",
     "description": "发现你喜爱的艺人，关注他们，不要错过即将到来的活动。",
     "followers": "关注者",
-    "event": "场活动"
+    "event": "场活动",
+    "cursorProfile": "资料"
   },
   "ArtistDetail": {
     "backToArtists": "返回艺人列表",
@@ -197,7 +203,8 @@
     "title": "活动之家",
     "description": "发现最特别的场馆。从温馨的小厅到大型场馆，每种活动类型都有属于你的舞台。",
     "capacity": "容量",
-    "upcomingEvents": "即将举行的活动"
+    "upcomingEvents": "即将举行的活动",
+    "cursorExplore": "探索"
   },
   "CommunityPage": {
     "label": "社区",
@@ -409,7 +416,9 @@
     "required": "此字段为必填",
     "invalidEmail": "请输入有效的电子邮箱",
     "invalidPhone": "请输入有效的电话号码",
-    "acceptAllAgreements": "你必须接受所有协议"
+    "acceptAllAgreements": "你必须接受所有协议",
+    "eventNotFound": "未找到活动",
+    "optional": "可选"
   },
   "VenueDetailPage": {
     "backToVenues": "返回场馆列表",
@@ -518,7 +527,8 @@
     "directions": "导航",
     "noEvents": "未找到符合此筛选条件的活动。",
     "showEvents": "显示活动",
-    "hideEvents": "隐藏活动"
+    "hideEvents": "隐藏活动",
+    "mapLoading": "加载地图..."
   },
   "AccountPage": {
     "title": "账户设置",
@@ -742,6 +752,12 @@
       "storage": "存储",
       "framework": "框架",
       "environment": "环境"
+    },
+    "layout": {
+      "title": "管理面板",
+      "authRequired": "访问此页面需要使用管理员账户登录。",
+      "demoCredentials": "Demo: admin@portalevents.co / admin123",
+      "login": "登录"
     }
   },
   "OrganizerPanel": {
@@ -876,7 +892,16 @@
       "previous": "上一步",
       "next": "下一步",
       "saveDraft": "保存草稿",
-      "submitForApproval": "提交审批"
+      "submitForApproval": "提交审批",
+      "dayMon": "一",
+      "dayTue": "二",
+      "dayWed": "三",
+      "dayThu": "四",
+      "dayFri": "五",
+      "daySat": "六",
+      "daySun": "日",
+      "defaultTicketDesc": "标准入场票",
+      "capacitySuffix": "人容量"
     },
     "doping": {
       "title": "推广套餐",
@@ -895,7 +920,19 @@
       },
       "purchase": "购买",
       "purchased": "已购买！",
-      "active": "活跃"
+      "active": "活跃",
+      "days": "天",
+      "features": {
+        "featuredBadge": "精选徽章",
+        "gradientBorder": "渐变边框设计",
+        "homepageTopVisibility": "首页顶部可见性",
+        "trendingIcon": "趋势图标",
+        "popularBadge": "热门徽章",
+        "exploreTopRow": "探索页面顶部",
+        "editorPickBadge": "编辑精选徽章",
+        "eventsTopRow": "活动页面顶部",
+        "customCardDesign": "定制卡片设计"
+      }
     },
     "venues": {
       "title": "我的场馆",
@@ -947,7 +984,7 @@
         "saturday": "周六",
         "sunday": "周日"
       },
-      "closed": "关闭",
+      "closed": "已关闭",
       "gallery": "照片库",
       "save": "保存场馆",
       "saving": "保存中..."
@@ -1011,7 +1048,15 @@
         "approved": "已通过",
         "cancelled": "已取消",
         "refunded": "已退款"
-      }
+      },
+      "csvDate": "日期",
+      "csvAction": "操作",
+      "csvTicketHolder": "持票人",
+      "csvEmail": "电子邮件",
+      "csvEvent": "活动",
+      "csvTicketType": "票类型",
+      "csvValidator": "验证者",
+      "csvNotes": "备注"
     },
     "reports": {
       "title": "报告和统计",
@@ -1084,7 +1129,9 @@
       "companyName": "公司名称",
       "save": "保存",
       "saving": "保存中...",
-      "saved": "已保存！"
+      "saved": "已保存！",
+      "usernamePlaceholder": "@用户名",
+      "channelPlaceholder": "频道名称"
     },
     "coupons": {
       "title": "优惠券管理",
@@ -1177,7 +1224,20 @@
       "subtitle": "在此场馆演出的艺人日历",
       "venueNotFound": "未找到场馆",
       "upcomingEvents": "即将举行的活动",
-      "noEvents": "暂无计划活动"
+      "noEvents": "暂无计划活动",
+      "dayMon": "一",
+      "dayTue": "二",
+      "dayWed": "三",
+      "dayThu": "四",
+      "dayFri": "五",
+      "daySat": "六",
+      "daySun": "日"
+    },
+    "layout": {
+      "title": "组织者面板",
+      "authRequired": "访问此页面需要使用组织者账户登录。",
+      "demoCredentials": "Demo: organizer@portalevents.co / org123",
+      "login": "登录"
     }
   },
   "SavedPage": {
@@ -1203,5 +1263,20 @@
       "description": "收藏活动、场馆或社区帖子，即可在此查看。"
     },
     "remove": "移除"
+  },
+  "ImageUpload": {
+    "change": "更换",
+    "dropToUpload": "拖放上传",
+    "click": "点击",
+    "orDragAndDrop": "或拖放",
+    "fileTypes": "PNG, JPG, WEBP — 最大 10MB",
+    "addByUrl": "通过URL添加",
+    "add": "添加",
+    "orDrag": "或拖放",
+    "imageCount": "{count}/{max} 图片"
+  },
+  "CustomSelect": {
+    "defaultPlaceholder": "请选择...",
+    "defaultSearchPlaceholder": "搜索..."
   }
 }

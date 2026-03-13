@@ -27,7 +27,14 @@ import {
   Info,
 } from "lucide-react";
 
-const STEPS = ["basic", "dateLocation", "artists", "tickets", "rules", "preview"];
+const STEPS = [
+  "basic",
+  "dateLocation",
+  "artists",
+  "tickets",
+  "rules",
+  "preview",
+];
 
 export default function NewEventPage() {
   const t = useTranslations("OrganizerPanel");
@@ -41,7 +48,9 @@ export default function NewEventPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("Electronic");
-  const [image, setImage] = useState("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop");
+  const [image, setImage] = useState(
+    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
+  );
   const [mediaUrls, setMediaUrls] = useState<string[]>([]);
 
   const [startDate, setStartDate] = useState("");
@@ -60,19 +69,43 @@ export default function NewEventPage() {
   const [artistTicketDesc, setArtistTicketDesc] = useState("");
 
   const [ticketTypes, setTicketTypes] = useState([
-    { name: "General Admission", price: "", description: "Standart giriş bileti", available: true },
+    {
+      name: "General Admission",
+      price: "",
+      description: t("eventForm.defaultTicketDesc"),
+      available: true,
+    },
   ]);
 
-  const [selectedRules, setSelectedRules] = useState<string[]>(["ruleAge", "ruleId"]);
+  const [selectedRules, setSelectedRules] = useState<string[]>([
+    "ruleAge",
+    "ruleId",
+  ]);
   const [customRules, setCustomRules] = useState<string[]>([]);
   const [newCustomRule, setNewCustomRule] = useState("");
-  const [selectedPolicies, setSelectedPolicies] = useState<string[]>(["cancel7Days", "cancel3Days", "cancelNoRefund"]);
+  const [selectedPolicies, setSelectedPolicies] = useState<string[]>([
+    "cancel7Days",
+    "cancel3Days",
+    "cancelNoRefund",
+  ]);
 
   const [price, setPrice] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  const ruleOptions = ["ruleAge", "ruleId", "ruleReentry", "ruleRecording", "ruleSubstance", "ruleDressCode"];
-  const policyOptions = ["cancel7Days", "cancel3Days", "cancelNoRefund", "cancelTransfer"];
+  const ruleOptions = [
+    "ruleAge",
+    "ruleId",
+    "ruleReentry",
+    "ruleRecording",
+    "ruleSubstance",
+    "ruleDressCode",
+  ];
+  const policyOptions = [
+    "cancel7Days",
+    "cancel3Days",
+    "cancelNoRefund",
+    "cancelTransfer",
+  ];
   const { createArtistTicket } = useOrganizer();
 
   const stepIcons = [Info, MapPin, Music, Ticket, Shield, Eye];
@@ -83,24 +116,41 @@ export default function NewEventPage() {
     setIsSaving(true);
 
     const formattedDate = startDate
-      ? new Date(startDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric" })
+      ? new Date(startDate).toLocaleDateString(locale, {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })
       : "";
 
     const eventData: Omit<OrganizerEvent, "id" | "createdAt" | "updatedAt"> = {
       title,
-      artist: selectedArtists.map((id) => allArtists.find((a) => a.id === id)?.name || "").join(", ") || missingArtists.join(", ") || "TBA",
+      artist:
+        selectedArtists
+          .map((id) => allArtists.find((a) => a.id === id)?.name || "")
+          .join(", ") ||
+        missingArtists.join(", ") ||
+        "TBA",
       venue: venue?.name || "",
       date: formattedDate,
       time: startTime,
       city,
       image,
       genre,
-      price: price ? `₺${price}` : ticketTypes[0]?.price ? `₺${ticketTypes[0].price}` : "₺0",
+      price: price
+        ? `₺${price}`
+        : ticketTypes[0]?.price
+          ? `₺${ticketTypes[0].price}`
+          : "₺0",
       trending: false,
       detail: {
         description,
         endDate: endDate
-          ? new Date(endDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric" })
+          ? new Date(endDate).toLocaleDateString(locale, {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })
           : formattedDate,
         endTime: endTime || startTime,
         address: address || venue?.detail?.address || "",
@@ -114,9 +164,12 @@ export default function NewEventPage() {
         cancellationPolicy: selectedPolicies,
         attendees: [],
         organizerId: user?.organizerProfile?.organizerId || "org1",
-        organizerName: user?.organizerProfile?.organizerName || user?.name || "",
-        organizerLogo: user?.organizerProfile?.organizerLogo || user?.avatar || "",
-        organizerDescription: user?.organizerProfile?.organizerDescription || "",
+        organizerName:
+          user?.organizerProfile?.organizerName || user?.name || "",
+        organizerLogo:
+          user?.organizerProfile?.organizerLogo || user?.avatar || "",
+        organizerDescription:
+          user?.organizerProfile?.organizerDescription || "",
         ticketTypes: ticketTypes.map((tt) => ({
           name: tt.name,
           price: tt.price ? `₺${tt.price}` : "₺0",
@@ -124,7 +177,9 @@ export default function NewEventPage() {
           available: tt.available,
         })),
       },
-      status: submitApproval ? ("pending_approval" as EventStatus) : ("draft" as EventStatus),
+      status: submitApproval
+        ? ("pending_approval" as EventStatus)
+        : ("draft" as EventStatus),
       artistIds: selectedArtists,
       missingArtists,
       dopings: [],
@@ -165,7 +220,11 @@ export default function NewEventPage() {
     setTicketTypes((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  const updateTicketType = (idx: number, field: string, value: string | boolean) => {
+  const updateTicketType = (
+    idx: number,
+    field: string,
+    value: string | boolean,
+  ) => {
     setTicketTypes((prev) =>
       prev.map((tt, i) => (i === idx ? { ...tt, [field]: value } : tt)),
     );
@@ -182,8 +241,12 @@ export default function NewEventPage() {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{t("eventForm.title")}</h1>
-          <p className="text-foreground/50 text-sm">{t("eventForm.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("eventForm.title")}
+          </h1>
+          <p className="text-foreground/50 text-sm">
+            {t("eventForm.subtitle")}
+          </p>
         </div>
       </div>
 
@@ -220,7 +283,9 @@ export default function NewEventPage() {
         {currentStep === 0 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.eventName")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">
+                {t("eventForm.eventName")}
+              </label>
               <input
                 type="text"
                 value={title}
@@ -230,7 +295,9 @@ export default function NewEventPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.description")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">
+                {t("eventForm.description")}
+              </label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -241,19 +308,27 @@ export default function NewEventPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.genre")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.genre")}
+                </label>
                 <CustomSelect
                   value={genre}
                   onChange={(val) => setGenre(val)}
-                  options={genres.filter((g) => g !== "Tümü").map((g) => ({ value: g, label: g }))}
+                  options={genres
+                    .filter((g) => g !== "Tümü")
+                    .map((g) => ({ value: g, label: g }))}
                   placeholder={t("eventForm.genre")}
                   searchable={false}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.price")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.price")}
+                </label>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">₺</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">
+                    ₺
+                  </span>
                   <input
                     type="text"
                     value={price}
@@ -284,7 +359,9 @@ export default function NewEventPage() {
           <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startDate")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.startDate")}
+                </label>
                 <input
                   type="date"
                   value={startDate}
@@ -293,7 +370,9 @@ export default function NewEventPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startTime")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.startTime")}
+                </label>
                 <input
                   type="time"
                   value={startTime}
@@ -304,7 +383,9 @@ export default function NewEventPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endDate")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.endDate")}
+                </label>
                 <input
                   type="date"
                   value={endDate}
@@ -313,7 +394,9 @@ export default function NewEventPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endTime")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.endTime")}
+                </label>
                 <input
                   type="time"
                   value={endTime}
@@ -323,7 +406,9 @@ export default function NewEventPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.venue")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">
+                {t("eventForm.venue")}
+              </label>
               <CustomSelect
                 value={selectedVenue}
                 onChange={(val) => {
@@ -337,7 +422,7 @@ export default function NewEventPage() {
                 options={allVenues.map((v) => ({
                   value: v.id,
                   label: `${v.name} — ${v.city}`,
-                  description: `${v.type} · ${v.capacity} kişilik`,
+                  description: `${v.type} · ${v.capacity} ${t("eventForm.capacitySuffix")}`,
                 }))}
                 placeholder={t("eventForm.selectVenue")}
                 searchable={true}
@@ -346,7 +431,9 @@ export default function NewEventPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.city")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.city")}
+                </label>
                 <input
                   type="text"
                   value={city}
@@ -355,7 +442,9 @@ export default function NewEventPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.address")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.address")}
+                </label>
                 <input
                   type="text"
                   value={address}
@@ -372,14 +461,18 @@ export default function NewEventPage() {
         {currentStep === 2 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.selectArtists")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">
+                {t("eventForm.selectArtists")}
+              </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {allArtists.map((artist) => (
                   <button
                     key={artist.id}
                     onClick={() => {
                       setSelectedArtists((prev) =>
-                        prev.includes(artist.id) ? prev.filter((id) => id !== artist.id) : [...prev, artist.id],
+                        prev.includes(artist.id)
+                          ? prev.filter((id) => id !== artist.id)
+                          : [...prev, artist.id],
                       );
                     }}
                     className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
@@ -388,9 +481,15 @@ export default function NewEventPage() {
                         : "bg-foreground/5 border-foreground/10 text-foreground/60 hover:border-foreground/20"
                     }`}
                   >
-                    <img src={artist.image} alt="" className="w-10 h-10 rounded-lg object-cover" />
+                    <img
+                      src={artist.image}
+                      alt=""
+                      className="w-10 h-10 rounded-lg object-cover"
+                    />
                     <div className="text-left min-w-0">
-                      <p className="text-sm font-medium truncate">{artist.name}</p>
+                      <p className="text-sm font-medium truncate">
+                        {artist.name}
+                      </p>
                       <p className="text-xs opacity-50">{artist.genre}</p>
                     </div>
                     {selectedArtists.includes(artist.id) && (
@@ -404,12 +503,23 @@ export default function NewEventPage() {
             {/* Missing Artists */}
             {missingArtists.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.addedArtists")}</label>
+                <label className="block text-sm font-medium text-foreground/70 mb-2">
+                  {t("eventForm.addedArtists")}
+                </label>
                 <div className="flex flex-wrap gap-2">
                   {missingArtists.map((name, idx) => (
-                    <span key={idx} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-sm border border-yellow-400/20">
+                    <span
+                      key={idx}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-sm border border-yellow-400/20"
+                    >
                       {name}
-                      <button onClick={() => setMissingArtists((prev) => prev.filter((_, i) => i !== idx))}>
+                      <button
+                        onClick={() =>
+                          setMissingArtists((prev) =>
+                            prev.filter((_, i) => i !== idx),
+                          )
+                        }
+                      >
                         <X className="w-3 h-3" />
                       </button>
                     </span>
@@ -479,7 +589,10 @@ export default function NewEventPage() {
         {currentStep === 3 && (
           <div className="space-y-6">
             {ticketTypes.map((tt, idx) => (
-              <div key={idx} className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-4">
+              <div
+                key={idx}
+                className="p-4 rounded-xl bg-foreground/[0.02] border border-foreground/10 space-y-4"
+              >
                 <div className="flex items-center justify-between">
                   <h4 className="text-sm font-medium text-foreground/70">
                     {t("eventForm.ticketType")} #{idx + 1}
@@ -497,16 +610,22 @@ export default function NewEventPage() {
                   <input
                     type="text"
                     value={tt.name}
-                    onChange={(e) => updateTicketType(idx, "name", e.target.value)}
+                    onChange={(e) =>
+                      updateTicketType(idx, "name", e.target.value)
+                    }
                     placeholder={t("eventForm.ticketName")}
                     className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                   />
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">₺</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40">
+                      ₺
+                    </span>
                     <input
                       type="text"
                       value={tt.price}
-                      onChange={(e) => updateTicketType(idx, "price", e.target.value)}
+                      onChange={(e) =>
+                        updateTicketType(idx, "price", e.target.value)
+                      }
                       placeholder="450"
                       className="w-full pl-8 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                     />
@@ -515,20 +634,30 @@ export default function NewEventPage() {
                 <input
                   type="text"
                   value={tt.description}
-                  onChange={(e) => updateTicketType(idx, "description", e.target.value)}
+                  onChange={(e) =>
+                    updateTicketType(idx, "description", e.target.value)
+                  }
                   placeholder={t("eventForm.ticketDescription")}
                   className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
                 />
                 <label className="flex items-center gap-3 cursor-pointer">
                   <div
                     className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                      tt.available ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
+                      tt.available
+                        ? "bg-[#7B61FF] border-[#7B61FF]"
+                        : "border-foreground/20"
                     }`}
-                    onClick={() => updateTicketType(idx, "available", !tt.available)}
+                    onClick={() =>
+                      updateTicketType(idx, "available", !tt.available)
+                    }
                   >
-                    {tt.available && <Check className="w-3 h-3 text-foreground" />}
+                    {tt.available && (
+                      <Check className="w-3 h-3 text-foreground" />
+                    )}
                   </div>
-                  <span className="text-sm text-foreground/60">{t("eventForm.ticketAvailable")}</span>
+                  <span className="text-sm text-foreground/60">
+                    {t("eventForm.ticketAvailable")}
+                  </span>
                 </label>
               </div>
             ))}
@@ -546,32 +675,56 @@ export default function NewEventPage() {
         {currentStep === 4 && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.eventRules")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">
+                {t("eventForm.eventRules")}
+              </label>
               <div className="space-y-2">
                 {ruleOptions.map((rule) => (
-                  <label key={rule} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors">
+                  <label
+                    key={rule}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors"
+                  >
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedRules.includes(rule) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
+                        selectedRules.includes(rule)
+                          ? "bg-[#7B61FF] border-[#7B61FF]"
+                          : "border-foreground/20"
                       }`}
                       onClick={() =>
                         setSelectedRules((prev) =>
-                          prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule],
+                          prev.includes(rule)
+                            ? prev.filter((r) => r !== rule)
+                            : [...prev, rule],
                         )
                       }
                     >
-                      {selectedRules.includes(rule) && <Check className="w-3 h-3 text-foreground" />}
+                      {selectedRules.includes(rule) && (
+                        <Check className="w-3 h-3 text-foreground" />
+                      )}
                     </div>
-                    <span className="text-sm text-foreground/70">{t(`eventForm.rules.${rule}`)}</span>
+                    <span className="text-sm text-foreground/70">
+                      {t(`eventForm.rules.${rule}`)}
+                    </span>
                   </label>
                 ))}
               </div>
               {/* Custom Rules */}
               <div className="mt-4 space-y-2">
                 {customRules.map((rule, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10">
-                    <span className="text-sm text-foreground/70 flex-1">{rule}</span>
-                    <button onClick={() => setCustomRules((prev) => prev.filter((_, i) => i !== idx))}>
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10"
+                  >
+                    <span className="text-sm text-foreground/70 flex-1">
+                      {rule}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setCustomRules((prev) =>
+                          prev.filter((_, i) => i !== idx),
+                        )
+                      }
+                    >
                       <X className="w-4 h-4 text-foreground/30 hover:text-red-400" />
                     </button>
                   </div>
@@ -599,23 +752,36 @@ export default function NewEventPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-3">{t("eventForm.cancellationPolicy")}</label>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">
+                {t("eventForm.cancellationPolicy")}
+              </label>
               <div className="space-y-2">
                 {policyOptions.map((policy) => (
-                  <label key={policy} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors">
+                  <label
+                    key={policy}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02] border border-foreground/10 cursor-pointer hover:bg-foreground/5 transition-colors"
+                  >
                     <div
                       className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                        selectedPolicies.includes(policy) ? "bg-[#7B61FF] border-[#7B61FF]" : "border-foreground/20"
+                        selectedPolicies.includes(policy)
+                          ? "bg-[#7B61FF] border-[#7B61FF]"
+                          : "border-foreground/20"
                       }`}
                       onClick={() =>
                         setSelectedPolicies((prev) =>
-                          prev.includes(policy) ? prev.filter((p) => p !== policy) : [...prev, policy],
+                          prev.includes(policy)
+                            ? prev.filter((p) => p !== policy)
+                            : [...prev, policy],
                         )
                       }
                     >
-                      {selectedPolicies.includes(policy) && <Check className="w-3 h-3 text-foreground" />}
+                      {selectedPolicies.includes(policy) && (
+                        <Check className="w-3 h-3 text-foreground" />
+                      )}
                     </div>
-                    <span className="text-sm text-foreground/70">{t(`eventForm.policies.${policy}`)}</span>
+                    <span className="text-sm text-foreground/70">
+                      {t(`eventForm.policies.${policy}`)}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -630,8 +796,12 @@ export default function NewEventPage() {
             <div className="p-4 rounded-xl bg-yellow-400/5 border border-yellow-400/20 flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm font-medium text-yellow-400">{t("eventForm.approvalNotice")}</p>
-                <p className="text-xs text-foreground/40 mt-1">{t("eventForm.approvalNoticeDesc")}</p>
+                <p className="text-sm font-medium text-yellow-400">
+                  {t("eventForm.approvalNotice")}
+                </p>
+                <p className="text-xs text-foreground/40 mt-1">
+                  {t("eventForm.approvalNoticeDesc")}
+                </p>
               </div>
             </div>
 
@@ -639,37 +809,65 @@ export default function NewEventPage() {
             <div className="rounded-2xl overflow-hidden border border-foreground/10">
               {image && (
                 <div className="h-48 overflow-hidden">
-                  <img src={image} alt="" className="w-full h-full object-cover" />
+                  <img
+                    src={image}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               )}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">{title || t("eventForm.untitled")}</h3>
+                <h3 className="text-xl font-bold text-foreground">
+                  {title || t("eventForm.untitled")}
+                </h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-foreground/40">{t("eventForm.genre")}: </span>
+                    <span className="text-foreground/40">
+                      {t("eventForm.genre")}:{" "}
+                    </span>
                     <span className="text-foreground">{genre}</span>
                   </div>
                   <div>
-                    <span className="text-foreground/40">{t("eventForm.city")}: </span>
+                    <span className="text-foreground/40">
+                      {t("eventForm.city")}:{" "}
+                    </span>
                     <span className="text-foreground">{city}</span>
                   </div>
                   <div>
-                    <span className="text-foreground/40">{t("eventForm.startDate")}: </span>
-                    <span className="text-foreground">{startDate} {startTime}</span>
+                    <span className="text-foreground/40">
+                      {t("eventForm.startDate")}:{" "}
+                    </span>
+                    <span className="text-foreground">
+                      {startDate} {startTime}
+                    </span>
                   </div>
                   <div>
-                    <span className="text-foreground/40">{t("eventForm.venue")}: </span>
-                    <span className="text-foreground">{venue?.name || "-"}</span>
+                    <span className="text-foreground/40">
+                      {t("eventForm.venue")}:{" "}
+                    </span>
+                    <span className="text-foreground">
+                      {venue?.name || "-"}
+                    </span>
                   </div>
                 </div>
-                {description && <p className="text-sm text-foreground/60 line-clamp-3">{description}</p>}
+                {description && (
+                  <p className="text-sm text-foreground/60 line-clamp-3">
+                    {description}
+                  </p>
+                )}
                 <div>
-                  <h4 className="text-sm font-medium text-foreground/70 mb-2">{t("eventForm.ticketTypes")}</h4>
+                  <h4 className="text-sm font-medium text-foreground/70 mb-2">
+                    {t("eventForm.ticketTypes")}
+                  </h4>
                   <div className="space-y-1">
                     {ticketTypes.map((tt, idx) => (
                       <div key={idx} className="flex justify-between text-sm">
-                        <span className="text-foreground/60">{tt.name || `Tip ${idx + 1}`}</span>
-                        <span className="text-foreground">{tt.price ? `₺${tt.price}` : "-"}</span>
+                        <span className="text-foreground/60">
+                          {tt.name || `Tip ${idx + 1}`}
+                        </span>
+                        <span className="text-foreground">
+                          {tt.price ? `₺${tt.price}` : "-"}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -713,7 +911,9 @@ export default function NewEventPage() {
             </>
           ) : (
             <button
-              onClick={() => setCurrentStep((s) => Math.min(STEPS.length - 1, s + 1))}
+              onClick={() =>
+                setCurrentStep((s) => Math.min(STEPS.length - 1, s + 1))
+              }
               className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 transition-colors"
             >
               {t("eventForm.next")}

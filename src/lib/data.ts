@@ -117,7 +117,12 @@ export interface CommunityPost {
    ORGANIZER PANEL TYPES
    ============================================ */
 
-export type EventStatus = "draft" | "pending_approval" | "approved" | "rejected" | "cancelled";
+export type EventStatus =
+  | "draft"
+  | "pending_approval"
+  | "approved"
+  | "rejected"
+  | "cancelled";
 
 export interface DopingPackage {
   id: string;
@@ -193,7 +198,14 @@ export interface Coupon {
 
 export interface OrganizerNotification {
   id: string;
-  type: "event_approved" | "event_rejected" | "ticket_sold" | "ticket_cancelled" | "ticket_refunded" | "doping_expiring" | "artist_request_update";
+  type:
+    | "event_approved"
+    | "event_rejected"
+    | "ticket_sold"
+    | "ticket_cancelled"
+    | "ticket_refunded"
+    | "doping_expiring"
+    | "artist_request_update";
   title: string;
   message: string;
   eventId?: string;
@@ -241,92 +253,101 @@ export const dopingPackages: DopingPackage[] = [
   {
     id: "doping-home-7",
     type: "homepage_featured",
-    name: "Anasayfa Dopingi",
-    description: "Etkinliğiniz anasayfada 'Öne Çıkan Etkinlikler' bölümünde gösterilir",
+    name: "Homepage Doping",
+    description:
+      "Your event will be displayed in the 'Featured Events' section on the homepage",
     price: "₺500",
-    duration: "7 gün",
+    duration: "7",
     durationDays: 7,
-    features: ["Öne çıkan badge", "Gradient border tasarım", "Anasayfa üst sıra görünürlük"],
+    features: ["featuredBadge", "gradientBorder", "homepageTopVisibility"],
   },
   {
     id: "doping-home-14",
     type: "homepage_featured",
-    name: "Anasayfa Dopingi",
-    description: "Etkinliğiniz anasayfada 'Öne Çıkan Etkinlikler' bölümünde gösterilir",
+    name: "Homepage Doping",
+    description:
+      "Your event will be displayed in the 'Featured Events' section on the homepage",
     price: "₺850",
-    duration: "14 gün",
+    duration: "14",
     durationDays: 14,
-    features: ["Öne çıkan badge", "Gradient border tasarım", "Anasayfa üst sıra görünürlük"],
+    features: ["featuredBadge", "gradientBorder", "homepageTopVisibility"],
   },
   {
     id: "doping-home-30",
     type: "homepage_featured",
-    name: "Anasayfa Dopingi",
-    description: "Etkinliğiniz anasayfada 'Öne Çıkan Etkinlikler' bölümünde gösterilir",
+    name: "Homepage Doping",
+    description:
+      "Your event will be displayed in the 'Featured Events' section on the homepage",
     price: "₺1.500",
-    duration: "30 gün",
+    duration: "30",
     durationDays: 30,
-    features: ["Öne çıkan badge", "Gradient border tasarım", "Anasayfa üst sıra görünürlük"],
+    features: ["featuredBadge", "gradientBorder", "homepageTopVisibility"],
   },
   {
     id: "doping-explore-7",
     type: "explore_popular",
-    name: "Keşfet Dopingi",
-    description: "Etkinliğiniz keşfet sayfasında 'Popüler Etkinlikler' bölümünde gösterilir",
+    name: "Explore Doping",
+    description:
+      "Your event will be displayed in the 'Popular Events' section on the explore page",
     price: "₺500",
-    duration: "7 gün",
+    duration: "7",
     durationDays: 7,
-    features: ["Trending icon", "Popüler badge", "Keşfet sayfası üst sıra"],
+    features: ["trendingIcon", "popularBadge", "exploreTopRow"],
   },
   {
     id: "doping-explore-14",
     type: "explore_popular",
-    name: "Keşfet Dopingi",
-    description: "Etkinliğiniz keşfet sayfasında 'Popüler Etkinlikler' bölümünde gösterilir",
+    name: "Explore Doping",
+    description:
+      "Your event will be displayed in the 'Popular Events' section on the explore page",
     price: "₺850",
-    duration: "14 gün",
+    duration: "14",
     durationDays: 14,
-    features: ["Trending icon", "Popüler badge", "Keşfet sayfası üst sıra"],
+    features: ["trendingIcon", "popularBadge", "exploreTopRow"],
   },
   {
     id: "doping-explore-30",
     type: "explore_popular",
-    name: "Keşfet Dopingi",
-    description: "Etkinliğiniz keşfet sayfasında 'Popüler Etkinlikler' bölümünde gösterilir",
+    name: "Explore Doping",
+    description:
+      "Your event will be displayed in the 'Popular Events' section on the explore page",
     price: "₺1.500",
-    duration: "30 gün",
+    duration: "30",
     durationDays: 30,
-    features: ["Trending icon", "Popüler badge", "Keşfet sayfası üst sıra"],
+    features: ["trendingIcon", "popularBadge", "exploreTopRow"],
   },
   {
     id: "doping-editor-7",
     type: "events_editor_pick",
-    name: "Etkinlikler Dopingi",
-    description: "Etkinliğiniz etkinlikler sayfasında 'Editörün Seçimi' bölümünde gösterilir",
+    name: "Events Doping",
+    description:
+      "Your event will be displayed in the 'Editor's Pick' section on the events page",
     price: "₺500",
-    duration: "7 gün",
+    duration: "7",
     durationDays: 7,
-    features: ["Editörün seçimi badge", "Etkinlikler sayfası üst sıra", "Özel kart tasarımı"],
+    features: ["editorPickBadge", "eventsTopRow", "customCardDesign"],
   },
   {
     id: "doping-editor-14",
     type: "events_editor_pick",
-    name: "Etkinlikler Dopingi",
-    description: "Etkinliğiniz etkinlikler sayfasında 'Editörün Seçimi' bölümünde gösterilir",
+    name: "Events Doping",
+    description:
+      "Your event will be displayed in the 'Editor's Pick' section on the events page",
     price: "₺850",
-    duration: "14 gün",
+    duration: "14",
     durationDays: 14,
-    features: ["Editörün seçimi badge", "Etkinlikler sayfası üst sıra", "Özel kart tasarımı"],
+    features: ["editorPickBadge", "eventsTopRow", "customCardDesign"],
   },
   {
     id: "doping-editor-30",
     type: "events_editor_pick",
-    name: "Etkinlikler Dopingi",
-    description: "Etkinliğiniz etkinlikler sayfasında 'Editörün Seçimi' bölümünde gösterilir",
+    name: "Events Doping",
+    description:
+      "Your event will be displayed in the 'Editor's Pick' section on the events page",
     price: "₺1.500",
-    duration: "30 gün",
+    duration: "30",
     durationDays: 30,
-    features: ["Editörün seçimi badge", "Etkinlikler sayfası üst sıra", "Özel kart tasarımı"],
+    features: ["editorPickBadge", "eventsTopRow", "customCardDesign"],
   },
 ];
 
@@ -1113,12 +1134,15 @@ export const artists: Artist[] = [
     id: "1",
     name: "deadmau5",
     genre: "Progressive House",
-    image: "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1400&h=600&fit=crop",
     followers: "24.5M",
     upcoming: 3,
     bio: "Canadian electronic music producer known for his progressive house and electronica.",
-    longBio: "Joel Thomas Zimmerman, daha çok deadmau5 olarak bilinen Kanadalı elektronik müzik prodüktörü, DJ ve müzisyen. Progressive house, electro house ve çeşitli elektronik müzik türlerinde eserler üretmektedir. İkonik fare başlığı ile tanınan sanatçı, Grammy ödülüne aday gösterilmiş ve dünya genelinde milyonlarca hayranına ulaşmıştır. Strobe, Ghosts 'n' Stuff ve I Remember gibi parçaları elektronik müziğin klasikleri arasındadır.",
+    longBio:
+      "Joel Thomas Zimmerman, daha çok deadmau5 olarak bilinen Kanadalı elektronik müzik prodüktörü, DJ ve müzisyen. Progressive house, electro house ve çeşitli elektronik müzik türlerinde eserler üretmektedir. İkonik fare başlığı ile tanınan sanatçı, Grammy ödülüne aday gösterilmiş ve dünya genelinde milyonlarca hayranına ulaşmıştır. Strobe, Ghosts 'n' Stuff ve I Remember gibi parçaları elektronik müziğin klasikleri arasındadır.",
     country: "Kanada",
     city: "Toronto",
     activeYears: "1998 - Günümüz",
@@ -1138,12 +1162,15 @@ export const artists: Artist[] = [
     id: "2",
     name: "Amelie Lens",
     genre: "Techno",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=1400&h=600&fit=crop",
     followers: "3.2M",
     upcoming: 5,
     bio: "Belgian DJ and producer, one of the leading figures in modern techno.",
-    longBio: "Amelie Lens, Belçikalı DJ ve prodüktör olarak modern tekno sahnesinin en dikkat çekici isimlerinden biridir. 2015 yılında profesyonel kariyerine başlayan Lens, kısa sürede Awakenings, Tomorrowland ve Time Warp gibi dünyanın en prestijli festivallerinde sahne almayı başarmıştır. Hipnotik ve enerjik setleriyle tanınan sanatçı, kendi plak şirketi LENSKE Records'u kurarak yeni nesil tekno sanatçılarına da platform sağlamaktadır.",
+    longBio:
+      "Amelie Lens, Belçikalı DJ ve prodüktör olarak modern tekno sahnesinin en dikkat çekici isimlerinden biridir. 2015 yılında profesyonel kariyerine başlayan Lens, kısa sürede Awakenings, Tomorrowland ve Time Warp gibi dünyanın en prestijli festivallerinde sahne almayı başarmıştır. Hipnotik ve enerjik setleriyle tanınan sanatçı, kendi plak şirketi LENSKE Records'u kurarak yeni nesil tekno sanatçılarına da platform sağlamaktadır.",
     country: "Belçika",
     city: "Antwerp",
     activeYears: "2015 - Günümüz",
@@ -1162,12 +1189,15 @@ export const artists: Artist[] = [
     id: "3",
     name: "Bonobo",
     genre: "Downtempo",
-    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1400&h=600&fit=crop",
     followers: "2.8M",
     upcoming: 2,
     bio: "British musician, producer and DJ, known for his eclectic electronic compositions.",
-    longBio: "Simon Green, sanatçı adıyla Bonobo, İngiliz müzisyen, prodüktör ve DJ'dir. Downtempo, trip hop ve organik elektronik müzik türlerinde eserler üreten sanatçı, doğal enstrümanları elektronik prodüksiyon teknikleriyle harmanlayan benzersiz tarzıyla tanınır. Black Sands, Migration ve Fragments albümleri eleştirmenlerce büyük beğeni toplamıştır. Canlı performanslarında band formatında sahne alarak elektronik müziği orkestral bir deneyime dönüştürmektedir.",
+    longBio:
+      "Simon Green, sanatçı adıyla Bonobo, İngiliz müzisyen, prodüktör ve DJ'dir. Downtempo, trip hop ve organik elektronik müzik türlerinde eserler üreten sanatçı, doğal enstrümanları elektronik prodüksiyon teknikleriyle harmanlayan benzersiz tarzıyla tanınır. Black Sands, Migration ve Fragments albümleri eleştirmenlerce büyük beğeni toplamıştır. Canlı performanslarında band formatında sahne alarak elektronik müziği orkestral bir deneyime dönüştürmektedir.",
     country: "İngiltere",
     city: "Londra",
     activeYears: "1999 - Günümüz",
@@ -1187,12 +1217,15 @@ export const artists: Artist[] = [
     id: "4",
     name: "Kamasi Washington",
     genre: "Jazz",
-    image: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1400&h=600&fit=crop",
     followers: "850K",
     upcoming: 4,
     bio: "American jazz saxophonist who has redefined modern jazz for a new generation.",
-    longBio: "Kamasi Washington, Amerikalı caz saksafoncu, besteci ve orkestra lideridir. Los Angeles doğumlu sanatçı, modern cazı yeni bir nesle tanıtan çığır açıcı müzisyenlerden biri olarak kabul edilmektedir. 2015 yılında yayımlanan üç disklik The Epic albümü, caz dünyasında bir dönüm noktası olmuştur. Kendrick Lamar, Herbie Hancock ve Thundercat gibi isimlerle çalışmış olan Washington, cazı hip-hop, funk ve R&B ile harmanlayarak türün sınırlarını genişletmektedir.",
+    longBio:
+      "Kamasi Washington, Amerikalı caz saksafoncu, besteci ve orkestra lideridir. Los Angeles doğumlu sanatçı, modern cazı yeni bir nesle tanıtan çığır açıcı müzisyenlerden biri olarak kabul edilmektedir. 2015 yılında yayımlanan üç disklik The Epic albümü, caz dünyasında bir dönüm noktası olmuştur. Kendrick Lamar, Herbie Hancock ve Thundercat gibi isimlerle çalışmış olan Washington, cazı hip-hop, funk ve R&B ile harmanlayarak türün sınırlarını genişletmektedir.",
     country: "ABD",
     city: "Los Angeles",
     activeYears: "2004 - Günümüz",
@@ -1211,12 +1244,15 @@ export const artists: Artist[] = [
     id: "5",
     name: "Moderat",
     genre: "Electronic",
-    image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1400&h=600&fit=crop",
     followers: "1.5M",
     upcoming: 2,
     bio: "German electronic supergroup formed by Apparat and Modeselektor.",
-    longBio: "Moderat, Alman elektronik müzik süpergrubudur ve Apparat (Sascha Ring) ile Modeselektor (Gernot Bronsert & Sebastian Szary) iş birliğinden doğmuştur. Berlin merkezli üçlü, IDM, techno ve ambient türlerini harmanladığı üç stüdyo albümüyle eleştirmenlerin beğenisini kazanmıştır. Bad Kingdom, A New Error ve Reminder gibi parçaları elektronik müzik sahnesinin önemli eserleri arasında yer almaktadır. Canlı performansları, görsel sanatlarla müziği bir araya getiren sürükleyici deneyimler sunar.",
+    longBio:
+      "Moderat, Alman elektronik müzik süpergrubudur ve Apparat (Sascha Ring) ile Modeselektor (Gernot Bronsert & Sebastian Szary) iş birliğinden doğmuştur. Berlin merkezli üçlü, IDM, techno ve ambient türlerini harmanladığı üç stüdyo albümüyle eleştirmenlerin beğenisini kazanmıştır. Bad Kingdom, A New Error ve Reminder gibi parçaları elektronik müzik sahnesinin önemli eserleri arasında yer almaktadır. Canlı performansları, görsel sanatlarla müziği bir araya getiren sürükleyici deneyimler sunar.",
     country: "Almanya",
     city: "Berlin",
     activeYears: "2002 - Günümüz",
@@ -1235,12 +1271,15 @@ export const artists: Artist[] = [
     id: "6",
     name: "Jakuzi",
     genre: "Indie / Post-punk",
-    image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&h=600&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1400&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&h=600&fit=crop",
+    coverImage:
+      "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1400&h=600&fit=crop",
     followers: "420K",
     upcoming: 6,
     bio: "Turkish indie band blending post-punk, synth-pop and new wave influences.",
-    longBio: "Jakuzi, 2013 yılında İstanbul'da kurulan Türk indie müzik grubudur. Kutay Soyocak ve Tanju Gürel tarafından kurulan grup, post-punk, synth-pop ve new wave etkilerini Türkçe sözlerle harmanlayarak özgün bir tarz yaratmıştır. Fantezi Müzik ve Hata Payı albümleri ulusal ve uluslararası basında geniş yankı uyandırmıştır. Primavera Sound, Eurosonic ve Le Guess Who? gibi uluslararası festivallerde sahne alan grup, Türk bağımsız müzik sahnesinin en önemli temsilcilerinden biridir.",
+    longBio:
+      "Jakuzi, 2013 yılında İstanbul'da kurulan Türk indie müzik grubudur. Kutay Soyocak ve Tanju Gürel tarafından kurulan grup, post-punk, synth-pop ve new wave etkilerini Türkçe sözlerle harmanlayarak özgün bir tarz yaratmıştır. Fantezi Müzik ve Hata Payı albümleri ulusal ve uluslararası basında geniş yankı uyandırmıştır. Primavera Sound, Eurosonic ve Le Guess Who? gibi uluslararası festivallerde sahne alan grup, Türk bağımsız müzik sahnesinin en önemli temsilcilerinden biridir.",
     country: "Türkiye",
     city: "İstanbul",
     activeYears: "2013 - Günümüz",
@@ -1352,8 +1391,7 @@ export const venues: Venue[] = [
     detail: {
       description:
         "Volkswagen Arena, İstanbul Maslak'ta konumlanan, 5.000 kişi kapasiteli çok amaçlı etkinlik alanı. Büyük ölçekli konserlerden kurumsal etkinliklere kadar geniş bir yelpazede organizasyonlara ev sahipliği yapıyor. Modern altyapısı, geniş sahne alanı ve üstün akustik tasarımıyla İstanbul'un en büyük kapalı etkinlik mekanlarından biri.",
-      address:
-        "Huzur Mah. Maslak Ayazağa Cad. No:4, 34396 Sarıyer/İstanbul",
+      address: "Huzur Mah. Maslak Ayazağa Cad. No:4, 34396 Sarıyer/İstanbul",
       lat: 41.1069,
       lng: 29.0207,
       phone: "+90 212 999 09 99",

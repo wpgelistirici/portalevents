@@ -4,7 +4,7 @@ import { use, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import Navbar from "@/components/layout/Navbar";
@@ -47,6 +47,7 @@ export default function CheckoutPage({
 }) {
   const { id } = use(params);
   const t = useTranslations("CheckoutPage");
+  const locale = useLocale();
   const event = events.find((e) => e.id === id);
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -98,7 +99,7 @@ export default function CheckoutPage({
         <main className="min-h-screen pt-32 pb-20">
           <div className="max-w-7xl mx-auto px-6 text-center py-32">
             <AlertCircle size={48} className="text-primary mx-auto mb-4" />
-            <h1 className="display-md mb-4">Etkinlik bulunamadı</h1>
+            <h1 className="display-md mb-4">{t("eventNotFound")}</h1>
             <Link
               href="/events"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full text-sm font-semibold"
@@ -167,8 +168,8 @@ export default function CheckoutPage({
       ticketType: selectedTicket.name,
       ticketPrice: selectedTicket.price,
       quantity: ticketQty,
-      totalPaid: `₺${total.toLocaleString("tr-TR")}`,
-      purchaseDate: new Date().toLocaleDateString("tr-TR"),
+      totalPaid: `₺${total.toLocaleString(locale)}`,
+      purchaseDate: new Date().toLocaleDateString(locale),
       section: selectedSection,
       buyerName: fullName,
       buyerEmail: email,
@@ -304,7 +305,10 @@ export default function CheckoutPage({
                           {t(`steps.${s.key}`)}
                         </button>
                         {i < 2 && (
-                          <ChevronRight size={14} className="text-foreground/20" />
+                          <ChevronRight
+                            size={14}
+                            className="text-foreground/20"
+                          />
                         )}
                       </div>
                     );
@@ -398,6 +402,7 @@ export default function CheckoutPage({
                       couponError={couponError}
                       handleApplyCoupon={handleApplyCoupon}
                       t={t}
+                      locale={locale}
                     />
                   </FadeInUp>
                 </div>
@@ -610,7 +615,7 @@ function Step1Info({
             label={t("tcNo")}
             value={tcNo}
             onChange={setTcNo}
-            placeholder="Opsiyonel"
+            placeholder={t("optional")}
           />
         </div>
       </div>
@@ -925,6 +930,7 @@ function OrderSummary({
   couponError,
   handleApplyCoupon,
   t,
+  locale,
 }: {
   event: (typeof events)[0];
   ticketQty: number;
@@ -941,6 +947,7 @@ function OrderSummary({
   couponError: boolean;
   handleApplyCoupon: () => void;
   t: ReturnType<typeof useTranslations>;
+  locale: string;
 }) {
   const detail = event.detail!;
 
@@ -1071,23 +1078,23 @@ function OrderSummary({
       <div className="space-y-2">
         <div className="flex justify-between text-xs">
           <span className="text-muted">{t("subtotal")}</span>
-          <span>₺{subtotal.toLocaleString("tr-TR")}</span>
+          <span>₺{subtotal.toLocaleString(locale)}</span>
         </div>
         <div className="flex justify-between text-xs">
           <span className="text-muted">{t("serviceFee")}</span>
-          <span>₺{serviceFee.toLocaleString("tr-TR")}</span>
+          <span>₺{serviceFee.toLocaleString(locale)}</span>
         </div>
         {discountAmount > 0 && (
           <div className="flex justify-between text-xs text-green-400">
             <span>{t("discount")}</span>
-            <span>-₺{discountAmount.toLocaleString("tr-TR")}</span>
+            <span>-₺{discountAmount.toLocaleString(locale)}</span>
           </div>
         )}
         <div className="h-px bg-foreground/10" />
         <div className="flex justify-between text-sm font-bold pt-1">
           <span>{t("total")}</span>
           <span className="text-gradient-primary text-lg">
-            ₺{total.toLocaleString("tr-TR")}
+            ₺{total.toLocaleString(locale)}
           </span>
         </div>
       </div>

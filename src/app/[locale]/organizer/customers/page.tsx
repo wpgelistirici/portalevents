@@ -1,9 +1,18 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
-import { Users, Search, Download, ChevronDown, ChevronUp, Ticket, Mail, DollarSign } from "lucide-react";
+import {
+  Users,
+  Search,
+  Download,
+  ChevronDown,
+  ChevronUp,
+  Ticket,
+  Mail,
+  DollarSign,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function parseCurrency(price: string): number {
@@ -13,6 +22,7 @@ function parseCurrency(price: string): number {
 
 export default function CustomersPage() {
   const t = useTranslations("OrganizerPanel.customers");
+  const locale = useLocale();
   const { getAllTickets } = useOrganizer();
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -20,9 +30,26 @@ export default function CustomersPage() {
   const allTickets = useMemo(() => getAllTickets(), [getAllTickets]);
 
   const customers = useMemo(() => {
-    const map = new Map<string, { name: string; email: string; totalSpent: number; ticketCount: number; lastPurchase: string; tickets: typeof allTickets }>();
+    const map = new Map<
+      string,
+      {
+        name: string;
+        email: string;
+        totalSpent: number;
+        ticketCount: number;
+        lastPurchase: string;
+        tickets: typeof allTickets;
+      }
+    >();
     allTickets.forEach((tk) => {
-      const existing = map.get(tk.buyerEmail) || { name: tk.buyerName, email: tk.buyerEmail, totalSpent: 0, ticketCount: 0, lastPurchase: tk.purchaseDate, tickets: [] };
+      const existing = map.get(tk.buyerEmail) || {
+        name: tk.buyerName,
+        email: tk.buyerEmail,
+        totalSpent: 0,
+        ticketCount: 0,
+        lastPurchase: tk.purchaseDate,
+        tickets: [],
+      };
       existing.totalSpent += parseCurrency(tk.totalPaid);
       existing.ticketCount += tk.quantity;
       existing.tickets = [...existing.tickets, tk];
@@ -33,14 +60,32 @@ export default function CustomersPage() {
 
   const filtered = customers.filter((c) => {
     const q = search.toLowerCase();
-    return !search || c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q);
+    return (
+      !search ||
+      c.name.toLowerCase().includes(q) ||
+      c.email.toLowerCase().includes(q)
+    );
   });
 
   const exportCSV = () => {
-    const headers = [t("name"), t("emailLabel"), t("totalSpent"), t("ticketCount")];
-    const rows = filtered.map((c) => [c.name, c.email, `₺${c.totalSpent}`, c.ticketCount]);
-    const csv = [headers, ...rows].map((r) => r.map((cell) => `"${cell}"`).join(",")).join("\n");
-    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const headers = [
+      t("name"),
+      t("emailLabel"),
+      t("totalSpent"),
+      t("ticketCount"),
+    ];
+    const rows = filtered.map((c) => [
+      c.name,
+      c.email,
+      `₺${c.totalSpent}`,
+      c.ticketCount,
+    ]);
+    const csv = [headers, ...rows]
+      .map((r) => r.map((cell) => `"${cell}"`).join(","))
+      .join("\n");
+    const blob = new Blob(["\uFEFF" + csv], {
+      type: "text/csv;charset=utf-8;",
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -59,7 +104,10 @@ export default function CustomersPage() {
           </h1>
           <p className="text-foreground/50 mt-1">{t("subtitle")}</p>
         </div>
-        <button onClick={exportCSV} className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors">
+        <button
+          onClick={exportCSV}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors"
+        >
           <Download className="w-4 h-4" />
           {t("export")}
         </button>
@@ -67,20 +115,53 @@ export default function CustomersPage() {
 
       <div className="relative">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
-        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("searchPlaceholder")} className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder={t("searchPlaceholder")}
+          className="w-full pl-11 pr-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+        />
       </div>
 
       {/* Stats Row */}
       <div className="grid grid-cols-3 gap-4">
         {[
-          { label: t("totalCustomers"), value: customers.length.toString(), icon: Users, color: "text-[#7B61FF]", bg: "bg-[#7B61FF]/10" },
-          { label: t("totalTicketsSold"), value: customers.reduce((s, c) => s + c.ticketCount, 0).toString(), icon: Ticket, color: "text-blue-400", bg: "bg-blue-500/10" },
-          { label: t("totalRevenue"), value: `₺${customers.reduce((s, c) => s + c.totalSpent, 0).toLocaleString("tr-TR")}`, icon: DollarSign, color: "text-emerald-400", bg: "bg-emerald-500/10" },
+          {
+            label: t("totalCustomers"),
+            value: customers.length.toString(),
+            icon: Users,
+            color: "text-[#7B61FF]",
+            bg: "bg-[#7B61FF]/10",
+          },
+          {
+            label: t("totalTicketsSold"),
+            value: customers.reduce((s, c) => s + c.ticketCount, 0).toString(),
+            icon: Ticket,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+          },
+          {
+            label: t("totalRevenue"),
+            value: `₺${customers.reduce((s, c) => s + c.totalSpent, 0).toLocaleString(locale)}`,
+            icon: DollarSign,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+          },
         ].map((stat, i) => (
-          <div key={i} className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-5">
+          <div
+            key={i}
+            className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-5"
+          >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-foreground/50 uppercase tracking-wider">{stat.label}</span>
-              <div className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center`}><stat.icon className={`w-4 h-4 ${stat.color}`} /></div>
+              <span className="text-xs text-foreground/50 uppercase tracking-wider">
+                {stat.label}
+              </span>
+              <div
+                className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center`}
+              >
+                <stat.icon className={`w-4 h-4 ${stat.color}`} />
+              </div>
             </div>
             <p className="text-2xl font-bold text-foreground">{stat.value}</p>
           </div>
@@ -98,35 +179,73 @@ export default function CustomersPage() {
           {filtered.map((c) => {
             const isExpanded = expanded === c.email;
             return (
-              <div key={c.email} className="rounded-xl border border-foreground/5 overflow-hidden">
-                <button onClick={() => setExpanded(isExpanded ? null : c.email)} className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left">
+              <div
+                key={c.email}
+                className="rounded-xl border border-foreground/5 overflow-hidden"
+              >
+                <button
+                  onClick={() => setExpanded(isExpanded ? null : c.email)}
+                  className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left"
+                >
                   <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0 border border-foreground/10">
-                    <span className="text-sm font-bold text-foreground/60">{c.name.charAt(0).toUpperCase()}</span>
+                    <span className="text-sm font-bold text-foreground/60">
+                      {c.name.charAt(0).toUpperCase()}
+                    </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-foreground">{c.name}</p>
-                    <p className="text-xs text-foreground/40 flex items-center gap-1"><Mail className="w-3 h-3" /> {c.email}</p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {c.name}
+                    </p>
+                    <p className="text-xs text-foreground/40 flex items-center gap-1">
+                      <Mail className="w-3 h-3" /> {c.email}
+                    </p>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <p className="text-sm font-bold text-emerald-400">₺{c.totalSpent.toLocaleString("tr-TR")}</p>
-                    <p className="text-[10px] text-foreground/30">{c.ticketCount} {t("tickets")}</p>
+                    <p className="text-sm font-bold text-emerald-400">
+                      ₺{c.totalSpent.toLocaleString(locale)}
+                    </p>
+                    <p className="text-[10px] text-foreground/30">
+                      {c.ticketCount} {t("tickets")}
+                    </p>
                   </div>
-                  {isExpanded ? <ChevronUp className="w-4 h-4 text-foreground/30" /> : <ChevronDown className="w-4 h-4 text-foreground/30" />}
+                  {isExpanded ? (
+                    <ChevronUp className="w-4 h-4 text-foreground/30" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-foreground/30" />
+                  )}
                 </button>
                 <AnimatePresence>
                   {isExpanded && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
                       <div className="px-4 pb-4 space-y-2">
                         <div className="h-px bg-foreground/5" />
                         {c.tickets.map((tk) => (
-                          <div key={tk.id} className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02] text-sm">
+                          <div
+                            key={tk.id}
+                            className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02] text-sm"
+                          >
                             <div>
-                              <span className="text-foreground">{tk.eventTitle}</span>
-                              <span className="text-foreground/30 ml-2">{tk.ticketType}</span>
+                              <span className="text-foreground">
+                                {tk.eventTitle}
+                              </span>
+                              <span className="text-foreground/30 ml-2">
+                                {tk.ticketType}
+                              </span>
                             </div>
                             <div className="flex items-center gap-3">
-                              <span className={`text-[10px] px-2 py-0.5 rounded-full ${tk.status === "active" ? "bg-emerald-500/10 text-emerald-400" : tk.status === "used" ? "bg-blue-500/10 text-blue-400" : "bg-red-500/10 text-red-400"}`}>{tk.status}</span>
-                              <span className="text-foreground/50">{tk.totalPaid}</span>
+                              <span
+                                className={`text-[10px] px-2 py-0.5 rounded-full ${tk.status === "active" ? "bg-emerald-500/10 text-emerald-400" : tk.status === "used" ? "bg-blue-500/10 text-blue-400" : "bg-red-500/10 text-red-400"}`}
+                              >
+                                {tk.status}
+                              </span>
+                              <span className="text-foreground/50">
+                                {tk.totalPaid}
+                              </span>
                             </div>
                           </div>
                         ))}

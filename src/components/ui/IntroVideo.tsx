@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import Hls from "hls.js";
 import HoleBackground from "@/components/ui/HoleBackground";
 
 export default function IntroVideo({ onComplete }: { onComplete: () => void }) {
@@ -15,6 +16,30 @@ export default function IntroVideo({ onComplete }: { onComplete: () => void }) {
 
   const handleVideoEnd = useCallback(() => {
     setVideoEnded(true);
+  }, []);
+
+  // HLS setup
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const src = "/intro.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play();
+      });
+      return () => hls.destroy();
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Safari native HLS
+      video.src = src;
+      video.addEventListener("loadedmetadata", () => {
+        video.play();
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -49,8 +74,6 @@ export default function IntroVideo({ onComplete }: { onComplete: () => void }) {
       <video
         ref={videoRef}
         className="intro-video"
-        src="/video2.mp4"
-        autoPlay
         muted
         playsInline
         onEnded={handleVideoEnd}

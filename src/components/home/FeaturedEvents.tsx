@@ -129,7 +129,9 @@ export default function FeaturedEvents() {
           <div className="max-w-7xl mx-auto px-6 mb-10">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles size={16} className="text-[#FFD600]" />
-              <span className="text-sm font-semibold text-[#FFD600]">{t("featuredLabel") || "Öne Çıkan Etkinlikler"}</span>
+              <span className="text-sm font-semibold text-[#FFD600]">
+                {t("featuredLabel")}
+              </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {featuredEvents.map((event) => (
@@ -137,19 +139,32 @@ export default function FeaturedEvents() {
                   <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#FFD600]/5 to-[#7B61FF]/5 border border-[#FFD600]/20 hover:border-[#FFD600]/40 transition-all group">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#FFD600]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative h-36 overflow-hidden">
-                      <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                       <div className="absolute top-3 left-3 flex items-center gap-1 bg-[#FFD600]/90 text-black px-3 py-1 rounded-full text-[10px] font-bold">
                         <Star size={10} />
-                        {t("featuredBadge") || "Öne Çıkan"}
+                        {t("featuredBadge")}
                       </div>
                     </div>
                     <div className="p-4 relative">
-                      <h3 className="font-bold text-foreground group-hover:text-[#FFD600] transition-colors">{event.title}</h3>
-                      <p className="text-xs text-foreground/40 mt-1">{event.artist} · {event.venue}</p>
+                      <h3 className="font-bold text-foreground group-hover:text-[#FFD600] transition-colors">
+                        {event.title}
+                      </h3>
+                      <p className="text-xs text-foreground/40 mt-1">
+                        {event.artist} · {event.venue}
+                      </p>
                       <div className="flex items-center justify-between mt-3">
-                        <span className="text-xs text-foreground/30">{event.date} · {event.time}</span>
-                        <span className="text-sm font-bold text-[#FFD600]">{event.price}</span>
+                        <span className="text-xs text-foreground/30">
+                          {event.date} · {event.time}
+                        </span>
+                        <span className="text-sm font-bold text-[#FFD600]">
+                          {event.price}
+                        </span>
                       </div>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFD600] to-[#7B61FF] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -175,7 +190,7 @@ export default function FeaturedEvents() {
                   className="relative group w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden glass card-hover"
                   style={{ scrollSnapAlign: "start" }}
                   data-cursor-hover
-                  data-cursor-text="Keşfet"
+                  data-cursor-text={t("cursorExplore")}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -284,11 +299,15 @@ export default function FeaturedEvents() {
                   <h3 className="text-sm font-bold group-hover:text-primary transition-colors">
                     {t("exploreMapTitle")}
                   </h3>
-                  <p className="text-xs text-muted mt-0.5">{t("exploreMapDesc")}</p>
+                  <p className="text-xs text-muted mt-0.5">
+                    {t("exploreMapDesc")}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-xs text-muted group-hover:text-primary transition-colors">
-                <span className="hidden sm:inline">{t("exploreMapButton")}</span>
+                <span className="hidden sm:inline">
+                  {t("exploreMapButton")}
+                </span>
                 <ArrowRight
                   size={16}
                   className="transition-transform group-hover:translate-x-1"

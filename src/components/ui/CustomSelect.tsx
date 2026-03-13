@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Search, Check, X } from "lucide-react";
 
@@ -27,13 +28,16 @@ export default function CustomSelect({
   options,
   value,
   onChange,
-  placeholder = "Seçiniz...",
+  placeholder,
   searchable = true,
-  searchPlaceholder = "Ara...",
+  searchPlaceholder,
   className = "",
   disabled = false,
   clearable = false,
 }: CustomSelectProps) {
+  const t = useTranslations("CustomSelect");
+  const resolvedPlaceholder = placeholder ?? t("defaultPlaceholder");
+  const resolvedSearchPlaceholder = searchPlaceholder ?? t("searchPlaceholder");
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
@@ -54,7 +58,10 @@ export default function CustomSelect({
   // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         setIsOpen(false);
         setSearch("");
         setHighlightedIndex(-1);
@@ -129,7 +136,11 @@ export default function CustomSelect({
   );
 
   return (
-    <div ref={containerRef} className={`relative ${className}`} onKeyDown={handleKeyDown}>
+    <div
+      ref={containerRef}
+      className={`relative ${className}`}
+      onKeyDown={handleKeyDown}
+    >
       {/* Trigger Button */}
       <button
         type="button"
@@ -148,8 +159,14 @@ export default function CustomSelect({
             : "bg-foreground/5 border-foreground/10 hover:border-foreground/20 hover:bg-foreground/[0.07]"
         } ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
       >
-        <span className={selectedOption ? "text-foreground text-sm" : "text-foreground/30 text-sm"}>
-          {selectedOption ? selectedOption.label : placeholder}
+        <span
+          className={
+            selectedOption
+              ? "text-foreground text-sm"
+              : "text-foreground/30 text-sm"
+          }
+        >
+          {selectedOption ? selectedOption.label : resolvedPlaceholder}
         </span>
         <div className="flex items-center gap-1.5 flex-shrink-0">
           {clearable && value && (
@@ -193,7 +210,7 @@ export default function CustomSelect({
                       setSearch(e.target.value);
                       setHighlightedIndex(0);
                     }}
-                    placeholder={searchPlaceholder}
+                    placeholder={resolvedSearchPlaceholder}
                     className="w-full pl-9 pr-3 py-2 rounded-lg bg-foreground/5 border border-foreground/5 text-sm text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-foreground/10 transition-colors"
                   />
                 </div>
@@ -201,7 +218,10 @@ export default function CustomSelect({
             )}
 
             {/* Options List */}
-            <div ref={listRef} className="max-h-60 overflow-y-auto p-1.5 scrollbar-hide">
+            <div
+              ref={listRef}
+              className="max-h-60 overflow-y-auto p-1.5 scrollbar-hide"
+            >
               {filtered.length === 0 ? (
                 <div className="px-4 py-6 text-center text-sm text-foreground/20">
                   Sonuç bulunamadı

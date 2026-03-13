@@ -2,7 +2,14 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload, X, Image as ImageIcon, Link as LinkIcon, Plus } from "lucide-react";
+import {
+  Upload,
+  X,
+  Image as ImageIcon,
+  Link as LinkIcon,
+  Plus,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
 
 /* ============================================
    SINGLE IMAGE UPLOAD
@@ -24,6 +31,7 @@ export function ImageUpload({
   const [showUrlInput, setShowUrlInput] = useState(false);
   const [urlValue, setUrlValue] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const t = useTranslations("ImageUpload");
 
   const handleFile = useCallback(
     (file: File) => {
@@ -82,16 +90,20 @@ export function ImageUpload({
     return (
       <div className="space-y-2">
         {label && (
-          <label className="block text-sm font-medium text-foreground/70">{label}</label>
+          <label className="block text-sm font-medium text-foreground/70">
+            {label}
+          </label>
         )}
-        <div className={`relative ${height} rounded-xl overflow-hidden group border border-foreground/10`}>
+        <div
+          className={`relative ${height} rounded-xl overflow-hidden group border border-foreground/10`}
+        >
           <img src={value} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-200 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
             <button
               onClick={() => fileInputRef.current?.click()}
               className="px-4 py-2 rounded-lg bg-foreground/10 backdrop-blur-sm text-foreground text-sm font-medium hover:bg-foreground/20 transition-colors border border-foreground/10"
             >
-              Değiştir
+              {t("change")}
             </button>
             <button
               onClick={() => onChange("")}
@@ -116,7 +128,9 @@ export function ImageUpload({
   return (
     <div className="space-y-2">
       {label && (
-        <label className="block text-sm font-medium text-foreground/70">{label}</label>
+        <label className="block text-sm font-medium text-foreground/70">
+          {label}
+        </label>
       )}
       <div
         onDrop={handleDrop}
@@ -141,7 +155,9 @@ export function ImageUpload({
               <div className="w-14 h-14 rounded-2xl bg-[#7B61FF]/10 flex items-center justify-center">
                 <Upload className="w-7 h-7 text-[#7B61FF]" />
               </div>
-              <p className="text-sm font-medium text-[#7B61FF]">Bırakarak yükle</p>
+              <p className="text-sm font-medium text-[#7B61FF]">
+                {t("dropToUpload")}
+              </p>
             </motion.div>
           ) : (
             <motion.div
@@ -156,9 +172,14 @@ export function ImageUpload({
               </div>
               <div className="text-center">
                 <p className="text-sm text-foreground/50">
-                  <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyip bırakın
+                  <span className="text-[#7B61FF] font-medium">
+                    {t("click")}
+                  </span>{" "}
+                  {t("orDragAndDrop")}
                 </p>
-                <p className="text-xs text-foreground/20 mt-1">PNG, JPG, WEBP — maks. 10MB</p>
+                <p className="text-xs text-foreground/20 mt-1">
+                  {t("fileTypes")}
+                </p>
               </div>
             </motion.div>
           )}
@@ -184,7 +205,7 @@ export function ImageUpload({
             className="flex items-center gap-1.5 text-xs text-foreground/30 hover:text-foreground/50 transition-colors mt-1"
           >
             <LinkIcon className="w-3 h-3" />
-            URL ile ekle
+            {t("addByUrl")}
           </button>
         ) : (
           <div className="flex gap-2 mt-2">
@@ -205,7 +226,7 @@ export function ImageUpload({
               }}
               className="px-3 py-2 rounded-lg bg-[#7B61FF]/10 text-[#7B61FF] text-sm font-medium hover:bg-[#7B61FF]/20 transition-colors"
             >
-              Ekle
+              {t("add")}
             </button>
             <button
               onClick={(e) => {
@@ -244,6 +265,7 @@ export function MultiImageUpload({
   const [showUrlInput, setShowUrlInput] = useState(false);
   const [urlValue, setUrlValue] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const t = useTranslations("ImageUpload");
 
   const handleFiles = useCallback(
     (files: FileList) => {
@@ -309,7 +331,9 @@ export function MultiImageUpload({
   return (
     <div className="space-y-3">
       {label && (
-        <label className="block text-sm font-medium text-foreground/70">{label}</label>
+        <label className="block text-sm font-medium text-foreground/70">
+          {label}
+        </label>
       )}
 
       {/* Image Grid */}
@@ -356,7 +380,7 @@ export function MultiImageUpload({
           {isDragging ? (
             <div className="flex items-center gap-2 text-[#7B61FF]">
               <Upload className="w-5 h-5" />
-              <span className="text-sm font-medium">Bırakarak yükle</span>
+              <span className="text-sm font-medium">{t("dropToUpload")}</span>
             </div>
           ) : (
             <div className="flex items-center gap-3">
@@ -365,10 +389,13 @@ export function MultiImageUpload({
               </div>
               <div>
                 <p className="text-sm text-foreground/50">
-                  <span className="text-[#7B61FF] font-medium">Tıklayın</span> veya sürükleyin
+                  <span className="text-[#7B61FF] font-medium">
+                    {t("click")}
+                  </span>{" "}
+                  {t("orDrag")}
                 </p>
                 <p className="text-xs text-foreground/20">
-                  {values.length}/{maxImages} görsel
+                  {t("imageCount", { count: values.length, max: maxImages })}
                 </p>
               </div>
             </div>
@@ -394,7 +421,7 @@ export function MultiImageUpload({
               className="flex items-center gap-1.5 text-xs text-foreground/30 hover:text-foreground/50 transition-colors"
             >
               <LinkIcon className="w-3 h-3" />
-              URL ile ekle
+              {t("addByUrl")}
             </button>
           ) : (
             <div className="flex gap-2">
@@ -411,7 +438,7 @@ export function MultiImageUpload({
                 onClick={handleUrlSubmit}
                 className="px-3 py-2 rounded-lg bg-[#7B61FF]/10 text-[#7B61FF] text-sm font-medium hover:bg-[#7B61FF]/20 transition-colors"
               >
-                Ekle
+                {t("add")}
               </button>
               <button
                 onClick={() => {

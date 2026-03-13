@@ -10,8 +10,24 @@ import CustomSelect from "@/components/ui/CustomSelect";
 import { ImageUpload, MultiImageUpload } from "@/components/ui/ImageUpload";
 import { ArrowLeft, Save, Plus, X, Check } from "lucide-react";
 
-const DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-const VENUE_TYPES = ["Concert Hall", "Club", "Arena", "Underground Club", "Open Air", "Bar", "Theater"];
+const DAYS = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+const VENUE_TYPES = [
+  "Concert Hall",
+  "Club",
+  "Arena",
+  "Underground Club",
+  "Open Air",
+  "Bar",
+  "Theater",
+];
 
 export default function NewVenuePage() {
   const t = useTranslations("OrganizerPanel");
@@ -25,7 +41,9 @@ export default function NewVenuePage() {
   const [city, setCity] = useState("İstanbul");
   const [capacity, setCapacity] = useState("");
   const [type, setType] = useState("Concert Hall");
-  const [image, setImage] = useState("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=500&fit=crop");
+  const [image, setImage] = useState(
+    "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=500&fit=crop",
+  );
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -81,50 +99,100 @@ export default function NewVenuePage() {
   const toggleDay = (idx: number) => {
     setOpeningHours((prev) =>
       prev.map((oh, i) =>
-        i === idx ? { ...oh, isOpen: !oh.isOpen, hours: oh.isOpen ? "Kapalı" : "20:00 - 02:00" } : oh,
+        i === idx
+          ? {
+              ...oh,
+              isOpen: !oh.isOpen,
+              hours: oh.isOpen ? t("venueForm.closed") : "20:00 - 02:00",
+            }
+          : oh,
       ),
     );
   };
 
   const updateHours = (idx: number, hours: string) => {
-    setOpeningHours((prev) => prev.map((oh, i) => (i === idx ? { ...oh, hours } : oh)));
+    setOpeningHours((prev) =>
+      prev.map((oh, i) => (i === idx ? { ...oh, hours } : oh)),
+    );
   };
 
   return (
     <div className="max-w-3xl mx-auto space-y-8">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors"
+        >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{t("venueForm.title")}</h1>
-          <p className="text-foreground/50 text-sm">{t("venueForm.subtitle")}</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("venueForm.title")}
+          </h1>
+          <p className="text-foreground/50 text-sm">
+            {t("venueForm.subtitle")}
+          </p>
         </div>
       </div>
 
       {/* Basic Info */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("venueForm.basicInfo")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("venueForm.basicInfo")}
+        </h2>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.venueName")}</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("venueForm.venueNamePlaceholder")} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("venueForm.venueName")}
+          </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={t("venueForm.venueNamePlaceholder")}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={3} placeholder={t("venueForm.descriptionPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("venueForm.description")}
+          </label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows={3}
+            placeholder={t("venueForm.descriptionPlaceholder")}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50 resize-none"
+          />
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.city")}</label>
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("venueForm.city")}
+            </label>
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.capacity")}</label>
-            <input type="text" value={capacity} onChange={(e) => setCapacity(e.target.value)} placeholder="1,000" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("venueForm.capacity")}
+            </label>
+            <input
+              type="text"
+              value={capacity}
+              onChange={(e) => setCapacity(e.target.value)}
+              placeholder="1,000"
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.type")}</label>
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("venueForm.type")}
+            </label>
             <CustomSelect
               value={type}
               onChange={(val) => setType(val)}
@@ -135,8 +203,16 @@ export default function NewVenuePage() {
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder={t("venueForm.addressPlaceholder")} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("venueForm.address")}
+          </label>
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder={t("venueForm.addressPlaceholder")}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
         <ImageUpload
           value={image}
@@ -148,42 +224,100 @@ export default function NewVenuePage() {
 
       {/* Contact & Social */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("venueForm.contactInfo")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("venueForm.contactInfo")}
+        </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.phone")}</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+90 212 000 00 00" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("venueForm.phone")}
+            </label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="+90 212 000 00 00"
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.email")}</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="info@venue.com" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("venueForm.email")}
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="info@venue.com"
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("venueForm.website")}</label>
-          <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://www.venue.com" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("venueForm.website")}
+          </label>
+          <input
+            type="url"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            placeholder="https://www.venue.com"
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
-        <h3 className="text-sm font-semibold text-foreground/70">{t("venueForm.socialMedia")}</h3>
+        <h3 className="text-sm font-semibold text-foreground/70">
+          {t("venueForm.socialMedia")}
+        </h3>
         <div className="grid grid-cols-2 gap-4">
-          <input type="url" value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="Instagram URL" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
-          <input type="url" value={twitter} onChange={(e) => setTwitter(e.target.value)} placeholder="Twitter / X URL" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
-          <input type="url" value={youtube} onChange={(e) => setYoutube(e.target.value)} placeholder="YouTube URL" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
-          <input type="url" value={spotify} onChange={(e) => setSpotify(e.target.value)} placeholder="Spotify URL" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <input
+            type="url"
+            value={instagram}
+            onChange={(e) => setInstagram(e.target.value)}
+            placeholder="Instagram URL"
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
+          <input
+            type="url"
+            value={twitter}
+            onChange={(e) => setTwitter(e.target.value)}
+            placeholder="Twitter / X URL"
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
+          <input
+            type="url"
+            value={youtube}
+            onChange={(e) => setYoutube(e.target.value)}
+            placeholder="YouTube URL"
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
+          <input
+            type="url"
+            value={spotify}
+            onChange={(e) => setSpotify(e.target.value)}
+            placeholder="Spotify URL"
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
       </div>
 
       {/* Opening Hours */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("venueForm.openingHours")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("venueForm.openingHours")}
+        </h2>
         <div className="space-y-3">
           {openingHours.map((oh, idx) => (
             <div key={oh.day} className="flex items-center gap-4">
-              <div className="w-28 text-sm text-foreground/60">{t(`venueForm.days.${oh.day}`)}</div>
+              <div className="w-28 text-sm text-foreground/60">
+                {t(`venueForm.days.${oh.day}`)}
+              </div>
               <button
                 onClick={() => toggleDay(idx)}
                 className={`w-12 h-6 rounded-full relative transition-colors ${oh.isOpen ? "bg-[#7B61FF]" : "bg-foreground/10"}`}
               >
-                <div className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-all ${oh.isOpen ? "left-[26px]" : "left-0.5"}`} />
+                <div
+                  className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-all ${oh.isOpen ? "left-[26px]" : "left-0.5"}`}
+                />
               </button>
               {oh.isOpen ? (
                 <input
@@ -193,7 +327,9 @@ export default function NewVenuePage() {
                   className="flex-1 px-4 py-2 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50"
                 />
               ) : (
-                <span className="text-sm text-foreground/30">{t("venueForm.closed")}</span>
+                <span className="text-sm text-foreground/30">
+                  {t("venueForm.closed")}
+                </span>
               )}
             </div>
           ))}
@@ -202,7 +338,9 @@ export default function NewVenuePage() {
 
       {/* Gallery */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("venueForm.gallery")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("venueForm.gallery")}
+        </h2>
         <MultiImageUpload
           values={galleryUrls}
           onChange={setGalleryUrls}

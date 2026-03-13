@@ -15,9 +15,21 @@ const typeIcons = {
 };
 
 const typeColors = {
-  homepage_featured: { bg: "from-[#7B61FF] to-[#FF6B6B]", border: "border-[#7B61FF]/30", badge: "bg-[#7B61FF]/10 text-[#7B61FF]" },
-  explore_popular: { bg: "from-[#7B61FF] to-[#A78BFA]", border: "border-[#7B61FF]/30", badge: "bg-[#7B61FF]/10 text-[#7B61FF]" },
-  events_editor_pick: { bg: "from-[#FFD600] to-[#FFA000]", border: "border-[#FFD600]/30", badge: "bg-[#FFD600]/10 text-[#FFD600]" },
+  homepage_featured: {
+    bg: "from-[#7B61FF] to-[#FF6B6B]",
+    border: "border-[#7B61FF]/30",
+    badge: "bg-[#7B61FF]/10 text-[#7B61FF]",
+  },
+  explore_popular: {
+    bg: "from-[#7B61FF] to-[#A78BFA]",
+    border: "border-[#7B61FF]/30",
+    badge: "bg-[#7B61FF]/10 text-[#7B61FF]",
+  },
+  events_editor_pick: {
+    bg: "from-[#FFD600] to-[#FFA000]",
+    border: "border-[#FFD600]/30",
+    badge: "bg-[#FFD600]/10 text-[#FFD600]",
+  },
 };
 
 export default function DopingPage() {
@@ -42,7 +54,9 @@ export default function DopingPage() {
 
   const handlePurchase = (pkg: (typeof dopingPackages)[0]) => {
     const now = new Date();
-    const end = new Date(now.getTime() + pkg.durationDays * 24 * 60 * 60 * 1000);
+    const end = new Date(
+      now.getTime() + pkg.durationDays * 24 * 60 * 60 * 1000,
+    );
 
     const doping: ActiveDoping = {
       packageId: pkg.id,
@@ -58,9 +72,13 @@ export default function DopingPage() {
   };
 
   const groupedPackages = {
-    homepage_featured: dopingPackages.filter((p) => p.type === "homepage_featured"),
+    homepage_featured: dopingPackages.filter(
+      (p) => p.type === "homepage_featured",
+    ),
     explore_popular: dopingPackages.filter((p) => p.type === "explore_popular"),
-    events_editor_pick: dopingPackages.filter((p) => p.type === "events_editor_pick"),
+    events_editor_pick: dopingPackages.filter(
+      (p) => p.type === "events_editor_pick",
+    ),
   };
 
   // Check which specific doping packages are currently active
@@ -70,12 +88,19 @@ export default function DopingPage() {
     <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors"
+        >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{t("doping.title")}</h1>
-          <p className="text-foreground/50 text-sm mt-1">&quot;{event.title}&quot; {t("doping.forEvent")}</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("doping.title")}
+          </h1>
+          <p className="text-foreground/50 text-sm mt-1">
+            &quot;{event.title}&quot; {t("doping.forEvent")}
+          </p>
         </div>
       </div>
 
@@ -88,10 +113,16 @@ export default function DopingPage() {
           </h3>
           <div className="space-y-2">
             {activeDopings.map((d, idx) => (
-              <div key={idx} className="flex items-center justify-between text-sm">
-                <span className="text-foreground/70">{t(`doping.types.${d.type}`)}</span>
+              <div
+                key={idx}
+                className="flex items-center justify-between text-sm"
+              >
+                <span className="text-foreground/70">
+                  {t(`doping.types.${d.type}`)}
+                </span>
                 <span className="text-foreground/40">
-                  {new Date(d.endDate).toLocaleDateString("tr-TR")} {t("doping.until")}
+                  {new Date(d.endDate).toLocaleDateString(locale)}{" "}
+                  {t("doping.until")}
                 </span>
               </div>
             ))}
@@ -100,7 +131,9 @@ export default function DopingPage() {
       )}
 
       {/* Doping Packages */}
-      {(Object.keys(groupedPackages) as Array<keyof typeof groupedPackages>).map((type) => {
+      {(
+        Object.keys(groupedPackages) as Array<keyof typeof groupedPackages>
+      ).map((type) => {
         const packages = groupedPackages[type];
         const Icon = typeIcons[type];
         const colors = typeColors[type];
@@ -108,12 +141,18 @@ export default function DopingPage() {
         return (
           <div key={type} className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${colors.badge}`}>
+              <div
+                className={`w-10 h-10 rounded-xl flex items-center justify-center ${colors.badge}`}
+              >
                 <Icon className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">{t(`doping.types.${type}`)}</h2>
-                <p className="text-sm text-foreground/40">{t(`doping.typeDesc.${type}`)}</p>
+                <h2 className="text-lg font-semibold text-foreground">
+                  {t(`doping.types.${type}`)}
+                </h2>
+                <p className="text-sm text-foreground/40">
+                  {t(`doping.typeDesc.${type}`)}
+                </p>
               </div>
             </div>
 
@@ -141,13 +180,17 @@ export default function DopingPage() {
                     </div>
                   )}
                   <div className="text-center space-y-3">
-                    <p className="text-sm text-foreground/50">{pkg.duration}</p>
-                    <p className="text-3xl font-bold text-foreground">{pkg.price}</p>
+                    <p className="text-sm text-foreground/50">
+                      {pkg.duration} {t("doping.days")}
+                    </p>
+                    <p className="text-3xl font-bold text-foreground">
+                      {pkg.price}
+                    </p>
                     <ul className="text-xs text-foreground/40 space-y-1.5">
                       {pkg.features.map((f, i) => (
                         <li key={i} className="flex items-center gap-2">
                           <Check className="w-3 h-3 text-foreground/30" />
-                          {f}
+                          {t(`doping.features.${f}`)}
                         </li>
                       ))}
                     </ul>

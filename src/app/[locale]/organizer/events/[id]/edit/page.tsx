@@ -15,16 +15,21 @@ export default function EditEventPage() {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("OrganizerPanel");
-  const { organizerEvents, updateEvent, deleteEvent, submitForApproval } = useOrganizer();
+  const { organizerEvents, updateEvent, deleteEvent, submitForApproval } =
+    useOrganizer();
 
   const event = organizerEvents.find((e) => e.id === params.id);
 
   const [title, setTitle] = useState(event?.title || "");
-  const [description, setDescription] = useState(event?.detail?.description || "");
+  const [description, setDescription] = useState(
+    event?.detail?.description || "",
+  );
   const [genre, setGenre] = useState(event?.genre || "Electronic");
   const [price, setPrice] = useState(event?.price || "");
   const [image, setImage] = useState(event?.image || "");
-  const [mediaUrls, setMediaUrls] = useState<string[]>(event?.detail?.media?.map((m) => m.url) || []);
+  const [mediaUrls, setMediaUrls] = useState<string[]>(
+    event?.detail?.media?.map((m) => m.url) || [],
+  );
   const [venue, setVenue] = useState(event?.venue || "");
   const [city, setCity] = useState(event?.city || "İstanbul");
   const [address, setAddress] = useState(event?.detail?.address || "");
@@ -32,18 +37,34 @@ export default function EditEventPage() {
   const [startTime, setStartTime] = useState(event?.time || "");
   const [endDate, setEndDate] = useState(event?.detail?.endDate || "");
   const [endTime, setEndTime] = useState(event?.detail?.endTime || "");
-  const [selectedArtists, setSelectedArtists] = useState<string[]>(event?.artistIds || []);
-  const [ticketTypes, setTicketTypes] = useState(
-    event?.detail?.ticketTypes || [{ name: "General Admission", price: "", description: "Standart giriş bileti", available: true }],
+  const [selectedArtists, setSelectedArtists] = useState<string[]>(
+    event?.artistIds || [],
   );
-  const [selectedRules, setSelectedRules] = useState<string[]>(event?.detail?.rules || []);
+  const [ticketTypes, setTicketTypes] = useState(
+    event?.detail?.ticketTypes || [
+      {
+        name: "General Admission",
+        price: "",
+        description: t("eventForm.defaultTicketDesc"),
+        available: true,
+      },
+    ],
+  );
+  const [selectedRules, setSelectedRules] = useState<string[]>(
+    event?.detail?.rules || [],
+  );
   const [saving, setSaving] = useState(false);
 
   if (!event) {
     return (
       <div className="text-center py-16">
         <p className="text-foreground/40">{t("events.notFound")}</p>
-        <Link href={`/${locale}/organizer/events`} className="text-[#7B61FF] text-sm mt-4 inline-block">{t("events.backToList")}</Link>
+        <Link
+          href={`/${locale}/organizer/events`}
+          className="text-[#7B61FF] text-sm mt-4 inline-block"
+        >
+          {t("events.backToList")}
+        </Link>
       </div>
     );
   }
@@ -57,13 +78,30 @@ export default function EditEventPage() {
   };
 
   const genreOptions = genres.map((g) => ({ value: g, label: g }));
-  const venueOptions = allVenues.map((v) => ({ value: v.name, label: v.name, description: v.city }));
-  const ruleOptions = ["ruleAge", "ruleId", "ruleReentry", "ruleRecording", "ruleSubstance", "ruleDressCode"];
+  const venueOptions = allVenues.map((v) => ({
+    value: v.name,
+    label: v.name,
+    description: v.city,
+  }));
+  const ruleOptions = [
+    "ruleAge",
+    "ruleId",
+    "ruleReentry",
+    "ruleRecording",
+    "ruleSubstance",
+    "ruleDressCode",
+  ];
 
   const handleSave = () => {
     setSaving(true);
-    const sensitiveChanged = venue !== event.venue || startDate !== event.date || startTime !== event.time;
-    const newStatus = event.status === "approved" && sensitiveChanged ? "pending_approval" : event.status;
+    const sensitiveChanged =
+      venue !== event.venue ||
+      startDate !== event.date ||
+      startTime !== event.time;
+    const newStatus =
+      event.status === "approved" && sensitiveChanged
+        ? "pending_approval"
+        : event.status;
 
     updateEvent(event.id, {
       title,
@@ -74,11 +112,15 @@ export default function EditEventPage() {
       city,
       date: startDate,
       time: startTime,
-      artist: selectedArtists.length > 0 ? allArtists.find((a) => a.id === selectedArtists[0])?.name || event.artist : event.artist,
+      artist:
+        selectedArtists.length > 0
+          ? allArtists.find((a) => a.id === selectedArtists[0])?.name ||
+            event.artist
+          : event.artist,
       artistIds: selectedArtists,
       status: newStatus as typeof event.status,
       detail: {
-        ...(event.detail || {} as NonNullable<typeof event.detail>),
+        ...(event.detail || ({} as NonNullable<typeof event.detail>)),
         description,
         address,
         endDate,
@@ -103,13 +145,22 @@ export default function EditEventPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="p-2 rounded-xl text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors"
+        >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div className="flex-1">
-          <h1 className="text-2xl font-bold text-foreground">{t("events.editTitle")}</h1>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("events.editTitle")}
+          </h1>
           <div className="flex items-center gap-3 mt-1">
-            <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColors[event.status]}`}>{t(`status.${event.status}`)}</span>
+            <span
+              className={`text-xs px-3 py-1 rounded-full font-medium ${statusColors[event.status]}`}
+            >
+              {t(`status.${event.status}`)}
+            </span>
           </div>
         </div>
       </div>
@@ -117,92 +168,233 @@ export default function EditEventPage() {
       {/* Rejection reason */}
       {event.status === "rejected" && event.rejectionReason && (
         <div className="p-4 rounded-xl bg-red-400/5 border border-red-400/20">
-          <p className="text-sm text-red-400 font-medium">{t("events.rejectionReason")}</p>
-          <p className="text-sm text-foreground/60 mt-1">{event.rejectionReason}</p>
+          <p className="text-sm text-red-400 font-medium">
+            {t("events.rejectionReason")}
+          </p>
+          <p className="text-sm text-foreground/60 mt-1">
+            {event.rejectionReason}
+          </p>
         </div>
       )}
 
       {/* Basic Info */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.steps.basic")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("eventForm.steps.basic")}
+        </h2>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.eventName")}</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("eventForm.eventName")}
+          </label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.description")}</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("eventForm.description")}
+          </label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows={4}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 resize-none"
+          />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.genre")}</label>
-            <CustomSelect options={genreOptions} value={genre} onChange={setGenre} searchable={false} />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.genre")}
+            </label>
+            <CustomSelect
+              options={genreOptions}
+              value={genre}
+              onChange={setGenre}
+              searchable={false}
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.price")}</label>
-            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.price")}
+            </label>
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
         </div>
-        <ImageUpload value={image} onChange={setImage} label={t("eventForm.coverImage")} />
-        <MultiImageUpload values={mediaUrls} onChange={setMediaUrls} label={t("eventForm.mediaGallery")} maxImages={10} />
+        <ImageUpload
+          value={image}
+          onChange={setImage}
+          label={t("eventForm.coverImage")}
+        />
+        <MultiImageUpload
+          values={mediaUrls}
+          onChange={setMediaUrls}
+          label={t("eventForm.mediaGallery")}
+          maxImages={10}
+        />
       </div>
 
       {/* Date & Location */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.steps.dateLocation")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("eventForm.steps.dateLocation")}
+        </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startDate")}</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.startDate")}
+            </label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.startTime")}</label>
-            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.startTime")}
+            </label>
+            <input
+              type="time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endDate")}</label>
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.endDate")}
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.endTime")}</label>
-            <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("eventForm.endTime")}
+            </label>
+            <input
+              type="time"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.venue")}</label>
-          <CustomSelect options={venueOptions} value={venue} onChange={(v) => { setVenue(v); const found = allVenues.find((x) => x.name === v); if (found) setCity(found.city); }} />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("eventForm.venue")}
+          </label>
+          <CustomSelect
+            options={venueOptions}
+            value={venue}
+            onChange={(v) => {
+              setVenue(v);
+              const found = allVenues.find((x) => x.name === v);
+              if (found) setCity(found.city);
+            }}
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("eventForm.address")}</label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("eventForm.address")}
+          </label>
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
       </div>
 
       {/* Ticket Types */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-6">
-        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.ticketTypes")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("eventForm.ticketTypes")}
+        </h2>
         {ticketTypes.map((tt, idx) => (
-          <div key={idx} className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-foreground/[0.02] border border-foreground/5 relative">
+          <div
+            key={idx}
+            className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-foreground/[0.02] border border-foreground/5 relative"
+          >
             {ticketTypes.length > 1 && (
-              <button onClick={() => setTicketTypes((prev) => prev.filter((_, i) => i !== idx))} className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500/30">
+              <button
+                onClick={() =>
+                  setTicketTypes((prev) => prev.filter((_, i) => i !== idx))
+                }
+                className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500/30"
+              >
                 <X className="w-3 h-3" />
               </button>
             )}
             <div>
-              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.ticketName")}</label>
-              <input type="text" value={tt.name} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], name: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">
+                {t("eventForm.ticketName")}
+              </label>
+              <input
+                type="text"
+                value={tt.name}
+                onChange={(e) => {
+                  const n = [...ticketTypes];
+                  n[idx] = { ...n[idx], name: e.target.value };
+                  setTicketTypes(n);
+                }}
+                className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50"
+              />
             </div>
             <div>
-              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.price")}</label>
-              <input type="text" value={tt.price} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], price: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">
+                {t("eventForm.price")}
+              </label>
+              <input
+                type="text"
+                value={tt.price}
+                onChange={(e) => {
+                  const n = [...ticketTypes];
+                  n[idx] = { ...n[idx], price: e.target.value };
+                  setTicketTypes(n);
+                }}
+                className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50"
+              />
             </div>
             <div>
-              <label className="block text-xs text-foreground/50 mb-1">{t("eventForm.ticketDescription")}</label>
-              <input type="text" value={tt.description} onChange={(e) => { const n = [...ticketTypes]; n[idx] = { ...n[idx], description: e.target.value }; setTicketTypes(n); }} className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50" />
+              <label className="block text-xs text-foreground/50 mb-1">
+                {t("eventForm.ticketDescription")}
+              </label>
+              <input
+                type="text"
+                value={tt.description}
+                onChange={(e) => {
+                  const n = [...ticketTypes];
+                  n[idx] = { ...n[idx], description: e.target.value };
+                  setTicketTypes(n);
+                }}
+                className="w-full px-3 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground text-sm focus:outline-none focus:border-[#7B61FF]/50"
+              />
             </div>
           </div>
         ))}
-        <button onClick={() => setTicketTypes((prev) => [...prev, { name: "", price: "", description: "", available: true }])} className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dashed border-foreground/10 text-foreground/40 text-sm hover:border-foreground/20 hover:text-foreground/60 transition-colors">
+        <button
+          onClick={() =>
+            setTicketTypes((prev) => [
+              ...prev,
+              { name: "", price: "", description: "", available: true },
+            ])
+          }
+          className="flex items-center gap-2 px-4 py-2 rounded-lg border border-dashed border-foreground/10 text-foreground/40 text-sm hover:border-foreground/20 hover:text-foreground/60 transition-colors"
+        >
           <Plus className="w-4 h-4" />
           {t("eventForm.addTicketType")}
         </button>
@@ -210,12 +402,40 @@ export default function EditEventPage() {
 
       {/* Rules */}
       <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-8 space-y-4">
-        <h2 className="text-lg font-semibold text-foreground">{t("eventForm.eventRules")}</h2>
+        <h2 className="text-lg font-semibold text-foreground">
+          {t("eventForm.eventRules")}
+        </h2>
         <div className="grid grid-cols-2 gap-2">
           {ruleOptions.map((rule) => (
-            <button key={rule} onClick={() => setSelectedRules((prev) => prev.includes(rule) ? prev.filter((r) => r !== rule) : [...prev, rule])} className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#7B61FF]/10 border border-[#7B61FF]/30 text-foreground" : "bg-foreground/[0.02] border border-foreground/5 text-foreground/50"}`}>
-              <div className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#7B61FF] bg-[#7B61FF]" : "border-foreground/20"}`}>
-                {selectedRules.includes(rule) && <svg className="w-3 h-3 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>}
+            <button
+              key={rule}
+              onClick={() =>
+                setSelectedRules((prev) =>
+                  prev.includes(rule)
+                    ? prev.filter((r) => r !== rule)
+                    : [...prev, rule],
+                )
+              }
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors text-left ${selectedRules.includes(rule) ? "bg-[#7B61FF]/10 border border-[#7B61FF]/30 text-foreground" : "bg-foreground/[0.02] border border-foreground/5 text-foreground/50"}`}
+            >
+              <div
+                className={`w-4 h-4 rounded border flex items-center justify-center ${selectedRules.includes(rule) ? "border-[#7B61FF] bg-[#7B61FF]" : "border-foreground/20"}`}
+              >
+                {selectedRules.includes(rule) && (
+                  <svg
+                    className="w-3 h-3 text-foreground"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                )}
               </div>
               {t(`eventForm.rules.${rule}`)}
             </button>
@@ -225,18 +445,31 @@ export default function EditEventPage() {
 
       {/* Actions */}
       <div className="flex items-center justify-between">
-        <button onClick={handleDelete} className="flex items-center gap-2 px-4 py-3 rounded-xl text-red-400 hover:bg-red-400/10 transition-colors">
+        <button
+          onClick={handleDelete}
+          className="flex items-center gap-2 px-4 py-3 rounded-xl text-red-400 hover:bg-red-400/10 transition-colors"
+        >
           <Trash2 className="w-4 h-4" />
           {t("events.delete")}
         </button>
         <div className="flex gap-3">
           {(event.status === "draft" || event.status === "rejected") && (
-            <button onClick={() => { handleSave(); submitForApproval(event.id); }} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-yellow-400/10 text-yellow-400 font-medium hover:bg-yellow-400/20 transition-colors">
+            <button
+              onClick={() => {
+                handleSave();
+                submitForApproval(event.id);
+              }}
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-yellow-400/10 text-yellow-400 font-medium hover:bg-yellow-400/20 transition-colors"
+            >
               <Send className="w-4 h-4" />
               {t("events.submitApproval")}
             </button>
           )}
-          <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors">
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors"
+          >
             <Save className="w-4 h-4" />
             {saving ? t("events.saving") : t("events.save")}
           </button>

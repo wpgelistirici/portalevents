@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
 import CustomSelect from "@/components/ui/CustomSelect";
 import {
@@ -35,8 +35,8 @@ function parseCurrencyToNumber(price: string): number {
   return parseInt(price.replace(/[^\d]/g, ""), 10) || 0;
 }
 
-function formatCurrency(amount: number): string {
-  return `₺${amount.toLocaleString("tr-TR", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+function formatCurrency(amount: number, locale: string): string {
+  return `₺${amount.toLocaleString(locale, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 }
 
 function formatPercent(value: number): string {
@@ -50,11 +50,8 @@ function formatPercent(value: number): string {
 
 export default function ReportsPage() {
   const t = useTranslations("OrganizerPanel.reports");
-  const {
-    organizerEvents,
-    validationLogs,
-    getAllTickets,
-  } = useOrganizer();
+  const locale = useLocale();
+  const { organizerEvents, validationLogs, getAllTickets } = useOrganizer();
 
   const [selectedEventId, setSelectedEventId] = useState<string>("all");
   const [expandedEvent, setExpandedEvent] = useState<string | null>(null);
@@ -75,18 +72,27 @@ export default function ReportsPage() {
   /* ---- GLOBAL STATS ---- */
   const globalStats = useMemo(() => {
     const totalTickets = filteredTickets.reduce((s, tk) => s + tk.quantity, 0);
-    const totalRevenue = filteredTickets.reduce((s, tk) => s + parseCurrencyToNumber(tk.totalPaid), 0);
-    const activeTickets = filteredTickets.filter((tk) => tk.status === "active");
+    const totalRevenue = filteredTickets.reduce(
+      (s, tk) => s + parseCurrencyToNumber(tk.totalPaid),
+      0,
+    );
+    const activeTickets = filteredTickets.filter(
+      (tk) => tk.status === "active",
+    );
     const usedTickets = filteredTickets.filter((tk) => tk.status === "used");
-    const cancelledTickets = filteredTickets.filter((tk) => tk.status === "cancelled");
+    const cancelledTickets = filteredTickets.filter(
+      (tk) => tk.status === "cancelled",
+    );
 
     const approvedLogs = filteredLogs.filter((l) => l.action === "approved");
     const cancelledLogs = filteredLogs.filter((l) => l.action === "cancelled");
     const refundedLogs = filteredLogs.filter((l) => l.action === "refunded");
 
-    const checkInRate = totalTickets > 0
-      ? (usedTickets.reduce((s, tk) => s + tk.quantity, 0) / totalTickets) * 100
-      : 0;
+    const checkInRate =
+      totalTickets > 0
+        ? (usedTickets.reduce((s, tk) => s + tk.quantity, 0) / totalTickets) *
+          100
+        : 0;
 
     return {
       totalTickets,
@@ -104,54 +110,66 @@ export default function ReportsPage() {
 
   /* ---- PER-EVENT BREAKDOWN ---- */
   const eventBreakdown = useMemo(() => {
-    const eventIds = selectedEventId === "all"
-      ? [...new Set(allTickets.map((t) => t.eventId))]
-      : [selectedEventId];
+    const eventIds =
+      selectedEventId === "all"
+        ? [...new Set(allTickets.map((t) => t.eventId))]
+        : [selectedEventId];
 
-    return eventIds.map((eventId) => {
-      const eventTickets = allTickets.filter((t) => t.eventId === eventId);
-      const eventLogs = validationLogs.filter((l) => l.eventId === eventId);
-      const firstTicket = eventTickets[0];
-      const orgEvent = organizerEvents.find((e) => e.id === eventId);
+    return eventIds
+      .map((eventId) => {
+        const eventTickets = allTickets.filter((t) => t.eventId === eventId);
+        const eventLogs = validationLogs.filter((l) => l.eventId === eventId);
+        const firstTicket = eventTickets[0];
+        const orgEvent = organizerEvents.find((e) => e.id === eventId);
 
-      const totalQty = eventTickets.reduce((s, tk) => s + tk.quantity, 0);
-      const revenue = eventTickets.reduce((s, tk) => s + parseCurrencyToNumber(tk.totalPaid), 0);
-      const activeQty = eventTickets.filter((tk) => tk.status === "active").reduce((s, tk) => s + tk.quantity, 0);
-      const usedQty = eventTickets.filter((tk) => tk.status === "used").reduce((s, tk) => s + tk.quantity, 0);
-      const cancelledQty = eventTickets.filter((tk) => tk.status === "cancelled").reduce((s, tk) => s + tk.quantity, 0);
-      const checkInRate = totalQty > 0 ? (usedQty / totalQty) * 100 : 0;
+        const totalQty = eventTickets.reduce((s, tk) => s + tk.quantity, 0);
+        const revenue = eventTickets.reduce(
+          (s, tk) => s + parseCurrencyToNumber(tk.totalPaid),
+          0,
+        );
+        const activeQty = eventTickets
+          .filter((tk) => tk.status === "active")
+          .reduce((s, tk) => s + tk.quantity, 0);
+        const usedQty = eventTickets
+          .filter((tk) => tk.status === "used")
+          .reduce((s, tk) => s + tk.quantity, 0);
+        const cancelledQty = eventTickets
+          .filter((tk) => tk.status === "cancelled")
+          .reduce((s, tk) => s + tk.quantity, 0);
+        const checkInRate = totalQty > 0 ? (usedQty / totalQty) * 100 : 0;
 
-      // Ticket type breakdown
-      const typeMap = new Map<string, { qty: number; revenue: number }>();
-      eventTickets.forEach((tk) => {
-        const existing = typeMap.get(tk.ticketType) || { qty: 0, revenue: 0 };
-        typeMap.set(tk.ticketType, {
-          qty: existing.qty + tk.quantity,
-          revenue: existing.revenue + parseCurrencyToNumber(tk.totalPaid),
+        // Ticket type breakdown
+        const typeMap = new Map<string, { qty: number; revenue: number }>();
+        eventTickets.forEach((tk) => {
+          const existing = typeMap.get(tk.ticketType) || { qty: 0, revenue: 0 };
+          typeMap.set(tk.ticketType, {
+            qty: existing.qty + tk.quantity,
+            revenue: existing.revenue + parseCurrencyToNumber(tk.totalPaid),
+          });
         });
-      });
 
-      return {
-        eventId,
-        eventTitle: firstTicket?.eventTitle || orgEvent?.title || eventId,
-        venue: firstTicket?.venue || orgEvent?.venue || "-",
-        date: firstTicket?.date || "-",
-        image: firstTicket?.image || orgEvent?.image || "",
-        status: orgEvent?.status || "approved",
-        totalQty,
-        revenue,
-        activeQty,
-        usedQty,
-        cancelledQty,
-        checkInRate,
-        uniqueBuyers: new Set(eventTickets.map((tk) => tk.buyerEmail)).size,
-        ticketTypes: Array.from(typeMap.entries()).map(([name, data]) => ({
-          name,
-          ...data,
-        })),
-        logs: eventLogs,
-      };
-    }).sort((a, b) => b.revenue - a.revenue);
+        return {
+          eventId,
+          eventTitle: firstTicket?.eventTitle || orgEvent?.title || eventId,
+          venue: firstTicket?.venue || orgEvent?.venue || "-",
+          date: firstTicket?.date || "-",
+          image: firstTicket?.image || orgEvent?.image || "",
+          status: orgEvent?.status || "approved",
+          totalQty,
+          revenue,
+          activeQty,
+          usedQty,
+          cancelledQty,
+          checkInRate,
+          uniqueBuyers: new Set(eventTickets.map((tk) => tk.buyerEmail)).size,
+          ticketTypes: Array.from(typeMap.entries()).map(([name, data]) => ({
+            name,
+            ...data,
+          })),
+          logs: eventLogs,
+        };
+      })
+      .sort((a, b) => b.revenue - a.revenue);
   }, [allTickets, validationLogs, organizerEvents, selectedEventId]);
 
   /* ---- TICKET TYPE DISTRIBUTION ---- */
@@ -215,9 +233,13 @@ export default function ReportsPage() {
       tk.status,
     ]);
 
-    const csvContent = [headers, ...rows].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n");
+    const csvContent = [headers, ...rows]
+      .map((r) => r.map((c) => `"${c}"`).join(","))
+      .join("\n");
     const bom = "\uFEFF";
-    const blob = new Blob([bom + csvContent], { type: "text/csv;charset=utf-8;" });
+    const blob = new Blob([bom + csvContent], {
+      type: "text/csv;charset=utf-8;",
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -284,7 +306,7 @@ export default function ReportsPage() {
           },
           {
             label: t("kpi.totalRevenue"),
-            value: formatCurrency(globalStats.totalRevenue),
+            value: formatCurrency(globalStats.totalRevenue, locale),
             icon: DollarSign,
             color: "text-emerald-400",
             bgColor: "bg-emerald-500/10",
@@ -312,8 +334,12 @@ export default function ReportsPage() {
             className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl p-5"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-foreground/50 uppercase tracking-wider">{kpi.label}</span>
-              <div className={`w-9 h-9 rounded-xl ${kpi.bgColor} flex items-center justify-center`}>
+              <span className="text-xs font-medium text-foreground/50 uppercase tracking-wider">
+                {kpi.label}
+              </span>
+              <div
+                className={`w-9 h-9 rounded-xl ${kpi.bgColor} flex items-center justify-center`}
+              >
                 <kpi.icon className={`w-4 h-4 ${kpi.color}`} />
               </div>
             </div>
@@ -338,36 +364,65 @@ export default function ReportsPage() {
                 {globalStats.activeCount > 0 && (
                   <div
                     className={`${statusColors.active} transition-all duration-500`}
-                    style={{ width: `${(globalStats.activeCount / globalStats.totalTickets) * 100}%` }}
+                    style={{
+                      width: `${(globalStats.activeCount / globalStats.totalTickets) * 100}%`,
+                    }}
                   />
                 )}
                 {globalStats.usedCount > 0 && (
                   <div
                     className={`${statusColors.used} transition-all duration-500`}
-                    style={{ width: `${(globalStats.usedCount / globalStats.totalTickets) * 100}%` }}
+                    style={{
+                      width: `${(globalStats.usedCount / globalStats.totalTickets) * 100}%`,
+                    }}
                   />
                 )}
                 {globalStats.cancelledCount > 0 && (
                   <div
                     className={`${statusColors.cancelled} transition-all duration-500`}
-                    style={{ width: `${(globalStats.cancelledCount / globalStats.totalTickets) * 100}%` }}
+                    style={{
+                      width: `${(globalStats.cancelledCount / globalStats.totalTickets) * 100}%`,
+                    }}
                   />
                 )}
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { label: t("ticketStatus.active"), count: globalStats.activeCount, color: "bg-emerald-500", textColor: "text-emerald-400" },
-                  { label: t("ticketStatus.used"), count: globalStats.usedCount, color: "bg-blue-500", textColor: "text-blue-400" },
-                  { label: t("ticketStatus.cancelled"), count: globalStats.cancelledCount, color: "bg-red-500", textColor: "text-red-400" },
+                  {
+                    label: t("ticketStatus.active"),
+                    count: globalStats.activeCount,
+                    color: "bg-emerald-500",
+                    textColor: "text-emerald-400",
+                  },
+                  {
+                    label: t("ticketStatus.used"),
+                    count: globalStats.usedCount,
+                    color: "bg-blue-500",
+                    textColor: "text-blue-400",
+                  },
+                  {
+                    label: t("ticketStatus.cancelled"),
+                    count: globalStats.cancelledCount,
+                    color: "bg-red-500",
+                    textColor: "text-red-400",
+                  },
                 ].map((status, i) => (
                   <div key={i} className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-1">
-                      <div className={`w-2.5 h-2.5 rounded-full ${status.color}`} />
-                      <span className="text-xs text-foreground/50">{status.label}</span>
+                      <div
+                        className={`w-2.5 h-2.5 rounded-full ${status.color}`}
+                      />
+                      <span className="text-xs text-foreground/50">
+                        {status.label}
+                      </span>
                     </div>
-                    <p className={`text-lg font-bold ${status.textColor}`}>{status.count}</p>
+                    <p className={`text-lg font-bold ${status.textColor}`}>
+                      {status.count}
+                    </p>
                     <p className="text-[10px] text-foreground/30">
-                      {formatPercent((status.count / globalStats.totalTickets) * 100)}
+                      {formatPercent(
+                        (status.count / globalStats.totalTickets) * 100,
+                      )}
                     </p>
                   </div>
                 ))}
@@ -415,17 +470,28 @@ export default function ReportsPage() {
                   borderColor: "border-amber-500/20",
                 },
               ].map((item, i) => (
-                <div key={i} className={`flex items-center justify-between p-4 rounded-xl ${item.bgColor} border ${item.borderColor}`}>
+                <div
+                  key={i}
+                  className={`flex items-center justify-between p-4 rounded-xl ${item.bgColor} border ${item.borderColor}`}
+                >
                   <div className="flex items-center gap-3">
                     <item.icon className={`w-5 h-5 ${item.color}`} />
-                    <span className="text-sm font-medium text-foreground">{item.label}</span>
+                    <span className="text-sm font-medium text-foreground">
+                      {item.label}
+                    </span>
                   </div>
-                  <span className={`text-xl font-bold ${item.color}`}>{item.count}</span>
+                  <span className={`text-xl font-bold ${item.color}`}>
+                    {item.count}
+                  </span>
                 </div>
               ))}
               <div className="pt-2 border-t border-foreground/5 flex items-center justify-between">
-                <span className="text-xs text-foreground/40">{t("validation.total")}</span>
-                <span className="text-sm font-semibold text-foreground">{filteredLogs.length}</span>
+                <span className="text-xs text-foreground/40">
+                  {t("validation.total")}
+                </span>
+                <span className="text-sm font-semibold text-foreground">
+                  {filteredLogs.length}
+                </span>
               </div>
             </div>
           ) : (
@@ -446,23 +512,39 @@ export default function ReportsPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {ticketTypeDistribution.map((type, idx) => {
-              const pct = globalStats.totalTickets > 0
-                ? (type.qty / globalStats.totalTickets) * 100
-                : 0;
+              const pct =
+                globalStats.totalTickets > 0
+                  ? (type.qty / globalStats.totalTickets) * 100
+                  : 0;
               return (
-                <div key={type.name} className="p-4 rounded-xl bg-foreground/[0.03] border border-foreground/5">
+                <div
+                  key={type.name}
+                  className="p-4 rounded-xl bg-foreground/[0.03] border border-foreground/5"
+                >
                   <div className="flex items-center gap-2 mb-3">
-                    <div className={`w-3 h-3 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`} />
-                    <span className="text-sm font-medium text-foreground">{type.name}</span>
+                    <div
+                      className={`w-3 h-3 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`}
+                    />
+                    <span className="text-sm font-medium text-foreground">
+                      {type.name}
+                    </span>
                   </div>
                   <div className="flex items-end justify-between">
                     <div>
-                      <p className="text-xl font-bold text-foreground">{type.qty}</p>
-                      <p className="text-[10px] text-foreground/40">{t("ticketTypes.tickets")}</p>
+                      <p className="text-xl font-bold text-foreground">
+                        {type.qty}
+                      </p>
+                      <p className="text-[10px] text-foreground/40">
+                        {t("ticketTypes.tickets")}
+                      </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-semibold text-emerald-400">{formatCurrency(type.revenue)}</p>
-                      <p className="text-[10px] text-foreground/40">{formatPercent(pct)}</p>
+                      <p className="text-sm font-semibold text-emerald-400">
+                        {formatCurrency(type.revenue, locale)}
+                      </p>
+                      <p className="text-[10px] text-foreground/40">
+                        {formatPercent(pct)}
+                      </p>
                     </div>
                   </div>
                   {/* Mini bar */}
@@ -493,45 +575,72 @@ export default function ReportsPage() {
             {eventBreakdown.map((ev) => {
               const isExpanded = expandedEvent === ev.eventId;
               return (
-                <div key={ev.eventId} className="rounded-xl border border-foreground/5 overflow-hidden">
+                <div
+                  key={ev.eventId}
+                  className="rounded-xl border border-foreground/5 overflow-hidden"
+                >
                   {/* Event Header - Clickable */}
                   <button
-                    onClick={() => setExpandedEvent(isExpanded ? null : ev.eventId)}
+                    onClick={() =>
+                      setExpandedEvent(isExpanded ? null : ev.eventId)
+                    }
                     className="w-full flex items-center gap-4 p-4 hover:bg-foreground/[0.02] transition-colors text-left"
                   >
                     {/* Image */}
                     {ev.image && (
                       <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-foreground/10">
-                        <img src={ev.image} alt="" className="w-full h-full object-cover" />
+                        <img
+                          src={ev.image}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="text-sm font-semibold text-foreground truncate">{ev.eventTitle}</p>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
-                          ev.status === "approved"
-                            ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                            : ev.status === "pending_approval"
-                              ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
-                              : "bg-foreground/5 text-foreground/40 border border-foreground/10"
-                        }`}>
+                        <p className="text-sm font-semibold text-foreground truncate">
+                          {ev.eventTitle}
+                        </p>
+                        <span
+                          className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                            ev.status === "approved"
+                              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                              : ev.status === "pending_approval"
+                                ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                                : "bg-foreground/5 text-foreground/40 border border-foreground/10"
+                          }`}
+                        >
                           {ev.status}
                         </span>
                       </div>
-                      <p className="text-xs text-foreground/40">{ev.venue} &middot; {ev.date}</p>
+                      <p className="text-xs text-foreground/40">
+                        {ev.venue} &middot; {ev.date}
+                      </p>
                     </div>
                     <div className="flex items-center gap-6 flex-shrink-0">
                       <div className="text-right">
-                        <p className="text-sm font-bold text-foreground">{ev.totalQty}</p>
-                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.sold")}</p>
+                        <p className="text-sm font-bold text-foreground">
+                          {ev.totalQty}
+                        </p>
+                        <p className="text-[10px] text-foreground/40">
+                          {t("eventBreakdown.sold")}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-bold text-emerald-400">{formatCurrency(ev.revenue)}</p>
-                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.revenue")}</p>
+                        <p className="text-sm font-bold text-emerald-400">
+                          {formatCurrency(ev.revenue, locale)}
+                        </p>
+                        <p className="text-[10px] text-foreground/40">
+                          {t("eventBreakdown.revenue")}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-bold text-blue-400">{formatPercent(ev.checkInRate)}</p>
-                        <p className="text-[10px] text-foreground/40">{t("eventBreakdown.checkIn")}</p>
+                        <p className="text-sm font-bold text-blue-400">
+                          {formatPercent(ev.checkInRate)}
+                        </p>
+                        <p className="text-[10px] text-foreground/40">
+                          {t("eventBreakdown.checkIn")}
+                        </p>
                       </div>
                       {isExpanded ? (
                         <ChevronUp className="w-4 h-4 text-foreground/30" />
@@ -559,50 +668,75 @@ export default function ReportsPage() {
                             <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.active")}</span>
+                                <span className="text-[10px] text-foreground/40">
+                                  {t("ticketStatus.active")}
+                                </span>
                               </div>
-                              <p className="text-lg font-bold text-emerald-400">{ev.activeQty}</p>
+                              <p className="text-lg font-bold text-emerald-400">
+                                {ev.activeQty}
+                              </p>
                             </div>
                             <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-blue-500" />
-                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.used")}</span>
+                                <span className="text-[10px] text-foreground/40">
+                                  {t("ticketStatus.used")}
+                                </span>
                               </div>
-                              <p className="text-lg font-bold text-blue-400">{ev.usedQty}</p>
+                              <p className="text-lg font-bold text-blue-400">
+                                {ev.usedQty}
+                              </p>
                             </div>
                             <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <div className="w-2 h-2 rounded-full bg-red-500" />
-                                <span className="text-[10px] text-foreground/40">{t("ticketStatus.cancelled")}</span>
+                                <span className="text-[10px] text-foreground/40">
+                                  {t("ticketStatus.cancelled")}
+                                </span>
                               </div>
-                              <p className="text-lg font-bold text-red-400">{ev.cancelledQty}</p>
+                              <p className="text-lg font-bold text-red-400">
+                                {ev.cancelledQty}
+                              </p>
                             </div>
                             <div className="p-3 rounded-lg bg-foreground/[0.03] border border-foreground/5">
                               <div className="flex items-center gap-1.5 mb-1">
                                 <Users className="w-3 h-3 text-foreground/30" />
-                                <span className="text-[10px] text-foreground/40">{t("eventBreakdown.buyers")}</span>
+                                <span className="text-[10px] text-foreground/40">
+                                  {t("eventBreakdown.buyers")}
+                                </span>
                               </div>
-                              <p className="text-lg font-bold text-violet-400">{ev.uniqueBuyers}</p>
+                              <p className="text-lg font-bold text-violet-400">
+                                {ev.uniqueBuyers}
+                              </p>
                             </div>
                           </div>
 
                           {/* Ticket Type Breakdown */}
                           {ev.ticketTypes.length > 0 && (
                             <div>
-                              <p className="text-xs font-medium text-foreground/50 mb-2">{t("ticketTypes.title")}</p>
+                              <p className="text-xs font-medium text-foreground/50 mb-2">
+                                {t("ticketTypes.title")}
+                              </p>
                               <div className="space-y-2">
                                 {ev.ticketTypes.map((tt, idx) => (
-                                  <div key={tt.name} className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]">
+                                  <div
+                                    key={tt.name}
+                                    className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]"
+                                  >
                                     <div className="flex items-center gap-2">
-                                      <div className={`w-2 h-2 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`} />
-                                      <span className="text-sm text-foreground">{tt.name}</span>
+                                      <div
+                                        className={`w-2 h-2 rounded-full ${TYPE_COLORS[idx % TYPE_COLORS.length]}`}
+                                      />
+                                      <span className="text-sm text-foreground">
+                                        {tt.name}
+                                      </span>
                                     </div>
                                     <div className="flex items-center gap-4">
                                       <span className="text-xs text-foreground/50">
                                         {tt.qty} {t("ticketTypes.tickets")}
                                       </span>
                                       <span className="text-sm font-semibold text-emerald-400">
-                                        {formatCurrency(tt.revenue)}
+                                        {formatCurrency(tt.revenue, locale)}
                                       </span>
                                     </div>
                                   </div>
@@ -614,29 +748,48 @@ export default function ReportsPage() {
                           {/* Recent Logs for this event */}
                           {ev.logs.length > 0 && (
                             <div>
-                              <p className="text-xs font-medium text-foreground/50 mb-2">{t("eventBreakdown.recentActions")}</p>
+                              <p className="text-xs font-medium text-foreground/50 mb-2">
+                                {t("eventBreakdown.recentActions")}
+                              </p>
                               <div className="space-y-1.5 max-h-40 overflow-y-auto scrollbar-hide">
                                 {ev.logs.slice(0, 5).map((log) => (
-                                  <div key={log.id} className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]">
+                                  <div
+                                    key={log.id}
+                                    className="flex items-center justify-between py-2 px-3 rounded-lg bg-foreground/[0.02]"
+                                  >
                                     <div className="flex items-center gap-2">
-                                      {log.action === "approved" && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />}
-                                      {log.action === "cancelled" && <XCircle className="w-3.5 h-3.5 text-red-400" />}
-                                      {log.action === "refunded" && <RotateCcw className="w-3.5 h-3.5 text-amber-400" />}
-                                      <span className="text-xs text-foreground">{log.ticketHolderName}</span>
-                                      <span className="text-[10px] text-foreground/30">{log.ticketType}</span>
+                                      {log.action === "approved" && (
+                                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                                      )}
+                                      {log.action === "cancelled" && (
+                                        <XCircle className="w-3.5 h-3.5 text-red-400" />
+                                      )}
+                                      {log.action === "refunded" && (
+                                        <RotateCcw className="w-3.5 h-3.5 text-amber-400" />
+                                      )}
+                                      <span className="text-xs text-foreground">
+                                        {log.ticketHolderName}
+                                      </span>
+                                      <span className="text-[10px] text-foreground/30">
+                                        {log.ticketType}
+                                      </span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${
-                                        log.action === "approved"
-                                          ? "bg-emerald-500/10 text-emerald-400"
-                                          : log.action === "cancelled"
-                                            ? "bg-red-500/10 text-red-400"
-                                            : "bg-amber-500/10 text-amber-400"
-                                      }`}>
+                                      <span
+                                        className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${
+                                          log.action === "approved"
+                                            ? "bg-emerald-500/10 text-emerald-400"
+                                            : log.action === "cancelled"
+                                              ? "bg-red-500/10 text-red-400"
+                                              : "bg-amber-500/10 text-amber-400"
+                                        }`}
+                                      >
                                         {t(`validation.${log.action}`)}
                                       </span>
                                       <span className="text-[10px] text-foreground/20">
-                                        {new Date(log.validatedAt).toLocaleDateString("tr-TR")}
+                                        {new Date(
+                                          log.validatedAt,
+                                        ).toLocaleDateString(locale)}
                                       </span>
                                     </div>
                                   </div>
@@ -669,17 +822,28 @@ export default function ReportsPage() {
           </h3>
           <div className="space-y-2">
             {recentActivity.map((log) => (
-              <div key={log.id} className="flex items-center gap-4 p-3 rounded-xl bg-foreground/[0.02] hover:bg-foreground/[0.04] transition-colors">
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                  log.action === "approved"
-                    ? "bg-emerald-500/10"
-                    : log.action === "cancelled"
-                      ? "bg-red-500/10"
-                      : "bg-amber-500/10"
-                }`}>
-                  {log.action === "approved" && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
-                  {log.action === "cancelled" && <XCircle className="w-4 h-4 text-red-400" />}
-                  {log.action === "refunded" && <RotateCcw className="w-4 h-4 text-amber-400" />}
+              <div
+                key={log.id}
+                className="flex items-center gap-4 p-3 rounded-xl bg-foreground/[0.02] hover:bg-foreground/[0.04] transition-colors"
+              >
+                <div
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    log.action === "approved"
+                      ? "bg-emerald-500/10"
+                      : log.action === "cancelled"
+                        ? "bg-red-500/10"
+                        : "bg-amber-500/10"
+                  }`}
+                >
+                  {log.action === "approved" && (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  )}
+                  {log.action === "cancelled" && (
+                    <XCircle className="w-4 h-4 text-red-400" />
+                  )}
+                  {log.action === "refunded" && (
+                    <RotateCcw className="w-4 h-4 text-amber-400" />
+                  )}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-foreground">
@@ -688,21 +852,24 @@ export default function ReportsPage() {
                     <span className="text-foreground/60">{log.eventTitle}</span>
                   </p>
                   <p className="text-xs text-foreground/30">
-                    {log.ticketType} &middot; {t("recentActivity.by")} {log.validatedBy}
+                    {log.ticketType} &middot; {t("recentActivity.by")}{" "}
+                    {log.validatedBy}
                   </p>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <span className={`text-xs font-medium px-2 py-1 rounded-lg ${
-                    log.action === "approved"
-                      ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                      : log.action === "cancelled"
-                        ? "bg-red-500/10 text-red-400 border border-red-500/20"
-                        : "bg-amber-500/10 text-amber-400 border border-amber-500/20"
-                  }`}>
+                  <span
+                    className={`text-xs font-medium px-2 py-1 rounded-lg ${
+                      log.action === "approved"
+                        ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                        : log.action === "cancelled"
+                          ? "bg-red-500/10 text-red-400 border border-red-500/20"
+                          : "bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                    }`}
+                  >
                     {t(`validation.${log.action}`)}
                   </span>
                   <p className="text-[10px] text-foreground/20 mt-1">
-                    {new Date(log.validatedAt).toLocaleString("tr-TR", {
+                    {new Date(log.validatedAt).toLocaleString(locale, {
                       day: "2-digit",
                       month: "short",
                       hour: "2-digit",

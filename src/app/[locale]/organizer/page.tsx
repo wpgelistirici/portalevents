@@ -24,10 +24,15 @@ export default function OrganizerDashboard() {
   const { organizerEvents, validationLogs, stats } = useOrganizer();
   const { user } = useAuth();
 
-  const pendingEvents = organizerEvents.filter((e) => e.status === "pending_approval");
-  const recentEvents = [...organizerEvents].sort(
-    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-  ).slice(0, 5);
+  const pendingEvents = organizerEvents.filter(
+    (e) => e.status === "pending_approval",
+  );
+  const recentEvents = [...organizerEvents]
+    .sort(
+      (a, b) =>
+        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+    )
+    .slice(0, 5);
   const recentLogs = validationLogs.slice(0, 5);
 
   const statusColors: Record<string, string> = {
@@ -49,7 +54,9 @@ export default function OrganizerDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">{t("dashboard.title")}</h1>
+          <h1 className="text-3xl font-bold text-foreground">
+            {t("dashboard.title")}
+          </h1>
           <p className="text-foreground/50 mt-1">
             {t("dashboard.welcome", { name: user?.name || "" })}
           </p>
@@ -82,7 +89,9 @@ export default function OrganizerDashboard() {
                   </p>
                 ))}
               </div>
-              <p className="text-foreground/40 text-xs mt-3">{t("dashboard.approvalNote")}</p>
+              <p className="text-foreground/40 text-xs mt-3">
+                {t("dashboard.approvalNote")}
+              </p>
             </div>
           </div>
         </div>
@@ -139,7 +148,9 @@ export default function OrganizerDashboard() {
         {/* Recent Events */}
         <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden">
           <div className="p-6 border-b border-foreground/10 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.recentEvents")}</h2>
+            <h2 className="text-lg font-semibold text-foreground">
+              {t("dashboard.recentEvents")}
+            </h2>
             <Link
               href={`/${locale}/organizer/events`}
               className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
@@ -162,10 +173,16 @@ export default function OrganizerDashboard() {
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-10 h-10 rounded-lg bg-foreground/10 overflow-hidden flex-shrink-0">
-                      <img src={event.image} alt="" className="w-full h-full object-cover" />
+                      <img
+                        src={event.image}
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">{event.title}</p>
+                      <p className="text-sm font-medium text-foreground truncate">
+                        {event.title}
+                      </p>
                       <p className="text-xs text-foreground/40">{event.date}</p>
                     </div>
                   </div>
@@ -183,7 +200,9 @@ export default function OrganizerDashboard() {
         {/* Recent Validation Logs */}
         <div className="rounded-2xl bg-foreground/5 border border-foreground/10 backdrop-blur-xl overflow-hidden">
           <div className="p-6 border-b border-foreground/10 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.recentLogs")}</h2>
+            <h2 className="text-lg font-semibold text-foreground">
+              {t("dashboard.recentLogs")}
+            </h2>
             <Link
               href={`/${locale}/organizer/logs`}
               className="text-sm text-[#7B61FF] hover:text-[#7B61FF]/80 flex items-center gap-1 transition-colors"
@@ -199,18 +218,23 @@ export default function OrganizerDashboard() {
               </div>
             ) : (
               recentLogs.map((log) => (
-                <div key={log.id} className="flex items-center justify-between p-4">
+                <div
+                  key={log.id}
+                  className="flex items-center justify-between p-4"
+                >
                   <div className="flex items-center gap-3 min-w-0">
                     {actionIcons[log.action]}
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-foreground truncate">
                         {log.ticketHolderName}
                       </p>
-                      <p className="text-xs text-foreground/40">{log.ticketType} — {log.eventTitle}</p>
+                      <p className="text-xs text-foreground/40">
+                        {log.ticketType} — {log.eventTitle}
+                      </p>
                     </div>
                   </div>
                   <span className="text-xs text-foreground/30">
-                    {new Date(log.validatedAt).toLocaleTimeString("tr-TR", {
+                    {new Date(log.validatedAt).toLocaleTimeString(locale, {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}

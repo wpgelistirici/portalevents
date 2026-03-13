@@ -27,21 +27,30 @@ const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-// Dynamic import for the map component (Leaflet requires window)
-const MapView = dynamic(() => import("./MapView"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center" style={{ background: "#0a0a0b" }}>
+// Loading component for map (needs useTranslations hook)
+function MapLoading() {
+  const t = useTranslations("ExploreMapPage");
+  return (
+    <div
+      className="w-full h-full flex items-center justify-center"
+      style={{ background: "#0a0a0b" }}
+    >
       <div className="flex flex-col items-center gap-4">
         <motion.div
           className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         />
-        <p className="text-xs text-muted animate-pulse">Harita yükleniyor...</p>
+        <p className="text-xs text-muted animate-pulse">{t("mapLoading")}</p>
       </div>
     </div>
-  ),
+  );
+}
+
+// Dynamic import for the map component (Leaflet requires window)
+const MapView = dynamic(() => import("./MapView"), {
+  ssr: false,
+  loading: () => <MapLoading />,
 });
 
 /* ============================================
@@ -73,9 +82,7 @@ function EventDetailPanel({
   const spaceRight = windowW - markerPos.x - gap;
   const showRight = spaceRight >= panelWidth + 20;
 
-  const left = showRight
-    ? markerPos.x + gap
-    : markerPos.x - gap - panelWidth;
+  const left = showRight ? markerPos.x + gap : markerPos.x - gap - panelWidth;
 
   // Vertically center on marker, but clamp to viewport
   const minTop = 100;
@@ -156,7 +163,9 @@ function EventDetailPanel({
             </div>
             <div className="flex items-center gap-2.5 text-[11px] text-muted">
               <MapPin size={11} className="text-primary/60" />
-              <span>{event.venue}, {event.city}</span>
+              <span>
+                {event.venue}, {event.city}
+              </span>
             </div>
           </div>
 
@@ -201,7 +210,9 @@ export default function ExploreMapPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
-  const [markerPos, setMarkerPos] = useState<{ x: number; y: number } | null>(null);
+  const [markerPos, setMarkerPos] = useState<{ x: number; y: number } | null>(
+    null,
+  );
 
   // Only events with coordinates
   const eventsWithCoords = useMemo(
@@ -232,17 +243,11 @@ export default function ExploreMapPage() {
   }, [activeGenre, searchQuery, eventsWithCoords]);
 
   // Istanbul center as default
-  const mapCenter = useMemo(
-    () => ({ lat: 41.0082, lng: 28.9784 }),
-    [],
-  );
+  const mapCenter = useMemo(() => ({ lat: 41.0082, lng: 28.9784 }), []);
 
-  const handleSelectEvent = useCallback(
-    (event: Event) => {
-      setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
-    },
-    [],
-  );
+  const handleSelectEvent = useCallback((event: Event) => {
+    setSelectedEvent((prev) => (prev?.id === event.id ? null : event));
+  }, []);
 
   const handleMarkerPosition = useCallback(
     (pos: { x: number; y: number } | null) => {
@@ -395,8 +400,12 @@ export default function ExploreMapPage() {
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xs font-bold truncate">{event.title}</h3>
-                      <p className="text-[10px] text-primary truncate">{event.artist}</p>
+                      <h3 className="text-xs font-bold truncate">
+                        {event.title}
+                      </h3>
+                      <p className="text-[10px] text-primary truncate">
+                        {event.artist}
+                      </p>
                       <div className="flex items-center gap-2 mt-1.5 text-[9px] text-foreground/30">
                         <span className="flex items-center gap-0.5">
                           <Calendar size={8} />
@@ -430,7 +439,10 @@ export default function ExploreMapPage() {
           <motion.button
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             className="relative -ml-px flex items-center justify-center w-7 h-14 rounded-r-xl border border-l-0 border-foreground/[0.06] text-foreground/40 hover:text-foreground transition-all"
-            style={{ background: "rgba(10, 10, 11, 0.88)", backdropFilter: "blur(16px)" }}
+            style={{
+              background: "rgba(10, 10, 11, 0.88)",
+              backdropFilter: "blur(16px)",
+            }}
             whileHover={{ width: 32 }}
             data-cursor-hover
           >

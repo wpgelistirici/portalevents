@@ -213,11 +213,12 @@ function HeroSearch() {
                         {artist.name}
                       </p>
                       <p className="text-xs text-muted truncate">
-                        {artist.genre} &middot; {artist.followers} takipçi
+                        {artist.genre} &middot; {artist.followers}{" "}
+                        {t("searchFollowers")}
                       </p>
                     </div>
                     <span className="text-xs text-muted flex-shrink-0">
-                      {artist.upcoming} etkinlik
+                      {artist.upcoming} {t("searchUpcoming")}
                     </span>
                   </Link>
                 ))}
@@ -253,7 +254,7 @@ function HeroSearch() {
                       </p>
                     </div>
                     <span className="text-xs text-muted flex-shrink-0">
-                      {venue.capacity} kişi
+                      {venue.capacity} {t("searchCapacity")}
                     </span>
                   </Link>
                 ))}

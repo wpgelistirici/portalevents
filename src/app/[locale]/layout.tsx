@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
@@ -26,21 +26,19 @@ const orbitron = Orbitron({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "PORTAL — Orada Ol",
-  description:
-    "Etkinlikleri keşfet, sanatçıları takip et, topluluğa katıl. Orada ol.",
-  keywords: [
-    "etkinlik",
-    "deneyim",
-    "festival",
-    "konser",
-    "tiyatro",
-    "sanatçı",
-    "mekan",
-    "istanbul",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function LocaleLayout({
   children,

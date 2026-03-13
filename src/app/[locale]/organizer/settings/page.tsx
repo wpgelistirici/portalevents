@@ -59,14 +59,33 @@ export default function SettingsPage() {
           <Building2 className="w-5 h-5 text-[#7B61FF]" />
           {t("profile")}
         </h2>
-        <ImageUpload value={orgLogo} onChange={setOrgLogo} label={t("logo")} height="h-32" />
+        <ImageUpload
+          value={orgLogo}
+          onChange={setOrgLogo}
+          label={t("logo")}
+          height="h-32"
+        />
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("orgName")}</label>
-          <input type="text" value={orgName} onChange={(e) => setOrgName(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("orgName")}
+          </label>
+          <input
+            type="text"
+            value={orgName}
+            onChange={(e) => setOrgName(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("orgDesc")}</label>
-          <textarea value={orgDesc} onChange={(e) => setOrgDesc(e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 resize-none" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("orgDesc")}
+          </label>
+          <textarea
+            value={orgDesc}
+            onChange={(e) => setOrgDesc(e.target.value)}
+            rows={4}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50 resize-none"
+          />
         </div>
       </div>
 
@@ -78,17 +97,39 @@ export default function SettingsPage() {
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("phone")}</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("phone")}
+            </label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">{t("email")}</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              {t("email")}
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("website")}</label>
-          <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://..." className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("website")}
+          </label>
+          <input
+            type="url"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            placeholder="https://..."
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
       </div>
 
@@ -100,16 +141,40 @@ export default function SettingsPage() {
         </h2>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">Instagram</label>
-            <input type="text" value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="@kullanici" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              Instagram
+            </label>
+            <input
+              type="text"
+              value={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
+              placeholder={t("usernamePlaceholder")}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">Twitter / X</label>
-            <input type="text" value={twitter} onChange={(e) => setTwitter(e.target.value)} placeholder="@kullanici" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              Twitter / X
+            </label>
+            <input
+              type="text"
+              value={twitter}
+              onChange={(e) => setTwitter(e.target.value)}
+              placeholder={t("usernamePlaceholder")}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">YouTube</label>
-            <input type="text" value={youtube} onChange={(e) => setYoutube(e.target.value)} placeholder="kanal-adi" className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+            <label className="block text-sm font-medium text-foreground/70 mb-2">
+              YouTube
+            </label>
+            <input
+              type="text"
+              value={youtube}
+              onChange={(e) => setYoutube(e.target.value)}
+              placeholder={t("channelPlaceholder")}
+              className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+            />
           </div>
         </div>
       </div>
@@ -121,18 +186,37 @@ export default function SettingsPage() {
           {t("payment")}
         </h2>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">{t("companyName")}</label>
-          <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            {t("companyName")}
+          </label>
+          <input
+            type="text"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-foreground/70 mb-2">IBAN</label>
-          <input type="text" value={iban} onChange={(e) => setIban(e.target.value)} placeholder="TR..." className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50" />
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            IBAN
+          </label>
+          <input
+            type="text"
+            value={iban}
+            onChange={(e) => setIban(e.target.value)}
+            placeholder="TR..."
+            className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#7B61FF]/50"
+          />
         </div>
       </div>
 
       {/* Save */}
       <div className="flex justify-end">
-        <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors">
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#7B61FF] text-white font-medium hover:bg-[#7B61FF]/80 disabled:opacity-50 transition-colors"
+        >
           <Save className="w-4 h-4" />
           {saving ? t("saving") : saved ? t("saved") : t("save")}
         </button>

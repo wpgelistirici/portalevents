@@ -65,7 +65,7 @@ export default function VenueSpotlight() {
                   className="group relative rounded-2xl overflow-hidden glass card-hover"
                   style={i % 2 === 1 ? { y: parallaxY } : {}}
                   data-cursor-hover
-                  data-cursor-text="Keşfet"
+                  data-cursor-text={t("cursorExplore")}
                 >
                   <div className="relative h-64 overflow-hidden">
                     <Image

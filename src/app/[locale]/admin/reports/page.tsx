@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
 import { events, artists, venues } from "@/lib/data";
 import { motion } from "framer-motion";
@@ -20,12 +20,17 @@ import {
 
 export default function AdminReportsPage() {
   const t = useTranslations("AdminPanel.reports");
+  const locale = useLocale();
   const { organizerEvents, getAllTickets } = useOrganizer();
 
   const allTickets = useMemo(() => getAllTickets(), [getAllTickets]);
 
   const totalRevenue = useMemo(() => {
-    return allTickets.reduce((sum, tk) => sum + (parseInt(tk.totalPaid.replace(/[^\d]/g, ""), 10) || 0), 0);
+    return allTickets.reduce(
+      (sum, tk) =>
+        sum + (parseInt(tk.totalPaid.replace(/[^\d]/g, ""), 10) || 0),
+      0,
+    );
   }, [allTickets]);
 
   // Genre distribution
@@ -35,7 +40,11 @@ export default function AdminReportsPage() {
       map.set(e.genre, (map.get(e.genre) || 0) + 1);
     });
     return Array.from(map.entries())
-      .map(([genre, count]) => ({ genre, count, pct: Math.round((count / events.length) * 100) }))
+      .map(([genre, count]) => ({
+        genre,
+        count,
+        pct: Math.round((count / events.length) * 100),
+      }))
       .sort((a, b) => b.count - a.count);
   }, []);
 
@@ -46,7 +55,11 @@ export default function AdminReportsPage() {
       map.set(e.city, (map.get(e.city) || 0) + 1);
     });
     return Array.from(map.entries())
-      .map(([city, count]) => ({ city, count, pct: Math.round((count / events.length) * 100) }))
+      .map(([city, count]) => ({
+        city,
+        count,
+        pct: Math.round((count / events.length) * 100),
+      }))
       .sort((a, b) => b.count - a.count);
   }, []);
 
@@ -76,7 +89,15 @@ export default function AdminReportsPage() {
       .sort((a, b) => b.revenue - a.revenue);
   }, [allTickets]);
 
-  const barColors = ["bg-red-400", "bg-blue-400", "bg-emerald-400", "bg-amber-400", "bg-purple-400", "bg-cyan-400", "bg-pink-400"];
+  const barColors = [
+    "bg-red-400",
+    "bg-blue-400",
+    "bg-emerald-400",
+    "bg-amber-400",
+    "bg-purple-400",
+    "bg-cyan-400",
+    "bg-pink-400",
+  ];
 
   return (
     <div className="space-y-8">
@@ -92,10 +113,34 @@ export default function AdminReportsPage() {
       {/* Top KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: t("totalRevenue"), value: `₺${totalRevenue.toLocaleString("tr-TR")}`, icon: DollarSign, color: "text-emerald-400", bg: "bg-emerald-500/10" },
-          { label: t("ticketsSold"), value: allTickets.reduce((s, tk) => s + tk.quantity, 0).toString(), icon: Ticket, color: "text-pink-400", bg: "bg-pink-500/10" },
-          { label: t("totalEvents"), value: events.length.toString(), icon: Calendar, color: "text-blue-400", bg: "bg-blue-500/10" },
-          { label: t("avgPrice"), value: `₺${Math.round(events.reduce((s, e) => s + (parseInt(e.price.replace(/[^\d]/g, ""), 10) || 0), 0) / events.length).toLocaleString("tr-TR")}`, icon: TrendingUp, color: "text-amber-400", bg: "bg-amber-500/10" },
+          {
+            label: t("totalRevenue"),
+            value: `₺${totalRevenue.toLocaleString(locale)}`,
+            icon: DollarSign,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+          },
+          {
+            label: t("ticketsSold"),
+            value: allTickets.reduce((s, tk) => s + tk.quantity, 0).toString(),
+            icon: Ticket,
+            color: "text-pink-400",
+            bg: "bg-pink-500/10",
+          },
+          {
+            label: t("totalEvents"),
+            value: events.length.toString(),
+            icon: Calendar,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+          },
+          {
+            label: t("avgPrice"),
+            value: `₺${Math.round(events.reduce((s, e) => s + (parseInt(e.price.replace(/[^\d]/g, ""), 10) || 0), 0) / events.length).toLocaleString(locale)}`,
+            icon: TrendingUp,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+          },
         ].map((stat, i) => (
           <motion.div
             key={i}
@@ -105,8 +150,12 @@ export default function AdminReportsPage() {
             className="rounded-2xl bg-foreground/[0.03] border border-foreground/[0.06] p-5"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] text-foreground/40 uppercase tracking-wider">{stat.label}</span>
-              <div className={`w-9 h-9 rounded-xl ${stat.bg} flex items-center justify-center`}>
+              <span className="text-[10px] text-foreground/40 uppercase tracking-wider">
+                {stat.label}
+              </span>
+              <div
+                className={`w-9 h-9 rounded-xl ${stat.bg} flex items-center justify-center`}
+              >
                 <stat.icon className={`w-[18px] h-[18px] ${stat.color}`} />
               </div>
             </div>
@@ -132,7 +181,9 @@ export default function AdminReportsPage() {
               <div key={g.genre}>
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs text-foreground/70">{g.genre}</span>
-                  <span className="text-xs text-foreground/40">{g.count} ({g.pct}%)</span>
+                  <span className="text-xs text-foreground/40">
+                    {g.count} ({g.pct}%)
+                  </span>
                 </div>
                 <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
                   <motion.div
@@ -165,7 +216,9 @@ export default function AdminReportsPage() {
                   <span className="text-xs text-foreground/70 flex items-center gap-1.5">
                     <MapPin className="w-3 h-3 text-foreground/30" /> {c.city}
                   </span>
-                  <span className="text-xs text-foreground/40">{c.count} ({c.pct}%)</span>
+                  <span className="text-xs text-foreground/40">
+                    {c.count} ({c.pct}%)
+                  </span>
                 </div>
                 <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
                   <motion.div
@@ -193,12 +246,19 @@ export default function AdminReportsPage() {
           </h3>
           <div className="space-y-2">
             {venueStats.map((v, i) => (
-              <div key={v.venue} className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02]">
+              <div
+                key={v.venue}
+                className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.02]"
+              >
                 <span className="w-6 h-6 rounded-lg bg-foreground/5 flex items-center justify-center text-[10px] font-bold text-foreground/40">
                   {i + 1}
                 </span>
-                <span className="text-xs text-foreground/70 flex-1">{v.venue}</span>
-                <span className="text-xs font-semibold text-foreground/50">{v.count} {t("eventsLabel")}</span>
+                <span className="text-xs text-foreground/70 flex-1">
+                  {v.venue}
+                </span>
+                <span className="text-xs font-semibold text-foreground/50">
+                  {v.count} {t("eventsLabel")}
+                </span>
               </div>
             ))}
           </div>
@@ -218,17 +278,28 @@ export default function AdminReportsPage() {
           {ticketTypeStats.length > 0 ? (
             <div className="space-y-3">
               {ticketTypeStats.map((tt, i) => (
-                <div key={tt.type} className="flex items-center justify-between p-3 rounded-xl bg-foreground/[0.02]">
+                <div
+                  key={tt.type}
+                  className="flex items-center justify-between p-3 rounded-xl bg-foreground/[0.02]"
+                >
                   <div>
-                    <p className="text-xs font-semibold text-foreground">{tt.type}</p>
-                    <p className="text-[10px] text-foreground/30">{tt.count} {t("ticketsSoldLabel")}</p>
+                    <p className="text-xs font-semibold text-foreground">
+                      {tt.type}
+                    </p>
+                    <p className="text-[10px] text-foreground/30">
+                      {tt.count} {t("ticketsSoldLabel")}
+                    </p>
                   </div>
-                  <p className="text-sm font-bold text-emerald-400">₺{tt.revenue.toLocaleString("tr-TR")}</p>
+                  <p className="text-sm font-bold text-emerald-400">
+                    ₺{tt.revenue.toLocaleString(locale)}
+                  </p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-foreground/20 text-center py-6">{t("noTicketData")}</p>
+            <p className="text-xs text-foreground/20 text-center py-6">
+              {t("noTicketData")}
+            </p>
           )}
         </motion.div>
       </div>

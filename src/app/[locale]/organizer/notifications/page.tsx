@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useOrganizer } from "@/lib/organizer-context";
 import {
   Bell,
@@ -35,7 +35,13 @@ const typeColors: Record<string, string> = {
 
 export default function NotificationsPage() {
   const t = useTranslations("OrganizerPanel.notifications");
-  const { notifications, markNotificationRead, markAllNotificationsRead, unreadCount } = useOrganizer();
+  const locale = useLocale();
+  const {
+    notifications,
+    markNotificationRead,
+    markAllNotificationsRead,
+    unreadCount,
+  } = useOrganizer();
 
   return (
     <div className="space-y-6">
@@ -45,13 +51,18 @@ export default function NotificationsPage() {
             <Bell className="w-7 h-7 text-[#7B61FF]" />
             {t("title")}
             {unreadCount > 0 && (
-              <span className="ml-1 min-w-[24px] h-6 flex items-center justify-center px-2 rounded-full bg-[#7B61FF] text-white text-xs font-bold">{unreadCount}</span>
+              <span className="ml-1 min-w-[24px] h-6 flex items-center justify-center px-2 rounded-full bg-[#7B61FF] text-white text-xs font-bold">
+                {unreadCount}
+              </span>
             )}
           </h1>
           <p className="text-foreground/50 mt-1">{t("subtitle")}</p>
         </div>
         {unreadCount > 0 && (
-          <button onClick={markAllNotificationsRead} className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors">
+          <button
+            onClick={markAllNotificationsRead}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-foreground/5 border border-foreground/10 text-foreground text-sm font-medium hover:bg-foreground/10 transition-colors"
+          >
             <CheckCheck className="w-4 h-4" />
             {t("markAllRead")}
           </button>
@@ -62,13 +73,16 @@ export default function NotificationsPage() {
         <div className="text-center py-16">
           <Bell className="w-12 h-12 text-foreground/20 mx-auto mb-4" />
           <p className="text-foreground/40">{t("noNotifications")}</p>
-          <p className="text-foreground/20 text-sm mt-1">{t("noNotificationsDesc")}</p>
+          <p className="text-foreground/20 text-sm mt-1">
+            {t("noNotificationsDesc")}
+          </p>
         </div>
       ) : (
         <div className="space-y-2">
           {notifications.map((n) => {
             const Icon = typeIcons[n.type] || Bell;
-            const colorClass = typeColors[n.type] || "bg-foreground/5 text-foreground/40";
+            const colorClass =
+              typeColors[n.type] || "bg-foreground/5 text-foreground/40";
             return (
               <button
                 key={n.id}
@@ -79,18 +93,31 @@ export default function NotificationsPage() {
                     : "bg-foreground/5 border-foreground/10 hover:bg-foreground/[0.07]"
                 }`}
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${colorClass}`}>
+                <div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${colorClass}`}
+                >
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="text-sm font-semibold text-foreground">{n.title}</p>
-                    {!n.isRead && <div className="w-2 h-2 rounded-full bg-[#7B61FF]" />}
+                    <p className="text-sm font-semibold text-foreground">
+                      {n.title}
+                    </p>
+                    {!n.isRead && (
+                      <div className="w-2 h-2 rounded-full bg-[#7B61FF]" />
+                    )}
                   </div>
-                  <p className="text-sm text-foreground/50 mt-0.5">{n.message}</p>
+                  <p className="text-sm text-foreground/50 mt-0.5">
+                    {n.message}
+                  </p>
                 </div>
                 <span className="text-[10px] text-foreground/20 flex-shrink-0 mt-1">
-                  {new Date(n.createdAt).toLocaleDateString("tr-TR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" })}
+                  {new Date(n.createdAt).toLocaleDateString(locale, {
+                    day: "2-digit",
+                    month: "short",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </span>
               </button>
             );
