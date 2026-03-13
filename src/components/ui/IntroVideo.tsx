@@ -49,7 +49,7 @@ export default function IntroVideo({ onComplete }: { onComplete: () => void }) {
       <video
         ref={videoRef}
         className="intro-video"
-        src="/video.mp4"
+        src="/video2.mp4"
         autoPlay
         muted
         playsInline
