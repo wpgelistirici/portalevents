@@ -176,7 +176,13 @@
     "description": "Discover your favorite artists, follow them, and don't miss their upcoming events.",
     "followers": "followers",
     "event": "events",
-    "cursorProfile": "Profile"
+    "cursorProfile": "Profile",
+    "searchPlaceholder": "Search artist or genre...",
+    "filters": "Filters",
+    "sortBy": "Sort by",
+    "byPopularity": "Popularity",
+    "byName": "Name",
+    "noResults": "No artists found matching your search."
   },
   "VenuesPage": {
     "label": "Venues",

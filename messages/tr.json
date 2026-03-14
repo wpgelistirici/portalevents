@@ -176,7 +176,13 @@
     "description": "En sevdiğin sanatçıları keşfet, takip et ve yaklaşan etkinliklerini kaçırma.",
     "followers": "takipçi",
     "event": "etkinlik",
-    "cursorProfile": "Profil"
+    "cursorProfile": "Profil",
+    "searchPlaceholder": "Sanatçı veya tür ara...",
+    "filters": "Filtreler",
+    "sortBy": "Sıralama",
+    "byPopularity": "Popülerlik",
+    "byName": "İsim",
+    "noResults": "Aramanızla eşleşen sanatçı bulunamadı."
   },
   "VenuesPage": {
     "label": "Mekanlar",
@@ -1312,21 +1318,46 @@
       "price": "Ücretsiz",
       "period": "",
       "description": "Küçük etkinlikler için ideal başlangıç",
-      "features": ["Aylık 2 etkinlik", "100 bilet/etkinlik", "Temel analitik", "E-posta desteği", "QR bilet doğrulama"]
+      "features": [
+        "Aylık 2 etkinlik",
+        "100 bilet/etkinlik",
+        "Temel analitik",
+        "E-posta desteği",
+        "QR bilet doğrulama"
+      ]
     },
     "pro": {
       "name": "Pro",
       "price": "₺499",
       "period": "/ay",
       "description": "Büyüyen organizatörler için",
-      "features": ["Sınırsız etkinlik", "5.000 bilet/etkinlik", "Gelişmiş analitik", "Öncelikli destek", "QR bilet doğrulama", "Özel kupon kodları", "Topluluk paylaşımları", "Doping seçenekleri"]
+      "features": [
+        "Sınırsız etkinlik",
+        "5.000 bilet/etkinlik",
+        "Gelişmiş analitik",
+        "Öncelikli destek",
+        "QR bilet doğrulama",
+        "Özel kupon kodları",
+        "Topluluk paylaşımları",
+        "Doping seçenekleri"
+      ]
     },
     "enterprise": {
       "name": "Enterprise",
       "price": "₺1.499",
       "period": "/ay",
       "description": "Büyük ölçekli organizasyonlar için",
-      "features": ["Sınırsız her şey", "50.000+ bilet/etkinlik", "Gerçek zamanlı analitik", "7/24 destek", "API erişimi", "Özel entegrasyonlar", "Beyaz etiket seçeneği", "Kişiye özel hesap yöneticisi", "Gelişmiş raporlama"]
+      "features": [
+        "Sınırsız her şey",
+        "50.000+ bilet/etkinlik",
+        "Gerçek zamanlı analitik",
+        "7/24 destek",
+        "API erişimi",
+        "Özel entegrasyonlar",
+        "Beyaz etiket seçeneği",
+        "Kişiye özel hesap yöneticisi",
+        "Gelişmiş raporlama"
+      ]
     }
   },
   "FAQPage": {
@@ -1342,24 +1373,60 @@
       "account": "Hesap & Güvenlik"
     },
     "general": [
-      { "q": "PORTAL nedir?", "a": "PORTAL, canlı etkinlik ve konser deneyimini dijitalleştiren bir platformdur. Etkinlik keşfi, bilet satın alma, topluluk etkileşimi ve organizatör araçlarını tek bir çatı altında sunar." },
-      { "q": "PORTAL'ı kullanmak ücretsiz mi?", "a": "Evet, etkinlik keşfi, topluluk özellikleri ve bilet satın alma katılımcılar için tamamen ücretsizdir. Organizatörler için farklı fiyatlandırma planları mevcuttur." },
-      { "q": "Hangi şehirlerde aktifsiniz?", "a": "Şu anda İstanbul, Ankara, İzmir, Antalya ve Bursa'da aktif olarak hizmet veriyoruz. Yakında daha fazla şehre genişlemeyi planlıyoruz." }
+      {
+        "q": "PORTAL nedir?",
+        "a": "PORTAL, canlı etkinlik ve konser deneyimini dijitalleştiren bir platformdur. Etkinlik keşfi, bilet satın alma, topluluk etkileşimi ve organizatör araçlarını tek bir çatı altında sunar."
+      },
+      {
+        "q": "PORTAL'ı kullanmak ücretsiz mi?",
+        "a": "Evet, etkinlik keşfi, topluluk özellikleri ve bilet satın alma katılımcılar için tamamen ücretsizdir. Organizatörler için farklı fiyatlandırma planları mevcuttur."
+      },
+      {
+        "q": "Hangi şehirlerde aktifsiniz?",
+        "a": "Şu anda İstanbul, Ankara, İzmir, Antalya ve Bursa'da aktif olarak hizmet veriyoruz. Yakında daha fazla şehre genişlemeyi planlıyoruz."
+      }
     ],
     "tickets": [
-      { "q": "Biletimi nasıl kullanırım?", "a": "Satın aldığınız bilet, 'Biletlerim' sayfasında QR kod olarak görünür. Etkinlik girişinde bu QR kodu göstermeniz yeterlidir. QR kod güvenlik için periyodik olarak güncellenir." },
-      { "q": "Bilet iadesi yapabilir miyim?", "a": "Etkinlikten 48 saat öncesine kadar bilet iadesi yapabilirsiniz. İade işlemi 'Biletlerim' sayfasından gerçekleştirilebilir. İade, ödeme yönteminize 3-5 iş günü içinde yansır." },
-      { "q": "Biletimi başka birine transfer edebilir miyim?", "a": "Evet, aktif biletlerinizi 'Biletlerim' sayfasındaki transfer butonu ile başka bir PORTAL kullanıcısına gönderebilirsiniz." }
+      {
+        "q": "Biletimi nasıl kullanırım?",
+        "a": "Satın aldığınız bilet, 'Biletlerim' sayfasında QR kod olarak görünür. Etkinlik girişinde bu QR kodu göstermeniz yeterlidir. QR kod güvenlik için periyodik olarak güncellenir."
+      },
+      {
+        "q": "Bilet iadesi yapabilir miyim?",
+        "a": "Etkinlikten 48 saat öncesine kadar bilet iadesi yapabilirsiniz. İade işlemi 'Biletlerim' sayfasından gerçekleştirilebilir. İade, ödeme yönteminize 3-5 iş günü içinde yansır."
+      },
+      {
+        "q": "Biletimi başka birine transfer edebilir miyim?",
+        "a": "Evet, aktif biletlerinizi 'Biletlerim' sayfasındaki transfer butonu ile başka bir PORTAL kullanıcısına gönderebilirsiniz."
+      }
     ],
     "organizers": [
-      { "q": "Organizatör olmak için ne yapmalıyım?", "a": "Hesabınızdan organizatör başvurusu yapabilirsiniz. Başvurunuz incelendikten sonra organizatör panelinize erişebilirsiniz. Demo hesapla da paneli deneyebilirsiniz." },
-      { "q": "Etkinlik oluşturmak ücretli mi?", "a": "Starter planı ile aylık 2 etkinliğe kadar ücretsiz oluşturabilirsiniz. Daha fazlası için Pro veya Enterprise planlarımıza göz atabilirsiniz." },
-      { "q": "Doping sistemi nedir?", "a": "Doping, etkinliklerinizin platformda daha fazla görünürlük kazanmasını sağlayan bir tanıtım aracıdır. Ana sayfa öne çıkarma, arama sonuçlarında üst sıra ve topluluk önerileri gibi seçenekler mevcuttur." }
+      {
+        "q": "Organizatör olmak için ne yapmalıyım?",
+        "a": "Hesabınızdan organizatör başvurusu yapabilirsiniz. Başvurunuz incelendikten sonra organizatör panelinize erişebilirsiniz. Demo hesapla da paneli deneyebilirsiniz."
+      },
+      {
+        "q": "Etkinlik oluşturmak ücretli mi?",
+        "a": "Starter planı ile aylık 2 etkinliğe kadar ücretsiz oluşturabilirsiniz. Daha fazlası için Pro veya Enterprise planlarımıza göz atabilirsiniz."
+      },
+      {
+        "q": "Doping sistemi nedir?",
+        "a": "Doping, etkinliklerinizin platformda daha fazla görünürlük kazanmasını sağlayan bir tanıtım aracıdır. Ana sayfa öne çıkarma, arama sonuçlarında üst sıra ve topluluk önerileri gibi seçenekler mevcuttur."
+      }
     ],
     "account": [
-      { "q": "Şifremi nasıl sıfırlarım?", "a": "Giriş ekranında 'Şifremi Unuttum' bağlantısına tıklayarak e-posta adresinize sıfırlama linki gönderebilirsiniz." },
-      { "q": "Hesabımı nasıl silebilirim?", "a": "Hesap Ayarları sayfasından hesap silme talebinde bulunabilirsiniz. Talebin ardından verileriniz 30 gün içinde kalıcı olarak silinir." },
-      { "q": "Verilerim güvende mi?", "a": "Evet, tüm verileriniz şifreli olarak saklanır ve KVKK mevzuatına uygun şekilde işlenir. Detaylar için Gizlilik Politikamızı inceleyebilirsiniz." }
+      {
+        "q": "Şifremi nasıl sıfırlarım?",
+        "a": "Giriş ekranında 'Şifremi Unuttum' bağlantısına tıklayarak e-posta adresinize sıfırlama linki gönderebilirsiniz."
+      },
+      {
+        "q": "Hesabımı nasıl silebilirim?",
+        "a": "Hesap Ayarları sayfasından hesap silme talebinde bulunabilirsiniz. Talebin ardından verileriniz 30 gün içinde kalıcı olarak silinir."
+      },
+      {
+        "q": "Verilerim güvende mi?",
+        "a": "Evet, tüm verileriniz şifreli olarak saklanır ve KVKK mevzuatına uygun şekilde işlenir. Detaylar için Gizlilik Politikamızı inceleyebilirsiniz."
+      }
     ]
   },
   "ContactPage": {

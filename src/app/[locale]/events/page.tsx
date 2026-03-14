@@ -100,21 +100,6 @@ export default function EventsPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <FadeInUp>
-              <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
-                {t("label")}
-              </span>
-              <h1 className="display-lg mt-4 mb-6">
-                <AnimatedWords text={t("title")} delay={0.2} />
-              </h1>
-              <p className="text-muted text-sm max-w-md mx-auto">
-                {t("description")}
-              </p>
-            </FadeInUp>
-          </div>
-
           {/* Explore on Map CTA */}
           <FadeInUp delay={0.25}>
             <Link href="/explore-map">

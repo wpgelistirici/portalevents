@@ -40,21 +40,6 @@ export default function VenuesPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Header */}
-          <div className="text-center mb-20">
-            <FadeInUp>
-              <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">
-                {t("label")}
-              </span>
-              <h1 className="display-lg mt-4 mb-6">
-                <AnimatedWords text={t("title")} delay={0.2} />
-              </h1>
-              <p className="text-muted text-sm max-w-md mx-auto">
-                {t("description")}
-              </p>
-            </FadeInUp>
-          </div>
-
           {/* Venues grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {venues.map((venue, i) => (
