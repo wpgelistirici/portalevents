@@ -1403,36 +1403,134 @@
   },
   "IntegrationsPage": {
     "label": "Entegrasyonlar",
-    "titleLine1": "Güçlü",
+    "titleLine1": "Developer API &",
     "titleLine2": "Entegrasyonlar",
-    "description": "Favori araçlarınızı PORTAL ile bağlayın. Ödeme, analitik, bildirim ve daha fazlası.",
-    "configure": "Yapılandır",
-    "statusActive": "Aktif",
-    "statusBeta": "Beta",
-    "statusSoon": "Yakında",
-    "stripe": {
-      "name": "Stripe",
-      "description": "Güvenli ödeme altyapısı ile bilet satışlarınızı yönetin. PCI DSS uyumlu, 135+ para birimi desteği."
+    "description": "PORTAL'ın güçlü API'ları ile etkinlik, bilet, sanatçı ve mekan verilerine erişin. Kendi platformunuza entegre edin.",
+    "statRequests": "Günlük İstek",
+    "statRequestsValue": "2M+",
+    "statUptime": "Uptime",
+    "statUptimeValue": "99.9%",
+    "statLatency": "Ortalama Gecikme",
+    "statLatencyValue": "<50ms",
+    "statDevelopers": "Geliştirici",
+    "statDevelopersValue": "500+",
+    "servicesTitle": "API Hizmetleri",
+    "servicesDesc": "Etkinlik ekosisteminin tüm bileşenlerine RESTful API'lar ile erişin.",
+    "events": {
+      "title": "Etkinlikler API",
+      "description": "Etkinlikleri listeleyin, filtreleyin ve detay bilgilerine erişin. Şehir, tarih, tür ve sanatçıya göre arama yapın.",
+      "features": ["Filtreleme", "Arama", "Pagination", "Gerçek Zamanlı"]
     },
-    "googleAnalytics": {
-      "name": "Google Analytics",
-      "description": "Etkinlik sayfalarınızın performansını takip edin. Ziyaretçi davranışı, dönüşüm oranları ve daha fazlası."
+    "tickets": {
+      "title": "Bilet Satış API",
+      "description": "Bilet kategorilerini sorgulayın, müsaitlik kontrolü yapın ve satış süreçlerini yönetin.",
+      "features": ["Müsaitlik", "Fiyatlandırma", "Rezervasyon", "Doğrulama"]
     },
-    "whatsapp": {
-      "name": "WhatsApp Business",
-      "description": "Katılımcılarınıza WhatsApp üzerinden otomatik bilet ve hatırlatma bildirimleri gönderin."
+    "artists": {
+      "title": "Sanatçılar API",
+      "description": "Sanatçı profillerine, biyografilere, etkinlik geçmişine ve upcoming gösterilere erişin.",
+      "features": ["Profiller", "Etkinlik Geçmişi", "Türler", "Arama"]
     },
-    "spotify": {
-      "name": "Spotify",
-      "description": "Etkinlik sayfalarında sanatçının Spotify profilini ve popüler parçalarını gösterin."
+    "venues": {
+      "title": "Mekanlar API",
+      "description": "Mekan bilgilerini, kapasitelerini, konumlarını ve müsait tarihlerini sorgulayın.",
+      "features": ["Konum", "Kapasite", "Galeri", "Müsaitlik"]
     },
-    "metaAds": {
-      "name": "Meta Ads",
-      "description": "Facebook ve Instagram reklamları ile etkinliklerinizi hedef kitlenize ulaştırın."
+    "codeTitle": "Hızlı Başlangıç",
+    "codeDesc": "JavaScript SDK ile birkaç satır kodda PORTAL verilerine erişin.",
+    "useCasesTitle": "Kimler Kullanıyor?",
+    "useCasesDesc": "API'larımızı kullanan farklı sektörlerden geliştiriciler.",
+    "useCases": {
+      "ticketPlatforms": {
+        "title": "Bilet Platformları",
+        "description": "Kendi bilet satış platformunuzda PORTAL etkinliklerini listeleyin ve bilet satışını entegre edin."
+      },
+      "eventAggregators": {
+        "title": "Etkinlik Toplayıcıları",
+        "description": "Etkinlik verilerini kendi web sitenizde veya uygulamanızda gösterin, şehir rehberleri oluşturun."
+      },
+      "mobileDevelopers": {
+        "title": "Mobil Geliştiriciler",
+        "description": "iOS ve Android uygulamalarınızda etkinlik keşfi, bilet satın alma ve sanatçı takibi özelliklerini sunun."
+      },
+      "analytics": {
+        "title": "Veri & Analitik",
+        "description": "Etkinlik ve bilet satış verilerini analiz edin, trendleri takip edin, raporlar oluşturun."
+      }
     },
-    "zapier": {
-      "name": "Zapier",
-      "description": "5000+ uygulama ile PORTAL'ı bağlayın. Otomatik iş akışları oluşturun."
+    "ctaTitle": "Geliştirmeye Başlayın",
+    "ctaDesc": "Ücretsiz API anahtarınızı alın ve dakikalar içinde entegrasyona başlayın. Sandbox ortamı ile güvenle test edin.",
+    "ctaDocs": "API Dokümantasyonu",
+    "ctaContact": "Bize Ulaşın"
+  },
+  "BecomeOrganizerPage": {
+    "label": "Organizatörler İçin",
+    "titleLine1": "Etkinliklerini",
+    "titleLine2": "dünyaya aç",
+    "description": "Portal'ın güçlü araçlarıyla etkinlik oluştur, bilet sat, kitlenizi büyüt.",
+    "ctaPrimary": "Hemen Başvur",
+    "ctaSecondary": "Zaten organizatör müsünüz? Dashboard'a gidin",
+    "features": {
+      "ticketing": "Bilet Yönetimi",
+      "ticketingDesc": "Dinamik fiyatlandırma ve anlık satış takibi",
+      "analytics": "Analitik Dashboard",
+      "analyticsDesc": "Gerçek zamanlı veri ve derinlemesine raporlar",
+      "audience": "Kitle Analizi",
+      "audienceDesc": "Hedef kitlenizi tanıyın ve büyüyün",
+      "promotion": "Promosyon Araçları",
+      "promotionDesc": "Yerleşik pazarlama ve tanıtım çözümleri",
+      "checkin": "QR Check-in",
+      "checkinDesc": "Hızlı bilet doğrulama sistemi",
+      "coupon": "Kupon & İndirim",
+      "couponDesc": "Özel promosyon kodları oluşturun",
+      "venue": "Mekan Yönetimi",
+      "venueDesc": "Mekan ekleme ve kapasite kontrolü",
+      "support": "24/7 Destek",
+      "supportDesc": "Her zaman yanınızdayız"
+    },
+    "stats": {
+      "organizers": "Aktif Organizatör",
+      "sales": "Bilet Satışı",
+      "satisfaction": "Memnuniyet",
+      "support": "Destek"
+    },
+    "form": {
+      "title": "Organizatör Başvurusu",
+      "subtitle": "Formu doldur, ekibimiz 48 saat içinde sana ulaşsın.",
+      "sectionPersonal": "Kişisel Bilgiler",
+      "sectionOrg": "Organizasyon Bilgileri",
+      "sectionDetails": "Detaylar",
+      "fullName": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "city": "Şehir",
+      "orgName": "Organizasyon Adı",
+      "eventCount": "Yıllık Etkinlik Sayısı",
+      "eventCountOpt1": "1-5",
+      "eventCountOpt2": "5-20",
+      "eventCountOpt3": "20-50",
+      "eventCountOpt4": "50+",
+      "about": "Hakkında",
+      "aboutPlaceholder": "Kendinizi ve etkinliklerinizi kısaca anlatın...",
+      "instagram": "Instagram URL",
+      "twitter": "Twitter/X URL",
+      "referral": "Referans",
+      "categories": "Etkinlik Kategorileri",
+      "catMusic": "Müzik",
+      "catTheatre": "Tiyatro",
+      "catStandup": "Stand-up",
+      "catSport": "Spor",
+      "catArt": "Sanat",
+      "catTech": "Teknoloji",
+      "catOther": "Diğer",
+      "submit": "Başvuruyu Gönder",
+      "submitting": "Gönderiliyor...",
+      "successTitle": "Başvurunuz alındı!",
+      "successDesc": "Ekibimiz 48 saat içinde e-posta adresinize ulaşacak.",
+      "errorGeneric": "Bir hata oluştu. Lütfen tekrar deneyin.",
+      "errorRequired": "Bu alan zorunludur.",
+      "errorEmail": "Geçerli bir e-posta adresi girin.",
+      "errorUrl": "Geçerli bir URL girin."
     }
   }
 }

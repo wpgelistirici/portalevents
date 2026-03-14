@@ -1465,36 +1465,134 @@
   },
   "IntegrationsPage": {
     "label": "Integrations",
-    "titleLine1": "Powerful",
+    "titleLine1": "Developer API &",
     "titleLine2": "Integrations",
-    "description": "Connect your favorite tools with PORTAL. Payments, analytics, notifications, and more.",
-    "configure": "Configure",
-    "statusActive": "Active",
-    "statusBeta": "Beta",
-    "statusSoon": "Soon",
-    "stripe": {
-      "name": "Stripe",
-      "description": "Manage your ticket sales with a secure payment infrastructure. PCI DSS compliant, 135+ currency support."
+    "description": "Access events, tickets, artists, and venue data through PORTAL's powerful APIs. Integrate into your own platform.",
+    "statRequests": "Daily Requests",
+    "statRequestsValue": "2M+",
+    "statUptime": "Uptime",
+    "statUptimeValue": "99.9%",
+    "statLatency": "Avg Latency",
+    "statLatencyValue": "<50ms",
+    "statDevelopers": "Developers",
+    "statDevelopersValue": "500+",
+    "servicesTitle": "API Services",
+    "servicesDesc": "Access all components of the event ecosystem through RESTful APIs.",
+    "events": {
+      "title": "Events API",
+      "description": "List, filter, and access event details. Search by city, date, genre, and artist.",
+      "features": ["Filtering", "Search", "Pagination", "Real-time"]
     },
-    "googleAnalytics": {
-      "name": "Google Analytics",
-      "description": "Track the performance of your event pages. Visitor behavior, conversion rates, and more."
+    "tickets": {
+      "title": "Ticket Sales API",
+      "description": "Query ticket categories, check availability, and manage the sales process.",
+      "features": ["Availability", "Pricing", "Reservation", "Validation"]
     },
-    "whatsapp": {
-      "name": "WhatsApp Business",
-      "description": "Send automatic ticket and reminder notifications to your attendees via WhatsApp."
+    "artists": {
+      "title": "Artists API",
+      "description": "Access artist profiles, biographies, event history, and upcoming shows.",
+      "features": ["Profiles", "Event History", "Genres", "Search"]
     },
-    "spotify": {
-      "name": "Spotify",
-      "description": "Show the artist's Spotify profile and popular tracks on event pages."
+    "venues": {
+      "title": "Venues API",
+      "description": "Query venue information, capacities, locations, and available dates.",
+      "features": ["Location", "Capacity", "Gallery", "Availability"]
     },
-    "metaAds": {
-      "name": "Meta Ads",
-      "description": "Reach your target audience with Facebook and Instagram ads for your events."
+    "codeTitle": "Quick Start",
+    "codeDesc": "Access PORTAL data in just a few lines of code with the JavaScript SDK.",
+    "useCasesTitle": "Who Uses It?",
+    "useCasesDesc": "Developers from various industries using our APIs.",
+    "useCases": {
+      "ticketPlatforms": {
+        "title": "Ticket Platforms",
+        "description": "List PORTAL events on your own ticket platform and integrate ticket sales."
+      },
+      "eventAggregators": {
+        "title": "Event Aggregators",
+        "description": "Display event data on your website or app, create city guides."
+      },
+      "mobileDevelopers": {
+        "title": "Mobile Developers",
+        "description": "Offer event discovery, ticket purchasing, and artist following features in your iOS and Android apps."
+      },
+      "analytics": {
+        "title": "Data & Analytics",
+        "description": "Analyze event and ticket sales data, track trends, and generate reports."
+      }
     },
-    "zapier": {
-      "name": "Zapier",
-      "description": "Connect PORTAL with 5000+ apps. Create automated workflows."
+    "ctaTitle": "Start Building",
+    "ctaDesc": "Get your free API key and start integrating in minutes. Test safely with our sandbox environment.",
+    "ctaDocs": "API Documentation",
+    "ctaContact": "Contact Us"
+  },
+  "BecomeOrganizerPage": {
+    "label": "For Organizers",
+    "titleLine1": "Take your events",
+    "titleLine2": "to the world",
+    "description": "Create events, sell tickets, and grow your audience with Portal's powerful tools.",
+    "ctaPrimary": "Apply Now",
+    "ctaSecondary": "Already an organizer? Go to Dashboard",
+    "features": {
+      "ticketing": "Ticket Management",
+      "ticketingDesc": "Dynamic pricing and real-time sales tracking",
+      "analytics": "Analytics Dashboard",
+      "analyticsDesc": "Real-time data and in-depth reports",
+      "audience": "Audience Analysis",
+      "audienceDesc": "Know your audience and grow",
+      "promotion": "Promotion Tools",
+      "promotionDesc": "Built-in marketing and promotion solutions",
+      "checkin": "QR Check-in",
+      "checkinDesc": "Fast ticket validation system",
+      "coupon": "Coupons & Discounts",
+      "couponDesc": "Create custom promo codes",
+      "venue": "Venue Management",
+      "venueDesc": "Add venues and manage capacity",
+      "support": "24/7 Support",
+      "supportDesc": "We're always here for you"
+    },
+    "stats": {
+      "organizers": "Active Organizers",
+      "sales": "Ticket Sales",
+      "satisfaction": "Satisfaction",
+      "support": "Support"
+    },
+    "form": {
+      "title": "Organizer Application",
+      "subtitle": "Fill out the form and our team will reach out within 48 hours.",
+      "sectionPersonal": "Personal Information",
+      "sectionOrg": "Organization Details",
+      "sectionDetails": "Additional Details",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "orgName": "Organization Name",
+      "eventCount": "Annual Event Count",
+      "eventCountOpt1": "1-5",
+      "eventCountOpt2": "5-20",
+      "eventCountOpt3": "20-50",
+      "eventCountOpt4": "50+",
+      "about": "About",
+      "aboutPlaceholder": "Tell us briefly about yourself and your events...",
+      "instagram": "Instagram URL",
+      "twitter": "Twitter/X URL",
+      "referral": "Referral",
+      "categories": "Event Categories",
+      "catMusic": "Music",
+      "catTheatre": "Theatre",
+      "catStandup": "Stand-up",
+      "catSport": "Sports",
+      "catArt": "Art",
+      "catTech": "Technology",
+      "catOther": "Other",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "successTitle": "Application received!",
+      "successDesc": "Our team will reach out to your email within 48 hours.",
+      "errorGeneric": "Something went wrong. Please try again.",
+      "errorRequired": "This field is required.",
+      "errorEmail": "Please enter a valid email address.",
+      "errorUrl": "Please enter a valid URL."
     }
   }
 }

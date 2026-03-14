@@ -22,7 +22,7 @@ const footerLinkKeys = {
     { key: "community", href: "/community" },
   ],
   platform: [
-    { key: "organizer", href: "/organizer" },
+    { key: "organizer", href: "/become-organizer" },
     { key: "pricing", href: "/pricing" },
     { key: "api", href: "/api-docs" },
     { key: "integrations", href: "/integrations" },

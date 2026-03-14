@@ -1403,36 +1403,134 @@
   },
   "IntegrationsPage": {
     "label": "集成",
-    "titleLine1": "强大的",
+    "titleLine1": "开发者 API &",
     "titleLine2": "集成",
-    "description": "将您喜爱的工具与PORTAL连接。支付、分析、通知等。",
-    "configure": "配置",
-    "statusActive": "已启用",
-    "statusBeta": "测试版",
-    "statusSoon": "即将推出",
-    "stripe": {
-      "name": "Stripe",
-      "description": "通过安全的支付基础设施管理门票销售。符合PCI DSS标准，支持135+种货币。"
+    "description": "通过PORTAL强大的API访问活动、门票、艺术家和场馆数据。集成到您自己的平台中。",
+    "statRequests": "每日请求",
+    "statRequestsValue": "200万+",
+    "statUptime": "正常运行",
+    "statUptimeValue": "99.9%",
+    "statLatency": "平均延迟",
+    "statLatencyValue": "<50ms",
+    "statDevelopers": "开发者",
+    "statDevelopersValue": "500+",
+    "servicesTitle": "API 服务",
+    "servicesDesc": "通过RESTful API访问活动生态系统的所有组件。",
+    "events": {
+      "title": "活动 API",
+      "description": "列出、筛选和访问活动详情。按城市、日期、类型和艺术家搜索。",
+      "features": ["筛选", "搜索", "分页", "实时"]
     },
-    "googleAnalytics": {
-      "name": "Google Analytics",
-      "description": "跟踪活动页面的表现。访客行为、转化率等。"
+    "tickets": {
+      "title": "门票销售 API",
+      "description": "查询门票类别、检查可用性并管理销售流程。",
+      "features": ["可用性", "定价", "预订", "验证"]
     },
-    "whatsapp": {
-      "name": "WhatsApp Business",
-      "description": "通过WhatsApp向参与者发送自动门票和提醒通知。"
+    "artists": {
+      "title": "艺术家 API",
+      "description": "访问艺术家资料、传记、活动历史和即将举行的演出。",
+      "features": ["资料", "活动历史", "类型", "搜索"]
     },
-    "spotify": {
-      "name": "Spotify",
-      "description": "在活动页面上展示艺术家的Spotify资料和热门曲目。"
+    "venues": {
+      "title": "场馆 API",
+      "description": "查询场馆信息、容量、位置和可用日期。",
+      "features": ["位置", "容量", "图库", "可用性"]
     },
-    "metaAds": {
-      "name": "Meta Ads",
-      "description": "通过Facebook和Instagram广告将活动推广给目标受众。"
+    "codeTitle": "快速开始",
+    "codeDesc": "使用JavaScript SDK，只需几行代码即可访问PORTAL数据。",
+    "useCasesTitle": "谁在使用？",
+    "useCasesDesc": "来自各行业的开发者使用我们的API。",
+    "useCases": {
+      "ticketPlatforms": {
+        "title": "票务平台",
+        "description": "在您的票务平台上列出PORTAL活动并集成门票销售。"
+      },
+      "eventAggregators": {
+        "title": "活动聚合器",
+        "description": "在您的网站或应用上显示活动数据，创建城市指南。"
+      },
+      "mobileDevelopers": {
+        "title": "移动开发者",
+        "description": "在iOS和Android应用中提供活动发现、购票和关注艺术家功能。"
+      },
+      "analytics": {
+        "title": "数据与分析",
+        "description": "分析活动和门票销售数据，跟踪趋势，生成报告。"
+      }
     },
-    "zapier": {
-      "name": "Zapier",
-      "description": "将PORTAL与5000+应用连接。创建自动化工作流程。"
+    "ctaTitle": "开始构建",
+    "ctaDesc": "获取免费API密钥，几分钟内开始集成。使用沙盒环境安全测试。",
+    "ctaDocs": "API 文档",
+    "ctaContact": "联系我们"
+  },
+  "BecomeOrganizerPage": {
+    "label": "面向主办方",
+    "titleLine1": "让你的活动",
+    "titleLine2": "走向世界",
+    "description": "使用Portal的强大工具创建活动、销售门票并扩大受众群体。",
+    "ctaPrimary": "立即申请",
+    "ctaSecondary": "已是主办方？前往控制台",
+    "features": {
+      "ticketing": "票务管理",
+      "ticketingDesc": "动态定价与实时销售追踪",
+      "analytics": "数据分析",
+      "analyticsDesc": "实时数据与深度报告",
+      "audience": "受众分析",
+      "audienceDesc": "了解你的受众并持续增长",
+      "promotion": "推广工具",
+      "promotionDesc": "内置营销与推广解决方案",
+      "checkin": "二维码签到",
+      "checkinDesc": "快速票务验证系统",
+      "coupon": "优惠券与折扣",
+      "couponDesc": "创建自定义促销码",
+      "venue": "场馆管理",
+      "venueDesc": "添加场馆并管理容量",
+      "support": "全天候支持",
+      "supportDesc": "随时为你提供帮助"
+    },
+    "stats": {
+      "organizers": "活跃主办方",
+      "sales": "门票销售",
+      "satisfaction": "满意度",
+      "support": "支持服务"
+    },
+    "form": {
+      "title": "主办方申请",
+      "subtitle": "填写表单，我们的团队将在48小时内与您联系。",
+      "sectionPersonal": "个人信息",
+      "sectionOrg": "组织信息",
+      "sectionDetails": "附加信息",
+      "fullName": "姓名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "city": "城市",
+      "orgName": "组织名称",
+      "eventCount": "年度活动数量",
+      "eventCountOpt1": "1-5",
+      "eventCountOpt2": "5-20",
+      "eventCountOpt3": "20-50",
+      "eventCountOpt4": "50+",
+      "about": "简介",
+      "aboutPlaceholder": "简要介绍您自己和您的活动...",
+      "instagram": "Instagram 链接",
+      "twitter": "Twitter/X 链接",
+      "referral": "推荐人",
+      "categories": "活动类别",
+      "catMusic": "音乐",
+      "catTheatre": "戏剧",
+      "catStandup": "脱口秀",
+      "catSport": "体育",
+      "catArt": "艺术",
+      "catTech": "科技",
+      "catOther": "其他",
+      "submit": "提交申请",
+      "submitting": "提交中...",
+      "successTitle": "申请已收到！",
+      "successDesc": "我们的团队将在48小时内通过您的电子邮件与您联系。",
+      "errorGeneric": "出现错误，请重试。",
+      "errorRequired": "此字段为必填项。",
+      "errorEmail": "请输入有效的电子邮件地址。",
+      "errorUrl": "请输入有效的URL。"
     }
   }
 }
