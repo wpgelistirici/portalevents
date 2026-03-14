@@ -8,6 +8,7 @@
     "artists": "Artists",
     "venues": "Venues",
     "community": "Community",
+    "buddy": "Buddy",
     "myTickets": "My Tickets",
     "location": "Istanbul",
     "login": "Sign In",
@@ -228,7 +229,10 @@
     "save": "Save",
     "reportPost": "Report",
     "clearFilter": "Clear filter",
-    "defaultUser": "User"
+    "defaultUser": "User",
+    "buddyTitle": "Find Your Event Buddy",
+    "buddyDescription": "Going to the same event? Match with other attendees and chat before the event!",
+    "buddyButton": "Find Buddy"
   },
   "AuthModal": {
     "loginTitle": "Welcome back",
@@ -1594,5 +1598,28 @@
       "errorEmail": "Please enter a valid email address.",
       "errorUrl": "Please enter a valid URL."
     }
+  },
+  "BuddyPage": {
+    "label": "Find Buddy",
+    "title": "FIND YOUR EVENT BUDDY",
+    "description": "Going to the same event? Like each other's profiles and match! Chat with your event buddies and never attend alone again.",
+    "statUsers": "Active Users",
+    "statMatches": "Matches This Month",
+    "statEvents": "Events with Buddies",
+    "tabDiscover": "Discover",
+    "tabMatches": "Matches",
+    "selectEvent": "Select an Event",
+    "attending": "attending",
+    "noEventSelected": "Select an Event",
+    "noEventSelectedDesc": "Choose an event above to discover who else is going and find your buddy.",
+    "noMatchesYet": "No Matches Yet",
+    "noMatchesDesc": "Like other attendees' profiles. If they like you back, you match and can chat!",
+    "startDiscovering": "Start Discovering",
+    "allDoneTitle": "You've seen everyone!",
+    "allDoneDesc": "You've gone through all attendees for this event.",
+    "matchCount": "matches",
+    "viewMatches": "View Matches",
+    "tryAnother": "Try Another Event",
+    "swipeHint": "Swipe right to like · Swipe left to pass"
   }
 }

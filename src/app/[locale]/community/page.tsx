@@ -2091,6 +2091,30 @@ export default function CommunityPage() {
                 </div>
               </ScaleIn>
 
+              {/* Buddy CTA */}
+              <ScaleIn delay={0.15}>
+                <div className="rounded-2xl p-6 text-center overflow-hidden relative border border-gold/20 bg-gradient-to-br from-gold/10 via-transparent to-gold/5">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gold/10 rounded-full -translate-y-6 translate-x-6 blur-xl" />
+                  <div className="relative z-10">
+                    <div className="w-10 h-10 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center mx-auto mb-3">
+                      <Heart size={16} className="text-gold fill-gold/40" />
+                    </div>
+                    <h4 className="text-sm font-bold mb-1.5">{t("buddyTitle")}</h4>
+                    <p className="text-[11px] text-muted mb-4 leading-relaxed">
+                      {t("buddyDescription")}
+                    </p>
+                    <Link
+                      href="/buddy"
+                      data-cursor-hover
+                      className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gold text-black text-xs font-bold rounded-full hover:bg-gold/90 transition-all"
+                    >
+                      <Users size={11} />
+                      {t("buddyButton")}
+                    </Link>
+                  </div>
+                </div>
+              </ScaleIn>
+
               {/* Premium CTA */}
               <ScaleIn delay={0.2}>
                 <div className="glass rounded-2xl p-6 text-center border border-dashed border-gold/20">

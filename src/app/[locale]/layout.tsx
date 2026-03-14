@@ -8,6 +8,7 @@ import { AuthProvider } from "@/lib/auth-context";
 import { SavedProvider } from "@/lib/saved-context";
 import { OrganizerProvider } from "@/lib/organizer-context";
 import { ThemeProvider } from "@/lib/theme-context";
+import { BuddyProvider } from "@/lib/buddy-context";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -71,7 +72,9 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <AuthProvider>
               <SavedProvider>
-                <OrganizerProvider>{children}</OrganizerProvider>
+                <BuddyProvider>
+                  <OrganizerProvider>{children}</OrganizerProvider>
+                </BuddyProvider>
               </SavedProvider>
             </AuthProvider>
           </ThemeProvider>

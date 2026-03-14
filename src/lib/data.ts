@@ -1467,7 +1467,7 @@ export const communityPosts: CommunityPost[] = [
     avatar:
       "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
     content:
-      "Dün geceki Amelie Lens seti hayatımda gördüğüm en iyi performanstı! Klein'in atmosferi bambaşkaydı 🔥",
+      "Dün geceki Amelie Lens seti hayatımda gördüğüm en iyi performanstı! Klein'in atmosferi bambaşkaydı 🔥 #TechnoNight #KleinIstanbul",
     likes: 234,
     comments: 45,
     time: "2s önce",
@@ -1480,7 +1480,7 @@ export const communityPosts: CommunityPost[] = [
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     content:
-      "Neon Pulse Festival için bilet arayışı! İstanbul'dan gidecek var mı? Grup oluşturalım!",
+      "Neon Pulse Festival için bilet arayışı! İstanbul'dan gidecek var mı? Grup oluşturalım! #NeonPulseFestival #İstanbulMüzik",
     likes: 128,
     comments: 89,
     time: "15dk önce",
@@ -1491,7 +1491,7 @@ export const communityPosts: CommunityPost[] = [
     avatar:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
     content:
-      "Bonobo'nun yeni albümünü dinleyen var mı? Konser öncesi hazırlık playlistim hazır 🎵",
+      "Bonobo'nun yeni albümünü dinleyen var mı? Konser öncesi hazırlık playlistim hazır 🎵 #BonoboLive",
     likes: 456,
     comments: 67,
     time: "1s önce",
@@ -1502,10 +1502,23 @@ export const communityPosts: CommunityPost[] = [
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
     content:
-      "Ankara'daki müzik sahnesinin son 2 yılda ne kadar büyüdüğüne inanamıyorum. Her hafta kaliteli bir etkinlik var!",
+      "Ankara'daki müzik sahnesinin son 2 yılda ne kadar büyüdüğüne inanamıyorum. Her hafta kaliteli bir etkinlik var! #İstanbulMüzik",
     likes: 312,
     comments: 34,
     time: "3s önce",
+  },
+  {
+    id: "5",
+    user: "Selin D.",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+    content:
+      "Dün geceyi taçlandıran #JazzUnderStars performansı inanılmazdı. Yıldızların altında caz dinlemek başka bir his 🎷✨",
+    likes: 189,
+    comments: 23,
+    time: "4s önce",
+    image:
+      "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&h=400&fit=crop",
   },
 ];
 

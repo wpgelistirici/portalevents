@@ -8,6 +8,7 @@
     "artists": "Sanatçılar",
     "venues": "Mekanlar",
     "community": "Topluluk",
+    "buddy": "Buddy",
     "myTickets": "Biletlerim",
     "location": "İstanbul",
     "login": "Giriş Yap",
@@ -169,6 +170,7 @@
     "byDate": "Tarih",
     "byPopularity": "Popülerlik"
   },
+  "ArtistsPage": {
     "label": "Sanatçılar",
     "title": "Sahneyi Aydınlatanlar",
     "description": "En sevdiğin sanatçıları keşfet, takip et ve yaklaşan etkinliklerini kaçırma.",
@@ -227,7 +229,10 @@
     "save": "Kaydet",
     "reportPost": "Şikayet et",
     "clearFilter": "Filtreyi kaldır",
-    "defaultUser": "Kullanıcı"
+    "defaultUser": "Kullanıcı",
+    "buddyTitle": "Etkinlik Buddyn'i Bul",
+    "buddyDescription": "Aynı etkinliğe mi gidiyorsunuz? Diğer katılımcılarla eşleş, etkinlik öncesi sohbet et!",
+    "buddyButton": "Buddy Bul"
   },
   "AuthModal": {
     "loginTitle": "Tekrar hoş geldin",
@@ -1532,5 +1537,28 @@
       "errorEmail": "Geçerli bir e-posta adresi girin.",
       "errorUrl": "Geçerli bir URL girin."
     }
+  },
+  "BuddyPage": {
+    "label": "Buddy Bul",
+    "title": "ETKİNLİK BUDDYN'İ BUL",
+    "description": "Aynı etkinliğe mi gidiyorsunuz? Profilleri beğenin, eşleşin! Etkinlik arkadaşlarınla sohbet et ve artık hiç yalnız gitme.",
+    "statUsers": "Aktif Kullanıcı",
+    "statMatches": "Bu Ay Eşleşme",
+    "statEvents": "Buddy'li Etkinlik",
+    "tabDiscover": "Keşfet",
+    "tabMatches": "Eşleşmeler",
+    "selectEvent": "Etkinlik Seç",
+    "attending": "katılımcı",
+    "noEventSelected": "Bir Etkinlik Seç",
+    "noEventSelectedDesc": "Yukarıdan bir etkinlik seçerek kimlerin gittiğini keşfet ve buddy bul.",
+    "noMatchesYet": "Henüz Eşleşme Yok",
+    "noMatchesDesc": "Diğer katılımcıların profillerini beğen. Onlar da seni beğenirse eşleşirsiniz ve sohbet edebilirsiniz!",
+    "startDiscovering": "Keşfetmeye Başla",
+    "allDoneTitle": "Herkesi gördün!",
+    "allDoneDesc": "Bu etkinlikteki tüm katılımcıları geçtin.",
+    "matchCount": "eşleşme",
+    "viewMatches": "Eşleşmeleri Gör",
+    "tryAnother": "Başka Etkinlik Dene",
+    "swipeHint": "Beğenmek için sağa · Geçmek için sola kaydır"
   }
 }
