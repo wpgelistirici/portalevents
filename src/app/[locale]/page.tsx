@@ -21,10 +21,22 @@ const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
 });
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introComplete, setIntroComplete] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("portal-intro-seen") === "true";
+    }
+    return false;
+  });
 
   if (!introComplete) {
-    return <IntroVideo onComplete={() => setIntroComplete(true)} />;
+    return (
+      <IntroVideo
+        onComplete={() => {
+          localStorage.setItem("portal-intro-seen", "true");
+          setIntroComplete(true);
+        }}
+      />
+    );
   }
 
   return (
