@@ -416,7 +416,7 @@ export const events: Event[] = [
         {
           id: "a1",
           avatar:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
           name: "Elif K.",
           showName: true,
         },
@@ -573,7 +573,7 @@ export const events: Event[] = [
         {
           id: "a1",
           avatar:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
           name: "Elif K.",
           showName: true,
         },
@@ -731,7 +731,7 @@ export const events: Event[] = [
         {
           id: "a7",
           avatar:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
           name: "Elif K.",
           showName: true,
         },
@@ -914,7 +914,7 @@ export const events: Event[] = [
         {
           id: "a1",
           avatar:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
           name: "Elif K.",
           showName: false,
         },
@@ -1065,7 +1065,7 @@ export const events: Event[] = [
         {
           id: "a2",
           avatar:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
           name: "Elif K.",
           showName: false,
         },
@@ -1465,7 +1465,7 @@ export const communityPosts: CommunityPost[] = [
     id: "1",
     user: "Elif K.",
     avatar:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop",
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
     content:
       "Dün geceki Amelie Lens seti hayatımda gördüğüm en iyi performanstı! Klein'in atmosferi bambaşkaydı 🔥",
     likes: 234,
