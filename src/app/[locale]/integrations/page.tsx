@@ -16,75 +16,77 @@ import {
   Megaphone,
   ArrowRight,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-const integrations = [
+const integrationKeys = [
+  "stripe",
+  "googleAnalytics",
+  "whatsapp",
+  "spotify",
+  "metaAds",
+  "zapier",
+] as const;
+
+const integrationMeta: Record<
+  string,
   {
-    name: "Stripe",
-    description:
-      "Güvenli ödeme altyapısı ile bilet satışlarınızı yönetin. PCI DSS uyumlu, 135+ para birimi desteği.",
+    icon: typeof CreditCard;
+    color: string;
+    bg: string;
+    statusKey: "statusActive" | "statusBeta" | "statusSoon";
+  }
+> = {
+  stripe: {
     icon: CreditCard,
     color: "text-purple-400",
     bg: "bg-purple-500/10",
-    status: "Aktif",
+    statusKey: "statusActive",
   },
-  {
-    name: "Google Analytics",
-    description:
-      "Etkinlik sayfalarınızın performansını takip edin. Ziyaretçi davranışı, dönüşüm oranları ve daha fazlası.",
+  googleAnalytics: {
     icon: BarChart3,
     color: "text-blue-400",
     bg: "bg-blue-500/10",
-    status: "Aktif",
+    statusKey: "statusActive",
   },
-  {
-    name: "WhatsApp Business",
-    description:
-      "Katılımcılarınıza WhatsApp üzerinden otomatik bilet ve hatırlatma bildirimleri gönderin.",
+  whatsapp: {
     icon: MessageSquare,
     color: "text-green-400",
     bg: "bg-green-500/10",
-    status: "Aktif",
+    statusKey: "statusActive",
   },
-  {
-    name: "Spotify",
-    description:
-      "Etkinlik sayfalarında sanatçının Spotify profilini ve popüler parçalarını gösterin.",
+  spotify: {
     icon: Music2,
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
-    status: "Beta",
+    statusKey: "statusBeta",
   },
-  {
-    name: "Meta Ads",
-    description:
-      "Facebook ve Instagram reklamları ile etkinliklerinizi hedef kitlenize ulaştırın.",
+  metaAds: {
     icon: Megaphone,
     color: "text-indigo-400",
     bg: "bg-indigo-500/10",
-    status: "Yakında",
+    statusKey: "statusSoon",
   },
-  {
-    name: "Zapier",
-    description:
-      "5000+ uygulama ile PORTAL'ı bağlayın. Otomatik iş akışları oluşturun.",
+  zapier: {
     icon: Puzzle,
     color: "text-orange-400",
     bg: "bg-orange-500/10",
-    status: "Yakında",
+    statusKey: "statusSoon",
   },
-];
+};
 
-const statusColors: Record<string, string> = {
-  Aktif: "text-green-400 bg-green-500/10",
-  Beta: "text-amber-400 bg-amber-500/10",
-  Yakında: "text-muted bg-foreground/5",
+const statusColorMap: Record<string, string> = {
+  statusActive: "text-green-400 bg-green-500/10",
+  statusBeta: "text-amber-400 bg-amber-500/10",
+  statusSoon: "text-muted bg-foreground/5",
 };
 
 export default function IntegrationsPage() {
+  const t = useTranslations("IntegrationsPage");
+
   return (
     <>
       <SmoothScroll />
@@ -111,54 +113,58 @@ export default function IntegrationsPage() {
                 <Puzzle size={28} className="text-primary" />
               </div>
               <h1 className="display-lg mb-4">
-                Güçlü
+                {t("titleLine1")}
                 <br />
-                <span className="text-gradient-primary">Entegrasyonlar</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h1>
               <p className="text-muted text-sm max-w-md mx-auto">
-                Favori araçlarınızı PORTAL ile bağlayın. Ödeme, analitik,
-                bildirim ve daha fazlası.
+                {t("description")}
               </p>
             </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {integrations.map((integration, i) => (
-              <FadeInUp key={integration.name} delay={0.1 + i * 0.05}>
-                <div
-                  className="glass rounded-2xl p-6 h-full flex flex-col group hover:bg-foreground/[0.02] transition-colors"
-                  data-cursor-hover
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl ${integration.bg} flex items-center justify-center`}
-                    >
-                      <integration.icon
-                        size={20}
-                        className={integration.color}
-                      />
+            {integrationKeys.map((key, i) => {
+              const meta = integrationMeta[key];
+              const Icon = meta.icon;
+              const isActive = meta.statusKey === "statusActive";
+
+              return (
+                <FadeInUp key={key} delay={0.1 + i * 0.05}>
+                  <div
+                    className="glass rounded-2xl p-6 h-full flex flex-col group hover:bg-foreground/[0.02] transition-colors"
+                    data-cursor-hover
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-xl ${meta.bg} flex items-center justify-center`}
+                      >
+                        <Icon size={20} className={meta.color} />
+                      </div>
+                      <span
+                        className={`px-2.5 py-1 rounded-full text-[10px] font-semibold ${statusColorMap[meta.statusKey]}`}
+                      >
+                        {t(meta.statusKey)}
+                      </span>
                     </div>
-                    <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-semibold ${statusColors[integration.status]}`}
-                    >
-                      {integration.status}
-                    </span>
+                    <h3 className="text-sm font-bold mb-2">
+                      {t(`${key}.name`)}
+                    </h3>
+                    <p className="text-xs text-muted leading-relaxed flex-1">
+                      {t(`${key}.description`)}
+                    </p>
+                    {isActive && (
+                      <button
+                        className="mt-4 text-xs text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all"
+                        data-cursor-hover
+                      >
+                        {t("configure")} <ArrowRight size={12} />
+                      </button>
+                    )}
                   </div>
-                  <h3 className="text-sm font-bold mb-2">{integration.name}</h3>
-                  <p className="text-xs text-muted leading-relaxed flex-1">
-                    {integration.description}
-                  </p>
-                  {integration.status === "Aktif" && (
-                    <button
-                      className="mt-4 text-xs text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all"
-                      data-cursor-hover
-                    >
-                      Yapılandır <ArrowRight size={12} />
-                    </button>
-                  )}
-                </div>
-              </FadeInUp>
-            ))}
+                </FadeInUp>
+              );
+            })}
           </div>
         </div>
       </main>

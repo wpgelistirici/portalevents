@@ -12,6 +12,7 @@
     "location": "İstanbul",
     "login": "Giriş Yap",
     "accountSettings": "Hesap Ayarları",
+    "allCities": "Tüm Şehirler",
     "savedItems": "Kaydedilenler",
     "organizerPanel": "Organizatör Paneli",
     "adminPanel": "Yönetim Paneli",
@@ -124,7 +125,8 @@
     "appStoreLine1": "App Store'dan",
     "appStoreLine2": "İndir",
     "googlePlayLine1": "Google Play'den",
-    "googlePlayLine2": "İndir"
+    "googlePlayLine2": "İndir",
+    "comingSoon": "Çok yakında!"
   },
   "Footer": {
     "newsletterTitle": "Anı",
@@ -162,9 +164,11 @@
     "noResults": "Aradığınız kriterlere uygun etkinlik bulunamadı.",
     "exploreMapTitle": "Haritada Keşfet",
     "exploreMapDesc": "Tüm etkinlikleri harita üzerinde gör, yakınındaki etkinlikleri bul.",
-    "exploreMapButton": "Haritayı Aç"
+    "exploreMapButton": "Haritayı Aç",
+    "sortBy": "Sırala",
+    "byDate": "Tarih",
+    "byPopularity": "Popülerlik"
   },
-  "ArtistsPage": {
     "label": "Sanatçılar",
     "title": "Sahneyi Aydınlatanlar",
     "description": "En sevdiğin sanatçıları keşfet, takip et ve yaklaşan etkinliklerini kaçırma.",
@@ -217,7 +221,13 @@
     "posts": "paylaşım",
     "premiumTitle": "Premium Topluluk",
     "premiumDescription": "Özel etkinlik davetleri, erken bilet erişimi ve daha fazlası",
-    "premiumButton": "Premium'a Geç"
+    "premiumButton": "Premium'a Geç",
+    "viewPost": "Gönderiyi gör",
+    "unsave": "Kayıttan çıkar",
+    "save": "Kaydet",
+    "reportPost": "Şikayet et",
+    "clearFilter": "Filtreyi kaldır",
+    "defaultUser": "Kullanıcı"
   },
   "AuthModal": {
     "loginTitle": "Tekrar hoş geldin",
@@ -247,6 +257,7 @@
     "demoUser": "Kullanıcı:",
     "demoOrganizer": "Organizatör:",
     "demoAdmin": "Yönetici:",
+    "resetSent": "Sıfırlama linki gönderildi!",
     "errors": {
       "invalidCredentials": "E-posta veya şifre hatalı.",
       "emailExists": "Bu e-posta adresi zaten kayıtlı.",
@@ -316,6 +327,9 @@
     "similarEvents": "Benzer Etkinlikler",
     "notFound": "Etkinlik bulunamadı",
     "notFoundDesc": "Aradığınız etkinlik mevcut değil veya kaldırılmış olabilir.",
+    "linkCopied": "Link kopyalandı!",
+    "reportSent": "Rapor gönderildi",
+    "verifiedOrganizer": "Doğrulanmış Organizatör",
     "youHaveTicket": "Biletiniz Var!",
     "purchasedTicketType": "Bilet Tipi",
     "purchasedQuantity": "Adet",
@@ -324,7 +338,8 @@
     "goToMyTickets": "Biletlerime Git"
   },
   "Common": {
-    "all": "Tümü"
+    "all": "Tümü",
+    "city": "Şehir"
   },
   "CheckoutPage": {
     "title": "Satın Alma",
@@ -582,7 +597,8 @@
     "qrRefresh": "QR kod {seconds} saniye sonra yenilenecek",
     "qrSecure": "Güvenli giriş QR kodu",
     "qrUsed": "Bu bilet kullanılmıştır",
-    "qrCancelled": "Bu bilet iptal edilmiştir"
+    "qrCancelled": "Bu bilet iptal edilmiştir",
+    "linkCopied": "Link kopyalandı!"
   },
   "SaveToast": {
     "addedToSaved": "Kaydedilenler listesine eklendi",
@@ -1278,5 +1294,145 @@
   "CustomSelect": {
     "defaultPlaceholder": "Seçiniz...",
     "defaultSearchPlaceholder": "Ara..."
+  },
+  "PricingPage": {
+    "label": "Fiyatlandırma",
+    "titleLine1": "Her Ölçeğe Uygun",
+    "titleLine2": "Esnek Planlar",
+    "description": "Etkinlik büyüklüğünüze göre en uygun planı seçin. İstediğiniz zaman yükseltin veya düşürün.",
+    "popular": "Popüler",
+    "getStarted": "Başla",
+    "starter": {
+      "name": "Starter",
+      "price": "Ücretsiz",
+      "period": "",
+      "description": "Küçük etkinlikler için ideal başlangıç",
+      "features": ["Aylık 2 etkinlik", "100 bilet/etkinlik", "Temel analitik", "E-posta desteği", "QR bilet doğrulama"]
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "₺499",
+      "period": "/ay",
+      "description": "Büyüyen organizatörler için",
+      "features": ["Sınırsız etkinlik", "5.000 bilet/etkinlik", "Gelişmiş analitik", "Öncelikli destek", "QR bilet doğrulama", "Özel kupon kodları", "Topluluk paylaşımları", "Doping seçenekleri"]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "₺1.499",
+      "period": "/ay",
+      "description": "Büyük ölçekli organizasyonlar için",
+      "features": ["Sınırsız her şey", "50.000+ bilet/etkinlik", "Gerçek zamanlı analitik", "7/24 destek", "API erişimi", "Özel entegrasyonlar", "Beyaz etiket seçeneği", "Kişiye özel hesap yöneticisi", "Gelişmiş raporlama"]
+    }
+  },
+  "FAQPage": {
+    "label": "SSS",
+    "titleLine1": "Sıkça Sorulan",
+    "titleLine2": "Sorular",
+    "description": "Aradığınız cevabı bulamadıysanız bize ulaşmaktan çekinmeyin.",
+    "searchPlaceholder": "Soru ara...",
+    "categories": {
+      "general": "Genel",
+      "tickets": "Biletler",
+      "organizers": "Organizatörler",
+      "account": "Hesap & Güvenlik"
+    },
+    "general": [
+      { "q": "PORTAL nedir?", "a": "PORTAL, canlı etkinlik ve konser deneyimini dijitalleştiren bir platformdur. Etkinlik keşfi, bilet satın alma, topluluk etkileşimi ve organizatör araçlarını tek bir çatı altında sunar." },
+      { "q": "PORTAL'ı kullanmak ücretsiz mi?", "a": "Evet, etkinlik keşfi, topluluk özellikleri ve bilet satın alma katılımcılar için tamamen ücretsizdir. Organizatörler için farklı fiyatlandırma planları mevcuttur." },
+      { "q": "Hangi şehirlerde aktifsiniz?", "a": "Şu anda İstanbul, Ankara, İzmir, Antalya ve Bursa'da aktif olarak hizmet veriyoruz. Yakında daha fazla şehre genişlemeyi planlıyoruz." }
+    ],
+    "tickets": [
+      { "q": "Biletimi nasıl kullanırım?", "a": "Satın aldığınız bilet, 'Biletlerim' sayfasında QR kod olarak görünür. Etkinlik girişinde bu QR kodu göstermeniz yeterlidir. QR kod güvenlik için periyodik olarak güncellenir." },
+      { "q": "Bilet iadesi yapabilir miyim?", "a": "Etkinlikten 48 saat öncesine kadar bilet iadesi yapabilirsiniz. İade işlemi 'Biletlerim' sayfasından gerçekleştirilebilir. İade, ödeme yönteminize 3-5 iş günü içinde yansır." },
+      { "q": "Biletimi başka birine transfer edebilir miyim?", "a": "Evet, aktif biletlerinizi 'Biletlerim' sayfasındaki transfer butonu ile başka bir PORTAL kullanıcısına gönderebilirsiniz." }
+    ],
+    "organizers": [
+      { "q": "Organizatör olmak için ne yapmalıyım?", "a": "Hesabınızdan organizatör başvurusu yapabilirsiniz. Başvurunuz incelendikten sonra organizatör panelinize erişebilirsiniz. Demo hesapla da paneli deneyebilirsiniz." },
+      { "q": "Etkinlik oluşturmak ücretli mi?", "a": "Starter planı ile aylık 2 etkinliğe kadar ücretsiz oluşturabilirsiniz. Daha fazlası için Pro veya Enterprise planlarımıza göz atabilirsiniz." },
+      { "q": "Doping sistemi nedir?", "a": "Doping, etkinliklerinizin platformda daha fazla görünürlük kazanmasını sağlayan bir tanıtım aracıdır. Ana sayfa öne çıkarma, arama sonuçlarında üst sıra ve topluluk önerileri gibi seçenekler mevcuttur." }
+    ],
+    "account": [
+      { "q": "Şifremi nasıl sıfırlarım?", "a": "Giriş ekranında 'Şifremi Unuttum' bağlantısına tıklayarak e-posta adresinize sıfırlama linki gönderebilirsiniz." },
+      { "q": "Hesabımı nasıl silebilirim?", "a": "Hesap Ayarları sayfasından hesap silme talebinde bulunabilirsiniz. Talebin ardından verileriniz 30 gün içinde kalıcı olarak silinir." },
+      { "q": "Verilerim güvende mi?", "a": "Evet, tüm verileriniz şifreli olarak saklanır ve KVKK mevzuatına uygun şekilde işlenir. Detaylar için Gizlilik Politikamızı inceleyebilirsiniz." }
+    ]
+  },
+  "ContactPage": {
+    "label": "İletişim",
+    "titleLine1": "Bize",
+    "titleLine2": "Ulaşın",
+    "description": "Sorularınız, önerileriniz veya iş birliği teklifleriniz için bize ulaşabilirsiniz.",
+    "email": "E-posta",
+    "address": "Adres",
+    "addressValue": "Levent, İstanbul\nTürkiye",
+    "supportHours": "Destek Saatleri",
+    "supportHoursValue": "Pazartesi - Cuma: 09:00 - 18:00\nHafta sonu: E-posta desteği",
+    "formTitle": "Mesaj Gönderin",
+    "namePlaceholder": "Adınız",
+    "emailPlaceholder": "E-posta adresiniz",
+    "subjectPlaceholder": "Konu",
+    "messagePlaceholder": "Mesajınız",
+    "send": "Gönder",
+    "sent": "Gönderildi!"
+  },
+  "ApiDocsPage": {
+    "label": "API",
+    "titleLine1": "API",
+    "titleLine2": "Dokümantasyon",
+    "description": "PORTAL API ile etkinlik verilerine erişin, bilet doğrulayın ve platformumuzu kendi uygulamanıza entegre edin.",
+    "auth": "Kimlik Doğrulama",
+    "authDesc": "API anahtarınızı Organizatör Paneli > Ayarlar bölümünden alabilirsiniz. Tüm isteklerde Bearer token olarak gönderin.",
+    "baseUrl": "Base URL",
+    "baseUrlDesc": "Tüm istekler HTTPS üzerinden yapılmalıdır.",
+    "webhooks": "Webhook'lar",
+    "webhooksDesc": "Bilet satışı, etkinlik güncellemesi gibi olaylar için webhook tanımlayabilirsiniz.",
+    "endpoints": "Endpoints",
+    "endpointDescriptions": {
+      "listEvents": "Tüm etkinlikleri listele",
+      "getEvent": "Etkinlik detayı getir",
+      "listArtists": "Sanatçıları listele",
+      "listVenues": "Mekanları listele",
+      "validateTicket": "Bilet doğrula",
+      "createEvent": "Yeni etkinlik oluştur",
+      "updateEvent": "Etkinlik güncelle",
+      "analyticsOverview": "Analitik özeti"
+    },
+    "fullDocsTitle": "Detaylı Dokümantasyon",
+    "fullDocsDesc": "Tam API referansı, SDK'lar ve örnek kodlar için detaylı dokümantasyonumuzu inceleyin.",
+    "comingSoon": "Çok Yakında"
+  },
+  "IntegrationsPage": {
+    "label": "Entegrasyonlar",
+    "titleLine1": "Güçlü",
+    "titleLine2": "Entegrasyonlar",
+    "description": "Favori araçlarınızı PORTAL ile bağlayın. Ödeme, analitik, bildirim ve daha fazlası.",
+    "configure": "Yapılandır",
+    "statusActive": "Aktif",
+    "statusBeta": "Beta",
+    "statusSoon": "Yakında",
+    "stripe": {
+      "name": "Stripe",
+      "description": "Güvenli ödeme altyapısı ile bilet satışlarınızı yönetin. PCI DSS uyumlu, 135+ para birimi desteği."
+    },
+    "googleAnalytics": {
+      "name": "Google Analytics",
+      "description": "Etkinlik sayfalarınızın performansını takip edin. Ziyaretçi davranışı, dönüşüm oranları ve daha fazlası."
+    },
+    "whatsapp": {
+      "name": "WhatsApp Business",
+      "description": "Katılımcılarınıza WhatsApp üzerinden otomatik bilet ve hatırlatma bildirimleri gönderin."
+    },
+    "spotify": {
+      "name": "Spotify",
+      "description": "Etkinlik sayfalarında sanatçının Spotify profilini ve popüler parçalarını gösterin."
+    },
+    "metaAds": {
+      "name": "Meta Ads",
+      "description": "Facebook ve Instagram reklamları ile etkinliklerinizi hedef kitlenize ulaştırın."
+    },
+    "zapier": {
+      "name": "Zapier",
+      "description": "5000+ uygulama ile PORTAL'ı bağlayın. Otomatik iş akışları oluşturun."
+    }
   }
 }

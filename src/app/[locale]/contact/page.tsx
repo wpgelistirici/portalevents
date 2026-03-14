@@ -10,12 +10,14 @@ import Footer from "@/components/layout/Footer";
 import GradientOrb from "@/components/ui/GradientOrb";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { Mail, MapPin, Send, MessageSquare, Clock, Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
 export default function ContactPage() {
+  const t = useTranslations("ContactPage");
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -54,16 +56,15 @@ export default function ContactPage() {
           <div className="text-center mb-16">
             <FadeInUp>
               <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
-                İletişim
+                {t("label")}
               </span>
               <h1 className="display-lg mt-4 mb-6">
-                Bize
+                {t("titleLine1")}
                 <br />
-                <span className="text-gradient-primary">Ulaşın</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h1>
               <p className="text-muted text-sm max-w-md mx-auto">
-                Sorularınız, önerileriniz veya iş birliği teklifleriniz için
-                bize ulaşabilirsiniz.
+                {t("description")}
               </p>
             </FadeInUp>
           </div>
@@ -76,7 +77,7 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Mail size={18} className="text-primary" />
                   </div>
-                  <h3 className="text-sm font-bold mb-1">E-posta</h3>
+                  <h3 className="text-sm font-bold mb-1">{t("email")}</h3>
                   <a
                     href="mailto:info@portalevents.co"
                     className="text-xs text-muted hover:text-primary transition-colors"
@@ -91,11 +92,9 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
                     <MapPin size={18} className="text-secondary" />
                   </div>
-                  <h3 className="text-sm font-bold mb-1">Adres</h3>
-                  <p className="text-xs text-muted">
-                    Levent, İstanbul
-                    <br />
-                    Türkiye
+                  <h3 className="text-sm font-bold mb-1">{t("address")}</h3>
+                  <p className="text-xs text-muted whitespace-pre-line">
+                    {t("addressValue")}
                   </p>
                 </div>
               </FadeInUp>
@@ -105,11 +104,11 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                     <Clock size={18} className="text-accent" />
                   </div>
-                  <h3 className="text-sm font-bold mb-1">Destek Saatleri</h3>
-                  <p className="text-xs text-muted">
-                    Pazartesi - Cuma: 09:00 - 18:00
-                    <br />
-                    Hafta sonu: E-posta desteği
+                  <h3 className="text-sm font-bold mb-1">
+                    {t("supportHours")}
+                  </h3>
+                  <p className="text-xs text-muted whitespace-pre-line">
+                    {t("supportHoursValue")}
                   </p>
                 </div>
               </FadeInUp>
@@ -120,14 +119,14 @@ export default function ContactPage() {
               <div className="lg:col-span-2 glass rounded-2xl p-8">
                 <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <MessageSquare size={18} className="text-primary" />
-                  Mesaj Gönderin
+                  {t("formTitle")}
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="text"
-                      placeholder="Adınız"
+                      placeholder={t("namePlaceholder")}
                       required
                       value={formState.name}
                       onChange={(e) =>
@@ -137,7 +136,7 @@ export default function ContactPage() {
                     />
                     <input
                       type="email"
-                      placeholder="E-posta adresiniz"
+                      placeholder={t("emailPlaceholder")}
                       required
                       value={formState.email}
                       onChange={(e) =>
@@ -148,7 +147,7 @@ export default function ContactPage() {
                   </div>
                   <input
                     type="text"
-                    placeholder="Konu"
+                    placeholder={t("subjectPlaceholder")}
                     required
                     value={formState.subject}
                     onChange={(e) =>
@@ -157,7 +156,7 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-muted/60"
                   />
                   <textarea
-                    placeholder="Mesajınız"
+                    placeholder={t("messagePlaceholder")}
                     required
                     rows={5}
                     value={formState.message}
@@ -175,12 +174,12 @@ export default function ContactPage() {
                     {submitted ? (
                       <>
                         <Check size={14} />
-                        Gönderildi!
+                        {t("sent")}
                       </>
                     ) : (
                       <>
                         <Send size={14} />
-                        Gönder
+                        {t("send")}
                       </>
                     )}
                   </motion.button>

@@ -315,7 +315,7 @@ export default function NewEventPage() {
                   value={genre}
                   onChange={(val) => setGenre(val)}
                   options={genres
-                    .filter((g) => g !== "Tümü")
+                    .filter((g) => g !== "All")
                     .map((g) => ({ value: g, label: g }))}
                   placeholder={t("eventForm.genre")}
                   searchable={false}

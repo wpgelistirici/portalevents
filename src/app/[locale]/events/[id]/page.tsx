@@ -1137,7 +1137,7 @@ function OrganizerCard({
           <h4 className="font-bold">{detail.organizerName}</h4>
           <p className="text-[10px] text-muted flex items-center gap-1 mt-0.5">
             <ShieldCheck size={10} className="text-green-400" />
-            Verified Organizer
+            {t("verifiedOrganizer")}
           </p>
         </div>
       </div>
@@ -1221,7 +1221,7 @@ function ActionsCard({
           data-cursor-hover
         >
           <Share2 size={14} />
-          {shareToast ? t("linkCopied") || "Link kopyalandı!" : t("shareEvent")}
+          {shareToast ? t("linkCopied") : t("shareEvent")}
         </button>
         <motion.button
           onClick={handleSave}
@@ -1242,9 +1242,7 @@ function ActionsCard({
           data-cursor-hover
         >
           <Flag size={14} />
-          {reportSent
-            ? t("reportSent") || "Rapor gönderildi"
-            : t("reportEvent")}
+          {reportSent ? t("reportSent") : t("reportEvent")}
         </button>
       </div>
     </div>

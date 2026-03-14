@@ -9,71 +9,24 @@ import Footer from "@/components/layout/Footer";
 import GradientOrb from "@/components/ui/GradientOrb";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { Check, Sparkles, Zap, Crown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-const plans = [
-  {
-    name: "Starter",
-    price: "Ücretsiz",
-    period: "",
-    description: "Küçük etkinlikler için ideal başlangıç",
-    icon: Zap,
-    color: "text-accent",
-    bg: "bg-accent/10",
-    features: [
-      "Aylık 2 etkinlik",
-      "100 bilet/etkinlik",
-      "Temel analitik",
-      "E-posta desteği",
-      "QR bilet doğrulama",
-    ],
-  },
-  {
-    name: "Pro",
-    price: "₺499",
-    period: "/ay",
-    description: "Büyüyen organizatörler için",
-    icon: Sparkles,
-    color: "text-primary",
-    bg: "bg-primary/10",
-    popular: true,
-    features: [
-      "Sınırsız etkinlik",
-      "5.000 bilet/etkinlik",
-      "Gelişmiş analitik",
-      "Öncelikli destek",
-      "QR bilet doğrulama",
-      "Özel kupon kodları",
-      "Topluluk paylaşımları",
-      "Doping seçenekleri",
-    ],
-  },
-  {
-    name: "Enterprise",
-    price: "₺1.499",
-    period: "/ay",
-    description: "Büyük ölçekli organizasyonlar için",
-    icon: Crown,
-    color: "text-gold",
-    bg: "bg-gold/10",
-    features: [
-      "Sınırsız her şey",
-      "50.000+ bilet/etkinlik",
-      "Gerçek zamanlı analitik",
-      "7/24 destek",
-      "API erişimi",
-      "Özel entegrasyonlar",
-      "Beyaz etiket seçeneği",
-      "Kişiye özel hesap yöneticisi",
-      "Gelişmiş raporlama",
-    ],
-  },
-];
+const planKeys = ["starter", "pro", "enterprise"] as const;
+const planIcons = { starter: Zap, pro: Sparkles, enterprise: Crown };
+const planColors = {
+  starter: { text: "text-accent", bg: "bg-accent/10" },
+  pro: { text: "text-primary", bg: "bg-primary/10" },
+  enterprise: { text: "text-gold", bg: "bg-gold/10" },
+};
+const popularPlan = "pro";
 
 export default function PricingPage() {
+  const t = useTranslations("PricingPage");
+
   return (
     <>
       <SmoothScroll />
@@ -97,76 +50,90 @@ export default function PricingPage() {
           <div className="text-center mb-16">
             <FadeInUp>
               <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">
-                Fiyatlandırma
+                {t("label")}
               </span>
               <h1 className="display-lg mt-4 mb-6">
-                Her Ölçeğe Uygun
+                {t("titleLine1")}
                 <br />
-                <span className="text-gradient-primary">Esnek Planlar</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h1>
               <p className="text-muted text-sm max-w-md mx-auto">
-                Etkinlik büyüklüğünüze göre en uygun planı seçin. İstediğiniz
-                zaman yükseltin veya düşürün.
+                {t("description")}
               </p>
             </FadeInUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {plans.map((plan, i) => (
-              <FadeInUp key={plan.name} delay={0.1 * i}>
-                <motion.div
-                  className={`relative glass rounded-2xl p-8 h-full flex flex-col ${
-                    plan.popular ? "ring-2 ring-primary/30" : ""
-                  }`}
-                  whileHover={{ y: -4 }}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-full">
-                      Popüler
-                    </div>
-                  )}
+            {planKeys.map((key, i) => {
+              const Icon = planIcons[key];
+              const colors = planColors[key];
+              const isPopular = key === popularPlan;
+              const features = t.raw(`${key}.features`) as string[];
 
-                  <div
-                    className={`w-12 h-12 rounded-xl ${plan.bg} flex items-center justify-center mb-4`}
-                  >
-                    <plan.icon size={20} className={plan.color} />
-                  </div>
-
-                  <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
-                  <p className="text-xs text-muted mb-4">{plan.description}</p>
-
-                  <div className="mb-6">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    {plan.period && (
-                      <span className="text-sm text-muted">{plan.period}</span>
-                    )}
-                  </div>
-
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {plan.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-2 text-sm text-foreground/70"
-                      >
-                        <Check size={14} className={plan.color} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button
-                    className={`w-full py-3 rounded-xl text-sm font-semibold transition-all ${
-                      plan.popular
-                        ? "bg-primary text-white hover:shadow-[0_0_30px_rgba(123,97,255,0.3)]"
-                        : "glass hover:bg-foreground/5"
+              return (
+                <FadeInUp key={key} delay={0.1 * i}>
+                  <motion.div
+                    className={`relative glass rounded-2xl p-8 h-full flex flex-col ${
+                      isPopular ? "ring-2 ring-primary/30" : ""
                     }`}
-                    data-cursor-hover
+                    whileHover={{ y: -4 }}
                   >
-                    Başla
-                  </button>
-                </motion.div>
-              </FadeInUp>
-            ))}
+                    {isPopular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-full">
+                        {t("popular")}
+                      </div>
+                    )}
+
+                    <div
+                      className={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center mb-4`}
+                    >
+                      <Icon size={20} className={colors.text} />
+                    </div>
+
+                    <h3 className="text-lg font-bold mb-1">
+                      {t(`${key}.name`)}
+                    </h3>
+                    <p className="text-xs text-muted mb-4">
+                      {t(`${key}.description`)}
+                    </p>
+
+                    <div className="mb-6">
+                      <span className="text-3xl font-bold">
+                        {t(`${key}.price`)}
+                      </span>
+                      {t(`${key}.period`) && (
+                        <span className="text-sm text-muted">
+                          {t(`${key}.period`)}
+                        </span>
+                      )}
+                    </div>
+
+                    <ul className="space-y-3 mb-8 flex-1">
+                      {features.map((feature: string) => (
+                        <li
+                          key={feature}
+                          className="flex items-center gap-2 text-sm text-foreground/70"
+                        >
+                          <Check size={14} className={colors.text} />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <button
+                      className={`w-full py-3 rounded-xl text-sm font-semibold transition-all ${
+                        isPopular
+                          ? "bg-primary text-white hover:shadow-[0_0_30px_rgba(123,97,255,0.3)]"
+                          : "glass hover:bg-foreground/5"
+                      }`}
+                      data-cursor-hover
+                    >
+                      {t("getStarted")}
+                    </button>
+                  </motion.div>
+                </FadeInUp>
+              );
+            })}
           </div>
         </div>
       </main>

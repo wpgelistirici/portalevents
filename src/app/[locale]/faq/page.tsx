@@ -10,81 +10,13 @@ import Footer from "@/components/layout/Footer";
 import GradientOrb from "@/components/ui/GradientOrb";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { ChevronDown, HelpCircle, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-const faqCategories = [
-  {
-    title: "Genel",
-    items: [
-      {
-        q: "PORTAL nedir?",
-        a: "PORTAL, canlı etkinlik ve konser deneyimini dijitalleştiren bir platformdur. Etkinlik keşfi, bilet satın alma, topluluk etkileşimi ve organizatör araçlarını tek bir çatı altında sunar.",
-      },
-      {
-        q: "PORTAL'ı kullanmak ücretsiz mi?",
-        a: "Evet, etkinlik keşfi, topluluk özellikleri ve bilet satın alma katılımcılar için tamamen ücretsizdir. Organizatörler için farklı fiyatlandırma planları mevcuttur.",
-      },
-      {
-        q: "Hangi şehirlerde aktifsiniz?",
-        a: "Şu anda İstanbul, Ankara, İzmir, Antalya ve Bursa'da aktif olarak hizmet veriyoruz. Yakında daha fazla şehre genişlemeyi planlıyoruz.",
-      },
-    ],
-  },
-  {
-    title: "Biletler",
-    items: [
-      {
-        q: "Biletimi nasıl kullanırım?",
-        a: "Satın aldığınız bilet, 'Biletlerim' sayfasında QR kod olarak görünür. Etkinlik girişinde bu QR kodu göstermeniz yeterlidir. QR kod güvenlik için periyodik olarak güncellenir.",
-      },
-      {
-        q: "Bilet iadesi yapabilir miyim?",
-        a: "Etkinlikten 48 saat öncesine kadar bilet iadesi yapabilirsiniz. İade işlemi 'Biletlerim' sayfasından gerçekleştirilebilir. İade, ödeme yönteminize 3-5 iş günü içinde yansır.",
-      },
-      {
-        q: "Biletimi başka birine transfer edebilir miyim?",
-        a: "Evet, aktif biletlerinizi 'Biletlerim' sayfasındaki transfer butonu ile başka bir PORTAL kullanıcısına gönderebilirsiniz.",
-      },
-    ],
-  },
-  {
-    title: "Organizatörler",
-    items: [
-      {
-        q: "Organizatör olmak için ne yapmalıyım?",
-        a: "Hesabınızdan organizatör başvurusu yapabilirsiniz. Başvurunuz incelendikten sonra organizatör panelinize erişebilirsiniz. Demo hesapla da paneli deneyebilirsiniz.",
-      },
-      {
-        q: "Etkinlik oluşturmak ücretli mi?",
-        a: "Starter planı ile aylık 2 etkinliğe kadar ücretsiz oluşturabilirsiniz. Daha fazlası için Pro veya Enterprise planlarımıza göz atabilirsiniz.",
-      },
-      {
-        q: "Doping sistemi nedir?",
-        a: "Doping, etkinliklerinizin platformda daha fazla görünürlük kazanmasını sağlayan bir tanıtım aracıdır. Ana sayfa öne çıkarma, arama sonuçlarında üst sıra ve topluluk önerileri gibi seçenekler mevcuttur.",
-      },
-    ],
-  },
-  {
-    title: "Hesap & Güvenlik",
-    items: [
-      {
-        q: "Şifremi nasıl sıfırlarım?",
-        a: "Giriş ekranında 'Şifremi Unuttum' bağlantısına tıklayarak e-posta adresinize sıfırlama linki gönderebilirsiniz.",
-      },
-      {
-        q: "Hesabımı nasıl silebilirim?",
-        a: "Hesap Ayarları sayfasından hesap silme talebinde bulunabilirsiniz. Talebin ardından verileriniz 30 gün içinde kalıcı olarak silinir.",
-      },
-      {
-        q: "Verilerim güvende mi?",
-        a: "Evet, tüm verileriniz şifreli olarak saklanır ve KVKK mevzuatına uygun şekilde işlenir. Detaylar için Gizlilik Politikamızı inceleyebilirsiniz.",
-      },
-    ],
-  },
-];
+const categoryKeys = ["general", "tickets", "organizers", "account"] as const;
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -121,8 +53,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const t = useTranslations("FAQPage");
 
-  const filteredCategories = faqCategories
+  const categories = categoryKeys.map((key) => ({
+    key,
+    title: t(`categories.${key}`),
+    items: t.raw(key) as { q: string; a: string }[],
+  }));
+
+  const filteredCategories = categories
     .map((cat) => ({
       ...cat,
       items: cat.items.filter(
@@ -160,12 +99,12 @@ export default function FAQPage() {
                 <HelpCircle size={28} className="text-primary" />
               </div>
               <h1 className="display-lg mb-4">
-                Sıkça Sorulan
+                {t("titleLine1")}
                 <br />
-                <span className="text-gradient-primary">Sorular</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h1>
               <p className="text-muted text-sm max-w-md mx-auto mb-8">
-                Aradığınız cevabı bulamadıysanız bize ulaşmaktan çekinmeyin.
+                {t("description")}
               </p>
             </FadeInUp>
 
@@ -177,7 +116,7 @@ export default function FAQPage() {
                 />
                 <input
                   type="text"
-                  placeholder="Soru ara..."
+                  placeholder={t("searchPlaceholder")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-11 pr-4 py-3 glass rounded-xl text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-muted"
@@ -188,7 +127,7 @@ export default function FAQPage() {
 
           <div className="space-y-10">
             {filteredCategories.map((category, i) => (
-              <FadeInUp key={category.title} delay={0.1 + i * 0.05}>
+              <FadeInUp key={category.key} delay={0.1 + i * 0.05}>
                 <h2 className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-4">
                   {category.title}
                 </h2>

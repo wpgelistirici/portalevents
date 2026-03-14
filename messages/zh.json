@@ -12,6 +12,7 @@
     "location": "伊斯坦布尔",
     "login": "登录",
     "accountSettings": "账户设置",
+    "allCities": "所有城市",
     "savedItems": "收藏夹",
     "organizerPanel": "主办方面板",
     "adminPanel": "管理面板",
@@ -124,7 +125,8 @@
     "appStoreLine1": "下载于",
     "appStoreLine2": "App Store",
     "googlePlayLine1": "下载于",
-    "googlePlayLine2": "Google Play"
+    "googlePlayLine2": "Google Play",
+    "comingSoon": "即将推出！"
   },
   "Footer": {
     "newsletterTitle": "不要错过",
@@ -162,9 +164,11 @@
     "noResults": "未找到符合条件的活动。",
     "exploreMapTitle": "地图探索",
     "exploreMapDesc": "在地图上查看所有活动，发现附近的活动。",
-    "exploreMapButton": "打开地图"
+    "exploreMapButton": "打开地图",
+    "sortBy": "排序",
+    "byDate": "日期",
+    "byPopularity": "热门"
   },
-  "ArtistsPage": {
     "label": "艺人",
     "title": "点亮舞台的人们",
     "description": "发现你喜爱的艺人，关注他们，不要错过即将到来的活动。",
@@ -243,7 +247,13 @@
     "posts": "帖子",
     "premiumTitle": "高级社区",
     "premiumDescription": "独家活动邀请、优先购票权等更多特权",
-    "premiumButton": "升级高级版"
+    "premiumButton": "升级高级版",
+    "viewPost": "查看帖子",
+    "unsave": "取消收藏",
+    "save": "收藏",
+    "reportPost": "举报",
+    "clearFilter": "清除筛选",
+    "defaultUser": "用户"
   },
   "AuthModal": {
     "loginTitle": "欢迎回来",
@@ -273,6 +283,7 @@
     "demoUser": "用户：",
     "demoOrganizer": "主办方：",
     "demoAdmin": "管理员：",
+    "resetSent": "重置链接已发送！",
     "errors": {
       "invalidCredentials": "邮箱或密码错误。",
       "emailExists": "该邮箱已被注册。",
@@ -342,6 +353,9 @@
     "similarEvents": "相似活动",
     "notFound": "未找到活动",
     "notFoundDesc": "你查找的活动不存在或已被移除。",
+    "linkCopied": "链接已复制！",
+    "reportSent": "举报已发送",
+    "verifiedOrganizer": "已认证组织者",
     "youHaveTicket": "你已有门票！",
     "purchasedTicketType": "门票类型",
     "purchasedQuantity": "数量",
@@ -350,7 +364,8 @@
     "goToMyTickets": "前往我的门票"
   },
   "Common": {
-    "all": "全部"
+    "all": "全部",
+    "city": "城市"
   },
   "CheckoutPage": {
     "title": "结账",
@@ -608,7 +623,8 @@
     "qrRefresh": "二维码将在 {seconds} 秒后刷新",
     "qrSecure": "安全入场二维码",
     "qrUsed": "此门票已使用",
-    "qrCancelled": "此门票已取消"
+    "qrCancelled": "此门票已取消",
+    "linkCopied": "链接已复制！"
   },
   "SaveToast": {
     "addedToSaved": "已添加到收藏",
@@ -1278,5 +1294,145 @@
   "CustomSelect": {
     "defaultPlaceholder": "请选择...",
     "defaultSearchPlaceholder": "搜索..."
+  },
+  "PricingPage": {
+    "label": "定价",
+    "titleLine1": "适合各种规模的",
+    "titleLine2": "灵活方案",
+    "description": "根据活动规模选择最合适的方案。随时升级或降级。",
+    "popular": "热门",
+    "getStarted": "开始使用",
+    "starter": {
+      "name": "入门版",
+      "price": "免费",
+      "period": "",
+      "description": "适合小型活动的理想起步",
+      "features": ["每月2场活动", "100张票/活动", "基础分析", "邮件支持", "QR票证验证"]
+    },
+    "pro": {
+      "name": "专业版",
+      "price": "$49",
+      "period": "/月",
+      "description": "适合成长中的组织者",
+      "features": ["无限活动", "5,000张票/活动", "高级分析", "优先支持", "QR票证验证", "自定义优惠码", "社区帖子", "推广选项"]
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price": "$149",
+      "period": "/月",
+      "description": "适合大规模组织",
+      "features": ["无限一切", "50,000+张票/活动", "实时分析", "7/24支持", "API访问", "自定义集成", "白标选项", "专属客户经理", "高级报告"]
+    }
+  },
+  "FAQPage": {
+    "label": "常见问题",
+    "titleLine1": "常见",
+    "titleLine2": "问题",
+    "description": "如果找不到答案，请随时联系我们。",
+    "searchPlaceholder": "搜索问题...",
+    "categories": {
+      "general": "通用",
+      "tickets": "门票",
+      "organizers": "组织者",
+      "account": "账户与安全"
+    },
+    "general": [
+      { "q": "PORTAL是什么？", "a": "PORTAL是一个将现场活动和演唱会体验数字化的平台。它在一个平台上提供活动发现、购票、社区互动和组织者工具。" },
+      { "q": "使用PORTAL免费吗？", "a": "是的，活动发现、社区功能和购票对参与者完全免费。组织者有不同的定价方案。" },
+      { "q": "你们在哪些城市运营？", "a": "目前我们在伊斯坦布尔、安卡拉、伊兹密尔、安塔利亚和布尔萨提供服务。我们计划很快扩展到更多城市。" }
+    ],
+    "tickets": [
+      { "q": "如何使用门票？", "a": "购买的门票会以QR码形式显示在"我的门票"页面。只需在活动入口出示QR码即可。QR码会定期更新以确保安全。" },
+      { "q": "可以退票吗？", "a": "活动前48小时内可以申请退票。退款可从"我的门票"页面发起，将在3-5个工作日内退回到您的支付方式。" },
+      { "q": "可以将门票转让给他人吗？", "a": "可以，您可以使用"我的门票"页面上的转让按钮将活跃门票转让给另一位PORTAL用户。" }
+    ],
+    "organizers": [
+      { "q": "如何成为组织者？", "a": "您可以从账户中申请成为组织者。申请审核通过后，即可访问组织者面板。您也可以用演示账户试用面板。" },
+      { "q": "创建活动收费吗？", "a": "使用入门版方案每月可免费创建最多2场活动。更多活动请查看专业版或企业版方案。" },
+      { "q": "推广系统是什么？", "a": "推广是帮助您的活动在平台上获得更多曝光的工具。包括首页推荐、搜索结果置顶和社区推荐等选项。" }
+    ],
+    "account": [
+      { "q": "如何重置密码？", "a": "在登录页面点击"忘记密码"链接，即可收到发送到您邮箱的重置链接。" },
+      { "q": "如何删除账户？", "a": "您可以在账户设置页面提交账户删除请求。提交后，您的数据将在30天内永久删除。" },
+      { "q": "我的数据安全吗？", "a": "是的，您的所有数据都以加密方式存储，并按照数据保护法规进行处理。详情请查看我们的隐私政策。" }
+    ]
+  },
+  "ContactPage": {
+    "label": "联系我们",
+    "titleLine1": "联系",
+    "titleLine2": "我们",
+    "description": "如有问题、建议或合作提案，请随时与我们联系。",
+    "email": "邮箱",
+    "address": "地址",
+    "addressValue": "莱文特，伊斯坦布尔\n土耳其",
+    "supportHours": "服务时间",
+    "supportHoursValue": "周一至周五：09:00 - 18:00\n周末：邮件支持",
+    "formTitle": "发送消息",
+    "namePlaceholder": "您的姓名",
+    "emailPlaceholder": "您的邮箱地址",
+    "subjectPlaceholder": "主题",
+    "messagePlaceholder": "您的消息",
+    "send": "发送",
+    "sent": "已发送！"
+  },
+  "ApiDocsPage": {
+    "label": "API",
+    "titleLine1": "API",
+    "titleLine2": "文档",
+    "description": "通过PORTAL API访问活动数据、验证门票，并将平台集成到您的应用中。",
+    "auth": "身份认证",
+    "authDesc": "从组织者面板 > 设置获取API密钥。在所有请求中以Bearer token形式发送。",
+    "baseUrl": "基础URL",
+    "baseUrlDesc": "所有请求必须通过HTTPS发送。",
+    "webhooks": "Webhooks",
+    "webhooksDesc": "您可以为门票销售、活动更新等事件定义webhook。",
+    "endpoints": "接口列表",
+    "endpointDescriptions": {
+      "listEvents": "列出所有活动",
+      "getEvent": "获取活动详情",
+      "listArtists": "列出艺术家",
+      "listVenues": "列出场馆",
+      "validateTicket": "验证门票",
+      "createEvent": "创建新活动",
+      "updateEvent": "更新活动",
+      "analyticsOverview": "分析概览"
+    },
+    "fullDocsTitle": "完整文档",
+    "fullDocsDesc": "查看完整的API参考、SDK和代码示例的详细文档。",
+    "comingSoon": "即将推出"
+  },
+  "IntegrationsPage": {
+    "label": "集成",
+    "titleLine1": "强大的",
+    "titleLine2": "集成",
+    "description": "将您喜爱的工具与PORTAL连接。支付、分析、通知等。",
+    "configure": "配置",
+    "statusActive": "已启用",
+    "statusBeta": "测试版",
+    "statusSoon": "即将推出",
+    "stripe": {
+      "name": "Stripe",
+      "description": "通过安全的支付基础设施管理门票销售。符合PCI DSS标准，支持135+种货币。"
+    },
+    "googleAnalytics": {
+      "name": "Google Analytics",
+      "description": "跟踪活动页面的表现。访客行为、转化率等。"
+    },
+    "whatsapp": {
+      "name": "WhatsApp Business",
+      "description": "通过WhatsApp向参与者发送自动门票和提醒通知。"
+    },
+    "spotify": {
+      "name": "Spotify",
+      "description": "在活动页面上展示艺术家的Spotify资料和热门曲目。"
+    },
+    "metaAds": {
+      "name": "Meta Ads",
+      "description": "通过Facebook和Instagram广告将活动推广给目标受众。"
+    },
+    "zapier": {
+      "name": "Zapier",
+      "description": "将PORTAL与5000+应用连接。创建自动化工作流程。"
+    }
   }
 }

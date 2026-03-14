@@ -1244,7 +1244,7 @@ function PostCard({
                     className="w-full text-left px-3 py-2 rounded-lg text-xs text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                     data-cursor-hover
                   >
-                    {t("viewPost") || "Gönderiyi gör"}
+                    {t("viewPost")}
                   </button>
                   <button
                     onClick={() => {
@@ -1254,9 +1254,7 @@ function PostCard({
                     className="w-full text-left px-3 py-2 rounded-lg text-xs text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
                     data-cursor-hover
                   >
-                    {post.saved
-                      ? t("unsave") || "Kayıttan çıkar"
-                      : t("save") || "Kaydet"}
+                    {post.saved ? t("unsave") : t("save")}
                   </button>
                   <button
                     onClick={() => {
@@ -1265,7 +1263,7 @@ function PostCard({
                     className="w-full text-left px-3 py-2 rounded-lg text-xs text-red-400/70 hover:text-red-400 hover:bg-red-500/5 transition-colors"
                     data-cursor-hover
                   >
-                    {t("reportPost") || "Şikayet et"}
+                    {t("reportPost")}
                   </button>
                 </motion.div>
               )}
@@ -1526,7 +1524,7 @@ export default function CommunityPage() {
 
     const newPost: Post = {
       id: `user-${Date.now()}`,
-      user: user?.name || "Kullanıcı",
+      user: user?.name || t("defaultUser"),
       avatar:
         user?.avatar ||
         "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
@@ -1594,7 +1592,7 @@ export default function CommunityPage() {
 
       const newComment: Comment = {
         id: `uc-${Date.now()}`,
-        user: user?.name || "Kullanıcı",
+        user: user?.name || t("defaultUser"),
         avatar:
           user?.avatar ||
           "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
@@ -1995,7 +1993,7 @@ export default function CommunityPage() {
                         data-cursor-hover
                       >
                         <X size={12} />
-                        {t("clearFilter") || "Filtreyi kaldır"}
+                        {t("clearFilter")}
                       </button>
                     </div>
                   </FadeInUp>

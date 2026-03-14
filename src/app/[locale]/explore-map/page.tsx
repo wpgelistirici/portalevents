@@ -205,7 +205,7 @@ export default function ExploreMapPage() {
   const t = useTranslations("ExploreMapPage");
   const tCommon = useTranslations("Common");
 
-  const [activeGenre, setActiveGenre] = useState("Tümü");
+  const [activeGenre, setActiveGenre] = useState("All");
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -224,7 +224,7 @@ export default function ExploreMapPage() {
   const filteredEvents = useMemo(() => {
     let filtered = eventsWithCoords;
 
-    if (activeGenre !== "Tümü") {
+    if (activeGenre !== "All") {
       filtered = filtered.filter((e) => e.genre === activeGenre);
     }
 
@@ -276,7 +276,7 @@ export default function ExploreMapPage() {
 
       {/* Left Drawer */}
       <motion.div
-        className="fixed top-0 left-0 bottom-0 z-[500] flex pt-[76px] lg:pt-[90px]"
+        className="fixed top-0 left-0 bottom-0 z-[500] flex pt-[76px] lg:pt-[84px]"
         initial={false}
         animate={{ x: isDrawerOpen ? 0 : -360 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -365,7 +365,7 @@ export default function ExploreMapPage() {
                   }`}
                   data-cursor-hover
                 >
-                  {genre === "Tümü" ? tCommon("all") : genre}
+                  {genre === "All" ? tCommon("all") : genre}
                 </button>
               ))}
             </div>

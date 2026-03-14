@@ -492,9 +492,7 @@ export default function AuthModal() {
                         }}
                         className="text-[11px] text-primary hover:text-primary/80 transition-colors"
                       >
-                        {forgotSent
-                          ? t("resetSent") || "Sıfırlama linki gönderildi!"
-                          : t("forgotPassword")}
+                        {forgotSent ? t("resetSent") : t("forgotPassword")}
                       </button>
                     </div>
                   )}

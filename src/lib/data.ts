@@ -1510,7 +1510,7 @@ export const communityPosts: CommunityPost[] = [
 ];
 
 export const genres = [
-  "Tümü",
+  "All",
   "Electronic",
   "Techno",
   "Jazz",

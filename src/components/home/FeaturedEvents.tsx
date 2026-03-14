@@ -21,7 +21,7 @@ import {
 import Image from "next/image";
 
 export default function FeaturedEvents() {
-  const [activeGenre, setActiveGenre] = useState("Tümü");
+  const [activeGenre, setActiveGenre] = useState("All");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("FeaturedEvents");
   const tCommon = useTranslations("Common");
@@ -48,7 +48,7 @@ export default function FeaturedEvents() {
   }, []);
 
   const filteredEvents =
-    activeGenre === "Tümü"
+    activeGenre === "All"
       ? events
       : events.filter((e) => e.genre === activeGenre);
 
@@ -116,7 +116,7 @@ export default function FeaturedEvents() {
                     : "glass text-muted hover:text-foreground"
                 }`}
               >
-                {genre === "Tümü" ? tCommon("all") : genre}
+                {genre === "All" ? tCommon("all") : genre}
               </button>
             ))}
           </div>

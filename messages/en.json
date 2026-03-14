@@ -12,6 +12,7 @@
     "location": "Istanbul",
     "login": "Sign In",
     "accountSettings": "Account Settings",
+    "allCities": "All Cities",
     "savedItems": "Saved Items",
     "organizerPanel": "Organizer Panel",
     "adminPanel": "Admin Panel",
@@ -124,7 +125,8 @@
     "appStoreLine1": "Download on the",
     "appStoreLine2": "App Store",
     "googlePlayLine1": "Get it on",
-    "googlePlayLine2": "Google Play"
+    "googlePlayLine2": "Google Play",
+    "comingSoon": "Coming soon!"
   },
   "Footer": {
     "newsletterTitle": "Don't miss",
@@ -162,7 +164,10 @@
     "noResults": "No events found matching your criteria.",
     "exploreMapTitle": "Explore on Map",
     "exploreMapDesc": "See all events on the map, find events near you.",
-    "exploreMapButton": "Open Map"
+    "exploreMapButton": "Open Map",
+    "sortBy": "Sort By",
+    "byDate": "Date",
+    "byPopularity": "Popularity"
   },
   "ArtistsPage": {
     "label": "Artists",
@@ -217,7 +222,13 @@
     "posts": "posts",
     "premiumTitle": "Premium Community",
     "premiumDescription": "Exclusive event invitations, early ticket access, and more",
-    "premiumButton": "Go Premium"
+    "premiumButton": "Go Premium",
+    "viewPost": "View post",
+    "unsave": "Unsave",
+    "save": "Save",
+    "reportPost": "Report",
+    "clearFilter": "Clear filter",
+    "defaultUser": "User"
   },
   "AuthModal": {
     "loginTitle": "Welcome back",
@@ -247,6 +258,7 @@
     "demoUser": "User:",
     "demoOrganizer": "Organizer:",
     "demoAdmin": "Admin:",
+    "resetSent": "Reset link has been sent!",
     "errors": {
       "invalidCredentials": "Invalid email or password.",
       "emailExists": "This email is already registered.",
@@ -316,6 +328,9 @@
     "similarEvents": "Similar Events",
     "notFound": "Event not found",
     "notFoundDesc": "The event you are looking for does not exist or may have been removed.",
+    "linkCopied": "Link copied!",
+    "reportSent": "Report has been sent",
+    "verifiedOrganizer": "Verified Organizer",
     "youHaveTicket": "You Have a Ticket!",
     "purchasedTicketType": "Ticket Type",
     "purchasedQuantity": "Quantity",
@@ -324,7 +339,8 @@
     "goToMyTickets": "Go to My Tickets"
   },
   "Common": {
-    "all": "All"
+    "all": "All",
+    "city": "City"
   },
   "CheckoutPage": {
     "title": "Checkout",
@@ -582,7 +598,8 @@
     "qrRefresh": "QR code refreshes in {seconds} seconds",
     "qrSecure": "Secure entry QR code",
     "qrUsed": "This ticket has been used",
-    "qrCancelled": "This ticket has been cancelled"
+    "qrCancelled": "This ticket has been cancelled",
+    "linkCopied": "Link copied!"
   },
   "SaveToast": {
     "addedToSaved": "Added to saved items",
@@ -1278,5 +1295,206 @@
   "CustomSelect": {
     "defaultPlaceholder": "Select...",
     "defaultSearchPlaceholder": "Search..."
+  },
+  "PricingPage": {
+    "label": "Pricing",
+    "titleLine1": "Flexible Plans",
+    "titleLine2": "For Every Scale",
+    "description": "Choose the plan that fits your event size. Upgrade or downgrade anytime.",
+    "popular": "Popular",
+    "getStarted": "Get Started",
+    "starter": {
+      "name": "Starter",
+      "price": "Free",
+      "period": "",
+      "description": "Ideal start for small events",
+      "features": [
+        "2 events per month",
+        "100 tickets/event",
+        "Basic analytics",
+        "Email support",
+        "QR ticket validation"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$49",
+      "period": "/mo",
+      "description": "For growing organizers",
+      "features": [
+        "Unlimited events",
+        "5,000 tickets/event",
+        "Advanced analytics",
+        "Priority support",
+        "QR ticket validation",
+        "Custom coupon codes",
+        "Community posts",
+        "Promotion options"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "$149",
+      "period": "/mo",
+      "description": "For large-scale organizations",
+      "features": [
+        "Unlimited everything",
+        "50,000+ tickets/event",
+        "Real-time analytics",
+        "24/7 support",
+        "API access",
+        "Custom integrations",
+        "White label option",
+        "Dedicated account manager",
+        "Advanced reporting"
+      ]
+    }
+  },
+  "FAQPage": {
+    "label": "FAQ",
+    "titleLine1": "Frequently Asked",
+    "titleLine2": "Questions",
+    "description": "If you can't find the answer you're looking for, feel free to contact us.",
+    "searchPlaceholder": "Search questions...",
+    "categories": {
+      "general": "General",
+      "tickets": "Tickets",
+      "organizers": "Organizers",
+      "account": "Account & Security"
+    },
+    "general": [
+      {
+        "q": "What is PORTAL?",
+        "a": "PORTAL is a platform that digitizes the live event and concert experience. It offers event discovery, ticket purchasing, community interaction, and organizer tools under one roof."
+      },
+      {
+        "q": "Is PORTAL free to use?",
+        "a": "Yes, event discovery, community features, and ticket purchasing are completely free for attendees. Different pricing plans are available for organizers."
+      },
+      {
+        "q": "Which cities are you active in?",
+        "a": "We are currently active in Istanbul, Ankara, Izmir, Antalya, and Bursa. We plan to expand to more cities soon."
+      }
+    ],
+    "tickets": [
+      {
+        "q": "How do I use my ticket?",
+        "a": "Your purchased ticket appears as a QR code on the 'My Tickets' page. Simply show this QR code at the event entrance. The QR code refreshes periodically for security."
+      },
+      {
+        "q": "Can I get a ticket refund?",
+        "a": "You can request a refund up to 48 hours before the event. The refund can be initiated from the 'My Tickets' page and will be reflected in your payment method within 3-5 business days."
+      },
+      {
+        "q": "Can I transfer my ticket to someone else?",
+        "a": "Yes, you can transfer your active tickets to another PORTAL user using the transfer button on the 'My Tickets' page."
+      }
+    ],
+    "organizers": [
+      {
+        "q": "How do I become an organizer?",
+        "a": "You can apply to become an organizer from your account. After your application is reviewed, you can access your organizer panel. You can also try the panel with a demo account."
+      },
+      {
+        "q": "Is creating events paid?",
+        "a": "You can create up to 2 events per month for free with the Starter plan. For more, check out our Pro or Enterprise plans."
+      },
+      {
+        "q": "What is the promotion system?",
+        "a": "Promotion is a tool that helps your events gain more visibility on the platform. Options include homepage featuring, top search results, and community recommendations."
+      }
+    ],
+    "account": [
+      {
+        "q": "How do I reset my password?",
+        "a": "Click the 'Forgot Password' link on the login screen to receive a reset link to your email address."
+      },
+      {
+        "q": "How do I delete my account?",
+        "a": "You can request account deletion from the Account Settings page. After your request, your data will be permanently deleted within 30 days."
+      },
+      {
+        "q": "Is my data safe?",
+        "a": "Yes, all your data is stored encrypted and processed in compliance with data protection regulations. Check our Privacy Policy for details."
+      }
+    ]
+  },
+  "ContactPage": {
+    "label": "Contact",
+    "titleLine1": "Get in",
+    "titleLine2": "Touch",
+    "description": "You can reach us for questions, suggestions, or partnership proposals.",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Levent, Istanbul\nTurkey",
+    "supportHours": "Support Hours",
+    "supportHoursValue": "Monday - Friday: 09:00 - 18:00\nWeekends: Email support",
+    "formTitle": "Send a Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email address",
+    "subjectPlaceholder": "Subject",
+    "messagePlaceholder": "Your message",
+    "send": "Send",
+    "sent": "Sent!"
+  },
+  "ApiDocsPage": {
+    "label": "API",
+    "titleLine1": "API",
+    "titleLine2": "Documentation",
+    "description": "Access event data, validate tickets, and integrate our platform into your application with the PORTAL API.",
+    "auth": "Authentication",
+    "authDesc": "Get your API key from Organizer Panel > Settings. Send it as a Bearer token in all requests.",
+    "baseUrl": "Base URL",
+    "baseUrlDesc": "All requests must be made over HTTPS.",
+    "webhooks": "Webhooks",
+    "webhooksDesc": "You can define webhooks for events such as ticket sales and event updates.",
+    "endpoints": "Endpoints",
+    "endpointDescriptions": {
+      "listEvents": "List all events",
+      "getEvent": "Get event details",
+      "listArtists": "List artists",
+      "listVenues": "List venues",
+      "validateTicket": "Validate ticket",
+      "createEvent": "Create new event",
+      "updateEvent": "Update event",
+      "analyticsOverview": "Analytics overview"
+    },
+    "fullDocsTitle": "Full Documentation",
+    "fullDocsDesc": "Check out our detailed documentation for full API reference, SDKs, and code examples.",
+    "comingSoon": "Coming Soon"
+  },
+  "IntegrationsPage": {
+    "label": "Integrations",
+    "titleLine1": "Powerful",
+    "titleLine2": "Integrations",
+    "description": "Connect your favorite tools with PORTAL. Payments, analytics, notifications, and more.",
+    "configure": "Configure",
+    "statusActive": "Active",
+    "statusBeta": "Beta",
+    "statusSoon": "Soon",
+    "stripe": {
+      "name": "Stripe",
+      "description": "Manage your ticket sales with a secure payment infrastructure. PCI DSS compliant, 135+ currency support."
+    },
+    "googleAnalytics": {
+      "name": "Google Analytics",
+      "description": "Track the performance of your event pages. Visitor behavior, conversion rates, and more."
+    },
+    "whatsapp": {
+      "name": "WhatsApp Business",
+      "description": "Send automatic ticket and reminder notifications to your attendees via WhatsApp."
+    },
+    "spotify": {
+      "name": "Spotify",
+      "description": "Show the artist's Spotify profile and popular tracks on event pages."
+    },
+    "metaAds": {
+      "name": "Meta Ads",
+      "description": "Reach your target audience with Facebook and Instagram ads for your events."
+    },
+    "zapier": {
+      "name": "Zapier",
+      "description": "Connect PORTAL with 5000+ apps. Create automated workflows."
+    }
   }
 }

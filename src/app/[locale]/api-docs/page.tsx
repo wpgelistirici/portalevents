@@ -8,49 +8,33 @@ import Footer from "@/components/layout/Footer";
 import GradientOrb from "@/components/ui/GradientOrb";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { Code2, Key, Globe, Webhook, Terminal, BookOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CustomCursor = dynamic(() => import("@/components/ui/CustomCursor"), {
   ssr: false,
 });
 
-const endpoints = [
-  {
-    method: "GET",
-    path: "/api/v1/events",
-    description: "Tüm etkinlikleri listele",
-  },
-  {
-    method: "GET",
-    path: "/api/v1/events/:id",
-    description: "Etkinlik detayı getir",
-  },
-  {
-    method: "GET",
-    path: "/api/v1/artists",
-    description: "Sanatçıları listele",
-  },
-  { method: "GET", path: "/api/v1/venues", description: "Mekanları listele" },
-  {
-    method: "POST",
-    path: "/api/v1/tickets/validate",
-    description: "Bilet doğrula",
-  },
-  {
-    method: "POST",
-    path: "/api/v1/events",
-    description: "Yeni etkinlik oluştur",
-  },
-  {
-    method: "PUT",
-    path: "/api/v1/events/:id",
-    description: "Etkinlik güncelle",
-  },
-  {
-    method: "GET",
-    path: "/api/v1/analytics/overview",
-    description: "Analitik özeti",
-  },
-];
+const endpointKeys = [
+  "listEvents",
+  "getEvent",
+  "listArtists",
+  "listVenues",
+  "validateTicket",
+  "createEvent",
+  "updateEvent",
+  "analyticsOverview",
+] as const;
+
+const endpointPaths: Record<string, { method: string; path: string }> = {
+  listEvents: { method: "GET", path: "/api/v1/events" },
+  getEvent: { method: "GET", path: "/api/v1/events/:id" },
+  listArtists: { method: "GET", path: "/api/v1/artists" },
+  listVenues: { method: "GET", path: "/api/v1/venues" },
+  validateTicket: { method: "POST", path: "/api/v1/tickets/validate" },
+  createEvent: { method: "POST", path: "/api/v1/events" },
+  updateEvent: { method: "PUT", path: "/api/v1/events/:id" },
+  analyticsOverview: { method: "GET", path: "/api/v1/analytics/overview" },
+};
 
 const methodColors: Record<string, string> = {
   GET: "text-green-400 bg-green-500/10",
@@ -60,6 +44,8 @@ const methodColors: Record<string, string> = {
 };
 
 export default function ApiDocsPage() {
+  const t = useTranslations("ApiDocsPage");
+
   return (
     <>
       <SmoothScroll />
@@ -86,13 +72,12 @@ export default function ApiDocsPage() {
                 <Code2 size={28} className="text-accent" />
               </div>
               <h1 className="display-lg mb-4">
-                API
+                {t("titleLine1")}
                 <br />
-                <span className="text-gradient-primary">Dokümantasyon</span>
+                <span className="text-gradient-primary">{t("titleLine2")}</span>
               </h1>
               <p className="text-muted text-sm max-w-md mx-auto">
-                PORTAL API ile etkinlik verilerine erişin, bilet doğrulayın ve
-                platformumuzu kendi uygulamanıza entegre edin.
+                {t("description")}
               </p>
             </FadeInUp>
           </div>
@@ -102,32 +87,30 @@ export default function ApiDocsPage() {
             <FadeInUp delay={0.1}>
               <div className="glass rounded-2xl p-6">
                 <Key size={20} className="text-primary mb-3" />
-                <h3 className="text-sm font-bold mb-2">Kimlik Doğrulama</h3>
+                <h3 className="text-sm font-bold mb-2">{t("auth")}</h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  API anahtarınızı Organizatör Paneli &gt; Ayarlar bölümünden
-                  alabilirsiniz. Tüm isteklerde Bearer token olarak gönderin.
+                  {t("authDesc")}
                 </p>
               </div>
             </FadeInUp>
             <FadeInUp delay={0.15}>
               <div className="glass rounded-2xl p-6">
                 <Globe size={20} className="text-secondary mb-3" />
-                <h3 className="text-sm font-bold mb-2">Base URL</h3>
+                <h3 className="text-sm font-bold mb-2">{t("baseUrl")}</h3>
                 <code className="text-xs text-accent bg-accent/5 px-2 py-1 rounded">
                   https://api.portalevents.co/v1
                 </code>
                 <p className="text-xs text-muted mt-2 leading-relaxed">
-                  Tüm istekler HTTPS üzerinden yapılmalıdır.
+                  {t("baseUrlDesc")}
                 </p>
               </div>
             </FadeInUp>
             <FadeInUp delay={0.2}>
               <div className="glass rounded-2xl p-6">
                 <Webhook size={20} className="text-gold mb-3" />
-                <h3 className="text-sm font-bold mb-2">Webhook&apos;lar</h3>
+                <h3 className="text-sm font-bold mb-2">{t("webhooks")}</h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  Bilet satışı, etkinlik güncellemesi gibi olaylar için webhook
-                  tanımlayabilirsiniz.
+                  {t("webhooksDesc")}
                 </p>
               </div>
             </FadeInUp>
@@ -138,28 +121,31 @@ export default function ApiDocsPage() {
             <div className="glass rounded-2xl p-8">
               <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
                 <Terminal size={18} className="text-primary" />
-                Endpoints
+                {t("endpoints")}
               </h2>
 
               <div className="space-y-2">
-                {endpoints.map((ep) => (
-                  <div
-                    key={ep.path + ep.method}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-foreground/[0.03] transition-colors group"
-                  >
-                    <span
-                      className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase ${methodColors[ep.method]}`}
+                {endpointKeys.map((key) => {
+                  const ep = endpointPaths[key];
+                  return (
+                    <div
+                      key={key}
+                      className="flex items-center gap-4 p-4 rounded-xl hover:bg-foreground/[0.03] transition-colors group"
                     >
-                      {ep.method}
-                    </span>
-                    <code className="text-sm font-mono text-foreground/80 flex-1">
-                      {ep.path}
-                    </code>
-                    <span className="text-xs text-muted hidden sm:block">
-                      {ep.description}
-                    </span>
-                  </div>
-                ))}
+                      <span
+                        className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase ${methodColors[ep.method]}`}
+                      >
+                        {ep.method}
+                      </span>
+                      <code className="text-sm font-mono text-foreground/80 flex-1">
+                        {ep.path}
+                      </code>
+                      <span className="text-xs text-muted hidden sm:block">
+                        {t(`endpointDescriptions.${key}`)}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </FadeInUp>
@@ -169,15 +155,10 @@ export default function ApiDocsPage() {
             <div className="text-center mt-12">
               <div className="glass rounded-2xl p-8 inline-block">
                 <BookOpen size={24} className="text-primary mx-auto mb-3" />
-                <h3 className="text-sm font-bold mb-2">
-                  Detaylı Dokümantasyon
-                </h3>
-                <p className="text-xs text-muted mb-4">
-                  Tam API referansı, SDK&apos;lar ve örnek kodlar için detaylı
-                  dokümantasyonumuzu inceleyin.
-                </p>
+                <h3 className="text-sm font-bold mb-2">{t("fullDocsTitle")}</h3>
+                <p className="text-xs text-muted mb-4">{t("fullDocsDesc")}</p>
                 <span className="inline-block px-5 py-2.5 bg-primary/10 text-primary text-xs font-semibold rounded-full">
-                  Çok Yakında
+                  {t("comingSoon")}
                 </span>
               </div>
             </div>

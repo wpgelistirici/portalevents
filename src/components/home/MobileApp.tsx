@@ -231,7 +231,7 @@ export default function MobileApp() {
                       className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium text-primary bg-primary/10 border border-primary/20"
                     >
                       <Check size={12} />
-                      {t("comingSoon") || "Çok yakında!"}
+                      {t("comingSoon")}
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -312,11 +312,7 @@ function TicketCard({
                       />
                       <ActionButton
                         icon={Send}
-                        label={
-                          transferToast
-                            ? t("linkCopied") || "Link kopyalandı!"
-                            : t("transfer")
-                        }
+                        label={transferToast ? t("linkCopied") : t("transfer")}
                         variant="glass"
                         onClick={() => {
                           navigator.clipboard.writeText(

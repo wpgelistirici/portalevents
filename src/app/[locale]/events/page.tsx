@@ -62,7 +62,7 @@ function EventSaveButton({ eventId }: { eventId: string }) {
 }
 
 export default function EventsPage() {
-  const [activeGenre, setActiveGenre] = useState("Tümü");
+  const [activeGenre, setActiveGenre] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState<"date" | "popularity">("date");
@@ -71,7 +71,7 @@ export default function EventsPage() {
   const tCommon = useTranslations("Common");
 
   const filteredEvents = events.filter((e) => {
-    const matchesGenre = activeGenre === "Tümü" || e.genre === activeGenre;
+    const matchesGenre = activeGenre === "All" || e.genre === activeGenre;
     const matchesSearch =
       e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       e.artist.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -192,7 +192,7 @@ export default function EventsPage() {
                   <div className="glass rounded-xl p-5 mb-6 flex flex-wrap gap-4">
                     <div>
                       <label className="text-[10px] text-muted uppercase tracking-wider mb-2 block">
-                        {tCommon("city") || "Şehir"}
+                        {tCommon("city")}
                       </label>
                       <div className="flex gap-2 flex-wrap">
                         {["all", "İstanbul", "Ankara", "İzmir", "Antalya"].map(
@@ -207,7 +207,7 @@ export default function EventsPage() {
                               }`}
                               data-cursor-hover
                             >
-                              {city === "all" ? tCommon("all") || "Tümü" : city}
+                              {city === "all" ? tCommon("all") : city}
                             </button>
                           ),
                         )}
@@ -215,7 +215,7 @@ export default function EventsPage() {
                     </div>
                     <div>
                       <label className="text-[10px] text-muted uppercase tracking-wider mb-2 block">
-                        {t("sortBy") || "Sırala"}
+                        {t("sortBy")}
                       </label>
                       <div className="flex gap-2">
                         <button
@@ -227,7 +227,7 @@ export default function EventsPage() {
                           }`}
                           data-cursor-hover
                         >
-                          {t("byDate") || "Tarih"}
+                          {t("byDate")}
                         </button>
                         <button
                           onClick={() => setSortBy("popularity")}
@@ -238,7 +238,7 @@ export default function EventsPage() {
                           }`}
                           data-cursor-hover
                         >
-                          {t("byPopularity") || "Popülerlik"}
+                          {t("byPopularity")}
                         </button>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ export default function EventsPage() {
                       : "glass text-muted hover:text-foreground"
                   }`}
                 >
-                  {genre === "Tümü" ? tCommon("all") : genre}
+                  {genre === "All" ? tCommon("all") : genre}
                 </button>
               ))}
             </div>

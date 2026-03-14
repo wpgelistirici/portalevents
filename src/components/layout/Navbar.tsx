@@ -39,12 +39,12 @@ export default function Navbar({
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const t = useTranslations("Navbar");
   const [isLocationOpen, setIsLocationOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState("İstanbul");
+  const [selectedCity, setSelectedCity] = useState(t("location"));
   const userMenuRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const t = useTranslations("Navbar");
   const { user, isAuthenticated, isOrganizer, isAdmin, openAuthModal, logout } =
     useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -168,30 +168,39 @@ export default function Navbar({
                     transition={{ duration: 0.15 }}
                     className="absolute left-0 top-full mt-2 w-44 glass-strong rounded-xl p-1.5 shadow-xl z-50"
                   >
-                    {[
-                      "İstanbul",
-                      "Ankara",
-                      "İzmir",
-                      "Antalya",
-                      "Bursa",
-                      "Tüm Şehirler",
-                    ].map((city) => (
-                      <button
-                        key={city}
-                        onClick={() => {
-                          setSelectedCity(city);
-                          setIsLocationOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${
-                          selectedCity === city
-                            ? "text-primary bg-primary/10 font-medium"
-                            : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
-                        }`}
-                        data-cursor-hover
-                      >
-                        {city}
-                      </button>
-                    ))}
+                    {["İstanbul", "Ankara", "İzmir", "Antalya", "Bursa"].map(
+                      (city) => (
+                        <button
+                          key={city}
+                          onClick={() => {
+                            setSelectedCity(city);
+                            setIsLocationOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${
+                            selectedCity === city
+                              ? "text-primary bg-primary/10 font-medium"
+                              : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
+                          }`}
+                          data-cursor-hover
+                        >
+                          {city}
+                        </button>
+                      ),
+                    )}
+                    <button
+                      onClick={() => {
+                        setSelectedCity(t("allCities"));
+                        setIsLocationOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${
+                        selectedCity === t("allCities")
+                          ? "text-primary bg-primary/10 font-medium"
+                          : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
+                      }`}
+                      data-cursor-hover
+                    >
+                      {t("allCities")}
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>
