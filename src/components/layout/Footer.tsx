@@ -22,24 +22,36 @@ const footerLinkKeys = {
     { key: "community", href: "/community" },
   ],
   platform: [
-    { key: "organizer", href: "#" },
-    { key: "pricing", href: "#" },
-    { key: "api", href: "#" },
-    { key: "integrations", href: "#" },
+    { key: "organizer", href: "/organizer" },
+    { key: "pricing", href: "/pricing" },
+    { key: "api", href: "/api-docs" },
+    { key: "integrations", href: "/integrations" },
   ],
   support: [
-    { key: "faq", href: "#" },
-    { key: "contact", href: "#" },
+    { key: "faq", href: "/faq" },
+    { key: "contact", href: "/contact" },
     { key: "privacy", href: "/legal/kvkk" },
     { key: "terms", href: "/legal/distance-sales" },
   ],
 };
 
 const socials = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Music2, href: "#", label: "Spotify" },
+  {
+    icon: Instagram,
+    href: "https://instagram.com/portalevents",
+    label: "Instagram",
+  },
+  { icon: Twitter, href: "https://x.com/portalevents", label: "Twitter" },
+  {
+    icon: Youtube,
+    href: "https://youtube.com/@portalevents",
+    label: "YouTube",
+  },
+  {
+    icon: Music2,
+    href: "https://open.spotify.com/user/portalevents",
+    label: "Spotify",
+  },
 ];
 
 export default function Footer() {

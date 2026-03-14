@@ -10,7 +10,6 @@ import {
   MapPin,
   LogIn,
   Ticket,
-  User,
   LogOut,
   ChevronDown,
   Settings,
@@ -40,7 +39,10 @@ export default function Navbar({
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isLocationOpen, setIsLocationOpen] = useState(false);
+  const [selectedCity, setSelectedCity] = useState("İstanbul");
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const locationRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const t = useTranslations("Navbar");
   const { user, isAuthenticated, isOrganizer, isAdmin, openAuthModal, logout } =
@@ -55,7 +57,7 @@ export default function Navbar({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close user menu on outside click
+  // Close user menu and location dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -63,6 +65,12 @@ export default function Navbar({
         !userMenuRef.current.contains(e.target as Node)
       ) {
         setIsUserMenuOpen(false);
+      }
+      if (
+        locationRef.current &&
+        !locationRef.current.contains(e.target as Node)
+      ) {
+        setIsLocationOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -134,16 +142,60 @@ export default function Navbar({
 
           {/* Right side */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.button
-              className="flex items-center gap-1.5 text-xs text-muted hover:text-foreground transition-colors"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              data-cursor-hover
-            >
-              <MapPin size={12} className="text-primary" />
-              <span>{t("location")}</span>
-            </motion.button>
+            <div className="relative" ref={locationRef}>
+              <motion.button
+                className="flex items-center gap-1.5 text-xs text-muted hover:text-foreground transition-colors"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                data-cursor-hover
+                onClick={() => setIsLocationOpen(!isLocationOpen)}
+              >
+                <MapPin size={12} className="text-primary" />
+                <span>{selectedCity}</span>
+                <ChevronDown
+                  size={10}
+                  className={`text-muted transition-transform duration-200 ${isLocationOpen ? "rotate-180" : ""}`}
+                />
+              </motion.button>
+
+              <AnimatePresence>
+                {isLocationOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute left-0 top-full mt-2 w-44 glass-strong rounded-xl p-1.5 shadow-xl z-50"
+                  >
+                    {[
+                      "İstanbul",
+                      "Ankara",
+                      "İzmir",
+                      "Antalya",
+                      "Bursa",
+                      "Tüm Şehirler",
+                    ].map((city) => (
+                      <button
+                        key={city}
+                        onClick={() => {
+                          setSelectedCity(city);
+                          setIsLocationOpen(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${
+                          selectedCity === city
+                            ? "text-primary bg-primary/10 font-medium"
+                            : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
+                        }`}
+                        data-cursor-hover
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <LanguageSwitcher />
 

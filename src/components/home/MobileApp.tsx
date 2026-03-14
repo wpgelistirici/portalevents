@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { useTranslations } from "next-intl";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -12,6 +13,7 @@ import {
   Zap,
   Apple,
   Play,
+  Check,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -24,6 +26,13 @@ const featureIcons = [
 
 export default function MobileApp() {
   const t = useTranslations("MobileApp");
+  const [storeToast, setStoreToast] = useState(false);
+
+  const handleStoreClick = () => {
+    setStoreToast(true);
+    setTimeout(() => setStoreToast(false), 2500);
+  };
+
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
@@ -180,30 +189,52 @@ export default function MobileApp() {
 
             {/* Store buttons */}
             <FadeInUp delay={0.6}>
-              <div className="flex flex-wrap gap-3">
-                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors">
-                  <Apple size={22} />
-                  <div className="text-left">
-                    <div className="text-[9px] text-muted leading-none">
-                      {t("appStoreLine1")}
+              <div className="relative">
+                <div className="flex flex-wrap gap-3">
+                  <MagneticButton
+                    className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors"
+                    onClick={handleStoreClick}
+                  >
+                    <Apple size={22} />
+                    <div className="text-left">
+                      <div className="text-[9px] text-muted leading-none">
+                        {t("appStoreLine1")}
+                      </div>
+                      <div className="text-sm font-semibold leading-tight">
+                        {t("appStoreLine2")}
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold leading-tight">
-                      {t("appStoreLine2")}
-                    </div>
-                  </div>
-                </MagneticButton>
+                  </MagneticButton>
 
-                <MagneticButton className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors">
-                  <Play size={22} fill="currentColor" />
-                  <div className="text-left">
-                    <div className="text-[9px] text-muted leading-none">
-                      {t("googlePlayLine1")}
+                  <MagneticButton
+                    className="flex items-center gap-3 px-6 py-3.5 glass rounded-xl hover:bg-foreground/[0.06] transition-colors"
+                    onClick={handleStoreClick}
+                  >
+                    <Play size={22} fill="currentColor" />
+                    <div className="text-left">
+                      <div className="text-[9px] text-muted leading-none">
+                        {t("googlePlayLine1")}
+                      </div>
+                      <div className="text-sm font-semibold leading-tight">
+                        {t("googlePlayLine2")}
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold leading-tight">
-                      {t("googlePlayLine2")}
-                    </div>
-                  </div>
-                </MagneticButton>
+                  </MagneticButton>
+                </div>
+
+                <AnimatePresence>
+                  {storeToast && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium text-primary bg-primary/10 border border-primary/20"
+                    >
+                      <Check size={12} />
+                      {t("comingSoon") || "Çok yakında!"}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </FadeInUp>
           </div>

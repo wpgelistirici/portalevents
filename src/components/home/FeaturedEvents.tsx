@@ -62,7 +62,7 @@ export default function FeaturedEvents() {
   };
 
   return (
-    <section className="relative py-32">
+    <section id="featured-events" className="relative py-32">
       {/* Section header */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <FadeInUp>

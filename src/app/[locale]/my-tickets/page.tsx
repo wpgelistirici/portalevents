@@ -165,12 +165,15 @@ function TicketCard({
   ticket,
   isExpanded,
   onToggle,
+  onCancel,
 }: {
   ticket: StoredTicket;
   isExpanded: boolean;
   onToggle: () => void;
+  onCancel: () => void;
 }) {
   const t = useTranslations("MyTicketsPage");
+  const [transferToast, setTransferToast] = useState(false);
 
   // Parse date for past/upcoming
   const statusColor =
@@ -296,16 +299,38 @@ function TicketCard({
                         icon={Download}
                         label={t("download")}
                         variant="glass"
+                        onClick={() => {
+                          const data = `Event: ${ticket.eventTitle}\nArtist: ${ticket.artist}\nDate: ${ticket.date}\nVenue: ${ticket.venue}\nTicket: ${ticket.ticketType}\nQR: ${ticket.qrSeed}`;
+                          const blob = new Blob([data], { type: "text/plain" });
+                          const url = URL.createObjectURL(blob);
+                          const a = document.createElement("a");
+                          a.href = url;
+                          a.download = `ticket-${ticket.id}.txt`;
+                          a.click();
+                          URL.revokeObjectURL(url);
+                        }}
                       />
                       <ActionButton
                         icon={Send}
-                        label={t("transfer")}
+                        label={
+                          transferToast
+                            ? t("linkCopied") || "Link kopyalandı!"
+                            : t("transfer")
+                        }
                         variant="glass"
+                        onClick={() => {
+                          navigator.clipboard.writeText(
+                            `${window.location.origin}/my-tickets?ticket=${ticket.id}`,
+                          );
+                          setTransferToast(true);
+                          setTimeout(() => setTransferToast(false), 2000);
+                        }}
                       />
                       <ActionButton
                         icon={XCircle}
                         label={t("cancel")}
                         variant="danger"
+                        onClick={onCancel}
                       />
                     </>
                   )}
@@ -358,13 +383,16 @@ function ActionButton({
   icon: Icon,
   label,
   variant,
+  onClick,
 }: {
   icon: React.ComponentType<{ size: number; className?: string }>;
   label: string;
   variant: "glass" | "danger";
+  onClick?: () => void;
 }) {
   return (
     <button
+      onClick={onClick}
       className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[11px] font-medium transition-all ${
         variant === "danger"
           ? "text-red-400 bg-red-500/10 hover:bg-red-500/20"
@@ -559,6 +587,22 @@ export default function MyTicketsPage() {
                   onToggle={() =>
                     setExpandedId(expandedId === ticket.id ? null : ticket.id)
                   }
+                  onCancel={() => {
+                    const updated = tickets.map((t) =>
+                      t.id === ticket.id
+                        ? { ...t, status: "cancelled" as const }
+                        : t,
+                    );
+                    setTickets(updated);
+                    try {
+                      localStorage.setItem(
+                        "pulse_tickets",
+                        JSON.stringify(updated),
+                      );
+                    } catch {
+                      /* ignore */
+                    }
+                  }}
                 />
               </FadeInUp>
             ))}

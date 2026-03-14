@@ -377,19 +377,27 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.7 }}
         >
-          <MagneticButton className="px-6 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] transition-shadow duration-500">
+          <MagneticButton
+            className="px-6 py-3 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] transition-shadow duration-500"
+            onClick={() => {
+              const el = document.getElementById("featured-events");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <span className="flex items-center gap-2">
               {t("ctaExplore")}
               <ArrowDown size={14} className="animate-bounce" />
             </span>
           </MagneticButton>
 
-          <MagneticButton className="px-6 py-3 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
-            <span className="flex items-center gap-2">
-              <Play size={12} fill="currentColor" />
-              {t("ctaHow")}
-            </span>
-          </MagneticButton>
+          <Link href="/events">
+            <MagneticButton className="px-6 py-3 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
+              <span className="flex items-center gap-2">
+                <Play size={12} fill="currentColor" />
+                {t("ctaHow")}
+              </span>
+            </MagneticButton>
+          </Link>
         </motion.div>
       </motion.div>
     </section>

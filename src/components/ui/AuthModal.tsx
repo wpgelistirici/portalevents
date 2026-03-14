@@ -90,6 +90,7 @@ export default function AuthModal() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [forgotSent, setForgotSent] = useState(false);
 
   const resetForm = () => {
     setName("");
@@ -483,9 +484,17 @@ export default function AuthModal() {
                       <button
                         type="button"
                         data-cursor-hover
+                        onClick={() => {
+                          if (email) {
+                            setForgotSent(true);
+                            setTimeout(() => setForgotSent(false), 3000);
+                          }
+                        }}
                         className="text-[11px] text-primary hover:text-primary/80 transition-colors"
                       >
-                        {t("forgotPassword")}
+                        {forgotSent
+                          ? t("resetSent") || "Sıfırlama linki gönderildi!"
+                          : t("forgotPassword")}
                       </button>
                     </div>
                   )}

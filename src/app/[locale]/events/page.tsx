@@ -64,6 +64,9 @@ function EventSaveButton({ eventId }: { eventId: string }) {
 export default function EventsPage() {
   const [activeGenre, setActiveGenre] = useState("Tümü");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState<"date" | "popularity">("date");
+  const [cityFilter, setCityFilter] = useState("all");
   const t = useTranslations("EventsPage");
   const tCommon = useTranslations("Common");
 
@@ -163,13 +166,86 @@ export default function EventsPage() {
                 />
               </div>
               <button
+                onClick={() => setShowFilters(!showFilters)}
                 data-cursor-hover
-                className="flex items-center gap-2 px-5 py-3 glass rounded-xl text-sm text-muted hover:text-foreground transition-colors"
+                className={`flex items-center gap-2 px-5 py-3 glass rounded-xl text-sm transition-colors ${
+                  showFilters
+                    ? "text-primary border-primary/30"
+                    : "text-muted hover:text-foreground"
+                }`}
               >
                 <SlidersHorizontal size={14} />
                 {t("filters")}
               </button>
             </div>
+
+            {/* Filter panel */}
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="glass rounded-xl p-5 mb-6 flex flex-wrap gap-4">
+                    <div>
+                      <label className="text-[10px] text-muted uppercase tracking-wider mb-2 block">
+                        {tCommon("city") || "Şehir"}
+                      </label>
+                      <div className="flex gap-2 flex-wrap">
+                        {["all", "İstanbul", "Ankara", "İzmir", "Antalya"].map(
+                          (city) => (
+                            <button
+                              key={city}
+                              onClick={() => setCityFilter(city)}
+                              className={`px-3 py-1.5 rounded-lg text-xs transition-all ${
+                                cityFilter === city
+                                  ? "bg-primary/15 text-primary font-medium"
+                                  : "glass text-muted hover:text-foreground"
+                              }`}
+                              data-cursor-hover
+                            >
+                              {city === "all" ? tCommon("all") || "Tümü" : city}
+                            </button>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-muted uppercase tracking-wider mb-2 block">
+                        {t("sortBy") || "Sırala"}
+                      </label>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => setSortBy("date")}
+                          className={`px-3 py-1.5 rounded-lg text-xs transition-all ${
+                            sortBy === "date"
+                              ? "bg-primary/15 text-primary font-medium"
+                              : "glass text-muted hover:text-foreground"
+                          }`}
+                          data-cursor-hover
+                        >
+                          {t("byDate") || "Tarih"}
+                        </button>
+                        <button
+                          onClick={() => setSortBy("popularity")}
+                          className={`px-3 py-1.5 rounded-lg text-xs transition-all ${
+                            sortBy === "popularity"
+                              ? "bg-primary/15 text-primary font-medium"
+                              : "glass text-muted hover:text-foreground"
+                          }`}
+                          data-cursor-hover
+                        >
+                          {t("byPopularity") || "Popülerlik"}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </FadeInUp>
 
           {/* Genre tabs */}

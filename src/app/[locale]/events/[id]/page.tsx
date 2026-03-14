@@ -1147,20 +1147,22 @@ function OrganizerCard({
       </p>
 
       <div className="flex gap-2">
-        <button
+        <Link
+          href="/organizer"
           className="flex-1 py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-center gap-1.5"
           data-cursor-hover
         >
           <User size={12} />
           {t("viewOrganizer")}
-        </button>
-        <button
+        </Link>
+        <a
+          href={`mailto:info@portalevents.co?subject=${encodeURIComponent(detail.organizerName)}`}
           className="flex-1 py-2.5 glass rounded-xl text-xs font-medium text-primary hover:bg-primary/10 transition-colors flex items-center justify-center gap-1.5"
           data-cursor-hover
         >
           <ExternalLink size={12} />
           {t("contactOrganizer")}
-        </button>
+        </a>
       </div>
     </div>
   );
@@ -1179,6 +1181,8 @@ function ActionsCard({
   const { isSaved, toggleSave } = useSaved();
   const { isAuthenticated, openAuthModal } = useAuth();
   const saved = isSaved(eventId, "event");
+  const [shareToast, setShareToast] = useState(false);
+  const [reportSent, setReportSent] = useState(false);
 
   const handleSave = () => {
     if (!isAuthenticated) {
@@ -1188,15 +1192,36 @@ function ActionsCard({
     toggleSave(eventId, "event");
   };
 
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({ url });
+      } catch {
+        // user cancelled
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      setShareToast(true);
+      setTimeout(() => setShareToast(false), 2000);
+    }
+  };
+
+  const handleReport = () => {
+    setReportSent(true);
+    setTimeout(() => setReportSent(false), 3000);
+  };
+
   return (
     <div className="glass rounded-2xl p-6">
       <div className="flex flex-col gap-2">
         <button
-          className="w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-center gap-2"
+          onClick={handleShare}
+          className="w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-center gap-2 relative"
           data-cursor-hover
         >
           <Share2 size={14} />
-          {t("shareEvent")}
+          {shareToast ? t("linkCopied") || "Link kopyalandı!" : t("shareEvent")}
         </button>
         <motion.button
           onClick={handleSave}
@@ -1212,11 +1237,14 @@ function ActionsCard({
           {saved ? t("saved") : t("saveEvent")}
         </motion.button>
         <button
+          onClick={handleReport}
           className="w-full py-2.5 glass rounded-xl text-xs font-medium text-muted hover:text-red-400 hover:bg-red-500/5 transition-colors flex items-center justify-center gap-2"
           data-cursor-hover
         >
           <Flag size={14} />
-          {t("reportEvent")}
+          {reportSent
+            ? t("reportSent") || "Rapor gönderildi"
+            : t("reportEvent")}
         </button>
       </div>
     </div>

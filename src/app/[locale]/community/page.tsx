@@ -96,86 +96,603 @@ interface Post {
    ============================================ */
 const AVATARS = {
   cem: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-  zeynep: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-  baris: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+  zeynep:
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+  baris:
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
   ayse: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
   mert: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
   elif: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
-  deniz: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+  deniz:
+    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
   can: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
-  selin: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop",
+  selin:
+    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop",
   emre: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop",
 };
 
 function generateMockComments(postId: string): Comment[] {
   const comments: Record<string, Comment[]> = {
     "1": [
-      { id: "c1-1", user: "Cem A.", avatar: AVATARS.cem, content: "Kesinlikle katılıyorum! O bass drop anı efsaneydi 🔊", time: "2s önce", likes: 12, liked: false },
-      { id: "c1-2", user: "Zeynep M.", avatar: AVATARS.zeynep, content: "Ben de oradaydım, müthiş bir geceydi!", time: "1s önce", likes: 8, liked: false },
-      { id: "c1-3", user: "Barış T.", avatar: AVATARS.baris, content: "Bir sonraki sefere haber verin beraber gidelim 🎶", time: "55dk önce", likes: 5, liked: false },
-      { id: "c1-4", user: "Ayşe D.", avatar: AVATARS.ayse, content: "Klein'in ses sistemi gerçekten başka bir seviye. Amelie Lens de tam hak ettiği performansı sergiledi.", time: "50dk önce", likes: 19, liked: false },
-      { id: "c1-5", user: "Mert K.", avatar: AVATARS.mert, content: "Bir dahaki sefer bilet almayı unutmayacağım 😭", time: "45dk önce", likes: 3, liked: false },
-      { id: "c1-6", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Warm-up DJ de çok iyiydi, adını bilen var mı?", time: "40dk önce", likes: 7, liked: false },
-      { id: "c1-7", user: "Can B.", avatar: AVATARS.can, content: "Closing set'teki şarkıyı hala arıyorum, bilen varsa yazabilir mi?", time: "38dk önce", likes: 15, liked: false },
-      { id: "c1-8", user: "Selin T.", avatar: AVATARS.selin, content: "Işık show'u da ayrı bir düzeydeydi. Lazerler inanılmazdı ✨", time: "35dk önce", likes: 21, liked: false },
-      { id: "c1-9", user: "Emre K.", avatar: AVATARS.emre, content: "Bu senenin en iyi etkinliğiydi, tereddütsüz söylüyorum.", time: "30dk önce", likes: 33, liked: false },
-      { id: "c1-10", user: "Elif K.", avatar: AVATARS.elif, content: "Arka bahçedeki ambient stage'i keşfettiniz mi? Orada da ayrı bir atmosfer vardı.", time: "25dk önce", likes: 11, liked: false },
-      { id: "c1-11", user: "Cem A.", avatar: AVATARS.cem, content: "@Elif evet! Orayı keşfetmemiz yarım saat sürdü ama değdi 😅", time: "22dk önce", likes: 8, liked: false },
-      { id: "c1-12", user: "Zeynep M.", avatar: AVATARS.zeynep, content: "Bir sonraki etkinlik ne zaman acaba? Klein'in sosyal medyasını takip edin derim.", time: "20dk önce", likes: 6, liked: false },
-      { id: "c1-13", user: "Can B.", avatar: AVATARS.can, content: "Mart ayında büyük bir etkinlik daha olacak diye duydum, mekan aynı 🔥", time: "18dk önce", likes: 24, liked: false },
-      { id: "c1-14", user: "Selin T.", avatar: AVATARS.selin, content: "Biletler çıkar çıkmaz alacağım, geçen sefer son anda bulmuştum.", time: "15dk önce", likes: 9, liked: false },
-      { id: "c1-15", user: "Barış T.", avatar: AVATARS.baris, content: "Grup bileti olursa daha uygun oluyor, beraber alalım.", time: "12dk önce", likes: 13, liked: false },
-      { id: "c1-16", user: "Mert K.", avatar: AVATARS.mert, content: "Sound quality açısından İstanbul'un en iyi mekanı burası bence 🎵", time: "10dk önce", likes: 17, liked: false },
-      { id: "c1-17", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Katılıyorum! Funktion-One sistemi fark yaratıyor.", time: "8dk önce", likes: 5, liked: false },
-      { id: "c1-18", user: "Ayşe D.", avatar: AVATARS.ayse, content: "Arkadaşlar afterparty fotoğraflarını da paylaşır mısınız? 📸", time: "5dk önce", likes: 4, liked: false },
-      { id: "c1-19", user: "Emre K.", avatar: AVATARS.emre, content: "Fotoğrafları story'de paylaştım, profilimden bakabilirsiniz 🙌", time: "3dk önce", likes: 7, liked: false },
-      { id: "c1-20", user: "Elif K.", avatar: AVATARS.elif, content: "Harika bir gece için herkese teşekkürler! Bir sonrakinde görüşmek üzere 💜", time: "1dk önce", likes: 28, liked: false },
+      {
+        id: "c1-1",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content: "Kesinlikle katılıyorum! O bass drop anı efsaneydi 🔊",
+        time: "2s önce",
+        likes: 12,
+        liked: false,
+      },
+      {
+        id: "c1-2",
+        user: "Zeynep M.",
+        avatar: AVATARS.zeynep,
+        content: "Ben de oradaydım, müthiş bir geceydi!",
+        time: "1s önce",
+        likes: 8,
+        liked: false,
+      },
+      {
+        id: "c1-3",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content: "Bir sonraki sefere haber verin beraber gidelim 🎶",
+        time: "55dk önce",
+        likes: 5,
+        liked: false,
+      },
+      {
+        id: "c1-4",
+        user: "Ayşe D.",
+        avatar: AVATARS.ayse,
+        content:
+          "Klein'in ses sistemi gerçekten başka bir seviye. Amelie Lens de tam hak ettiği performansı sergiledi.",
+        time: "50dk önce",
+        likes: 19,
+        liked: false,
+      },
+      {
+        id: "c1-5",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content: "Bir dahaki sefer bilet almayı unutmayacağım 😭",
+        time: "45dk önce",
+        likes: 3,
+        liked: false,
+      },
+      {
+        id: "c1-6",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content: "Warm-up DJ de çok iyiydi, adını bilen var mı?",
+        time: "40dk önce",
+        likes: 7,
+        liked: false,
+      },
+      {
+        id: "c1-7",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "Closing set'teki şarkıyı hala arıyorum, bilen varsa yazabilir mi?",
+        time: "38dk önce",
+        likes: 15,
+        liked: false,
+      },
+      {
+        id: "c1-8",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content: "Işık show'u da ayrı bir düzeydeydi. Lazerler inanılmazdı ✨",
+        time: "35dk önce",
+        likes: 21,
+        liked: false,
+      },
+      {
+        id: "c1-9",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content: "Bu senenin en iyi etkinliğiydi, tereddütsüz söylüyorum.",
+        time: "30dk önce",
+        likes: 33,
+        liked: false,
+      },
+      {
+        id: "c1-10",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content:
+          "Arka bahçedeki ambient stage'i keşfettiniz mi? Orada da ayrı bir atmosfer vardı.",
+        time: "25dk önce",
+        likes: 11,
+        liked: false,
+      },
+      {
+        id: "c1-11",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content: "@Elif evet! Orayı keşfetmemiz yarım saat sürdü ama değdi 😅",
+        time: "22dk önce",
+        likes: 8,
+        liked: false,
+      },
+      {
+        id: "c1-12",
+        user: "Zeynep M.",
+        avatar: AVATARS.zeynep,
+        content:
+          "Bir sonraki etkinlik ne zaman acaba? Klein'in sosyal medyasını takip edin derim.",
+        time: "20dk önce",
+        likes: 6,
+        liked: false,
+      },
+      {
+        id: "c1-13",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "Mart ayında büyük bir etkinlik daha olacak diye duydum, mekan aynı 🔥",
+        time: "18dk önce",
+        likes: 24,
+        liked: false,
+      },
+      {
+        id: "c1-14",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content:
+          "Biletler çıkar çıkmaz alacağım, geçen sefer son anda bulmuştum.",
+        time: "15dk önce",
+        likes: 9,
+        liked: false,
+      },
+      {
+        id: "c1-15",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content: "Grup bileti olursa daha uygun oluyor, beraber alalım.",
+        time: "12dk önce",
+        likes: 13,
+        liked: false,
+      },
+      {
+        id: "c1-16",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content:
+          "Sound quality açısından İstanbul'un en iyi mekanı burası bence 🎵",
+        time: "10dk önce",
+        likes: 17,
+        liked: false,
+      },
+      {
+        id: "c1-17",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content: "Katılıyorum! Funktion-One sistemi fark yaratıyor.",
+        time: "8dk önce",
+        likes: 5,
+        liked: false,
+      },
+      {
+        id: "c1-18",
+        user: "Ayşe D.",
+        avatar: AVATARS.ayse,
+        content: "Arkadaşlar afterparty fotoğraflarını da paylaşır mısınız? 📸",
+        time: "5dk önce",
+        likes: 4,
+        liked: false,
+      },
+      {
+        id: "c1-19",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content:
+          "Fotoğrafları story'de paylaştım, profilimden bakabilirsiniz 🙌",
+        time: "3dk önce",
+        likes: 7,
+        liked: false,
+      },
+      {
+        id: "c1-20",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content:
+          "Harika bir gece için herkese teşekkürler! Bir sonrakinde görüşmek üzere 💜",
+        time: "1dk önce",
+        likes: 28,
+        liked: false,
+      },
     ],
     "2": [
-      { id: "c2-1", user: "Elif K.", avatar: AVATARS.elif, content: "Ben gidiyorum! İstanbul Avrupa yakasından 3 kişilik grubumuz var", time: "2s önce", likes: 15, liked: false },
-      { id: "c2-2", user: "Zeynep M.", avatar: AVATARS.zeynep, content: "Beni de ekleyin lütfen! 🙋‍♀️", time: "1s önce", likes: 7, liked: false },
-      { id: "c2-3", user: "Mert K.", avatar: AVATARS.mert, content: "Kaç günlük festival? Konaklama ayarladınız mı?", time: "55dk önce", likes: 4, liked: false },
-      { id: "c2-4", user: "Deniz Y.", avatar: AVATARS.deniz, content: "İstanbul'dan otobüs kalkıyor diye duydum, araştıralım mı?", time: "50dk önce", likes: 11, liked: false },
-      { id: "c2-5", user: "Can B.", avatar: AVATARS.can, content: "3 günlük festival, kamp alanı da var. Ben çadır götüreceğim 🏕️", time: "45dk önce", likes: 19, liked: false },
-      { id: "c2-6", user: "Selin T.", avatar: AVATARS.selin, content: "Kamp yerine yakınlardaki pansiyonu önerebilirim, geçen sene kaldım. Çok temiz.", time: "42dk önce", likes: 14, liked: false },
-      { id: "c2-7", user: "Emre K.", avatar: AVATARS.emre, content: "Line-up'ta kimler var? Henüz tam listeyi görmedim.", time: "40dk önce", likes: 3, liked: false },
-      { id: "c2-8", user: "Cem A.", avatar: AVATARS.cem, content: "İlk gün techno ağırlıklı, ikinci gün house, üçüncü gün karışık diye biliyorum.", time: "38dk önce", likes: 22, liked: false },
-      { id: "c2-9", user: "Barış T.", avatar: AVATARS.baris, content: "Early bird biletler hâlâ var mı? Fiyat ne kadar?", time: "35dk önce", likes: 6, liked: false },
-      { id: "c2-10", user: "Ayşe D.", avatar: AVATARS.ayse, content: "Early bird bitti ama normal bilet 800 TL. Yine de değer bence 3 gün için.", time: "32dk önce", likes: 10, liked: false },
-      { id: "c2-11", user: "Elif K.", avatar: AVATARS.elif, content: "Arabayla gidecek varsa yer var yanımda. Benzin paylaşalım 🚗", time: "28dk önce", likes: 17, liked: false },
-      { id: "c2-12", user: "Mert K.", avatar: AVATARS.mert, content: "@Elif ben gelirim! Kaç kişilik araç?", time: "25dk önce", likes: 5, liked: false },
-      { id: "c2-13", user: "Can B.", avatar: AVATARS.can, content: "WhatsApp grubu kuralım mı organizasyon için? Daha kolay olur.", time: "20dk önce", likes: 31, liked: false },
-      { id: "c2-14", user: "Selin T.", avatar: AVATARS.selin, content: "Süper fikir! Ben de katılmak istiyorum gruba 🙋‍♀️", time: "18dk önce", likes: 8, liked: false },
-      { id: "c2-15", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Geçen seneki festivalde tanıştığım insanlarla hâlâ görüşüyorum. Bu etkinliklerin en güzel yanı bu.", time: "10dk önce", likes: 25, liked: false },
-      { id: "c2-16", user: "Emre K.", avatar: AVATARS.emre, content: "Kesinlikle! Festival = yeni arkadaşlıklar. Heyecanla bekliyorum 🎉", time: "5dk önce", likes: 12, liked: false },
+      {
+        id: "c2-1",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content:
+          "Ben gidiyorum! İstanbul Avrupa yakasından 3 kişilik grubumuz var",
+        time: "2s önce",
+        likes: 15,
+        liked: false,
+      },
+      {
+        id: "c2-2",
+        user: "Zeynep M.",
+        avatar: AVATARS.zeynep,
+        content: "Beni de ekleyin lütfen! 🙋‍♀️",
+        time: "1s önce",
+        likes: 7,
+        liked: false,
+      },
+      {
+        id: "c2-3",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content: "Kaç günlük festival? Konaklama ayarladınız mı?",
+        time: "55dk önce",
+        likes: 4,
+        liked: false,
+      },
+      {
+        id: "c2-4",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content: "İstanbul'dan otobüs kalkıyor diye duydum, araştıralım mı?",
+        time: "50dk önce",
+        likes: 11,
+        liked: false,
+      },
+      {
+        id: "c2-5",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "3 günlük festival, kamp alanı da var. Ben çadır götüreceğim 🏕️",
+        time: "45dk önce",
+        likes: 19,
+        liked: false,
+      },
+      {
+        id: "c2-6",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content:
+          "Kamp yerine yakınlardaki pansiyonu önerebilirim, geçen sene kaldım. Çok temiz.",
+        time: "42dk önce",
+        likes: 14,
+        liked: false,
+      },
+      {
+        id: "c2-7",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content: "Line-up'ta kimler var? Henüz tam listeyi görmedim.",
+        time: "40dk önce",
+        likes: 3,
+        liked: false,
+      },
+      {
+        id: "c2-8",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content:
+          "İlk gün techno ağırlıklı, ikinci gün house, üçüncü gün karışık diye biliyorum.",
+        time: "38dk önce",
+        likes: 22,
+        liked: false,
+      },
+      {
+        id: "c2-9",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content: "Early bird biletler hâlâ var mı? Fiyat ne kadar?",
+        time: "35dk önce",
+        likes: 6,
+        liked: false,
+      },
+      {
+        id: "c2-10",
+        user: "Ayşe D.",
+        avatar: AVATARS.ayse,
+        content:
+          "Early bird bitti ama normal bilet 800 TL. Yine de değer bence 3 gün için.",
+        time: "32dk önce",
+        likes: 10,
+        liked: false,
+      },
+      {
+        id: "c2-11",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content: "Arabayla gidecek varsa yer var yanımda. Benzin paylaşalım 🚗",
+        time: "28dk önce",
+        likes: 17,
+        liked: false,
+      },
+      {
+        id: "c2-12",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content: "@Elif ben gelirim! Kaç kişilik araç?",
+        time: "25dk önce",
+        likes: 5,
+        liked: false,
+      },
+      {
+        id: "c2-13",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "WhatsApp grubu kuralım mı organizasyon için? Daha kolay olur.",
+        time: "20dk önce",
+        likes: 31,
+        liked: false,
+      },
+      {
+        id: "c2-14",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content: "Süper fikir! Ben de katılmak istiyorum gruba 🙋‍♀️",
+        time: "18dk önce",
+        likes: 8,
+        liked: false,
+      },
+      {
+        id: "c2-15",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content:
+          "Geçen seneki festivalde tanıştığım insanlarla hâlâ görüşüyorum. Bu etkinliklerin en güzel yanı bu.",
+        time: "10dk önce",
+        likes: 25,
+        liked: false,
+      },
+      {
+        id: "c2-16",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content:
+          "Kesinlikle! Festival = yeni arkadaşlıklar. Heyecanla bekliyorum 🎉",
+        time: "5dk önce",
+        likes: 12,
+        liked: false,
+      },
     ],
     "3": [
-      { id: "c3-1", user: "Cem A.", avatar: AVATARS.cem, content: "Yeni albüm çok iyi, özellikle 3. parça harika!", time: "2s önce", likes: 22, liked: false },
-      { id: "c3-2", user: "Barış T.", avatar: AVATARS.baris, content: "Playlist'i paylaşır mısın? 🎧", time: "1s önce", likes: 9, liked: false },
-      { id: "c3-3", user: "Ayşe D.", avatar: AVATARS.ayse, content: "Migration albümü hala favorim ama bu da çok güzel olmuş. Canlı performansı merak ediyorum!", time: "55dk önce", likes: 14, liked: false },
-      { id: "c3-4", user: "Selin T.", avatar: AVATARS.selin, content: "Bonobo'nun DJ setleri de çok iyi ama live show bambaşka bir deneyim. Kesinlikle gidin.", time: "50dk önce", likes: 27, liked: false },
-      { id: "c3-5", user: "Emre K.", avatar: AVATARS.emre, content: "Geçen sene Londra'da canlı izlemiştim, sahne performansı mükemmel 🎹", time: "45dk önce", likes: 18, liked: false },
-      { id: "c3-6", user: "Can B.", avatar: AVATARS.can, content: "Fragments albümünden sonra beklentim çok yüksekti, hayal kırıklığına uğratmadı.", time: "40dk önce", likes: 11, liked: false },
-      { id: "c3-7", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Vinyl olarak da çıkacak mı acaba? Koleksiyonuma eklemek istiyorum 💿", time: "35dk önce", likes: 8, liked: false },
-      { id: "c3-8", user: "Elif K.", avatar: AVATARS.elif, content: "Bandcamp'te pre-order açılmış! Limited edition var.", time: "30dk önce", likes: 15, liked: false },
-      { id: "c3-9", user: "Mert K.", avatar: AVATARS.mert, content: "Konser biletleri ne zaman satışa çıkıyor bilen var mı?", time: "25dk önce", likes: 6, liked: false },
-      { id: "c3-10", user: "Zeynep M.", avatar: AVATARS.zeynep, content: "Önümüzdeki hafta satışa çıkacak diye duydum. Pulse'da duyuru gelir muhtemelen.", time: "20dk önce", likes: 10, liked: false },
-      { id: "c3-11", user: "Cem A.", avatar: AVATARS.cem, content: "Bonobo + Nils Frahm birlikte çıksa hayal gibi olur ya 🤯", time: "15dk önce", likes: 34, liked: false },
-      { id: "c3-12", user: "Barış T.", avatar: AVATARS.baris, content: "@Cem hayal değil gerçek olsun lütfen 🙏", time: "10dk önce", likes: 20, liked: false },
+      {
+        id: "c3-1",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content: "Yeni albüm çok iyi, özellikle 3. parça harika!",
+        time: "2s önce",
+        likes: 22,
+        liked: false,
+      },
+      {
+        id: "c3-2",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content: "Playlist'i paylaşır mısın? 🎧",
+        time: "1s önce",
+        likes: 9,
+        liked: false,
+      },
+      {
+        id: "c3-3",
+        user: "Ayşe D.",
+        avatar: AVATARS.ayse,
+        content:
+          "Migration albümü hala favorim ama bu da çok güzel olmuş. Canlı performansı merak ediyorum!",
+        time: "55dk önce",
+        likes: 14,
+        liked: false,
+      },
+      {
+        id: "c3-4",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content:
+          "Bonobo'nun DJ setleri de çok iyi ama live show bambaşka bir deneyim. Kesinlikle gidin.",
+        time: "50dk önce",
+        likes: 27,
+        liked: false,
+      },
+      {
+        id: "c3-5",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content:
+          "Geçen sene Londra'da canlı izlemiştim, sahne performansı mükemmel 🎹",
+        time: "45dk önce",
+        likes: 18,
+        liked: false,
+      },
+      {
+        id: "c3-6",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "Fragments albümünden sonra beklentim çok yüksekti, hayal kırıklığına uğratmadı.",
+        time: "40dk önce",
+        likes: 11,
+        liked: false,
+      },
+      {
+        id: "c3-7",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content:
+          "Vinyl olarak da çıkacak mı acaba? Koleksiyonuma eklemek istiyorum 💿",
+        time: "35dk önce",
+        likes: 8,
+        liked: false,
+      },
+      {
+        id: "c3-8",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content: "Bandcamp'te pre-order açılmış! Limited edition var.",
+        time: "30dk önce",
+        likes: 15,
+        liked: false,
+      },
+      {
+        id: "c3-9",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content: "Konser biletleri ne zaman satışa çıkıyor bilen var mı?",
+        time: "25dk önce",
+        likes: 6,
+        liked: false,
+      },
+      {
+        id: "c3-10",
+        user: "Zeynep M.",
+        avatar: AVATARS.zeynep,
+        content:
+          "Önümüzdeki hafta satışa çıkacak diye duydum. Pulse'da duyuru gelir muhtemelen.",
+        time: "20dk önce",
+        likes: 10,
+        liked: false,
+      },
+      {
+        id: "c3-11",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content: "Bonobo + Nils Frahm birlikte çıksa hayal gibi olur ya 🤯",
+        time: "15dk önce",
+        likes: 34,
+        liked: false,
+      },
+      {
+        id: "c3-12",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content: "@Cem hayal değil gerçek olsun lütfen 🙏",
+        time: "10dk önce",
+        likes: 20,
+        liked: false,
+      },
     ],
     "4": [
-      { id: "c4-1", user: "Elif K.", avatar: AVATARS.elif, content: "Ankara'da IF Performance Hall gerçekten çok kaliteli bir mekan olmuş", time: "3s önce", likes: 18, liked: false },
-      { id: "c4-2", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Geçen ay MFÖ konseri vardı orada, akustik muhteşemdi 👌", time: "2s önce", likes: 10, liked: false },
-      { id: "c4-3", user: "Can B.", avatar: AVATARS.can, content: "İzmir'de de benzer bir sahne açılsa keşke. Burada seçenek çok az.", time: "1s önce", likes: 14, liked: false },
-      { id: "c4-4", user: "Selin T.", avatar: AVATARS.selin, content: "Ankara'nın müzik sahnesini küçümsememek lazım. Son yıllarda çok gelişti.", time: "55dk önce", likes: 22, liked: false },
-      { id: "c4-5", user: "Emre K.", avatar: AVATARS.emre, content: "Eskişehir de ekleyelim listeye. Üniversite şehri olunca sürekli etkinlik oluyor.", time: "50dk önce", likes: 9, liked: false },
-      { id: "c4-6", user: "Mert K.", avatar: AVATARS.mert, content: "Anadolu turnesi yapan sanatçılar artmalı. Her şey İstanbul'da olmasın.", time: "45dk önce", likes: 31, liked: false },
-      { id: "c4-7", user: "Barış T.", avatar: AVATARS.baris, content: "Kesinlikle katılıyorum! Mersin, Adana, Antalya gibi şehirlerde de potansiyel var.", time: "40dk önce", likes: 16, liked: false },
-      { id: "c4-8", user: "Ayşe D.", avatar: AVATARS.ayse, content: "Antalya'da yaz festivalleri çok iyi oluyor aslında. Sahil konserleri başka 🌊", time: "35dk önce", likes: 13, liked: false },
-      { id: "c4-9", user: "Cem A.", avatar: AVATARS.cem, content: "Pulse üzerinden şehir bazlı filtreleme yapabiliyoruz, çok kullanışlı.", time: "30dk önce", likes: 7, liked: false },
-      { id: "c4-10", user: "Zeynep M.", avatar: AVATARS.zeynep, content: "Evet ama daha fazla Anadolu şehri eklenmeli platforma 🗺️", time: "25dk önce", likes: 11, liked: false },
-      { id: "c4-11", user: "Elif K.", avatar: AVATARS.elif, content: "Bu konuda topluluk olarak baskı yapabiliriz. Ne kadar talep olursa o kadar etkinlik gelir.", time: "15dk önce", likes: 19, liked: false },
-      { id: "c4-12", user: "Deniz Y.", avatar: AVATARS.deniz, content: "Haklısın! Organize eden arkadaşlar varsa destek olmaya hazırız 💪", time: "8dk önce", likes: 24, liked: false },
+      {
+        id: "c4-1",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content:
+          "Ankara'da IF Performance Hall gerçekten çok kaliteli bir mekan olmuş",
+        time: "3s önce",
+        likes: 18,
+        liked: false,
+      },
+      {
+        id: "c4-2",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content: "Geçen ay MFÖ konseri vardı orada, akustik muhteşemdi 👌",
+        time: "2s önce",
+        likes: 10,
+        liked: false,
+      },
+      {
+        id: "c4-3",
+        user: "Can B.",
+        avatar: AVATARS.can,
+        content:
+          "İzmir'de de benzer bir sahne açılsa keşke. Burada seçenek çok az.",
+        time: "1s önce",
+        likes: 14,
+        liked: false,
+      },
+      {
+        id: "c4-4",
+        user: "Selin T.",
+        avatar: AVATARS.selin,
+        content:
+          "Ankara'nın müzik sahnesini küçümsememek lazım. Son yıllarda çok gelişti.",
+        time: "55dk önce",
+        likes: 22,
+        liked: false,
+      },
+      {
+        id: "c4-5",
+        user: "Emre K.",
+        avatar: AVATARS.emre,
+        content:
+          "Eskişehir de ekleyelim listeye. Üniversite şehri olunca sürekli etkinlik oluyor.",
+        time: "50dk önce",
+        likes: 9,
+        liked: false,
+      },
+      {
+        id: "c4-6",
+        user: "Mert K.",
+        avatar: AVATARS.mert,
+        content:
+          "Anadolu turnesi yapan sanatçılar artmalı. Her şey İstanbul'da olmasın.",
+        time: "45dk önce",
+        likes: 31,
+        liked: false,
+      },
+      {
+        id: "c4-7",
+        user: "Barış T.",
+        avatar: AVATARS.baris,
+        content:
+          "Kesinlikle katılıyorum! Mersin, Adana, Antalya gibi şehirlerde de potansiyel var.",
+        time: "40dk önce",
+        likes: 16,
+        liked: false,
+      },
+      {
+        id: "c4-8",
+        user: "Ayşe D.",
+        avatar: AVATARS.ayse,
+        content:
+          "Antalya'da yaz festivalleri çok iyi oluyor aslında. Sahil konserleri başka 🌊",
+        time: "35dk önce",
+        likes: 13,
+        liked: false,
+      },
+      {
+        id: "c4-9",
+        user: "Cem A.",
+        avatar: AVATARS.cem,
+        content:
+          "Pulse üzerinden şehir bazlı filtreleme yapabiliyoruz, çok kullanışlı.",
+        time: "30dk önce",
+        likes: 7,
+        liked: false,
+      },
+      {
+        id: "c4-10",
+        user: "Zeynep M.",
+        avatar: AVATARS.zeynep,
+        content: "Evet ama daha fazla Anadolu şehri eklenmeli platforma 🗺️",
+        time: "25dk önce",
+        likes: 11,
+        liked: false,
+      },
+      {
+        id: "c4-11",
+        user: "Elif K.",
+        avatar: AVATARS.elif,
+        content:
+          "Bu konuda topluluk olarak baskı yapabiliriz. Ne kadar talep olursa o kadar etkinlik gelir.",
+        time: "15dk önce",
+        likes: 19,
+        liked: false,
+      },
+      {
+        id: "c4-12",
+        user: "Deniz Y.",
+        avatar: AVATARS.deniz,
+        content:
+          "Haklısın! Organize eden arkadaşlar varsa destek olmaya hazırız 💪",
+        time: "8dk önce",
+        likes: 24,
+        liked: false,
+      },
     ],
   };
   return comments[postId] || [];
@@ -337,23 +854,40 @@ function PostDetailModal({
           {/* Post header */}
           <div className="flex items-center gap-3 p-4 border-b border-foreground/5 flex-shrink-0">
             <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary/20">
-              <Image src={post.avatar} alt={post.user} fill className="object-cover" />
+              <Image
+                src={post.avatar}
+                alt={post.user}
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="text-sm font-semibold">{post.user}</h4>
               <span className="text-[10px] text-muted">{post.time}</span>
             </div>
-            <button className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted" data-cursor-hover>
+            <button
+              onClick={onClose}
+              className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted"
+              data-cursor-hover
+            >
               <MoreHorizontal size={14} />
             </button>
           </div>
 
           {/* Scrollable area: Post content + Comments */}
-          <div ref={scrollAreaRef} className="flex-1 overflow-y-auto min-h-0 overscroll-contain">
+          <div
+            ref={scrollAreaRef}
+            className="flex-1 overflow-y-auto min-h-0 overscroll-contain"
+          >
             {/* Post content (shown as first "comment" like Instagram) */}
             <div className="px-4 py-4 flex gap-3 border-b border-foreground/[0.03]">
               <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-                <Image src={post.avatar} alt={post.user} fill className="object-cover" />
+                <Image
+                  src={post.avatar}
+                  alt={post.user}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm leading-relaxed">
@@ -361,19 +895,34 @@ function PostDetailModal({
                   <span className="text-foreground/80">{post.content}</span>
                 </p>
                 {post.attachedEvent && (
-                  <Link href={`/events/${post.attachedEvent.id}`} onClick={(e) => e.stopPropagation()}>
+                  <Link
+                    href={`/events/${post.attachedEvent.id}`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <div className="flex items-center gap-2.5 mt-2.5 p-2.5 rounded-lg bg-foreground/[0.03] border border-foreground/5 hover:bg-foreground/[0.05] transition-colors">
                       <div className="relative w-10 h-10 rounded-md overflow-hidden flex-shrink-0">
-                        <Image src={post.attachedEvent.image} alt={post.attachedEvent.title} fill className="object-cover" />
+                        <Image
+                          src={post.attachedEvent.image}
+                          alt={post.attachedEvent.title}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[11px] font-semibold truncate">{post.attachedEvent.title}</p>
-                        <p className="text-[10px] text-muted">{post.attachedEvent.artist} · {post.attachedEvent.date}</p>
+                        <p className="text-[11px] font-semibold truncate">
+                          {post.attachedEvent.title}
+                        </p>
+                        <p className="text-[10px] text-muted">
+                          {post.attachedEvent.artist} ·{" "}
+                          {post.attachedEvent.date}
+                        </p>
                       </div>
                     </div>
                   </Link>
                 )}
-                <span className="text-[10px] text-muted mt-1.5 block">{post.time}</span>
+                <span className="text-[10px] text-muted mt-1.5 block">
+                  {post.time}
+                </span>
               </div>
             </div>
 
@@ -383,30 +932,59 @@ function PostDetailModal({
                 {visibleComments.map((comment, idx) => (
                   <motion.div
                     key={comment.id}
-                    initial={idx >= visibleCount - COMMENTS_PER_PAGE ? { opacity: 0, y: 10 } : false}
+                    initial={
+                      idx >= visibleCount - COMMENTS_PER_PAGE
+                        ? { opacity: 0, y: 10 }
+                        : false
+                    }
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2, delay: idx >= visibleCount - COMMENTS_PER_PAGE ? (idx % COMMENTS_PER_PAGE) * 0.05 : 0 }}
+                    transition={{
+                      duration: 0.2,
+                      delay:
+                        idx >= visibleCount - COMMENTS_PER_PAGE
+                          ? (idx % COMMENTS_PER_PAGE) * 0.05
+                          : 0,
+                    }}
                     className="px-4 py-3.5 flex gap-3 group hover:bg-foreground/[0.01] transition-colors"
                   >
                     <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-                      <Image src={comment.avatar} alt={comment.user} fill className="object-cover" />
+                      <Image
+                        src={comment.avatar}
+                        alt={comment.user}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm leading-relaxed">
-                        <span className="font-semibold mr-1.5">{comment.user}</span>
-                        <span className="text-foreground/75">{comment.content}</span>
+                        <span className="font-semibold mr-1.5">
+                          {comment.user}
+                        </span>
+                        <span className="text-foreground/75">
+                          {comment.content}
+                        </span>
                       </p>
                       <div className="flex items-center gap-4 mt-1.5">
-                        <span className="text-[10px] text-muted">{comment.time}</span>
+                        <span className="text-[10px] text-muted">
+                          {comment.time}
+                        </span>
                         <button
+                          onClick={() => onLikeComment(comment.id)}
                           className={`text-[10px] font-semibold transition-colors ${
-                            comment.liked ? "text-primary" : "text-muted hover:text-foreground"
+                            comment.liked
+                              ? "text-primary"
+                              : "text-muted hover:text-foreground"
                           }`}
                           data-cursor-hover
                         >
-                          {comment.likes > 0 && `${comment.likes} `}{t("like")}
+                          {comment.likes > 0 && `${comment.likes} `}
+                          {t("like")}
                         </button>
-                        <button className="text-[10px] font-semibold text-muted hover:text-foreground transition-colors" data-cursor-hover>
+                        <button
+                          onClick={() => inputRef.current?.focus()}
+                          className="text-[10px] font-semibold text-muted hover:text-foreground transition-colors"
+                          data-cursor-hover
+                        >
                           {t("reply")}
                         </button>
                       </div>
@@ -419,7 +997,11 @@ function PostDetailModal({
                     >
                       <Heart
                         size={12}
-                        className={comment.liked ? "text-primary fill-primary" : "text-muted"}
+                        className={
+                          comment.liked
+                            ? "text-primary fill-primary"
+                            : "text-muted"
+                        }
                       />
                     </motion.button>
                   </motion.div>
@@ -427,23 +1009,37 @@ function PostDetailModal({
 
                 {/* Load more trigger / spinner */}
                 {hasMore && (
-                  <div ref={loadTriggerRef} className="flex items-center justify-center py-4">
+                  <div
+                    ref={loadTriggerRef}
+                    className="flex items-center justify-center py-4"
+                  >
                     {isLoadingMore ? (
                       <motion.div
                         className="w-5 h-5 border-2 border-foreground/10 border-t-primary rounded-full"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 0.8,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                       />
                     ) : (
-                      <span className="text-[10px] text-muted">{t("scrollForMore")}</span>
+                      <span className="text-[10px] text-muted">
+                        {t("scrollForMore")}
+                      </span>
                     )}
                   </div>
                 )}
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-16 px-4">
-                <MessageCircle size={32} className="text-foreground/[0.06] mb-3" />
-                <p className="text-sm font-semibold mb-1">{t("noCommentsTitle")}</p>
+                <MessageCircle
+                  size={32}
+                  className="text-foreground/[0.06] mb-3"
+                />
+                <p className="text-sm font-semibold mb-1">
+                  {t("noCommentsTitle")}
+                </p>
                 <p className="text-xs text-muted">{t("noCommentsDesc")}</p>
               </div>
             )}
@@ -462,7 +1058,9 @@ function PostDetailModal({
                   <Heart
                     size={22}
                     className={`transition-colors ${
-                      post.liked ? "text-primary fill-primary" : "text-foreground hover:text-foreground/70"
+                      post.liked
+                        ? "text-primary fill-primary"
+                        : "text-foreground hover:text-foreground/70"
                     }`}
                   />
                 </motion.button>
@@ -470,10 +1068,30 @@ function PostDetailModal({
                   onClick={() => inputRef.current?.focus()}
                   data-cursor-hover
                 >
-                  <MessageCircle size={22} className="text-foreground hover:text-foreground/70 transition-colors" />
+                  <MessageCircle
+                    size={22}
+                    className="text-foreground hover:text-foreground/70 transition-colors"
+                  />
                 </button>
-                <button data-cursor-hover>
-                  <Share2 size={20} className="text-foreground hover:text-foreground/70 transition-colors" />
+                <button
+                  onClick={async () => {
+                    const url = window.location.href;
+                    if (navigator.share) {
+                      try {
+                        await navigator.share({ url });
+                      } catch {
+                        /* cancelled */
+                      }
+                    } else {
+                      await navigator.clipboard.writeText(url);
+                    }
+                  }}
+                  data-cursor-hover
+                >
+                  <Share2
+                    size={20}
+                    className="text-foreground hover:text-foreground/70 transition-colors"
+                  />
                 </button>
               </div>
               <motion.button
@@ -484,7 +1102,9 @@ function PostDetailModal({
                 <Bookmark
                   size={22}
                   className={`transition-colors ${
-                    post.saved ? "text-gold fill-gold" : "text-foreground hover:text-foreground/70"
+                    post.saved
+                      ? "text-gold fill-gold"
+                      : "text-foreground hover:text-foreground/70"
                   }`}
                 />
               </motion.button>
@@ -498,7 +1118,12 @@ function PostDetailModal({
           <div className="border-t border-foreground/5 px-4 py-3 flex items-center gap-3 flex-shrink-0">
             <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
               {userAvatar ? (
-                <Image src={userAvatar} alt="You" fill className="object-cover" />
+                <Image
+                  src={userAvatar}
+                  alt="You"
+                  fill
+                  className="object-cover"
+                />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-[10px] font-bold">
                   ?
@@ -552,6 +1177,24 @@ function PostCard({
   t: ReturnType<typeof useTranslations>;
 }) {
   const [showShareToast, setShowShareToast] = useState(false);
+  const [showPostMenu, setShowPostMenu] = useState(false);
+  const postMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        postMenuRef.current &&
+        !postMenuRef.current.contains(e.target as Node)
+      ) {
+        setShowPostMenu(false);
+      }
+    };
+    if (showPostMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [showPostMenu]);
 
   const handleShare = () => {
     setShowShareToast(true);
@@ -565,20 +1208,75 @@ function PostCard({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/20">
-              <Image src={post.avatar} alt={post.user} fill className="object-cover" />
+              <Image
+                src={post.avatar}
+                alt={post.user}
+                fill
+                className="object-cover"
+              />
             </div>
             <div>
               <h4 className="text-sm font-semibold">{post.user}</h4>
               <span className="text-[10px] text-muted">{post.time}</span>
             </div>
           </div>
-          <button className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted hover:text-foreground transition-colors" data-cursor-hover>
-            <MoreHorizontal size={14} />
-          </button>
+          <div className="relative" ref={postMenuRef}>
+            <button
+              onClick={() => setShowPostMenu(!showPostMenu)}
+              className="w-8 h-8 rounded-full hover:bg-foreground/5 flex items-center justify-center text-muted hover:text-foreground transition-colors"
+              data-cursor-hover
+            >
+              <MoreHorizontal size={14} />
+            </button>
+            <AnimatePresence>
+              {showPostMenu && (
+                <motion.div
+                  initial={{ opacity: 0, y: 4, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                  className="absolute right-0 top-full mt-1 w-40 glass-strong rounded-xl p-1.5 shadow-xl z-20"
+                >
+                  <button
+                    onClick={() => {
+                      setShowPostMenu(false);
+                      onOpenDetail();
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
+                    data-cursor-hover
+                  >
+                    {t("viewPost") || "Gönderiyi gör"}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowPostMenu(false);
+                      onSave();
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
+                    data-cursor-hover
+                  >
+                    {post.saved
+                      ? t("unsave") || "Kayıttan çıkar"
+                      : t("save") || "Kaydet"}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowPostMenu(false);
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-red-400/70 hover:text-red-400 hover:bg-red-500/5 transition-colors"
+                    data-cursor-hover
+                  >
+                    {t("reportPost") || "Şikayet et"}
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Content */}
-        <p className="text-sm text-foreground/80 leading-relaxed mb-4">{post.content}</p>
+        <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+          {post.content}
+        </p>
 
         {/* Post image */}
         {post.image && (
@@ -594,9 +1292,17 @@ function PostCard({
         {/* Attached event */}
         {post.attachedEvent && (
           <Link href={`/events/${post.attachedEvent.id}`}>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.03] border border-foreground/5 mb-4 hover:bg-foreground/[0.05] transition-colors group/event" data-cursor-hover>
+            <div
+              className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.03] border border-foreground/5 mb-4 hover:bg-foreground/[0.05] transition-colors group/event"
+              data-cursor-hover
+            >
               <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                <Image src={post.attachedEvent.image} alt={post.attachedEvent.title} fill className="object-cover" />
+                <Image
+                  src={post.attachedEvent.image}
+                  alt={post.attachedEvent.title}
+                  fill
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                   <Music size={14} className="text-foreground/80" />
                 </div>
@@ -605,7 +1311,9 @@ function PostCard({
                 <p className="text-sm font-semibold truncate group-hover/event:text-primary transition-colors">
                   {post.attachedEvent.title}
                 </p>
-                <p className="text-[11px] text-muted truncate">{post.attachedEvent.artist}</p>
+                <p className="text-[11px] text-muted truncate">
+                  {post.attachedEvent.artist}
+                </p>
                 <div className="flex items-center gap-3 mt-1.5 text-[10px] text-muted">
                   <span className="flex items-center gap-1">
                     <Calendar size={9} className="text-primary" />
@@ -650,7 +1358,9 @@ function PostCard({
           <motion.button
             onClick={onLike}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-medium transition-all ${
-              post.liked ? "text-primary" : "text-muted hover:text-primary hover:bg-foreground/[0.03]"
+              post.liked
+                ? "text-primary"
+                : "text-muted hover:text-primary hover:bg-foreground/[0.03]"
             }`}
             whileTap={{ scale: 0.95 }}
             data-cursor-hover
@@ -700,7 +1410,9 @@ function PostCard({
           <motion.button
             onClick={onSave}
             className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
-              post.saved ? "text-gold" : "text-muted hover:text-gold hover:bg-foreground/[0.03]"
+              post.saved
+                ? "text-gold"
+                : "text-muted hover:text-gold hover:bg-foreground/[0.03]"
             }`}
             whileTap={{ scale: 0.9 }}
             data-cursor-hover
@@ -767,28 +1479,38 @@ export default function CommunityPage() {
 
   // Detail modal state
   const [detailPostId, setDetailPostId] = useState<string | null>(null);
-  const detailPost = detailPostId ? posts.find((p) => p.id === detailPostId) ?? null : null;
+  const detailPost = detailPostId
+    ? (posts.find((p) => p.id === detailPostId) ?? null)
+    : null;
+
+  // Hashtag filter state
+  const [activeHashtag, setActiveHashtag] = useState<string | null>(null);
 
   // Post composer state
   const [composerText, setComposerText] = useState("");
   const [composerImage, setComposerImage] = useState<string | null>(null);
-  const [composerEvent, setComposerEvent] = useState<AttachedEvent | null>(null);
+  const [composerEvent, setComposerEvent] = useState<AttachedEvent | null>(
+    null,
+  );
   const [showEventPicker, setShowEventPicker] = useState(false);
   const [eventSearch, setEventSearch] = useState("");
   const [isPosting, setIsPosting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Handle photo upload
-  const handlePhotoUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setComposerImage(event.target?.result as string);
-    };
-    reader.readAsDataURL(file);
-    e.target.value = "";
-  }, []);
+  const handlePhotoUpload = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setComposerImage(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+      e.target.value = "";
+    },
+    [],
+  );
 
   // Create new post
   const handleCreatePost = useCallback(async () => {
@@ -805,7 +1527,9 @@ export default function CommunityPage() {
     const newPost: Post = {
       id: `user-${Date.now()}`,
       user: user?.name || "Kullanıcı",
-      avatar: user?.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+      avatar:
+        user?.avatar ||
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
       content: composerText,
       likes: 0,
       comments: 0,
@@ -822,29 +1546,44 @@ export default function CommunityPage() {
     setComposerImage(null);
     setComposerEvent(null);
     setIsPosting(false);
-  }, [composerText, composerImage, composerEvent, isAuthenticated, openAuthModal, user, t]);
+  }, [
+    composerText,
+    composerImage,
+    composerEvent,
+    isAuthenticated,
+    openAuthModal,
+    user,
+    t,
+  ]);
 
   // Post actions
   const handleLike = useCallback((postId: string) => {
     setPosts((prev) =>
       prev.map((p) =>
         p.id === postId
-          ? { ...p, liked: !p.liked, likes: p.liked ? p.likes - 1 : p.likes + 1 }
+          ? {
+              ...p,
+              liked: !p.liked,
+              likes: p.liked ? p.likes - 1 : p.likes + 1,
+            }
           : p,
       ),
     );
   }, []);
 
-  const handleSave = useCallback((postId: string) => {
-    if (!isAuthenticated) {
-      openAuthModal();
-      return;
-    }
-    const newState = toggleSave(postId, "post");
-    setPosts((prev) =>
-      prev.map((p) => (p.id === postId ? { ...p, saved: newState } : p)),
-    );
-  }, [isAuthenticated, openAuthModal, toggleSave]);
+  const handleSave = useCallback(
+    (postId: string) => {
+      if (!isAuthenticated) {
+        openAuthModal();
+        return;
+      }
+      const newState = toggleSave(postId, "post");
+      setPosts((prev) =>
+        prev.map((p) => (p.id === postId ? { ...p, saved: newState } : p)),
+      );
+    },
+    [isAuthenticated, openAuthModal, toggleSave],
+  );
 
   const handleAddComment = useCallback(
     (postId: string, text: string) => {
@@ -856,7 +1595,9 @@ export default function CommunityPage() {
       const newComment: Comment = {
         id: `uc-${Date.now()}`,
         user: user?.name || "Kullanıcı",
-        avatar: user?.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+        avatar:
+          user?.avatar ||
+          "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
         content: text,
         time: t("justNow"),
         likes: 0,
@@ -866,7 +1607,11 @@ export default function CommunityPage() {
       setPosts((prev) =>
         prev.map((p) =>
           p.id === postId
-            ? { ...p, commentList: [...p.commentList, newComment], comments: p.comments + 1 }
+            ? {
+                ...p,
+                commentList: [...p.commentList, newComment],
+                comments: p.comments + 1,
+              }
             : p,
         ),
       );
@@ -882,7 +1627,11 @@ export default function CommunityPage() {
               ...p,
               commentList: p.commentList.map((c) =>
                 c.id === commentId
-                  ? { ...c, liked: !c.liked, likes: c.liked ? c.likes - 1 : c.likes + 1 }
+                  ? {
+                      ...c,
+                      liked: !c.liked,
+                      likes: c.liked ? c.likes - 1 : c.likes + 1,
+                    }
                   : c,
               ),
             }
@@ -901,7 +1650,13 @@ export default function CommunityPage() {
       <main className="min-h-screen pt-32 pb-20">
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           <GradientOrb color="primary" size={400} top="5%" right="-5%" />
-          <GradientOrb color="secondary" size={350} bottom="20%" left="-5%" delay={2} />
+          <GradientOrb
+            color="secondary"
+            size={350}
+            bottom="20%"
+            left="-5%"
+            delay={2}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -914,7 +1669,9 @@ export default function CommunityPage() {
               <h1 className="display-lg mt-4 mb-6">
                 <AnimatedWords text={t("title")} delay={0.2} />
               </h1>
-              <p className="text-muted text-sm max-w-md mx-auto">{t("description")}</p>
+              <p className="text-muted text-sm max-w-md mx-auto">
+                {t("description")}
+              </p>
             </FadeInUp>
           </div>
 
@@ -927,7 +1684,12 @@ export default function CommunityPage() {
                   <div className="flex items-start gap-4">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                       {isAuthenticated && user ? (
-                        <Image src={user.avatar} alt={user.name} fill className="object-cover" />
+                        <Image
+                          src={user.avatar}
+                          alt={user.name}
+                          fill
+                          className="object-cover"
+                        />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xs font-bold">
                           ?
@@ -954,7 +1716,12 @@ export default function CommunityPage() {
                             className="relative mb-3"
                           >
                             <div className="relative h-48 rounded-xl overflow-hidden">
-                              <Image src={composerImage} alt="Upload" fill className="object-cover" />
+                              <Image
+                                src={composerImage}
+                                alt="Upload"
+                                fill
+                                className="object-cover"
+                              />
                               <div className="absolute inset-0 bg-black/10" />
                             </div>
                             <button
@@ -979,14 +1746,26 @@ export default function CommunityPage() {
                           >
                             <div className="flex items-center gap-3 p-3 rounded-xl bg-foreground/[0.03] border border-foreground/5">
                               <div className="relative w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
-                                <Image src={composerEvent.image} alt={composerEvent.title} fill className="object-cover" />
+                                <Image
+                                  src={composerEvent.image}
+                                  alt={composerEvent.title}
+                                  fill
+                                  className="object-cover"
+                                />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <p className="text-xs font-semibold truncate">{composerEvent.title}</p>
-                                <p className="text-[10px] text-muted truncate">{composerEvent.artist}</p>
+                                <p className="text-xs font-semibold truncate">
+                                  {composerEvent.title}
+                                </p>
+                                <p className="text-[10px] text-muted truncate">
+                                  {composerEvent.artist}
+                                </p>
                                 <div className="flex items-center gap-2 mt-1 text-[10px] text-muted">
                                   <span className="flex items-center gap-0.5">
-                                    <Calendar size={8} className="text-primary" />
+                                    <Calendar
+                                      size={8}
+                                      className="text-primary"
+                                    />
                                     {composerEvent.date}
                                   </span>
                                   <span className="flex items-center gap-0.5">
@@ -1020,11 +1799,16 @@ export default function CommunityPage() {
                               {/* Search */}
                               <div className="p-3 border-b border-foreground/5">
                                 <div className="flex items-center gap-2 bg-foreground/[0.03] rounded-lg px-3 py-2">
-                                  <Search size={12} className="text-muted flex-shrink-0" />
+                                  <Search
+                                    size={12}
+                                    className="text-muted flex-shrink-0"
+                                  />
                                   <input
                                     type="text"
                                     value={eventSearch}
-                                    onChange={(e) => setEventSearch(e.target.value)}
+                                    onChange={(e) =>
+                                      setEventSearch(e.target.value)
+                                    }
                                     placeholder={t("searchEvent")}
                                     className="flex-1 bg-transparent text-xs focus:outline-none placeholder:text-foreground/20"
                                     autoFocus
@@ -1034,9 +1818,14 @@ export default function CommunityPage() {
                               {/* Event list */}
                               <div className="max-h-[200px] overflow-y-auto overscroll-contain">
                                 {events
-                                  .filter((e) =>
-                                    e.title.toLowerCase().includes(eventSearch.toLowerCase()) ||
-                                    e.artist.toLowerCase().includes(eventSearch.toLowerCase()),
+                                  .filter(
+                                    (e) =>
+                                      e.title
+                                        .toLowerCase()
+                                        .includes(eventSearch.toLowerCase()) ||
+                                      e.artist
+                                        .toLowerCase()
+                                        .includes(eventSearch.toLowerCase()),
                                   )
                                   .map((ev) => (
                                     <button
@@ -1060,22 +1849,38 @@ export default function CommunityPage() {
                                       data-cursor-hover
                                     >
                                       <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
-                                        <Image src={ev.image} alt={ev.title} fill className="object-cover" />
+                                        <Image
+                                          src={ev.image}
+                                          alt={ev.title}
+                                          fill
+                                          className="object-cover"
+                                        />
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <p className="text-xs font-semibold truncate">{ev.title}</p>
-                                        <p className="text-[10px] text-muted truncate">{ev.artist} · {ev.date}</p>
+                                        <p className="text-xs font-semibold truncate">
+                                          {ev.title}
+                                        </p>
+                                        <p className="text-[10px] text-muted truncate">
+                                          {ev.artist} · {ev.date}
+                                        </p>
                                       </div>
                                       <div className="text-[9px] text-muted bg-foreground/[0.03] px-2 py-0.5 rounded-full flex-shrink-0">
                                         {ev.genre}
                                       </div>
                                     </button>
                                   ))}
-                                {events.filter((e) =>
-                                  e.title.toLowerCase().includes(eventSearch.toLowerCase()) ||
-                                  e.artist.toLowerCase().includes(eventSearch.toLowerCase()),
+                                {events.filter(
+                                  (e) =>
+                                    e.title
+                                      .toLowerCase()
+                                      .includes(eventSearch.toLowerCase()) ||
+                                    e.artist
+                                      .toLowerCase()
+                                      .includes(eventSearch.toLowerCase()),
                                 ).length === 0 && (
-                                  <div className="py-6 text-center text-xs text-muted">{t("noEventFound")}</div>
+                                  <div className="py-6 text-center text-xs text-muted">
+                                    {t("noEventFound")}
+                                  </div>
                                 )}
                               </div>
                             </div>
@@ -1101,7 +1906,9 @@ export default function CommunityPage() {
                               fileInputRef.current?.click();
                             }}
                             className={`flex items-center gap-1.5 text-xs transition-colors ${
-                              composerImage ? "text-primary" : "text-muted hover:text-primary"
+                              composerImage
+                                ? "text-primary"
+                                : "text-muted hover:text-primary"
                             }`}
                             data-cursor-hover
                           >
@@ -1117,7 +1924,11 @@ export default function CommunityPage() {
                               setShowEventPicker(!showEventPicker);
                             }}
                             className={`flex items-center gap-1.5 text-xs transition-colors ${
-                              composerEvent ? "text-accent" : showEventPicker ? "text-accent" : "text-muted hover:text-accent"
+                              composerEvent
+                                ? "text-accent"
+                                : showEventPicker
+                                  ? "text-accent"
+                                  : "text-muted hover:text-accent"
                             }`}
                             data-cursor-hover
                           >
@@ -1127,20 +1938,37 @@ export default function CommunityPage() {
                         </div>
                         <motion.button
                           onClick={handleCreatePost}
-                          disabled={isPosting || (!composerText.trim() && !composerImage && !composerEvent)}
+                          disabled={
+                            isPosting ||
+                            (!composerText.trim() &&
+                              !composerImage &&
+                              !composerEvent)
+                          }
                           className={`flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full transition-all ${
-                            composerText.trim() || composerImage || composerEvent
+                            composerText.trim() ||
+                            composerImage ||
+                            composerEvent
                               ? "bg-primary text-white hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]"
                               : "bg-foreground/[0.05] text-muted cursor-not-allowed"
                           }`}
-                          whileTap={composerText.trim() || composerImage || composerEvent ? { scale: 0.95 } : {}}
+                          whileTap={
+                            composerText.trim() ||
+                            composerImage ||
+                            composerEvent
+                              ? { scale: 0.95 }
+                              : {}
+                          }
                           data-cursor-hover
                         >
                           {isPosting ? (
                             <motion.div
                               className="w-3 h-3 border-2 border-foreground/30 border-t-white rounded-full"
                               animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                              transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "linear",
+                              }}
                             />
                           ) : (
                             <Send size={12} />
@@ -1155,17 +1983,39 @@ export default function CommunityPage() {
 
               {/* Feed posts */}
               <AnimatePresence>
-                {posts.map((post, i) => (
-                  <FadeInUp key={post.id} delay={Math.min(i * 0.08, 0.4)}>
-                    <PostCard
-                      post={post}
-                      onLike={() => handleLike(post.id)}
-                      onSave={() => handleSave(post.id)}
-                      onOpenDetail={() => setDetailPostId(post.id)}
-                      t={t}
-                    />
+                {activeHashtag && (
+                  <FadeInUp>
+                    <div className="flex items-center gap-2 mb-4 glass rounded-xl px-4 py-3">
+                      <span className="text-sm font-medium text-gold">
+                        {activeHashtag}
+                      </span>
+                      <button
+                        onClick={() => setActiveHashtag(null)}
+                        className="ml-auto text-xs text-muted hover:text-foreground transition-colors flex items-center gap-1"
+                        data-cursor-hover
+                      >
+                        <X size={12} />
+                        {t("clearFilter") || "Filtreyi kaldır"}
+                      </button>
+                    </div>
                   </FadeInUp>
-                ))}
+                )}
+                {posts
+                  .filter(
+                    (post) =>
+                      !activeHashtag || post.content.includes(activeHashtag),
+                  )
+                  .map((post, i) => (
+                    <FadeInUp key={post.id} delay={Math.min(i * 0.08, 0.4)}>
+                      <PostCard
+                        post={post}
+                        onLike={() => handleLike(post.id)}
+                        onSave={() => handleSave(post.id)}
+                        onOpenDetail={() => setDetailPostId(post.id)}
+                        t={t}
+                      />
+                    </FadeInUp>
+                  ))}
               </AnimatePresence>
             </div>
 
@@ -1185,9 +2035,16 @@ export default function CommunityPage() {
                       { value: "8.5K", label: t("stats.dailyPosts") },
                       { value: "120+", label: t("stats.cities") },
                     ].map((stat, j) => (
-                      <div key={j} className="text-center p-3 rounded-xl bg-foreground/[0.02]">
-                        <div className="text-lg font-bold text-gradient-primary">{stat.value}</div>
-                        <div className="text-[10px] text-muted uppercase tracking-wider">{stat.label}</div>
+                      <div
+                        key={j}
+                        className="text-center p-3 rounded-xl bg-foreground/[0.02]"
+                      >
+                        <div className="text-lg font-bold text-gradient-primary">
+                          {stat.value}
+                        </div>
+                        <div className="text-[10px] text-muted uppercase tracking-wider">
+                          {stat.label}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -1206,7 +2063,17 @@ export default function CommunityPage() {
                       <button
                         key={j}
                         data-cursor-hover
-                        className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-foreground/[0.03] transition-colors group"
+                        onClick={() => {
+                          setActiveHashtag(
+                            activeHashtag === topic.tag ? null : topic.tag,
+                          );
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className={`w-full flex items-center justify-between p-3 rounded-xl transition-colors group ${
+                          activeHashtag === topic.tag
+                            ? "bg-gold/10 border border-gold/20"
+                            : "hover:bg-foreground/[0.03]"
+                        }`}
                       >
                         <div className="text-left">
                           <span className="text-sm font-medium group-hover:text-gold transition-colors">
@@ -1216,7 +2083,10 @@ export default function CommunityPage() {
                             {topic.posts} {t("posts")}
                           </span>
                         </div>
-                        <TrendingUp size={12} className="text-muted group-hover:text-gold transition-colors" />
+                        <TrendingUp
+                          size={12}
+                          className="text-muted group-hover:text-gold transition-colors"
+                        />
                       </button>
                     ))}
                   </div>
@@ -1227,14 +2097,19 @@ export default function CommunityPage() {
               <ScaleIn delay={0.2}>
                 <div className="glass rounded-2xl p-6 text-center border border-dashed border-gold/20">
                   <Sparkles size={24} className="text-gold mx-auto mb-3" />
-                  <h4 className="text-sm font-bold mb-2">{t("premiumTitle")}</h4>
-                  <p className="text-[11px] text-muted mb-4 leading-relaxed">{t("premiumDescription")}</p>
-                  <button
+                  <h4 className="text-sm font-bold mb-2">
+                    {t("premiumTitle")}
+                  </h4>
+                  <p className="text-[11px] text-muted mb-4 leading-relaxed">
+                    {t("premiumDescription")}
+                  </p>
+                  <Link
+                    href="/account"
                     data-cursor-hover
-                    className="px-5 py-2.5 bg-gold/10 text-gold text-xs font-semibold rounded-full hover:bg-gold/20 transition-all"
+                    className="inline-block px-5 py-2.5 bg-gold/10 text-gold text-xs font-semibold rounded-full hover:bg-gold/20 transition-all"
                   >
                     {t("premiumButton")}
-                  </button>
+                  </Link>
                 </div>
               </ScaleIn>
             </div>
