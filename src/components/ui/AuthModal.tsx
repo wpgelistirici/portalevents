@@ -3,7 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { X, Mail, Lock, User, Eye, EyeOff, ArrowRight, AlertCircle, Check } from "lucide-react";
+import {
+  X,
+  Mail,
+  Lock,
+  User,
+  Eye,
+  EyeOff,
+  ArrowRight,
+  AlertCircle,
+  Check,
+} from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
 function GoogleIcon() {
@@ -67,7 +77,8 @@ const modalVariants = {
 };
 
 export default function AuthModal() {
-  const { showAuthModal, closeAuthModal, login, register, loginWithSocial } = useAuth();
+  const { showAuthModal, closeAuthModal, login, register, loginWithSocial } =
+    useAuth();
   const [mode, setMode] = useState<"login" | "register">("login");
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -227,13 +238,19 @@ export default function AuthModal() {
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        delay: 0.1,
+                      }}
                       className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-4"
                     >
                       <Check size={32} className="text-green-400" />
                     </motion.div>
                     <p className="text-lg font-bold">{t("welcomeBack")}</p>
-                    <p className="text-sm text-muted mt-1">{t("redirecting")}</p>
+                    <p className="text-sm text-muted mt-1">
+                      {t("redirecting")}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -311,8 +328,13 @@ export default function AuthModal() {
                     className="mb-4"
                   >
                     <div className="flex items-center gap-2 px-4 py-3 bg-red-500/10 border border-red-500/20 rounded-xl">
-                      <AlertCircle size={14} className="text-red-400 flex-shrink-0" />
-                      <p className="text-xs text-red-400">{t(`errors.${error}`)}</p>
+                      <AlertCircle
+                        size={14}
+                        className="text-red-400 flex-shrink-0"
+                      />
+                      <p className="text-xs text-red-400">
+                        {t(`errors.${error}`)}
+                      </p>
                     </div>
                   </motion.div>
                 )}
@@ -325,33 +347,68 @@ export default function AuthModal() {
                   animate={{ opacity: 1 }}
                   className="mb-4 px-4 py-3 bg-accent/5 border border-accent/10 rounded-xl space-y-1.5"
                 >
-                  <p className="text-[10px] text-accent font-semibold mb-1">{t("demoTitle")}</p>
+                  <p className="text-[10px] text-accent font-semibold mb-1">
+                    {t("demoTitle")}
+                  </p>
                   <button
                     type="button"
-                    onClick={() => { setEmail("demo@portalevents.co"); setPassword("demo"); }}
+                    onClick={() => {
+                      setEmail("demo@portalevents.co");
+                      setPassword("demo");
+                    }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoUser")}</span> demo@portalevents.co / demo</span>
-                    <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>
+                      <span className="inline-block w-[52px] text-muted/60">
+                        {t("demoUser")}
+                      </span>{" "}
+                      demo@portalevents.co / demo
+                    </span>
+                    <ArrowRight
+                      size={10}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setEmail("organizer@portalevents.co"); setPassword("org123"); }}
+                    onClick={() => {
+                      setEmail("organizer@portalevents.co");
+                      setPassword("org123");
+                    }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoOrganizer")}</span> organizer@portalevents.co / org123</span>
-                    <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>
+                      <span className="inline-block w-[52px] text-muted/60">
+                        {t("demoOrganizer")}
+                      </span>{" "}
+                      organizer@portalevents.co / org123
+                    </span>
+                    <ArrowRight
+                      size={10}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setEmail("admin@portalevents.co"); setPassword("admin123"); }}
+                    onClick={() => {
+                      setEmail("admin@portalevents.co");
+                      setPassword("admin123");
+                    }}
                     className="w-full flex items-center justify-between text-[10px] text-accent/80 hover:text-accent transition-colors group cursor-pointer"
                     data-cursor-hover
                   >
-                    <span><span className="inline-block w-[52px] text-muted/60">{t("demoAdmin")}</span> admin@portalevents.co / admin123</span>
-                    <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>
+                      <span className="inline-block w-[52px] text-muted/60">
+                        {t("demoAdmin")}
+                      </span>{" "}
+                      admin@portalevents.co / admin123
+                    </span>
+                    <ArrowRight
+                      size={10}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                   </button>
                 </motion.div>
               )}
@@ -443,11 +500,17 @@ export default function AuthModal() {
                       <motion.div
                         className="w-4 h-4 border-2 border-foreground/30 border-t-white rounded-full"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                       />
                     ) : (
                       <>
-                        {mode === "login" ? t("loginButton") : t("registerButton")}
+                        {mode === "login"
+                          ? t("loginButton")
+                          : t("registerButton")}
                         <ArrowRight size={14} />
                       </>
                     )}
@@ -472,13 +535,21 @@ export default function AuthModal() {
               {mode === "register" && (
                 <p className="text-center text-[10px] text-muted/60 mt-4 leading-relaxed">
                   {t("termsPrefix")}
-                  <span className="text-muted underline cursor-pointer">
+                  <a
+                    href="/legal/distance-sales"
+                    target="_blank"
+                    className="text-muted underline cursor-pointer"
+                  >
                     {t("terms")}
-                  </span>
+                  </a>
                   {t("and")}
-                  <span className="text-muted underline cursor-pointer">
+                  <a
+                    href="/legal/kvkk"
+                    target="_blank"
+                    className="text-muted underline cursor-pointer"
+                  >
                     {t("privacyPolicy")}
-                  </span>
+                  </a>
                   {t("termsSuffix")}
                 </p>
               )}

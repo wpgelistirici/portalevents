@@ -264,7 +264,8 @@ export default function FeaturedEvents() {
             ))}
 
             {/* View all card */}
-            <div
+            <Link
+              href="/events"
               className="w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl glass flex items-center justify-center card-hover"
               style={{ scrollSnapAlign: "start" }}
             >
@@ -277,7 +278,7 @@ export default function FeaturedEvents() {
                   {t("eventCount", { count: events.length })}
                 </p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </FadeInUp>

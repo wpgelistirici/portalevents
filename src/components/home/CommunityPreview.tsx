@@ -6,6 +6,7 @@ import { communityPosts } from "@/lib/data";
 import { useTranslations } from "next-intl";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { Link } from "@/i18n/routing";
 import {
   Heart,
   MessageCircle,
@@ -182,12 +183,14 @@ export default function CommunityPreview() {
                 <p className="text-xs text-muted mb-5 max-w-sm">
                   {t("ctaDescription")}
                 </p>
-                <MagneticButton className="px-7 py-3 bg-primary/15 text-primary text-xs font-semibold rounded-full hover:bg-primary/25 transition-all duration-300 border border-primary/20">
-                  <span className="flex items-center gap-2">
-                    {t("ctaButton")}
-                    <ArrowRight size={13} />
-                  </span>
-                </MagneticButton>
+                <Link href="/community">
+                  <MagneticButton className="px-7 py-3 bg-primary/15 text-primary text-xs font-semibold rounded-full hover:bg-primary/25 transition-all duration-300 border border-primary/20">
+                    <span className="flex items-center gap-2">
+                      {t("ctaButton")}
+                      <ArrowRight size={13} />
+                    </span>
+                  </MagneticButton>
+                </Link>
               </div>
             </div>
           </div>

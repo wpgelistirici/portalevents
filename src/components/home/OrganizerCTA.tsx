@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FadeInUp } from "@/components/ui/AnimatedText";
 import { useTranslations } from "next-intl";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { Link } from "@/i18n/routing";
 import {
   BarChart3,
   Ticket,
@@ -97,15 +98,19 @@ export default function OrganizerCTA() {
 
                 <FadeInUp delay={0.3}>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <MagneticButton className="px-8 py-4 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_40px_rgba(123,97,255,0.4)] transition-shadow duration-500">
-                      <span className="flex items-center gap-2">
-                        {t("ctaPrimary")}
-                        <ArrowRight size={14} />
-                      </span>
-                    </MagneticButton>
-                    <MagneticButton className="px-8 py-4 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
-                      {t("ctaSecondary")}
-                    </MagneticButton>
+                    <Link href="/organizer">
+                      <MagneticButton className="px-8 py-4 bg-primary text-white text-sm font-semibold rounded-full hover:shadow-[0_0_40px_rgba(123,97,255,0.4)] transition-shadow duration-500">
+                        <span className="flex items-center gap-2">
+                          {t("ctaPrimary")}
+                          <ArrowRight size={14} />
+                        </span>
+                      </MagneticButton>
+                    </Link>
+                    <Link href="/organizer">
+                      <MagneticButton className="px-8 py-4 glass text-foreground text-sm font-semibold rounded-full hover:bg-foreground/10 transition-all duration-300">
+                        {t("ctaSecondary")}
+                      </MagneticButton>
+                    </Link>
                   </div>
                 </FadeInUp>
               </div>

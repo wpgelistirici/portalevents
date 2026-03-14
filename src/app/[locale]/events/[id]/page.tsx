@@ -229,11 +229,16 @@ function EventSaveButton({ eventId }: { eventId: string }) {
   return (
     <motion.button
       onClick={() => {
-        if (!isAuthenticated) { openAuthModal(); return; }
+        if (!isAuthenticated) {
+          openAuthModal();
+          return;
+        }
         toggleSave(eventId, "event");
       }}
       className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-        saved ? "glass-strong text-gold" : "glass-strong text-foreground/70 hover:text-foreground"
+        saved
+          ? "glass-strong text-gold"
+          : "glass-strong text-foreground/70 hover:text-foreground"
       }`}
       whileTap={{ scale: 0.9 }}
       data-cursor-hover
@@ -337,7 +342,9 @@ function AboutSection({
         </div>
         {t("about")}
       </h2>
-      <p className="text-foreground/70 leading-relaxed text-sm">{description}</p>
+      <p className="text-foreground/70 leading-relaxed text-sm">
+        {description}
+      </p>
     </div>
   );
 }
@@ -874,11 +881,17 @@ function TicketsSection({
           </div>
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
-              <span className="text-foreground/50">{t("purchasedTicketType")}</span>
-              <span className="font-semibold">{purchasedTicket.ticketType}</span>
+              <span className="text-foreground/50">
+                {t("purchasedTicketType")}
+              </span>
+              <span className="font-semibold">
+                {purchasedTicket.ticketType}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-foreground/50">{t("purchasedQuantity")}</span>
+              <span className="text-foreground/50">
+                {t("purchasedQuantity")}
+              </span>
               <span className="font-semibold">{purchasedTicket.quantity}</span>
             </div>
             <div className="flex justify-between">
@@ -1013,7 +1026,9 @@ function ArtistCard({
         </div>
       </div>
 
-      <p className="text-xs text-foreground/60 mb-4 leading-relaxed">{artist.bio}</p>
+      <p className="text-xs text-foreground/60 mb-4 leading-relaxed">
+        {artist.bio}
+      </p>
 
       <div className="flex items-center gap-4 text-xs text-muted mb-4">
         <span>{t("artistFollowers", { count: artist.followers })}</span>
@@ -1022,7 +1037,7 @@ function ArtistCard({
       </div>
 
       <Link
-        href="/artists"
+        href={`/artists/${artist.id}`}
         className="flex items-center justify-center gap-2 w-full py-2.5 glass rounded-xl text-xs font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors"
         data-cursor-hover
       >
@@ -1154,7 +1169,13 @@ function OrganizerCard({
 /* ============================================
    ACTIONS CARD (Sidebar)
    ============================================ */
-function ActionsCard({ eventId, t }: { eventId: string; t: ReturnType<typeof useTranslations> }) {
+function ActionsCard({
+  eventId,
+  t,
+}: {
+  eventId: string;
+  t: ReturnType<typeof useTranslations>;
+}) {
   const { isSaved, toggleSave } = useSaved();
   const { isAuthenticated, openAuthModal } = useAuth();
   const saved = isSaved(eventId, "event");
