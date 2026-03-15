@@ -6,6 +6,7 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo,
   type ReactNode,
 } from "react";
 import type {
@@ -589,7 +590,10 @@ export function OrganizerProvider({ children }: { children: ReactNode }) {
     setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
   }, []);
 
-  const unreadCount = notifications.filter((n) => !n.isRead).length;
+  const unreadCount = useMemo(
+    () => notifications.filter((n) => !n.isRead).length,
+    [notifications],
+  );
 
   // ---- ANNOUNCEMENTS ----
   const addAnnouncement = useCallback(
@@ -627,56 +631,70 @@ export function OrganizerProvider({ children }: { children: ReactNode }) {
   );
 
   // ---- STATS ----
-  const stats = {
-    totalEvents: organizerEvents.length,
-    activeDopings: organizerEvents.reduce(
-      (acc, e) => acc + e.dopings.filter((d) => d.status === "active").length,
-      0,
-    ),
-    pendingApproval: organizerEvents.filter((e) => e.status === "pending_approval").length,
-    totalTicketsSold: loadFromStorage<StoredTicket[]>(STORED_TICKETS_KEY, []).reduce(
-      (acc, t) => acc + t.quantity,
-      0,
-    ),
-  };
+  const stats = useMemo(
+    () => ({
+      totalEvents: organizerEvents.length,
+      activeDopings: organizerEvents.reduce(
+        (acc, e) => acc + e.dopings.filter((d) => d.status === "active").length,
+        0,
+      ),
+      pendingApproval: organizerEvents.filter((e) => e.status === "pending_approval").length,
+      totalTicketsSold: loadFromStorage<StoredTicket[]>(STORED_TICKETS_KEY, []).reduce(
+        (acc, t) => acc + t.quantity,
+        0,
+      ),
+    }),
+    [organizerEvents],
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      organizerEvents,
+      addEvent,
+      updateEvent,
+      deleteEvent,
+      submitForApproval,
+      getEventsByStatus,
+      organizerVenues,
+      addVenue,
+      updateVenue,
+      deleteVenue,
+      artistTickets,
+      createArtistTicket,
+      validationLogs,
+      validateTicket,
+      searchTickets,
+      getTicketById,
+      purchaseDoping,
+      getAllTickets,
+      coupons,
+      addCoupon,
+      deleteCoupon,
+      notifications,
+      addNotification,
+      markNotificationRead,
+      markAllNotificationsRead,
+      unreadCount,
+      announcements,
+      addAnnouncement,
+      cloneEvent,
+      stats,
+    }),
+    [
+      organizerEvents, addEvent, updateEvent, deleteEvent, submitForApproval, getEventsByStatus,
+      organizerVenues, addVenue, updateVenue, deleteVenue,
+      artistTickets, createArtistTicket,
+      validationLogs, validateTicket, searchTickets, getTicketById,
+      purchaseDoping, getAllTickets,
+      coupons, addCoupon, deleteCoupon,
+      notifications, addNotification, markNotificationRead, markAllNotificationsRead, unreadCount,
+      announcements, addAnnouncement,
+      cloneEvent, stats,
+    ],
+  );
 
   return (
-    <OrganizerContext.Provider
-      value={{
-        organizerEvents,
-        addEvent,
-        updateEvent,
-        deleteEvent,
-        submitForApproval,
-        getEventsByStatus,
-        organizerVenues,
-        addVenue,
-        updateVenue,
-        deleteVenue,
-        artistTickets,
-        createArtistTicket,
-        validationLogs,
-        validateTicket,
-        searchTickets,
-        getTicketById,
-        purchaseDoping,
-        getAllTickets,
-        coupons,
-        addCoupon,
-        deleteCoupon,
-        notifications,
-        addNotification,
-        markNotificationRead,
-        markAllNotificationsRead,
-        unreadCount,
-        announcements,
-        addAnnouncement,
-        cloneEvent,
-        stats,
-      }}
-    >
-      {children}
-    </OrganizerContext.Provider>
+    <OrganizerContext.Provider value={contextValue}>{children}</OrganizerContext.Provider>
   );
 }
 

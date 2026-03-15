@@ -195,7 +195,7 @@ export default function ArtistsPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
                   >
-                    <Link href={`/artists/${artist.id}` as "/artists/[id]">
+                    <Link href={`/artists/${artist.id}` as `/artists/${string}`}>
                   <motion.div
                     className="group relative glass rounded-2xl overflow-hidden card-hover"
                     data-cursor-hover

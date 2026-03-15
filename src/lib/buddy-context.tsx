@@ -7,9 +7,16 @@ import {
   useEffect,
   useCallback,
   useRef,
+  useMemo,
   ReactNode,
 } from "react";
 import { EventAttendee } from "./data";
+import type { AttendeeId } from "./types";
+import {
+  BUDDY_MATCH_PROBABILITY,
+  BUDDY_REPLY_DELAY_MIN_MS,
+  BUDDY_REPLY_JITTER_MS,
+} from "./constants";
 
 export interface BuddyProfile {
   id: string;
@@ -54,7 +61,7 @@ const BuddyContext = createContext<BuddyContextType | null>(null);
 const LIKES_KEY = "portal_buddy_likes";
 const MATCHES_KEY = "portal_buddy_matches";
 
-const MOCK_OPENERS: Record<string, string[]> = {
+const MOCK_OPENERS: Partial<Record<AttendeeId, string[]>> = {
   a1: ["Merhaba! 🎉 Etkinlikte görüşürüz umarım!", "Seninle aynı etkinliğe gidecek olmak harika!"],
   a2: ["Hey! Müzik zevkimiz benzer görünüyor 🎵", "Etkinlikte bir içki içelim mi?"],
   a3: ["Selam! Etkinlik öncesi buluşalım mı? ☕", "Aynı etkinliğe gidiyoruz, harika bir tesadüf!"],
@@ -76,7 +83,7 @@ const REPLY_PHRASES = [
 ];
 
 function getMockOpener(attendeeId: string): string {
-  const msgs = MOCK_OPENERS[attendeeId];
+  const msgs = MOCK_OPENERS[attendeeId as AttendeeId];
   if (msgs?.length) return msgs[Math.floor(Math.random() * msgs.length)];
   return "Merhaba! Etkinlikte görüşürüz 🎉";
 }
@@ -132,7 +139,7 @@ export function BuddyProvider({ children }: { children: ReactNode }) {
       setLikes(newLikes);
       localStorage.setItem(LIKES_KEY, JSON.stringify(newLikes));
 
-      if (Math.random() >= 0.65) return null;
+      if (Math.random() >= BUDDY_MATCH_PROBABILITY) return null;
 
       const alreadyMatched = matchesRef.current.find(
         (m) => m.profile.id === attendee.id && m.profile.eventId === eventId
@@ -193,7 +200,7 @@ export function BuddyProvider({ children }: { children: ReactNode }) {
     setTypingMatchIds((prev) => new Set([...prev, matchId]));
 
     // Step 3: after a realistic delay, add reply and clear typing
-    const delay = 1200 + Math.random() * 1000;
+    const delay = BUDDY_REPLY_DELAY_MIN_MS + Math.random() * BUDDY_REPLY_JITTER_MS;
     setTimeout(() => {
       const match = matchesRef.current.find((m) => m.id === matchId);
       if (!match) return;
@@ -235,14 +242,18 @@ export function BuddyProvider({ children }: { children: ReactNode }) {
     });
   }, []); // stable — uses functional updater
 
-  const totalUnread = matches.reduce((sum, m) => sum + m.unread, 0);
+  const totalUnread = useMemo(
+    () => matches.reduce((sum, m) => sum + m.unread, 0),
+    [matches],
+  );
+
+  const contextValue = useMemo(
+    () => ({ likes, matches, typingMatchIds, likeProfile, isLiked, sendMessage, markAsRead, totalUnread }),
+    [likes, matches, typingMatchIds, likeProfile, isLiked, sendMessage, markAsRead, totalUnread],
+  );
 
   return (
-    <BuddyContext.Provider
-      value={{ likes, matches, typingMatchIds, likeProfile, isLiked, sendMessage, markAsRead, totalUnread }}
-    >
-      {children}
-    </BuddyContext.Provider>
+    <BuddyContext.Provider value={contextValue}>{children}</BuddyContext.Provider>
   );
 }
 

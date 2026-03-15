@@ -6,8 +6,10 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo,
   type ReactNode,
 } from "react";
+import { TOAST_DURATION_MS } from "./constants";
 
 /* ============================================
    TYPES
@@ -65,7 +67,7 @@ export function SavedProvider({ children }: { children: ReactNode }) {
   // Auto-clear toast
   useEffect(() => {
     if (!toast) return;
-    const timer = setTimeout(() => setToast(null), 2500);
+    const timer = setTimeout(() => setToast(null), TOAST_DURATION_MS);
     return () => clearTimeout(timer);
   }, [toast]);
 
@@ -102,20 +104,21 @@ export function SavedProvider({ children }: { children: ReactNode }) {
 
   const clearToast = useCallback(() => setToast(null), []);
 
+  const contextValue = useMemo(
+    () => ({
+      savedItems,
+      isSaved,
+      toggleSave,
+      getSavedByType,
+      totalSaved: savedItems.length,
+      toast,
+      clearToast,
+    }),
+    [savedItems, isSaved, toggleSave, getSavedByType, toast, clearToast],
+  );
+
   return (
-    <SavedContext.Provider
-      value={{
-        savedItems,
-        isSaved,
-        toggleSave,
-        getSavedByType,
-        totalSaved: savedItems.length,
-        toast,
-        clearToast,
-      }}
-    >
-      {children}
-    </SavedContext.Provider>
+    <SavedContext.Provider value={contextValue}>{children}</SavedContext.Provider>
   );
 }
 

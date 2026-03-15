@@ -190,7 +190,15 @@
     "description": "En özel mekanları keşfet. Samimi salonlardan dev arenalara, her etkinlik türüne uygun bir sahne seni bekliyor.",
     "capacity": "kişilik",
     "upcomingEvents": "Yaklaşan etkinlikler",
-    "cursorExplore": "Keşfet"
+    "cursorExplore": "Keşfet",
+    "searchPlaceholder": "Mekan adı veya şehir ile ara...",
+    "filters": "Filtreler",
+    "sortBy": "Sırala",
+    "byRating": "Puana Göre",
+    "byName": "İsme Göre",
+    "byCapacity": "Kapasiteye Göre",
+    "noResults": "Mekan bulunamadı",
+    "noResultsDesc": "Arama veya filtreleri değiştirmeyi deneyin."
   },
   "CommunityPage": {
     "label": "Topluluk",
@@ -1627,5 +1635,10 @@
     "viewMatches": "Eşleşmeleri Gör",
     "tryAnother": "Başka Etkinlik Dene",
     "swipeHint": "Beğenmek için sağa · Geçmek için sola kaydır"
+  },
+  "Errors": {
+    "somethingWentWrong": "Bir şeyler ters gitti",
+    "errorDescription": "Beklenmedik bir hata oluştu. Lütfen tekrar deneyin.",
+    "tryAgain": "Tekrar Dene"
   }
 }

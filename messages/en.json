@@ -190,7 +190,15 @@
     "description": "Discover the most special venues. From intimate halls to grand arenas, a stage for every event type awaits you.",
     "capacity": "capacity",
     "upcomingEvents": "Upcoming events",
-    "cursorExplore": "Explore"
+    "cursorExplore": "Explore",
+    "searchPlaceholder": "Search venues by name or city...",
+    "filters": "Filters",
+    "sortBy": "Sort By",
+    "byRating": "By Rating",
+    "byName": "By Name",
+    "byCapacity": "By Capacity",
+    "noResults": "No venues found",
+    "noResultsDesc": "Try adjusting your search or filters."
   },
   "CommunityPage": {
     "label": "Community",
@@ -1627,5 +1635,10 @@
     "viewMatches": "View Matches",
     "tryAnother": "Try Another Event",
     "swipeHint": "Swipe right to like · Swipe left to pass"
+  },
+  "Errors": {
+    "somethingWentWrong": "Something went wrong",
+    "errorDescription": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try Again"
   }
 }

@@ -6,8 +6,11 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo,
   type ReactNode,
 } from "react";
+import type { SocialProvider } from "./types";
+import { AUTH_DELAY_MIN_MS, AUTH_DELAY_JITTER_MS } from "./constants";
 
 /* ============================================
    TYPES
@@ -39,7 +42,7 @@ interface AuthContextType {
   isLoading: boolean;
   login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   register: (name: string, email: string, password: string, role?: UserRole) => Promise<{ success: boolean; error?: string }>;
-  loginWithSocial: (provider: string) => Promise<{ success: boolean }>;
+  loginWithSocial: (provider: SocialProvider) => Promise<{ success: boolean }>;
   logout: () => void;
   updateUser: (data: Partial<User>) => void;
   changePassword: (currentPassword: string, newPassword: string) => Promise<{ success: boolean; error?: string }>;
@@ -186,7 +189,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Simulate network delay
   const simulateDelay = () =>
-    new Promise((resolve) => setTimeout(resolve, 800 + Math.random() * 700));
+    new Promise((resolve) =>
+      setTimeout(resolve, AUTH_DELAY_MIN_MS + Math.random() * AUTH_DELAY_JITTER_MS),
+    );
 
   const login = useCallback(
     async (
@@ -277,7 +282,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const loginWithSocial = useCallback(
-    async (provider: string): Promise<{ success: boolean }> => {
+    async (provider: SocialProvider): Promise<{ success: boolean }> => {
       await simulateDelay();
 
       const socialUser: User = {
@@ -352,28 +357,44 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isOrganizer = !!user && (user.role === "organizer" || user.role === "admin");
   const isAdmin = !!user && user.role === "admin";
 
+  const contextValue = useMemo(
+    () => ({
+      user,
+      isAuthenticated: !!user,
+      isOrganizer,
+      isAdmin,
+      isLoading,
+      login,
+      register,
+      loginWithSocial,
+      logout,
+      updateUser,
+      changePassword,
+      deleteAccount,
+      showAuthModal,
+      openAuthModal,
+      closeAuthModal,
+    }),
+    [
+      user,
+      isOrganizer,
+      isAdmin,
+      isLoading,
+      login,
+      register,
+      loginWithSocial,
+      logout,
+      updateUser,
+      changePassword,
+      deleteAccount,
+      showAuthModal,
+      openAuthModal,
+      closeAuthModal,
+    ],
+  );
+
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        isAuthenticated: !!user,
-        isOrganizer,
-        isAdmin,
-        isLoading,
-        login,
-        register,
-        loginWithSocial,
-        logout,
-        updateUser,
-        changePassword,
-        deleteAccount,
-        showAuthModal,
-        openAuthModal,
-        closeAuthModal,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 }
 

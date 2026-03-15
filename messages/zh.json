@@ -216,7 +216,15 @@
     "description": "发现最特别的场馆。从温馨的小厅到大型场馆，每种活动类型都有属于你的舞台。",
     "capacity": "容量",
     "upcomingEvents": "即将举行的活动",
-    "cursorExplore": "探索"
+    "cursorExplore": "探索",
+    "searchPlaceholder": "按名称或城市搜索场馆...",
+    "filters": "筛选",
+    "sortBy": "排序",
+    "byRating": "按评分",
+    "byName": "按名称",
+    "byCapacity": "按容量",
+    "noResults": "未找到场馆",
+    "noResultsDesc": "请尝试调整搜索或筛选条件。"
   },
   "CommunityPage": {
     "label": "社区",
@@ -1627,5 +1635,10 @@
     "viewMatches": "查看匹配",
     "tryAnother": "尝试其他活动",
     "swipeHint": "右滑喜欢 · 左滑跳过"
+  },
+  "Errors": {
+    "somethingWentWrong": "出现了一些问题",
+    "errorDescription": "发生了意外错误，请重试。",
+    "tryAgain": "重试"
   }
 }
